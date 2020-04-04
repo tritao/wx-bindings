@@ -1,15 +1,26 @@
+_OPTIONS["disable-tests"] = true
+
+local cppsharp = '../'
+include(cppsharp .. "/build/premake5.lua")
+
 project "wxSharp.Gen"
-  SetupExampleProject()
+  kind "ConsoleApp"
+  language "C#"
+  files { "wxSharp.cs", "DoxygenParser.cs" }
+  links { "CppSharp", "CppSharp.AST", "CppSharp.Generator", "CppSharp.Parser" }
+  links { "System", "System.Core", "System.Xml" }
+  SetupParser()
+
 
 project "wxSharp"
   kind "ConsoleApp"
   language "C#"  
   debugdir "."
-  files { "i686-apple-darwin12.4.0/**.cs" }
+  files { "i686-apple-darwin/**.cs" }
   clr "Unsafe"
+  framework "4.8"
 
-if config.ExampleTests then
-
+--[[
 project "wxSharp.Tests"
 
   kind     "ConsoleApp"
@@ -23,5 +34,4 @@ project "wxSharp.Tests"
       libdir .. "/gen/**.cs",
       "*.lua"
   }
-
-end
+]]

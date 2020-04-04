@@ -92,8 +92,23 @@ namespace CppSharp
             ctx.GenerateTranslationUnits(new[] { "gdicmn.h" });
 
             ctx.GenerateTranslationUnits(new[] { "event.h" });
+            ctx.IgnoreClassWithName("wxEventFunctor");
             ctx.IgnoreClassMethodWithName("wxEventFunctor", "GetWxTypeId");
+            ctx.IgnoreClassWithName("wxObjectEventFunctor");
             ctx.IgnoreClassMethodWithName("wxObjectEventFunctor", "GetWxTypeId");
+            ctx.IgnoreClassWithName("wxPropagationDisabler");
+            ctx.IgnoreClassWithName("wxPropagationOnce");
+            ctx.IgnoreClassWithName("wxEventProcessInHandlerOnly");
+            ctx.IgnoreClassWithName("wxEventBasicPayloadMixin");
+            ctx.IgnoreClassWithName("wxEventAnyPayloadMixin");
+            ctx.IgnoreClassWithName("wxEventTableEntry");
+            ctx.IgnoreClassWithName("wxDynamicEventTableEntry");
+            ctx.IgnoreClassWithName("wxEventTable");
+            ctx.IgnoreClassWithName("wxEventTableEntryPointerArray");
+            ctx.IgnoreClassWithName("wxEventHashTable");
+            ctx.IgnoreClassWithName("wxEvtHandlerArray");
+            ctx.IgnoreClassWithName("wxEventConnectionRef");
+            ctx.IgnoreClassWithName("wxEventBlocker");
 
             var frameStyle = ctx.GenerateEnumFromMacros("wxFrameStyle", new string[]
             {

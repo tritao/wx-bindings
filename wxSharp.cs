@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using CppSharp.AST;
 using CppSharp.AST.Extensions;
 using CppSharp.Generators;
@@ -15,7 +17,7 @@ namespace CppSharp
 {
     class wxSharpGen : ILibrary
     {
-        public string WxPath => Path.Combine(GetExamplesDirectory("wxSharp"),
+        public static string WxPath => Path.Combine(GetExamplesDirectory("wxSharp"),
             "wxWidgets");
 
         public void Setup(Driver driver)
@@ -25,14 +27,22 @@ namespace CppSharp
             var module = options.AddModule("wxSharp");
             module.LibraryName = "wxSharp";
 
-            module.Headers.Add("wx/app.h");
-            module.Headers.Add("wx/window.h");
-            module.Headers.Add("wx/toplevel.h");
-            module.Headers.Add("wx/frame.h");
-            module.Headers.Add("wx/event.h");
-            module.Headers.Add("wx/graphics.h");
-            module.Headers.Add("wx/gdicmn.h");
-            //module.Headers.Add("wx/debug.h");
+            var headers = new string[]
+            {
+                "wx/app.h",
+                "wx/window.h",
+                "wx/nonownedwnd.h",
+                "wx/toplevel.h",
+                "wx/frame.h",
+                "wx/event.h",
+                "wx/graphics.h",
+                "wx/gdicmn.h",
+                "wx/sizer.h",
+                "wx/dc.h",
+                "wx/dcclient.h",
+            };
+
+            module.Headers.AddRange(headers);
 
             // TODO: Replace this is wx-config invocations.
 
@@ -47,6 +57,7 @@ namespace CppSharp
             module.Defines.Add("__WXMAC__");
             module.Defines.Add("__WXOSX__");
             module.Defines.Add("__WXOSX_COCOA__");
+            module.Defines.Add("wxUSE_GUI=1");
 
             var parserOptions = driver.ParserOptions;
             parserOptions.TargetTriple = "i686-apple-darwin";
@@ -54,6 +65,7 @@ namespace CppSharp
 
             options.OutputDir = Path.Combine(GetExamplesDirectory("wxSharp"),
                 parserOptions.TargetTriple);
+            options.GenerateDeprecatedDeclarations = false;
             options.GenerateSingleCSharpFile = false;
             options.CompileCode = true;
             options.GenerateClassTemplates = true;
@@ -74,6 +86,8 @@ namespace CppSharp
             ctx.GenerateTranslationUnits(new[] { "window.h" });
             MoveTranslationUnitFromTo(ctx, "wx/osx/window.h", "wx/window.h");
             MoveDefinitionsFromTo(ctx, "wxWindowBase", "wxWindow");
+
+            //ctx.GenerateTranslationUnits(new[] { "nonownedwnd.h" });
 
             ctx.GenerateTranslationUnits(new[] { "app.h" });
             ctx.IgnoreClassWithName("wxAppInitializer");
@@ -110,6 +124,9 @@ namespace CppSharp
             ctx.IgnoreClassWithName("wxEventConnectionRef");
             ctx.IgnoreClassWithName("wxEventBlocker");
 
+            ctx.GenerateTranslationUnits(new[] { "sizer.h" });
+            ctx.GenerateTranslationUnits(new[] { "dc.h", "dcclient.h" });
+
             var frameStyle = ctx.GenerateEnumFromMacros("wxFrameStyle", new string[]
             {
                 "wxCENTRE",
@@ -144,10 +161,10 @@ namespace CppSharp
             new IgnoreMethodWithReferences().VisitASTContext(ctx);
             new FixEnumsScope().VisitASTContext(ctx);
 
-            // Go through and process each class from Doxygen XML.
-            //ParseDoxygenXml();
+            var indexer = new WxEventsIndexer(ctx);
+            indexer.VisitASTContext(ctx);
 
-            //var wxApp = DoxygenParser.Nodes.Where(n => n.Key.name == "wxAppConsole");
+            new ProcessWxEvents(indexer).VisitASTContext(ctx);
         }
 
         private void MoveTranslationUnitFromTo(ASTContext ctx,
@@ -222,6 +239,9 @@ namespace CppSharp
 
         private void ParseDoxygenXml()
         {
+            var sw = new Stopwatch();
+            sw.Start();
+
             DoxygenParser.Initialize();
 
             var xmlPath = Path.Combine(WxPath, "docs/doxygen/out/xml");
@@ -231,8 +251,17 @@ namespace CppSharp
                 if (!file.StartsWith("class"))
                     continue;
 
+                var fileSw = new Stopwatch();
+                fileSw.Start();
+
                 DoxygenParser.ParseFile(filePath);
+
+                fileSw.Stop();
+
+                Console.WriteLine($"Parsing {Path.GetFileName(filePath)} took {fileSw.Elapsed.TotalMilliseconds:0}ms");
             }
+
+            Console.WriteLine($"Parsing Doxygen XML took {sw.Elapsed.TotalSeconds:0}s");
         }
 
         public void Postprocess(Driver driver, ASTContext ctx)
@@ -278,8 +307,10 @@ namespace CppSharp
                 return ctx.Type;
 
             var ptr = new PointerType(new QualifiedType(new BuiltinType(PrimitiveType.Char),
-                new TypeQualifiers() { IsConst = true }))
-                { Modifier = PointerType.TypeModifier.Pointer };
+                new TypeQualifiers() { IsConst = true }));
+
+            if (ctx.Type.IsPointer())
+                ptr = new PointerType(ptr) { Modifier = PointerType.TypeModifier.Pointer };
 
             return ptr;
         }
@@ -292,7 +323,8 @@ namespace CppSharp
 
         public override void CppMarshalToManaged(MarshalContext ctx)
         {
-            ctx.Return.Write($"{ctx.ReturnVarName}.c_str()");
+            var deref = (ctx.ReturnType.Type.IsPointer()) ? "->" : ".";
+            ctx.Return.Write($"{ctx.ReturnVarName}{deref}c_str()");
         }
 
         public override void CppMarshalToNative(MarshalContext ctx)
@@ -301,41 +333,212 @@ namespace CppSharp
         }
     }
 
-    [TypeMap("wxString*", GeneratorKind.CPlusPlus)]
-    class WxStringPtrTypeMap : TypeMap
-    {
-        public override AST.Type CppSignatureType(TypePrinterContext ctx)
-        {
-            if (ctx.Kind == TypePrinterContextKind.Native)
-                return ctx.Type;
-
-            var ptr = new PointerType(new QualifiedType(new BuiltinType(PrimitiveType.Char),
-                new TypeQualifiers() { IsConst = true }));
-            var @ref = new PointerType(ptr) { Modifier = PointerType.TypeModifier.Pointer };
-
-            return @ref;
-        }
-
-        public override void CppTypeReference(CLITypeReference collector,
-            ASTRecord<Declaration> record)
-        {
-            base.CppTypeReference(collector, record);
-        }
-
-        public override void CppMarshalToManaged(MarshalContext ctx)
-        {
-            ctx.Return.Write($"{ctx.ReturnVarName}->c_str()");
-        }
-
-        public override void CppMarshalToNative(MarshalContext ctx)
-        {
-            ctx.Return.Write("nullptr");
-        }
-    }
-
     #endregion
 
     #region Custom Passes
+
+    class WxEventsIndexer : TranslationUnitPass
+    {
+        public readonly Dictionary<string, Class> EventsMap;
+        new readonly ASTContext ASTContext;
+
+        public WxEventsIndexer(ASTContext astContext)
+        {
+            EventsMap = new Dictionary<string, Class>();
+            ASTContext = astContext;
+        }
+
+        public override bool VisitTranslationUnit(TranslationUnit unit)
+        {
+            if (AlreadyVisited(unit))
+                return false;
+
+            foreach (var entity in unit.PreprocessedEntities.OfType<MacroExpansion>())
+            {
+                var text = entity.Text;
+                if (!text.Contains("wxDECLARE_EXPORTED_EVENT"))
+                    continue;
+
+                ProcessExportedEvent(text);
+            }
+
+            var regex = new Regex(@"wx__DECLARE_EVT\d\((.*)\)");
+
+            foreach (var entity in unit.PreprocessedEntities.OfType<MacroDefinition>())
+            {
+                if (!entity.Name.StartsWith("EVT_"))
+                    continue;
+
+                var match = regex.Match(entity.Expression);
+                if (!match.Success)
+                    continue;
+
+                var @params = match.Groups[1].Value.Split(',').Select(p => p.Trim()).ToArray();
+                ProcessEventDefine(entity, @params);
+            }
+
+            return true;
+        }
+
+        private void ProcessEventDefine(MacroDefinition entity, string[] @params)
+        {
+            if (!@params[0].StartsWith("wxEVT_"))
+                return;
+
+            var eventAlias = @params[0].Substring("wx".Length);
+            if (!EventsMap.TryGetValue(eventAlias, out Class @event))
+            {
+                Console.WriteLine($"Could not find event alias: {eventAlias}");
+                return;
+            }
+
+            EventsMap[entity.Name] = @event;
+        }
+
+        private void ProcessExportedEvent(string text)
+        {
+            text = text.Substring(text.IndexOf("("));
+            text = text.Substring(0, text.Length - 1);
+
+            var @params = text.Split(',');
+            if (@params.Length != 3)
+                throw new Exception("Unexpected syntax for wxDECLARE_EXPORTED_EVENT macro");
+
+            var eventClass = @params[2].Trim();
+            var @class = ASTContext.FindCompleteClass(eventClass);
+            if (@class == null)
+                Console.WriteLine($"Could not find event class: {eventClass}");
+
+            // TODO: Getting some duplicate entities, probably a parser bug.
+            //if (EventsMap.ContainsKey(eventKey))
+            //throw new Exception($"Found duplicate event mapping for {eventKey}");
+
+            var eventKey = @params[1].Trim();
+            if (eventKey.StartsWith("wx"))
+                eventKey = eventKey.Substring("wx".Length);
+
+            EventsMap[eventKey] = @class;
+        }
+    }
+
+    class ProcessWxEvents : TranslationUnitPass
+    {
+        readonly Dictionary<string, Class> EventsMap;
+
+        public ProcessWxEvents(WxEventsIndexer indexer)
+        {
+            EventsMap = indexer.EventsMap;
+        }
+
+        static string GetFilePath(string path) =>
+            Path.Combine(wxSharpGen.WxPath, "interface", path);
+
+        static string RemovePathLastDir(string path)
+        {
+            var @base = Path.GetDirectoryName(path);
+            return Path.Combine(Directory.GetParent(@base).FullName,
+                Path.GetFileName(path));
+        }
+
+        bool TryFindFile(Class @class, out string path)
+        {
+            path = GetFilePath(@class.TranslationUnit.FileRelativePath);
+
+            while (!File.Exists(path))
+                path = RemovePathLastDir(path);
+
+            return File.Exists(path);
+        }
+
+        static string Capitalize(string str) => string.IsNullOrEmpty(str) ?
+            str : char.ToUpperInvariant(str[0]) + str.Substring(1).ToLowerInvariant();
+
+        static string CleanupEventName(string name)
+        {
+            if (name.StartsWith("EVT_"))
+                name = name.Substring("EVT_".Length);
+
+            var components = name.Split('_').Select(Capitalize);
+            return string.Join("", components);
+        }
+
+        public override bool VisitClassDecl(Class @class)
+        {
+            if (!VisitDeclaration(@class))
+                return false;
+
+            string file;
+            if (!TryFindFile(@class, out file))
+                throw new Exception(@"Could not find interface header file for {@class.OriginalName}");
+
+            var contents = File.ReadAllText(file);
+
+            var regex = new Regex(@"\/\*\*[^*]*\*\/");
+            var matches = regex.Matches(contents);
+
+            foreach (var match in matches)
+            {
+                var text = match.ToString();
+                var classNameRegex = new Regex(@"@class *(\w+)");
+                var m = classNameRegex.Match(text);
+                if (m == null) continue;
+
+                var className = m.Groups[1].Value;
+                if (className != @class.OriginalName)
+                    continue;
+
+                if (text.Contains("@beginEventEmissionTable") && text.Contains("@beginEventTable"))
+                    System.Diagnostics.Debugger.Break();
+
+                if (!text.Contains("@beginEventEmissionTable"))
+                    continue;
+
+                var eventRegex = new Regex(@"@event{(.*)}");
+                var events = eventRegex.Matches(text);
+                if (events == null)
+                    return false;
+
+                foreach (Match eventMatch in events)
+                {
+                    var signature = eventMatch.Groups[1].Value;
+
+                    var startIndex = signature.IndexOf("(");
+                    var @params = signature.Substring(startIndex + 1);
+                    @params = @params.Substring(0, @params.Length - 1);
+
+                    var paramNames = @params.Split(',');
+                    var eventName = signature.Substring(0, startIndex);
+
+                    Class eventClass;
+                    if (!EventsMap.TryGetValue(eventName, out eventClass))
+                    {
+                        Console.WriteLine($"Could not find event mapping for {@class.OriginalName}::{eventName}");
+                        continue;
+                    }
+
+                    /*
+                    if (eventName.StartsWith("EVT_"))
+                        eventName = eventName.Substring("EVT_".Length);
+
+                    CaseRenamePass.ConvertCaseString(@event, RenameCasePattern.UpperCamelCase);
+                    */
+
+                    var name = CleanupEventName(eventName);
+
+                    var @event = new Event()
+                    {
+                        Name = name,
+                        Namespace = @class
+                    };
+
+                    @class.Declarations.Add(@event);
+                }
+            }
+
+
+            return true;
+        }
+    }
 
     class MoveTranslationUnitDecls : TranslationUnitPass
     {
@@ -410,18 +613,40 @@ namespace CppSharp
         static Class GetBaseClassForOverridenMethod(Method method)
             => method.BaseMethod.Namespace as Class;
 
+        static bool HasGeneratedBaseClass(Class @class, Class baseClass)
+        {
+            if (@class == baseClass)
+                return true;
+
+            foreach (var bs in @class.Bases)
+            {
+                if (!bs.IsGenerated)
+                    continue;
+
+                if (!bs.IsClass || !bs.Class.IsGenerated)
+                    continue;
+
+                if (HasGeneratedBaseClass(bs.Class, baseClass))
+                    return true;
+            }
+
+            return false;
+        }
+
         public override bool VisitMethodDecl(Method method)
         {
             if (!VisitDeclaration(method))
+                return false;
+
+            if (!method.IsGenerated)
                 return false;
 
             if (!method.IsOverride || method.IsDestructor)
                 return false;
 
             var @class = method.Namespace as Class;
-
             var baseClass = GetBaseClassForOverridenMethod(method);
-            if (!baseClass.IsGenerated || !@class.Bases.Any(spec => spec.Class == baseClass))
+            if (!baseClass.IsGenerated || !HasGeneratedBaseClass(@class, baseClass))
                 method.IsOverride = false;
 
             return true;

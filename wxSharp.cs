@@ -8,10 +8,12 @@ using CppSharp.AST;
 using CppSharp.AST.Extensions;
 using CppSharp.Generators;
 using CppSharp.Generators.AST;
+using CppSharp.Generators.C;
 using CppSharp.Generators.CLI;
 using CppSharp.Passes;
 using CppSharp.Types;
 using wxSharp;
+using static CppSharp.ASTHelpers;
 
 namespace CppSharp
 {
@@ -19,6 +21,8 @@ namespace CppSharp
     {
         public static string WxPath => Path.Combine(GetExamplesDirectory("wxSharp"),
             "wxWidgets");
+
+        public GeneratorKind GeneratorKind = GeneratorKind.CPlusPlus;
 
         public void Setup(Driver driver)
         {
@@ -40,11 +44,14 @@ namespace CppSharp
                 "wx/sizer.h",
                 "wx/dc.h",
                 "wx/dcclient.h",
+                "wx/panel.h",
+                "wx/brush.h",
+                "wx/pen.h",
             };
 
             module.Headers.AddRange(headers);
 
-            // TODO: Replace this is wx-config invocations.
+            // TODO: Replace this with wx-config invocations.
 
             var wxIncludePath = Path.Combine(WxPath, "include");
             module.IncludeDirs.Add(wxIncludePath);
@@ -62,14 +69,15 @@ namespace CppSharp
             var parserOptions = driver.ParserOptions;
             parserOptions.TargetTriple = "i686-apple-darwin";
             parserOptions.AddIncludeDirs(wxIncludePath);
+            //parserOptions.UnityBuild = true;
 
             options.OutputDir = Path.Combine(GetExamplesDirectory("wxSharp"),
-                parserOptions.TargetTriple);
+                parserOptions.TargetTriple, GeneratorKind.ToString().ToLowerInvariant());
             options.GenerateDeprecatedDeclarations = false;
             options.GenerateSingleCSharpFile = false;
             options.CompileCode = true;
             options.GenerateClassTemplates = true;
-            options.GeneratorKind = Generators.GeneratorKind.CPlusPlus;
+            options.GeneratorKind = GeneratorKind;
             options.UseHeaderDirectories = true;
             //options.DryRun = true;
             //options.Verbose = true;
@@ -81,13 +89,65 @@ namespace CppSharp
 
         public void Preprocess(Driver driver, ASTContext ctx)
         {
+            var passBuilder = driver.Context.TranslationUnitPasses;
+
             ctx.IgnoreTranslationUnits();
+
+            ctx.GenerateTranslationUnits(new[] { "defs.h" });
+            
+            var sizerOrientation = ctx.FindCompleteEnum("wxOrientation");
+            sizerOrientation.Name = "wxSizerOrientation";
+
+            // TODO: Rewrite this to actually work.
+            var sizerFlags = ctx.GenerateEnumFromMacros("wxSizerFlags", new string[]
+            {
+                "wxTOP",
+                "wxBOTTOM",
+                "wxLEFT",
+                "wxRIGHT",
+                "wxALL",
+                "wxEXPAND",
+                "wxFIXED_MINSIZE",
+                "wxRESERVE_SPACE_EVEN_IF_HIDDEN",
+                "wxALIGN_CENTER",
+                "wxALIGN_LEFT",
+                "wxALIGN_RIGHT",
+                "wxALIGN_TOP",
+                "wxALIGN_BOTTOM",
+                "wxALIGN_CENTER_VERTICAL",
+                "wxALIGN_CENTER_HORIZONTAL",
+            }).SetFlags();
+
+            ctx.GetEnumWithMatchingItem("wxJOYSTICK1").Name = "wxJoystickId";
+            var wxJoystickButton = ctx.GetEnumWithMatchingItem("wxJOY_BUTTON_ANY");
+            wxJoystickButton.SetFlags();
+            wxJoystickButton.Name = "wxJoystickButton";
+
+            // TODO: Fix parameters in wxAppBase::Get/SetPrintMode.
+            ctx.GetEnumWithMatchingItem("wxPRINT_WINDOWS").Name = "wxPrintBackend";
+
+            ctx.GenerateTranslationUnits(new[] { "object.h" });
 
             ctx.GenerateTranslationUnits(new[] { "window.h" });
             MoveTranslationUnitFromTo(ctx, "wx/osx/window.h", "wx/window.h");
             MoveDefinitionsFromTo(ctx, "wxWindowBase", "wxWindow");
 
-            //ctx.GenerateTranslationUnits(new[] { "nonownedwnd.h" });
+            var touchMode = ctx.GetEnumWithMatchingItem("wxTOUCH_NONE");
+            touchMode.Name = "wxTouchMode";
+            touchMode.SetFlags();
+
+            var sendEventFlags = ctx.GetEnumWithMatchingItem("wxSEND_EVENT_POST");
+            sendEventFlags.Name = "wxSendEventFlags";
+            sendEventFlags.SetFlags();
+
+            ctx.FindCompleteClass("wxWindowBase").FindMethod("IsTransparentBackgroundSupported")
+                .Parameters[0].Usage = ParameterUsage.Out;
+
+            ctx.GenerateTranslationUnits(new[] { "nonownedwnd.h" });
+            MoveTranslationUnitFromTo(ctx, "wx/osx/nonownedwnd.h", "wx/nonownedwnd.h");
+
+            // TODO: Fix bug with public overriding protected base virtual method.
+            ctx.IgnoreClassMethodWithName("wxNonOwnedWindowBase", "AdjustForParentClientOrigin");
 
             ctx.GenerateTranslationUnits(new[] { "app.h" });
             ctx.IgnoreClassWithName("wxAppInitializer");
@@ -96,11 +156,30 @@ namespace CppSharp
             MoveDefinitionsFromTo(ctx, "wxAppConsoleBase", "wxAppConsole");
             MoveDefinitionsFromTo(ctx, "wxAppBase", "wxApp");
 
+            // TODO: Implement proper generation of function pointer proxies
+            var appConsole = ctx.FindCompleteClass("wxAppConsole");
+            appConsole.FindMethod("GetInitializerFunction").ExplicitlyIgnore();
+            appConsole.FindMethod("SetInitializerFunction").ExplicitlyIgnore();
+
             ctx.GenerateTranslationUnits(new[] { "frame.h" });
             MoveTranslationUnitFromTo(ctx, "wx/osx/frame.h", "wx/frame.h");
 
             ctx.GenerateTranslationUnits(new[] { "toplevel.h" });
             MoveTranslationUnitFromTo(ctx, "wx/osx/toplevel.h", "wx/toplevel.h");
+
+            // Undefined symbols "wxTopLevelWindow::wxCreateObject()"
+            ctx.IgnoreClassMethodWithName("wxTopLevelWindow", "wxCreateObject");
+
+            // TODO: Fix parameters in wxTopLevelWindowBase::ShowFullScreen.
+            var fullscreenMode = ctx.GetEnumWithMatchingItem("wxFULLSCREEN_NOMENUBAR");
+            fullscreenMode.Name = "wxFullscreenMode";
+            fullscreenMode.SetFlags();
+            passBuilder.RemovePrefix("wxFULLSCREEN_");
+
+            // TODO: Fix parameters in wxTopLevelWindowBase::RequestUserAttention.
+            var userAttention = ctx.GetEnumWithMatchingItem("wxUSER_ATTENTION_INFO");
+            userAttention.Name = "wxUserAttention";
+            passBuilder.RemovePrefix("wxUSER_ATTENTION_");
 
             ctx.GenerateTranslationUnits(new[] { "graphics.h" });
             ctx.GenerateTranslationUnits(new[] { "gdicmn.h" });
@@ -124,8 +203,62 @@ namespace CppSharp
             ctx.IgnoreClassWithName("wxEventConnectionRef");
             ctx.IgnoreClassWithName("wxEventBlocker");
 
+            ctx.FindCompleteClass("wxHelpEvent").FindEnum("Origin").Name = "Source";
+            ctx.FindCompleteClass("wxDropFilesEvent").ExplicitlyIgnore();
+
             ctx.GenerateTranslationUnits(new[] { "sizer.h" });
+
+            passBuilder.RemovePrefix("wxFLEX_GROWMODE_");
+
+            var sizerItemList = ctx.FindCompleteClass("wxSizerItemList");
+            sizerItemList.FindClass("compatibility_iterator").ExplicitlyIgnore();
+            sizerItemList.FindClass("iterator").ExplicitlyIgnore();
+            sizerItemList.FindClass("const_iterator").ExplicitlyIgnore();
+            sizerItemList.FindClass("reverse_iterator").ExplicitlyIgnore();
+            sizerItemList.FindClass("const_reverse_iterator").ExplicitlyIgnore();
+
+            // wxSizerFlags fixups
+            var sizerFlagsType = new QualifiedType(new TagType(sizerFlags));
+
+            // wxSizerOrientation fixups
+            var sizerOrientationType = new QualifiedType(new TagType(sizerOrientation));
+            var boxSizer = ctx.FindCompleteClass("wxBoxSizer");
+
+            var boxSizerCtor = boxSizer.Constructors.First(
+                c => c.Parameters.Any(p => p.Name == "orient"));
+            boxSizerCtor.Parameters[0].QualifiedType = sizerOrientationType;
+
+            boxSizer.FindMethod("GetOrientation").ReturnType = sizerOrientationType;
+            boxSizer.FindMethod("SetOrientation").Parameters[0].QualifiedType = sizerOrientationType;
+
+            var boxSizerAdd = ctx.FindCompleteClass("wxBoxSizer").Constructors.First(
+                c => c.Parameters.Any(p => p.Name == "orient"));
+            boxSizerAdd.Parameters[0].QualifiedType = new QualifiedType(new TagType(sizerOrientation));
+
+            var staticBoxSizer = ctx.FindCompleteClass("wxStaticBoxSizer");
+            var staticBoxSizerCtors = staticBoxSizer.Constructors.Where(
+                c => c.Parameters.Any(p => p.Name == "orient"));
+            foreach (var ctor in staticBoxSizerCtors)
+                ctor.Parameters.First(p => p.Name == "orient").QualifiedType = sizerOrientationType;
+
             ctx.GenerateTranslationUnits(new[] { "dc.h", "dcclient.h" });
+
+            ctx.IgnoreClassWithName("wxDCImpl");
+            ctx.IgnoreClassWithName("wxDCFactory");
+            ctx.IgnoreClassWithName("wxNativeDCFactory");
+
+            ctx.GenerateTranslationUnits(new[] { "panel.h", "panelg.h", "msw/panel.h" });
+            MoveTranslationUnitFromTo(ctx, "wx/generic/panelg.h", "wx/panel.h");
+            //MoveTranslationUnitFromTo(ctx, "wx/msw/panel.h", "wx/panel.h");
+            //MoveDefinitionsFromTo(ctx, "wxAppConsoleBase", "wxAppConsole");
+
+            var orientation = ctx.GenerateEnumFromMacros("wxFrameOrientation", new string[]
+            {
+                "wxCENTRE",
+                "wxFRAME_NO_TASKBAR",
+                "wxFRAME_TOOL_WINDOW",
+                "wxFRAME_FLOAT_ON_PARENT",
+            }).SetFlags();
 
             var frameStyle = ctx.GenerateEnumFromMacros("wxFrameStyle", new string[]
             {
@@ -149,13 +282,60 @@ namespace CppSharp
                 "wxDEFAULT_FRAME_STYLE"
             }).SetFlags();
 
-            var passBuilder = driver.Context.TranslationUnitPasses;
+            var frameCtor = ctx.FindCompleteClass("wxFrame").Constructors.First(
+                c => c.Parameters.Count == 7);
+            frameCtor.Parameters[5].QualifiedType = new QualifiedType(new TagType(frameStyle));
+
+            ctx.GenerateTranslationUnits(new[] { "containr.h" });
+
+            ctx.IgnoreFunctionWithName("wxSetFocusToChild");
+
+            ctx.GenerateTranslationUnits(new[] { "brush.h" });
+            MoveTranslationUnitFromTo(ctx, "wx/osx/brush.h", "wx/brush.h");
+            MoveDefinitionsFromTo(ctx, "wxBrushBase", "wxBrush");
+
+            ctx.GenerateTranslationUnits(new[] { "pen.h", "peninfobase.h" });
+            MoveTranslationUnitFromTo(ctx, "wx/osx/pen.h", "wx/pen.h");
+            MoveDefinitionsFromTo(ctx, "wxPenBase", "wxPen");
+
+            ctx.GenerateTranslationUnits(new[] { "peninfobase.h" });
+            MoveTranslationUnitFromTo(ctx, "wx/peninfobase.h", "wx/pen.h");
+
+            var penInfo = ctx.FindCompleteClass("wxPenInfo");
+            MoveDefinitionsFromTo(penInfo.BaseClass, penInfo);
+
+            var graphicsPenInfo = ctx.FindCompleteClass("wxGraphicsPenInfo");
+            MoveDefinitionsFromTo(graphicsPenInfo.BaseClass, graphicsPenInfo);
+
+            passBuilder.RemovePrefix("wxPENSTYLE_");
+            passBuilder.RemovePrefix("wxJOIN_");
+            passBuilder.RemovePrefix("wxCAP_");
+
+            ctx.GenerateTranslationUnits(new[] { "colour.h" });
+            MoveTranslationUnitFromTo(ctx, "wx/osx/core/colour.h", "wx/colour.h");
+            MoveDefinitionsFromTo(ctx, "wxColourBase", "wxColour");
+
+            var colorClass = ctx.FindCompleteClass("wxColour");
+            colorClass.Name = "wxColor";
+
+            // Workaround bug in ParameterTypeComparer and CheckDuplicatedNamesPass
+            // Remove once https://github.com/mono/CppSharp/issues/1367 is fixed..
+            colorClass.Constructors.FirstOrDefault(c => c.Parameters.Any(
+                p => p.Name == "colourName" && p.Type.IsPointer())).ExplicitlyIgnore();
+
+            passBuilder.Passes.Remove(
+                driver.Context.TranslationUnitPasses.Passes.Find(
+                p => p.GetType() == typeof(GetterSetterToPropertyPass)));
 
             passBuilder.Passes.Remove(
                 driver.Context.TranslationUnitPasses.Passes.Find(
                     p => p.GetType() == typeof(ConstructorToConversionOperatorPass)));
 
             passBuilder.RemovePrefix("wx");
+
+            var panelBase = ctx.FindCompleteClass("wxPanelBase");
+            var navigationEnabled = (panelBase.BaseClass as ClassTemplateSpecialization).TemplatedDecl;
+            new FlattenTemplateInstantiationBaseClass(navigationEnabled).VisitASTContext(ctx);
 
             new FixMethodOverrides().VisitASTContext(ctx);
             new IgnoreMethodWithReferences().VisitASTContext(ctx);
@@ -164,79 +344,11 @@ namespace CppSharp
             var indexer = new WxEventsIndexer(ctx);
             indexer.VisitASTContext(ctx);
 
-            new ProcessWxEvents(indexer).VisitASTContext(ctx);
+            if (GeneratorKind == GeneratorKind.CPlusPlus)
+                new ProcessWxEvents(indexer).VisitASTContext(ctx);
         }
 
-        private void MoveTranslationUnitFromTo(ASTContext ctx,
-            string source, string dest)
-        {
-            var sourceUnit = ctx.TranslationUnits.Find(u => u.FileRelativePath == source);
-            var destUnit = ctx.TranslationUnits.Find(u => u.FileRelativePath == dest);
-
-            if (sourceUnit == null || destUnit == null)
-                throw new Exception("Translation unit was not found");
-
-            MoveTranslationUnitFromTo(ctx, sourceUnit, destUnit);
-        }
-
-        private void MoveTranslationUnitFromTo(ASTContext ctx,
-            TranslationUnit source, TranslationUnit dest)
-        {
-            var pass = new MoveTranslationUnitDecls(source, dest);
-            source.Visit(pass);
-        }
-
-        private void MoveDefinitionsFromTo(ASTContext ctx,
-            string source, string dest)
-        {
-            var sourceClass = ctx.FindCompleteClass(source);
-            var destClass = ctx.FindCompleteClass(dest);
-
-            sourceClass.GenerationKind = GenerationKind.None;
-
-            foreach (var decl in sourceClass.Declarations)
-            {
-                decl.Namespace = destClass;
-                destClass.Declarations.Add(decl);
-            }
-
-            foreach (var field in sourceClass.Fields)
-            {
-                field.Namespace = destClass;
-                destClass.Fields.Add(field);
-            }
-
-            foreach (var prop in sourceClass.Properties)
-            {
-                var existing = destClass.Methods.FirstOrDefault(
-                    p => p.Name == prop.Name);
-                if (existing != null && existing.IsOverride)
-                    continue;
-
-                prop.Namespace = destClass;
-                destClass.Properties.Add(prop);
-            }
-
-            foreach (var method in sourceClass.Methods)
-            {
-                if (method.IsConstructor || method.IsDestructor)
-                    continue;
-
-                var existing = destClass.Methods.FirstOrDefault(
-                    m => m.Name == method.Name);
-                if (existing != null && existing.IsOverride)
-                    continue;
-
-                method.Namespace = destClass;
-                destClass.Methods.Add(method);
-            }
-
-            var baseSpec = destClass.Bases.Find(b => b.Class == sourceClass);
-            if (baseSpec != null)
-                baseSpec.ExplicitlyIgnore();
-                //destClass.Bases.Remove(baseSpec);
-        }
-
+        /*
         private void ParseDoxygenXml()
         {
             var sw = new Stopwatch();
@@ -262,10 +374,15 @@ namespace CppSharp
             }
 
             Console.WriteLine($"Parsing Doxygen XML took {sw.Elapsed.TotalSeconds:0}s");
-        }
+        }*/
 
         public void Postprocess(Driver driver, ASTContext ctx)
         {
+            var window = ctx.TranslationUnits.Find(u => u.FileName == "window.h");
+            var method = window.FindClass("Window").FindMethod("SetSizer");
+
+            var pen = ctx.FindCompleteClass("Pen");
+
         }
 
         public static string GetExamplesDirectory(string name)
@@ -296,7 +413,143 @@ namespace CppSharp
         }
     }
 
+    class ASTHelpers
+    {
+        public static void MoveTranslationUnitFromTo(ASTContext ctx,
+            string source, string dest)
+        {
+            var sourceUnit = ctx.TranslationUnits.Find(u => u.FileRelativePath == source);
+            var destUnit = ctx.TranslationUnits.Find(u => u.FileRelativePath == dest);
+
+            if (sourceUnit == null || destUnit == null)
+                throw new Exception("Translation unit was not found");
+
+            MoveTranslationUnitFromTo(ctx, sourceUnit, destUnit);
+        }
+
+        public static void MoveTranslationUnitFromTo(ASTContext ctx,
+            TranslationUnit source, TranslationUnit dest)
+        {
+            var pass = new MoveTranslationUnitDecls(source, dest);
+            source.Visit(pass);
+        }
+
+        public static void MoveDefinitionsFromTo(ASTContext ctx,
+            string source, string dest)
+        {
+            var sourceClass = ctx.FindCompleteClass(source);
+            var destClass = ctx.FindCompleteClass(dest);
+            MoveDefinitionsFromTo(sourceClass, destClass);
+        }
+
+        public static void MoveDefinitionsFromTo(Class source, Class dest)
+        {
+            source.GenerationKind = GenerationKind.None;
+
+            foreach (var decl in source.Declarations)
+            {
+                decl.Namespace = dest;
+                dest.Declarations.Add(decl);
+            }
+
+            foreach (var field in source.Fields)
+            {
+                field.Namespace = dest;
+                dest.Fields.Add(field);
+            }
+
+            foreach (var prop in source.Properties)
+            {
+                var existing = dest.Methods.FirstOrDefault(
+                    p => p.Name == prop.Name);
+                if (existing != null && existing.IsOverride)
+                    continue;
+
+                prop.Namespace = dest;
+                dest.Properties.Add(prop);
+            }
+
+            foreach (var method in source.Methods)
+            {
+                if (method.IsDestructor)
+                    continue;
+
+                var existing = dest.Methods.Where(m => {
+                    if (method.IsConstructor)
+                        return m.IsConstructor;
+
+                    return m.Name == method.Name;
+                });
+
+                // If a method with the same signature already exists, then bail.
+                if (existing != null && existing.Any(m => m.HasSameSignature(method)))
+                    continue;
+
+                /*if (existing != null && method.HasSameSignature(existing))
+                {
+                    continue;
+
+                    /*if (existing.IsOverride)
+                        continue;
+
+                    if (existing.IsVirtual)
+                        continue;
+                }*/
+
+                method.Namespace = dest;
+                dest.Methods.Add(method);
+            }
+
+            var baseSpec = dest.Bases.Find(b => b.Class == source);
+            if (baseSpec != null)
+                baseSpec.ExplicitlyIgnore();
+
+            //destClass.Bases.Remove(baseSpec);
+        }
+    }
+
     #region Type Maps
+    [TypeMap("wxOrientation", GeneratorKind.CPlusPlus)]
+    class WxOrientationTypeMap : TypeMap
+    {
+        public override AST.Type CppSignatureType(TypePrinterContext ctx)
+        {
+            if (ctx.Kind == TypePrinterContextKind.Native)
+                return new BuiltinType(PrimitiveType.Int);
+
+            return Type;
+        }
+
+        public override void CppMarshalToNative(MarshalContext ctx)
+        {
+            ctx.Return.Write($"(int){ctx.Parameter.Name}");
+        }
+
+        public override void CppMarshalToManaged(MarshalContext ctx)
+        {
+            var typePrinter = new CppTypePrinter(Context);
+            typePrinter.PushContext(TypePrinterContextKind.Managed);
+            var typeName = ctx.ReturnType.Visit(typePrinter);
+            ctx.Return.Write($"({typeName}){ctx.ReturnVarName}");
+        }
+    }
+
+    [TypeMap("wxFrameStyle", GeneratorKind.CPlusPlus)]
+    class WxFrameStyleTypeMap : TypeMap
+    {
+        public override AST.Type CppSignatureType(TypePrinterContext ctx)
+        {
+            if (ctx.Kind == TypePrinterContextKind.Native)
+                return new BuiltinType(PrimitiveType.Long);
+
+            return Type;
+        }
+
+        public override void CppMarshalToNative(MarshalContext ctx)
+        {
+            ctx.Return.Write($"(long){ctx.Parameter.Name}");
+        }
+    }
 
     [TypeMap("wxString", GeneratorKind.CPlusPlus)]
     class WxStringTypeMap : TypeMap
@@ -329,13 +582,65 @@ namespace CppSharp
 
         public override void CppMarshalToNative(MarshalContext ctx)
         {
-            base.CppMarshalToNative(ctx);
+            var isPointer = ctx.Parameter.Type.IsPointer();
+            if (!isPointer || ctx.Parameter.Type.IsReference())
+            {
+                base.CppMarshalToNative(ctx);
+                return;
+            }
+
+            var isPointerToArray = ctx.Function.OriginalName == "wxDropFilesEvent";
+            var wxStringType = isPointerToArray ? "wxString[]" : "wxString";
+
+            var varName = $"{ctx.ArgName}_str";
+            ctx.Before.WriteLine($"auto {varName} = new {wxStringType}({ctx.Parameter.Name});");
+            ctx.Return.Write($"{varName}");
         }
     }
 
-    #endregion
+#endregion
 
-    #region Custom Passes
+#region Custom Passes
+
+    class FlattenTemplateInstantiationBaseClass : TranslationUnitPass
+    {
+        readonly ClassTemplate Template;
+
+        public FlattenTemplateInstantiationBaseClass(ClassTemplate template)
+        {
+            Template = template;
+        }
+
+        public override bool VisitClassDecl(Class @class)
+        {
+            if (!@class.HasBaseClass)
+                return false;
+
+            BaseClassSpecifier baseSpec = null;
+            ClassTemplateSpecialization templateSpec = null;
+            foreach (var @base in @class.Bases)
+            {
+                templateSpec = @base.Class as ClassTemplateSpecialization;
+                if (templateSpec == null)
+                    return false;
+
+                var template = templateSpec.TemplatedDecl;
+                if (Template != template)
+                    return false;
+
+                baseSpec = @base;
+            }
+
+            if (!templateSpec.Arguments[0].Type.Type.TryGetClass(out Class specClass))
+                return false;
+
+            baseSpec.Type = new TagType(specClass);
+
+            MoveDefinitionsFromTo(templateSpec, @class);
+
+            return true;
+        }
+    }
 
     class WxEventsIndexer : TranslationUnitPass
     {
@@ -380,6 +685,8 @@ namespace CppSharp
             return true;
         }
 
+        public HashSet<string> WarningKeys = new HashSet<string>();
+
         private void ProcessEventDefine(MacroDefinition entity, string[] @params)
         {
             if (!@params[0].StartsWith("wxEVT_"))
@@ -388,7 +695,9 @@ namespace CppSharp
             var eventAlias = @params[0].Substring("wx".Length);
             if (!EventsMap.TryGetValue(eventAlias, out Class @event))
             {
-                Console.WriteLine($"Could not find event alias: {eventAlias}");
+                if (WarningKeys.Add(eventAlias))
+                    Console.WriteLine($"Could not find event alias: {eventAlias}");
+
                 return;
             }
 
@@ -406,8 +715,8 @@ namespace CppSharp
 
             var eventClass = @params[2].Trim();
             var @class = ASTContext.FindCompleteClass(eventClass);
-            if (@class == null)
-                Console.WriteLine($"Could not find event class: {eventClass}");
+            if (@class == null && WarningKeys.Add(eventClass))
+                    Console.WriteLine($"Could not find event class: {eventClass}");
 
             // TODO: Getting some duplicate entities, probably a parser bug.
             //if (EventsMap.ContainsKey(eventKey))
@@ -433,19 +742,29 @@ namespace CppSharp
         static string GetFilePath(string path) =>
             Path.Combine(wxSharpGen.WxPath, "interface", path);
 
-        static string RemovePathLastDir(string path)
+        static bool RemovePathLastDir(ref string path)
         {
             var @base = Path.GetDirectoryName(path);
-            return Path.Combine(Directory.GetParent(@base).FullName,
-                Path.GetFileName(path));
+            var parentDir = Directory.GetParent(@base);
+            if (parentDir == null)
+                return false;
+
+            path = Path.Combine(parentDir.FullName, Path.GetFileName(path));
+            return true;
+        }
+
+        string ProcessPath(string path)
+        {
+            return path.Replace("panelg.h", "panel.h");
         }
 
         bool TryFindFile(Class @class, out string path)
         {
             path = GetFilePath(@class.TranslationUnit.FileRelativePath);
 
-            while (!File.Exists(path))
-                path = RemovePathLastDir(path);
+            bool @continue = true;
+            while (!File.Exists(path) && @continue)
+                @continue = RemovePathLastDir(ref path);
 
             return File.Exists(path);
         }
@@ -462,18 +781,34 @@ namespace CppSharp
             return string.Join("", components);
         }
 
+        public override bool VisitTranslationUnit(TranslationUnit unit)
+        {
+            var name = unit.FileRelativePath;
+
+            if (name == "wx/object.h")
+                return false;
+
+            if (name == "wx/peninfobase.h")
+                return false;
+
+            return base.VisitTranslationUnit(unit);
+        }
+
         public override bool VisitClassDecl(Class @class)
         {
             if (!VisitDeclaration(@class))
                 return false;
 
+            if (@class.IsIncomplete)
+                return false;
+
             string file;
             if (!TryFindFile(@class, out file))
-                throw new Exception(@"Could not find interface header file for {@class.OriginalName}");
+                throw new Exception($"Could not find interface header file for {@class.OriginalName}");
 
             var contents = File.ReadAllText(file);
 
-            var regex = new Regex(@"\/\*\*[^*]*\*\/");
+            var regex = new Regex(@"(\/\*\*)(.|\n)+?(\*\/)");
             var matches = regex.Matches(contents);
 
             foreach (var match in matches)
@@ -488,7 +823,7 @@ namespace CppSharp
                     continue;
 
                 if (text.Contains("@beginEventEmissionTable") && text.Contains("@beginEventTable"))
-                    System.Diagnostics.Debugger.Break();
+                    throw new NotImplementedException();
 
                 if (!text.Contains("@beginEventEmissionTable"))
                     continue;
@@ -507,34 +842,85 @@ namespace CppSharp
                     @params = @params.Substring(0, @params.Length - 1);
 
                     var paramNames = @params.Split(',');
-                    var eventName = signature.Substring(0, startIndex);
+                    var eventNameOrPattern = signature.Substring(0, startIndex);
 
-                    Class eventClass;
-                    if (!EventsMap.TryGetValue(eventName, out eventClass))
+                    var eventNames = EventsMap.Keys.Where(k => k.Match(eventNameOrPattern));
+                    foreach (var eventName in eventNames)
                     {
-                        Console.WriteLine($"Could not find event mapping for {@class.OriginalName}::{eventName}");
-                        continue;
+                        var name = CleanupEventName(eventName);
+
+                        // If we already processed this event, then skip it.
+                        // This can happen due to wildcard event matches:
+                        //  @event{EVT_MOUSE_CAPTURE_CHANGED(func)}
+                        //  @event{EVT_MOUSE_*(func)}
+                        if (@class.Events.Any(e => e.Name == name))
+                            continue;
+
+                        Class eventClass;
+                        if (!EventsMap.TryGetValue(eventName, out eventClass))
+                        {
+                            Console.WriteLine($"Could not find event mapping for {@class.OriginalName}::{eventName}");
+                            continue;
+                        }
+
+                        if (eventClass.Ignore)
+                            continue;
+
+                        /*
+                        if (eventName.StartsWith("EVT_"))
+                            eventName = eventName.Substring("EVT_".Length);
+
+                        CaseRenamePass.ConvertCaseString(@event, RenameCasePattern.UpperCamelCase);
+                        */
+
+                        var ptrType = new PointerType(new QualifiedType(new TagType(eventClass)))
+                        {
+                            Modifier = PointerType.TypeModifier.LVReference
+                        };
+
+                        var functionType = new FunctionType()
+                        {
+                            ReturnType = new QualifiedType(new BuiltinType(PrimitiveType.Void))
+                        };
+
+                        functionType.Parameters.Add(new Parameter()
+                        {
+                            Name = "event",
+                            QualifiedType = new QualifiedType(ptrType),
+                        });
+
+                        var @event = new Event()
+                        {
+                            Name = $"On{name}",
+                            Namespace = @class,
+                            QualifiedType = new QualifiedType(functionType)
+                        };
+
+                        @class.Declarations.Add(@event);
                     }
-
-                    /*
-                    if (eventName.StartsWith("EVT_"))
-                        eventName = eventName.Substring("EVT_".Length);
-
-                    CaseRenamePass.ConvertCaseString(@event, RenameCasePattern.UpperCamelCase);
-                    */
-
-                    var name = CleanupEventName(eventName);
-
-                    var @event = new Event()
-                    {
-                        Name = name,
-                        Namespace = @class
-                    };
-
-                    @class.Declarations.Add(@event);
                 }
-            }
 
+                if (!@class.Events.Any())
+                    return true;
+
+                // Override `virtual bool wxEvtHandler::TryBefore()` for custom handling.
+                var tryBeforeMethod = @class.FindHierarchy<Method>(c => c.Methods.FindAll(me => me.Name == "TryBefore"))
+                    .FirstOrDefault();
+
+                if (tryBeforeMethod == null)
+                    throw new Exception($"Expected to find `virtual bool wxEvtHandler::TryBefore()` for class {@class.Name}");
+
+                var @override = new Method(tryBeforeMethod)
+                {
+                    Access = AccessSpecifier.Protected,
+                    IsOverride = true,
+                    Namespace = @class
+                };
+
+                @override.GenerationKind = GenerationKind.Generate;
+
+                //@class.Methods.Add(@override);
+            }
 
             return true;
         }
@@ -650,6 +1036,23 @@ namespace CppSharp
                 method.IsOverride = false;
 
             return true;
+        }
+    }
+
+    public static class StringExtensions
+    {
+        /// <summary>
+        /// Compares the string against a given pattern.
+        /// </summary>
+        /// <param name="str">The string.</param>
+        /// <param name="pattern">The pattern to match, where "*" means any sequence of characters, and "?" means any single character.</param>
+        /// <returns><c>true</c> if the string matches the given pattern; otherwise <c>false</c>.</returns>
+        public static bool Match(this string str, string pattern)
+        {
+            return new Regex(
+                "^" + Regex.Escape(pattern).Replace(@"\*", ".*").Replace(@"\?", ".") + "$",
+                RegexOptions.IgnoreCase | RegexOptions.Singleline
+            ).IsMatch(str);
         }
     }
 

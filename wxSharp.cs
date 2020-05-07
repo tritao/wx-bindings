@@ -319,7 +319,7 @@ namespace CppSharp
             colorClass.Name = "wxColor";
 
             // Workaround bug in ParameterTypeComparer and CheckDuplicatedNamesPass
-            // Remove once https://github.com/mono/CppSharp/issues/1367 is fixed..
+            // Remove once https://github.com/mono/CppSharp/issues/1367 is fixed.
             colorClass.Constructors.FirstOrDefault(c => c.Parameters.Any(
                 p => p.Name == "colourName" && p.Type.IsPointer())).ExplicitlyIgnore();
 
@@ -343,6 +343,8 @@ namespace CppSharp
 
             var indexer = new WxEventsIndexer(ctx);
             indexer.VisitASTContext(ctx);
+
+            new WxEventHandlerMethodEnablerPass() { Context = driver.Context }.VisitASTContext(ctx);
 
             if (GeneratorKind == GeneratorKind.CPlusPlus)
                 new ProcessWxEvents(indexer).VisitASTContext(ctx);
@@ -381,7 +383,7 @@ namespace CppSharp
             var window = ctx.TranslationUnits.Find(u => u.FileName == "window.h");
             var method = window.FindClass("Window").FindMethod("SetSizer");
 
-            var pen = ctx.FindCompleteClass("Pen");
+            var pen = ctx.FindCompleteClass("EvtHandler");
 
         }
 
@@ -502,9 +504,64 @@ namespace CppSharp
 
             var baseSpec = dest.Bases.Find(b => b.Class == source);
             if (baseSpec != null)
+            {
                 baseSpec.ExplicitlyIgnore();
 
+                dest.Bases.AddRange(source.Bases);
+            }
+
             //destClass.Bases.Remove(baseSpec);
+        }
+    }
+
+    class WxEventHandlerMethodEnablerPass : TranslationUnitPass
+    {
+        readonly DeclMap EventDeclMap = new WxEventsDeclMap();
+
+        public override bool VisitMethodDecl(Method method)
+        {
+            if (method.Name == "TryBefore")
+            {
+                method.GenerationKind = GenerationKind.Internal;
+                Context.DeclMaps.DeclMaps[method] = EventDeclMap;
+            }
+
+            return base.VisitMethodDecl(method);
+        }
+    }
+
+    [DeclMap(GeneratorKind.CPlusPlus)]
+    class WxEventsDeclMap : DeclMap
+    {
+        public override Declaration GetDeclaration()
+        {
+            return Context.ASTContext.FindCompleteClass("wxEvtHandler")
+                .FindMethod("TryBefore");
+        }
+
+        public override void Generate(CCodeGenerator gen)
+        {
+            var method = Declaration as Method;
+            var events = DeclarationContext.Events.Cast<WxEvent>();
+            if (!events.Any())
+                return;
+
+            gen.WriteLine($"wxEventType type = {method.Parameters[0].Name}.GetEventType();");
+            gen.NewLine();
+
+            foreach (var @event in events)
+            {
+                gen.NewLineIfNeeded();
+
+                gen.WriteLine($"if (type == wx{@event.WxEventTypeId})");
+                gen.WriteOpenBraceAndIndent();
+
+
+                gen.UnindentAndWriteCloseBrace();
+                gen.NeedNewLine();
+            }
+
+            gen.NewLine();
         }
     }
 
@@ -644,12 +701,16 @@ namespace CppSharp
 
     class WxEventsIndexer : TranslationUnitPass
     {
-        public readonly Dictionary<string, Class> EventsMap;
+        public readonly Dictionary<string, Class> EventTypeToParameterMap;
+        public readonly Dictionary<string, string> EventMacroToEventTypeMap;
+
         new readonly ASTContext ASTContext;
 
         public WxEventsIndexer(ASTContext astContext)
         {
-            EventsMap = new Dictionary<string, Class>();
+            EventTypeToParameterMap = new Dictionary<string, Class>();
+            EventMacroToEventTypeMap = new Dictionary<string, string>();
+
             ASTContext = astContext;
         }
 
@@ -679,29 +740,43 @@ namespace CppSharp
                     continue;
 
                 var @params = match.Groups[1].Value.Split(',').Select(p => p.Trim()).ToArray();
-                ProcessEventDefine(entity, @params);
+                ProcessEventDeclareDefine(entity, @params);
             }
+
+            /*
+            foreach (var entity in unit.PreprocessedEntities.OfType<MacroDefinition>())
+            {
+                if (!entity.Name.StartsWith("EVT_"))
+                    continue;
+
+                var match = regex.Match(entity.Expression);
+                if (!match.Success)
+                    continue;
+
+                return true;
+            }
+            */
 
             return true;
         }
 
         public HashSet<string> WarningKeys = new HashSet<string>();
 
-        private void ProcessEventDefine(MacroDefinition entity, string[] @params)
+        private void ProcessEventDeclareDefine(MacroDefinition entity, string[] @params)
         {
             if (!@params[0].StartsWith("wxEVT_"))
                 return;
 
-            var eventAlias = @params[0].Substring("wx".Length);
-            if (!EventsMap.TryGetValue(eventAlias, out Class @event))
-            {
-                if (WarningKeys.Add(eventAlias))
-                    Console.WriteLine($"Could not find event alias: {eventAlias}");
+            var eventType = @params[0].Substring("wx".Length);
+            //if (!EventMacroToEventTypeMap.TryGetValue(eventType, out Class @event))
+            //{
+            //    if (WarningKeys.Add(eventType))
+            //        Console.WriteLine($"Could not find event alias: {eventType}");
 
-                return;
-            }
+            //    return;
+            //}
 
-            EventsMap[entity.Name] = @event;
+            EventMacroToEventTypeMap[entity.Name] = eventType;
         }
 
         private void ProcessExportedEvent(string text)
@@ -726,17 +801,23 @@ namespace CppSharp
             if (eventKey.StartsWith("wx"))
                 eventKey = eventKey.Substring("wx".Length);
 
-            EventsMap[eventKey] = @class;
+            EventTypeToParameterMap[eventKey] = @class;
         }
+    }
+
+    class WxEvent : Event
+    {
+        public string WxEventMacroId;
+        public string WxEventTypeId;
     }
 
     class ProcessWxEvents : TranslationUnitPass
     {
-        readonly Dictionary<string, Class> EventsMap;
+        readonly WxEventsIndexer WxEvents;
 
         public ProcessWxEvents(WxEventsIndexer indexer)
         {
-            EventsMap = indexer.EventsMap;
+            WxEvents = indexer;
         }
 
         static string GetFilePath(string path) =>
@@ -808,6 +889,8 @@ namespace CppSharp
 
             var contents = File.ReadAllText(file);
 
+            // Consider /\*\*.+?\*/ as regex, proposed by Dimitar.
+            // The one below might fail on Windows due to \r.
             var regex = new Regex(@"(\/\*\*)(.|\n)+?(\*\/)");
             var matches = regex.Matches(contents);
 
@@ -844,7 +927,7 @@ namespace CppSharp
                     var paramNames = @params.Split(',');
                     var eventNameOrPattern = signature.Substring(0, startIndex);
 
-                    var eventNames = EventsMap.Keys.Where(k => k.Match(eventNameOrPattern));
+                    var eventNames = WxEvents.EventMacroToEventTypeMap.Keys.Where(k => k.Match(eventNameOrPattern));
                     foreach (var eventName in eventNames)
                     {
                         var name = CleanupEventName(eventName);
@@ -856,10 +939,12 @@ namespace CppSharp
                         if (@class.Events.Any(e => e.Name == name))
                             continue;
 
+                        var eventTypeId = WxEvents.EventMacroToEventTypeMap[eventName];
+
                         Class eventClass;
-                        if (!EventsMap.TryGetValue(eventName, out eventClass))
+                        if (!WxEvents.EventTypeToParameterMap.TryGetValue(eventTypeId, out eventClass))
                         {
-                            Console.WriteLine($"Could not find event mapping for {@class.OriginalName}::{eventName}");
+                            Console.WriteLine($"Could not find event parameter for {@class.OriginalName}::{eventName}");
                             continue;
                         }
 
@@ -889,11 +974,17 @@ namespace CppSharp
                             QualifiedType = new QualifiedType(ptrType),
                         });
 
-                        var @event = new Event()
+                        string eventId;
+                        if (!WxEvents.EventMacroToEventTypeMap.TryGetValue(eventName, out eventId))
+                            throw new Exception($"Cannot find wx event macro {eventName}");
+
+                        var @event = new WxEvent()
                         {
                             Name = $"On{name}",
                             Namespace = @class,
-                            QualifiedType = new QualifiedType(functionType)
+                            QualifiedType = new QualifiedType(functionType),
+                            WxEventMacroId = eventName,
+                            WxEventTypeId = eventId
                         };
 
                         @class.Declarations.Add(@event);
@@ -903,26 +994,31 @@ namespace CppSharp
                 if (!@class.Events.Any())
                     return true;
 
-                // Override `virtual bool wxEvtHandler::TryBefore()` for custom handling.
-                var tryBeforeMethod = @class.FindHierarchy<Method>(c => c.Methods.FindAll(me => me.Name == "TryBefore"))
-                    .FirstOrDefault();
-
-                if (tryBeforeMethod == null)
-                    throw new Exception($"Expected to find `virtual bool wxEvtHandler::TryBefore()` for class {@class.Name}");
-
-                var @override = new Method(tryBeforeMethod)
-                {
-                    Access = AccessSpecifier.Protected,
-                    IsOverride = true,
-                    Namespace = @class
-                };
-
-                @override.GenerationKind = GenerationKind.Generate;
-
-                //@class.Methods.Add(@override);
+                // Override `virtual bool wxEvtHandler::TryBefore()` for custom event handling.
+                //AddTryBefore(@class);
             }
 
             return true;
+        }
+
+        private void AddTryBefore(Class @class)
+        {
+            var tryBeforeMethod = @class.FindHierarchy<Method>(c => c.Methods.FindAll(me => me.Name == "TryBefore"))
+                .FirstOrDefault();
+
+            if (tryBeforeMethod == null)
+                throw new Exception($"Expected to find `virtual bool wxEvtHandler::TryBefore()` for class {@class.Name}");
+
+            var @override = new Method(tryBeforeMethod)
+            {
+                Access = AccessSpecifier.Protected,
+                IsOverride = true,
+                Namespace = @class
+            };
+
+            @override.GenerationKind = GenerationKind.Generate;
+
+            @class.Methods.Add(@override);
         }
     }
 

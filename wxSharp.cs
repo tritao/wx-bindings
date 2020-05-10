@@ -332,6 +332,8 @@ namespace CppSharp
 
             passBuilder.RemovePrefix("wx");
 
+            new RemovePlatformSpecificMembers().VisitASTContext(ctx);
+
             var panelBase = ctx.FindCompleteClass("wxPanelBase");
             var navigationEnabled = (panelBase.BaseClass as ClassTemplateSpecialization).TemplatedDecl;
             new FlattenTemplateInstantiationBaseClass(navigationEnabled).VisitASTContext(ctx);
@@ -661,6 +663,20 @@ namespace CppSharp
 #endregion
 
 #region Custom Passes
+
+    class RemovePlatformSpecificMembers : TranslationUnitPass
+    {
+        public override bool VisitDeclaration(Declaration decl)
+        {
+            if (decl.Name.StartsWith("MSW") ||
+                decl.Name.StartsWith("Mac") ||
+                decl.Name.StartsWith("OSX") ||
+                decl.Name.StartsWith("GTK"))
+                decl.GenerationKind = GenerationKind.None;
+
+            return base.VisitDeclaration(decl);
+        }
+    }
 
     class FlattenTemplateInstantiationBaseClass : TranslationUnitPass
     {

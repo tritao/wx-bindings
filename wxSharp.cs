@@ -250,7 +250,6 @@ namespace CppSharp
             ctx.GenerateTranslationUnits(new[] { "panel.h", "panelg.h", "msw/panel.h" });
             MoveTranslationUnitFromTo(ctx, "wx/generic/panelg.h", "wx/panel.h");
             //MoveTranslationUnitFromTo(ctx, "wx/msw/panel.h", "wx/panel.h");
-            //MoveDefinitionsFromTo(ctx, "wxAppConsoleBase", "wxAppConsole");
 
             var orientation = ctx.GenerateEnumFromMacros("wxFrameOrientation", new string[]
             {
@@ -1135,23 +1134,34 @@ namespace CppSharp
             return false;
         }
 
+        public static bool FixMethodOverride(Method method)
+        {
+            if (!method.IsGenerated)
+                return false;
+
+            if (!method.IsVirtual || method.IsDestructor)
+                return false;
+
+            method.IsOverride = false;
+
+            var @class = method.Namespace as Class;
+            var baseMethod = @class.GetBaseMethod(method);
+
+            if (baseMethod != null)
+            {
+                var baseClass = baseMethod.Namespace as Class;
+                method.IsOverride = baseClass.IsGenerated;
+            }
+
+            return true;
+        }
+
         public override bool VisitMethodDecl(Method method)
         {
             if (!VisitDeclaration(method))
                 return false;
 
-            if (!method.IsGenerated)
-                return false;
-
-            if (!method.IsOverride || method.IsDestructor)
-                return false;
-
-            var @class = method.Namespace as Class;
-            var baseClass = GetBaseClassForOverridenMethod(method);
-            if (!baseClass.IsGenerated || !HasGeneratedBaseClass(@class, baseClass))
-                method.IsOverride = false;
-
-            return true;
+            return FixMethodOverride(method);
         }
     }
 

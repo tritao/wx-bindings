@@ -12,7 +12,6 @@ using CppSharp.Generators.C;
 using CppSharp.Generators.CLI;
 using CppSharp.Passes;
 using CppSharp.Types;
-using wxSharp;
 using static CppSharp.ASTHelpers;
 
 namespace CppSharp
@@ -23,6 +22,7 @@ namespace CppSharp
             "wxWidgets");
 
         public GeneratorKind GeneratorKind = GeneratorKind.CPlusPlus;
+        //public GeneratorKind GeneratorKind = GeneratorKind.CSharp;
 
         public void Setup(Driver driver)
         {
@@ -69,7 +69,7 @@ namespace CppSharp
             var parserOptions = driver.ParserOptions;
             parserOptions.TargetTriple = "i686-apple-darwin";
             parserOptions.AddIncludeDirs(wxIncludePath);
-            //parserOptions.UnityBuild = true;
+            parserOptions.UnityBuild = true;
 
             options.OutputDir = Path.Combine(GetExamplesDirectory("wxSharp"),
                 parserOptions.TargetTriple, GeneratorKind.ToString().ToLowerInvariant());
@@ -346,7 +346,8 @@ namespace CppSharp
 
             new WxEventHandlerMethodEnablerPass() { Context = driver.Context }.VisitASTContext(ctx);
 
-            if (GeneratorKind == GeneratorKind.CPlusPlus)
+            if (GeneratorKind == GeneratorKind.C ||
+                GeneratorKind == GeneratorKind.CPlusPlus)
                 new ProcessWxEvents(indexer).VisitASTContext(ctx);
         }
 
@@ -567,6 +568,7 @@ namespace CppSharp
 
     #region Type Maps
     [TypeMap("wxOrientation", GeneratorKind.CPlusPlus)]
+    [TypeMap("wxOrientation", GeneratorKind.NAPI)]
     class WxOrientationTypeMap : TypeMap
     {
         public override AST.Type CppSignatureType(TypePrinterContext ctx)
@@ -592,6 +594,7 @@ namespace CppSharp
     }
 
     [TypeMap("wxFrameStyle", GeneratorKind.CPlusPlus)]
+    [TypeMap("wxFrameStyle", GeneratorKind.NAPI)]
     class WxFrameStyleTypeMap : TypeMap
     {
         public override AST.Type CppSignatureType(TypePrinterContext ctx)
@@ -609,6 +612,7 @@ namespace CppSharp
     }
 
     [TypeMap("wxString", GeneratorKind.CPlusPlus)]
+    [TypeMap("wxString", GeneratorKind.NAPI)]
     class WxStringTypeMap : TypeMap
     {
         public override AST.Type CppSignatureType(TypePrinterContext ctx)
@@ -988,6 +992,22 @@ namespace CppSharp
                         };
 
                         @class.Declarations.Add(@event);
+
+                        /*
+                        const string eventHandlerMethod = "_HandleEvent";
+                        var eventHandler = new Method()
+                        {
+                            Name = eventHandlerMethod,
+                            Namespace = @class,
+                            Access = AccessSpecifier.Internal,
+                            ReturnType = new QualifiedType(new BuiltinType(PrimitiveType.Void))
+                        };
+
+                        eventHandler.GenerationKind = GenerationKind.Generate;
+
+                        if (@class.FindMethod(eventHandlerMethod) == null)
+                            @class.Methods.Add(eventHandler);
+                        */
                     }
                 }
 
@@ -1141,8 +1161,11 @@ namespace CppSharp
         /// Compares the string against a given pattern.
         /// </summary>
         /// <param name="str">The string.</param>
-        /// <param name="pattern">The pattern to match, where "*" means any sequence of characters, and "?" means any single character.</param>
-        /// <returns><c>true</c> if the string matches the given pattern; otherwise <c>false</c>.</returns>
+        /// <param name="pattern">The pattern to match, where "*" means any
+        /// sequence of characters, and "?" means any single character.</param>
+        /// <returns><c>true</c> if the string matches the given pattern;
+        /// otherwise <c>false</c>.
+        /// </returns>
         public static bool Match(this string str, string pattern)
         {
             return new Regex(

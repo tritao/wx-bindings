@@ -93,8 +93,37 @@ namespace CppSharp
 
             ctx.IgnoreTranslationUnits();
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "defs.h" });
-            
+            passBuilder.RemovePrefix("wxALIGN_");
+            passBuilder.RemovePrefix("wxBORDER_");
+            passBuilder.RemovePrefix("wxBG_STYLE_");
+            passBuilder.RemovePrefix("wxKEY_");
+            passBuilder.RemovePrefix("wxID_");
+            passBuilder.RemovePrefix("wxITEM_");
+            passBuilder.RemovePrefix("wxCHK_");
+            passBuilder.RemovePrefix("wxHT_");
+            passBuilder.RemovePrefix("wxHATCHSTYLE_");
+            ctx.FindCompleteEnum("wxDeprecatedGUIConstants").ExplicitlyIgnore();
+            passBuilder.RemovePrefix("wxTOOL_");
+            passBuilder.RemovePrefix("wxDF_");
+            passBuilder.RemovePrefix("WXK_");
+            passBuilder.RemovePrefix("wxMOD_");
+            ctx.FindCompleteEnum("wxPaperSize").ExplicitlyIgnore();
+            //passBuilder.RemovePrefix("wxPAPER_");
+            ctx.FindCompleteEnum("wxPrintOrientation").ExplicitlyIgnore();
+            ctx.FindCompleteEnum("wxDuplexMode").ExplicitlyIgnore();
+            //passBuilder.RemovePrefix("wxDUPLEX_");
+            ctx.FindCompleteEnum("wxPrintMode").ExplicitlyIgnore();
+            //passBuilder.RemovePrefix("wxPRINT_MODE_");
+            ctx.FindCompleteEnum("wxUpdateUI").ExplicitlyIgnore();
+            //passBuilder.RemovePrefix("wxUPDATE_UI_");
+            ctx.IgnoreEnumWithMatchingItem("wxPRIORITY_MIN");
+            //passBuilder.RemovePrefix("wxPRIORITY_");
+
+            ctx.FindFunction("wxPtrToUInt").First().ExplicitlyIgnore();
+            ctx.FindFunction("wxUIntToPtr").First().ExplicitlyIgnore();
+
             var sizerOrientation = ctx.FindCompleteEnum("wxOrientation");
             sizerOrientation.Name = "wxSizerOrientation";
 
@@ -126,46 +155,66 @@ namespace CppSharp
             // TODO: Fix parameters in wxAppBase::Get/SetPrintMode.
             ctx.GetEnumWithMatchingItem("wxPRINT_WINDOWS").Name = "wxPrintBackend";
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "object.h" });
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "window.h" });
             MoveTranslationUnitFromTo(ctx, "wx/osx/window.h", "wx/window.h");
             MoveDefinitionsFromTo(ctx, "wxWindowBase", "wxWindow");
 
+            ctx.FindCompleteClass("wxWindow").FindClass("ChildrenRepositioningGuard")
+                .ExplicitlyIgnore();
+
+            passBuilder.RemovePrefix("wxWINDOW_VARIANT_");
+            passBuilder.RemovePrefix("wxSHOW_EFFECT_");
+            passBuilder.RemovePrefix("Navigation_");
+
             var touchMode = ctx.GetEnumWithMatchingItem("wxTOUCH_NONE");
             touchMode.Name = "wxTouchMode";
             touchMode.SetFlags();
+            passBuilder.RemovePrefix("wxTOUCH_");
 
             var sendEventFlags = ctx.GetEnumWithMatchingItem("wxSEND_EVENT_POST");
             sendEventFlags.Name = "wxSendEventFlags";
             sendEventFlags.SetFlags();
+            passBuilder.RemovePrefix("wxSEND_EVENT_");
 
             ctx.FindCompleteClass("wxWindowBase").FindMethod("IsTransparentBackgroundSupported")
                 .Parameters[0].Usage = ParameterUsage.Out;
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "nonownedwnd.h" });
             MoveTranslationUnitFromTo(ctx, "wx/osx/nonownedwnd.h", "wx/nonownedwnd.h");
+            MoveDefinitionsFromTo(ctx, "wxNonOwnedWindowBase", "wxNonOwnedWindow");
 
             // TODO: Fix bug with public overriding protected base virtual method.
             ctx.IgnoreClassMethodWithName("wxNonOwnedWindowBase", "AdjustForParentClientOrigin");
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "app.h" });
             ctx.IgnoreClassWithName("wxAppInitializer");
             MoveTranslationUnitFromTo(ctx, "wx/unix/app.h", "wx/app.h");
             MoveTranslationUnitFromTo(ctx, "wx/osx/app.h", "wx/app.h");
             MoveDefinitionsFromTo(ctx, "wxAppConsoleBase", "wxAppConsole");
             MoveDefinitionsFromTo(ctx, "wxAppBase", "wxApp");
+            ctx.IgnoreEnumWithMatchingItem("wxPRINT_WINDOWS");
 
             // TODO: Implement proper generation of function pointer proxies
             var appConsole = ctx.FindCompleteClass("wxAppConsole");
             appConsole.FindMethod("GetInitializerFunction").ExplicitlyIgnore();
             appConsole.FindMethod("SetInitializerFunction").ExplicitlyIgnore();
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "frame.h" });
             MoveTranslationUnitFromTo(ctx, "wx/osx/frame.h", "wx/frame.h");
+            MoveDefinitionsFromTo(ctx, "wxFrameBase", "wxFrame");
 
             ctx.GenerateTranslationUnits(new[] { "toplevel.h" });
             MoveTranslationUnitFromTo(ctx, "wx/osx/toplevel.h", "wx/toplevel.h");
+            // TODO: Mac-specific code.
+            MoveDefinitionsFromTo(ctx, "wxTopLevelWindowBase", "wxTopLevelWindowMac");
+            MoveDefinitionsFromTo(ctx, "wxTopLevelWindowMac", "wxTopLevelWindow");
 
             // Undefined symbols "wxTopLevelWindow::wxCreateObject()"
             ctx.IgnoreClassMethodWithName("wxTopLevelWindow", "wxCreateObject");
@@ -181,8 +230,28 @@ namespace CppSharp
             userAttention.Name = "wxUserAttention";
             passBuilder.RemovePrefix("wxUSER_ATTENTION_");
 
-            ctx.GenerateTranslationUnits(new[] { "graphics.h" });
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "gdicmn.h" });
+
+            passBuilder.RemovePrefix("wxBITMAP_TYPE_");
+            passBuilder.RemovePrefix("wxCURSOR_");
+            passBuilder.RemovePrefix("wxELLIPSIZE_FLAGS_");
+            passBuilder.RemovePrefix("wxELLIPSIZE_");
+
+            ctx.IgnoreClassWithName("wxStringToColourHashMap_wxImplementation_Pair");
+            ctx.IgnoreClassWithName("wxStringToColourHashMap_wxImplementation_KeyEx");
+            ctx.IgnoreClassWithName("wxStringToColourHashMap_wxImplementation_HashTable");
+            ctx.IgnoreClassWithName("wxStringToColourHashMap");
+            ctx.IgnoreClassWithName("StringToColourHashMap_wxImplementation_KeyEx");
+            ctx.IgnoreClassWithName("StringToColourHashMap_wxImplementation_KeyEx");
+
+            // ----------------------------------------------------------------
+            ctx.GenerateTranslationUnits(new[] { "graphics.h" });
+
+            passBuilder.RemovePrefix("wxANTIALIAS_");
+            passBuilder.RemovePrefix("wxCOMPOSITION_");
+            passBuilder.RemovePrefix("wxINTERPOLATION_");
+            passBuilder.RemovePrefix("wxGRADIENT_");
 
             ctx.GenerateTranslationUnits(new[] { "event.h" });
             ctx.IgnoreClassWithName("wxEventFunctor");
@@ -194,28 +263,34 @@ namespace CppSharp
             ctx.IgnoreClassWithName("wxEventProcessInHandlerOnly");
             ctx.IgnoreClassWithName("wxEventBasicPayloadMixin");
             ctx.IgnoreClassWithName("wxEventAnyPayloadMixin");
-            ctx.IgnoreClassWithName("wxEventTableEntry");
             ctx.IgnoreClassWithName("wxDynamicEventTableEntry");
             ctx.IgnoreClassWithName("wxEventTable");
+            ctx.IgnoreClassWithName("wxEventTableEntryBase");
+            ctx.IgnoreClassWithName("wxEventTableEntry");
             ctx.IgnoreClassWithName("wxEventTableEntryPointerArray");
             ctx.IgnoreClassWithName("wxEventHashTable");
             ctx.IgnoreClassWithName("wxEvtHandlerArray");
             ctx.IgnoreClassWithName("wxEventConnectionRef");
             ctx.IgnoreClassWithName("wxEventBlocker");
 
+            passBuilder.RemovePrefix("wxEVT_CATEGORY_");
+            passBuilder.RemovePrefix("wxUPDATE_UI_");
+            passBuilder.RemovePrefix("wxMOUSE_WHEEL_");
+            passBuilder.RemovePrefix("wxIDLE_");
+            passBuilder.RemovePrefix("wxJOY_");
+            passBuilder.RemovePrefix("wxEVENT_PROPAGATE_");
+            passBuilder.RemovePrefix("wxCATEGORY_");
+            passBuilder.RemovePrefix("Reason_");
+            passBuilder.RemovePrefix("Origin_");
+
             ctx.FindCompleteClass("wxHelpEvent").FindEnum("Origin").Name = "Source";
             ctx.FindCompleteClass("wxDropFilesEvent").ExplicitlyIgnore();
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "sizer.h" });
 
             passBuilder.RemovePrefix("wxFLEX_GROWMODE_");
-
-            var sizerItemList = ctx.FindCompleteClass("wxSizerItemList");
-            sizerItemList.FindClass("compatibility_iterator").ExplicitlyIgnore();
-            sizerItemList.FindClass("iterator").ExplicitlyIgnore();
-            sizerItemList.FindClass("const_iterator").ExplicitlyIgnore();
-            sizerItemList.FindClass("reverse_iterator").ExplicitlyIgnore();
-            sizerItemList.FindClass("const_reverse_iterator").ExplicitlyIgnore();
+            ctx.IgnoreClassWithName("wxwxSizerItemListNode");
 
             // wxSizerFlags fixups
             var sizerFlagsType = new QualifiedType(new TagType(sizerFlags));
@@ -241,17 +316,30 @@ namespace CppSharp
             foreach (var ctor in staticBoxSizerCtors)
                 ctor.Parameters.First(p => p.Name == "orient").QualifiedType = sizerOrientationType;
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "dc.h", "dcclient.h" });
+            passBuilder.RemovePrefix("MM_");
+            passBuilder.RemovePrefix("FLOOD_");
+
+            ctx.IgnoreClassWithName("wxDCTextColourChanger");
+            ctx.IgnoreClassWithName("wxDCTextBgColourChanger");
+            ctx.IgnoreClassWithName("wxDCTextBgModeChanger");
+            ctx.IgnoreClassWithName("wxDCPenChanger");
+            ctx.IgnoreClassWithName("wxDCBrushChanger");
+            ctx.IgnoreClassWithName("wxDCClipper");
+            ctx.IgnoreClassWithName("wxDCFontChanger");
 
             ctx.IgnoreClassWithName("wxDCImpl");
             ctx.IgnoreClassWithName("wxDCFactory");
             ctx.IgnoreClassWithName("wxNativeDCFactory");
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "panel.h", "panelg.h", "msw/panel.h" });
             MoveTranslationUnitFromTo(ctx, "wx/generic/panelg.h", "wx/panel.h");
             //MoveTranslationUnitFromTo(ctx, "wx/msw/panel.h", "wx/panel.h");
+            MoveDefinitionsFromTo(ctx, "wxPanelBase", "wxPanel");
 
-            var orientation = ctx.GenerateEnumFromMacros("wxFrameOrientation", new string[]
+            var orientation = ctx.GenerateEnumFromMacros("wxFrameFlags", new string[]
             {
                 "wxCENTRE",
                 "wxFRAME_NO_TASKBAR",
@@ -285,18 +373,23 @@ namespace CppSharp
                 c => c.Parameters.Count == 7);
             frameCtor.Parameters[5].QualifiedType = new QualifiedType(new TagType(frameStyle));
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "containr.h" });
-
+            MoveDefinitionsFromTo(ctx, "wxControlContainerBase", "wxControlContainer");
             ctx.IgnoreFunctionWithName("wxSetFocusToChild");
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "brush.h" });
             MoveTranslationUnitFromTo(ctx, "wx/osx/brush.h", "wx/brush.h");
             MoveDefinitionsFromTo(ctx, "wxBrushBase", "wxBrush");
+            passBuilder.RemovePrefix("wxBRUSHSTYLE_");
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "pen.h", "peninfobase.h" });
             MoveTranslationUnitFromTo(ctx, "wx/osx/pen.h", "wx/pen.h");
             MoveDefinitionsFromTo(ctx, "wxPenBase", "wxPen");
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "peninfobase.h" });
             MoveTranslationUnitFromTo(ctx, "wx/peninfobase.h", "wx/pen.h");
 
@@ -310,6 +403,7 @@ namespace CppSharp
             passBuilder.RemovePrefix("wxJOIN_");
             passBuilder.RemovePrefix("wxCAP_");
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "colour.h" });
             MoveTranslationUnitFromTo(ctx, "wx/osx/core/colour.h", "wx/colour.h");
             MoveDefinitionsFromTo(ctx, "wxColourBase", "wxColour");
@@ -322,6 +416,8 @@ namespace CppSharp
             colorClass.Constructors.FirstOrDefault(c => c.Parameters.Any(
                 p => p.Name == "colourName" && p.Type.IsPointer())).ExplicitlyIgnore();
 
+            // ----------------------------------------------------------------
+
             passBuilder.Passes.Remove(
                 driver.Context.TranslationUnitPasses.Passes.Find(
                 p => p.GetType() == typeof(GetterSetterToPropertyPass)));
@@ -332,6 +428,7 @@ namespace CppSharp
 
             passBuilder.RemovePrefix("wx");
 
+            new RemoveDeclarations().VisitASTContext(ctx);
             new RemovePlatformSpecificMembers().VisitASTContext(ctx);
 
             var panelBase = ctx.FindCompleteClass("wxPanelBase");
@@ -568,6 +665,7 @@ namespace CppSharp
     }
 
     #region Type Maps
+
     [TypeMap("wxOrientation", GeneratorKind.CPlusPlus)]
     [TypeMap("wxOrientation", GeneratorKind.NAPI)]
     class WxOrientationTypeMap : TypeMap
@@ -660,9 +758,32 @@ namespace CppSharp
         }
     }
 
-#endregion
+    #endregion
 
-#region Custom Passes
+    #region Custom Passes
+
+    class RemoveDeclarations : TranslationUnitPass
+    {
+        public override bool VisitMethodDecl(Method method)
+        {
+            if (method.Name == "wxCreateObject")
+                method.ExplicitlyIgnore();
+
+            return base.VisitMethodDecl(method);
+        }
+
+        public override bool VisitClassDecl(Class @class)
+        {
+            if (@class.Name.StartsWith("compatibility_iterator") ||
+                @class.Name.StartsWith("iterator") ||
+                @class.Name.StartsWith("const_iterator") ||
+                @class.Name.StartsWith("reverse_iterator") ||
+                @class.Name.StartsWith("const_reverse_iterator"))
+                @class.GenerationKind = GenerationKind.None;
+
+            return base.VisitClassDecl(@class);
+        }
+    }
 
     class RemovePlatformSpecificMembers : TranslationUnitPass
     {

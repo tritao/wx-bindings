@@ -418,9 +418,13 @@ namespace CppSharp
 
             // ----------------------------------------------------------------
 
-            passBuilder.Passes.Remove(
-                driver.Context.TranslationUnitPasses.Passes.Find(
-                p => p.GetType() == typeof(GetterSetterToPropertyPass)));
+            bool processProperties = false;
+            if (!processProperties)
+            {
+                passBuilder.Passes.Remove(
+                    driver.Context.TranslationUnitPasses.Passes.Find(
+                    p => p.GetType() == typeof(GetterSetterToPropertyPass)));
+            }
 
             passBuilder.Passes.Remove(
                 driver.Context.TranslationUnitPasses.Passes.Find(

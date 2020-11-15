@@ -11,7 +11,6 @@ project "wxSharp.Gen"
   links { "System", "System.Core", "System.Xml" }
   SetupParser()
 
-
 project "wxSharp"
   kind "ConsoleApp"
   language "C#"  
@@ -19,6 +18,8 @@ project "wxSharp"
   files { "i686-apple-darwin/**.cs" }
   clr "Unsafe"
   framework "4.8"
+
+include("./BakefileGen/premake5.lua")
 
 --[[
 project "wxSharp.Tests"

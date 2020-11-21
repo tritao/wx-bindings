@@ -23,7 +23,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        submodules: true
+        with:
+          submodules: true
 
       - name: Environment
         if: matrix.config.vs > 0

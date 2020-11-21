@@ -38,4 +38,4 @@ jobs:
 
       - name: Build wxWidgets
         shell: bash
-        run: build-wx.sh -platform $PLATFORM
+        run: ./build-wx.sh -platform $PLATFORM

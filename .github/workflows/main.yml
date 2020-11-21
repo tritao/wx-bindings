@@ -26,6 +26,8 @@ jobs:
         with:
           submodules: true
 
+      - uses: lukka/get-cmake@latest
+
       - name: Environment
         if: matrix.config.vs > 0
         shell: bash

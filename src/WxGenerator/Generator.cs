@@ -19,6 +19,8 @@ namespace CppSharp
 {
     class wxSharpGen : ILibrary
     {
+        public TargetPlatform TargetPlatform;
+
         public static string WxPath => Path.Combine(GetExamplesDirectory("wxSharp"),
             "wxWidgets");
 
@@ -57,23 +59,38 @@ namespace CppSharp
 
             // TODO: Replace this with wx-config invocations.
 
+            TargetPlatform = TargetPlatform.Linux;
+
             var wxIncludePath = Path.Combine(WxPath, "include");
             module.IncludeDirs.Add(wxIncludePath);
             module.IncludeDirs.Add(Path.Combine(WxPath,
-                "build-cocoa-debug/lib/wx/include/osx_cocoa-unicode-3.1"));
-
-            module.Defines.Add("HAVE_SSIZE_T");
-            module.Defines.Add("_FILE_OFFSET_BITS=64");
+                "../build_wxwidgets/lib/wx/include/gtk3-unicode-3.1/"));
+            
             module.Defines.Add("WXUSINGDLL");
-            module.Defines.Add("__WXMAC__");
-            module.Defines.Add("__WXOSX__");
-            module.Defines.Add("__WXOSX_COCOA__");
             module.Defines.Add("wxUSE_GUI=1");
 
             var parserOptions = driver.ParserOptions;
-            parserOptions.TargetTriple = "i686-apple-darwin";
             parserOptions.AddIncludeDirs(wxIncludePath);
             parserOptions.UnityBuild = true;
+            parserOptions.SkipLayoutInfo = true;
+
+            if (TargetPlatform == TargetPlatform.MacOS)
+            {
+                parserOptions.TargetTriple = "i686-apple-darwin";
+
+                module.Defines.Add("__WXMAC__");
+                module.Defines.Add("__WXOSX__");
+                module.Defines.Add("__WXOSX_COCOA__");
+                module.Defines.Add("HAVE_SSIZE_T");
+                module.Defines.Add("_FILE_OFFSET_BITS=64");
+            } 
+            else if (TargetPlatform == TargetPlatform.Linux)
+            {
+                parserOptions.TargetTriple = "x86_64-pc-linux-gnu";
+
+                module.Defines.Add("__WXGTK3__"); 
+                module.Defines.Add("__WXGTK__");
+            }
 
             options.OutputDir = Path.Combine(GetExamplesDirectory("wxSharp"),
                 parserOptions.TargetTriple, GeneratorKind.ToString().ToLowerInvariant());
@@ -94,6 +111,7 @@ namespace CppSharp
         public void Preprocess(Driver driver, ASTContext ctx)
         {
             var passBuilder = driver.Context.TranslationUnitPasses;
+            var options = driver.Options;
 
             ctx.IgnoreTranslationUnits();
 
@@ -164,8 +182,28 @@ namespace CppSharp
 
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "window.h" });
-            MoveTranslationUnitFromTo(ctx, "wx/osx/window.h", "wx/window.h");
+
+            var wxWindow = ctx.FindCompleteClass("wxWindow");
+
+            if (TargetPlatform == TargetPlatform.MacOS)
+                MoveTranslationUnitFromTo(ctx, "wx/osx/window.h", "wx/window.h");
+
+            if (TargetPlatform == TargetPlatform.Linux)
+            {
+                MoveTranslationUnitFromTo(ctx, "wx/gtk/window.h", "wx/window.h");
+
+                wxWindow.Fields.Find(f => f.Name == "m_scrollBar").ExplicitlyIgnore();
+                wxWindow.Fields.Find(f => f.Name == "m_scrollPos").ExplicitlyIgnore();
+
+                ctx.FindCompleteClass("wxArrayGdkWindows").ExplicitlyIgnore();
+            }
+            
+            wxWindow.FindMethod("OnIdle")?.ExplicitlyIgnore();
+
             MoveDefinitionsFromTo(ctx, "wxWindowBase", "wxWindow");
+
+            wxWindow.FindMethod("OnSysColourChanged").ExplicitlyIgnore();
+            wxWindow.FindMethod("OnHelp").ExplicitlyIgnore();
 
             var nagivationKind = ctx.FindCompleteClass("wxWindow").FindEnum("NavigationKind");
             RenamePassExtensions.RemovePrefix("Navigation_", nagivationKind);
@@ -191,7 +229,13 @@ namespace CppSharp
 
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "nonownedwnd.h" });
-            MoveTranslationUnitFromTo(ctx, "wx/osx/nonownedwnd.h", "wx/nonownedwnd.h");
+
+            if (TargetPlatform == TargetPlatform.MacOS)
+                MoveTranslationUnitFromTo(ctx, "wx/osx/nonownedwnd.h", "wx/nonownedwnd.h");
+
+            if (TargetPlatform == TargetPlatform.Linux)
+                MoveTranslationUnitFromTo(ctx, "wx/gtk/nonownedwnd.h", "wx/nonownedwnd.h");     
+
             MoveDefinitionsFromTo(ctx, "wxNonOwnedWindowBase", "wxNonOwnedWindow");
 
             // TODO: Fix bug with public overriding protected base virtual method.
@@ -201,7 +245,13 @@ namespace CppSharp
             ctx.GenerateTranslationUnits(new[] { "app.h" });
             ctx.IgnoreClassWithName("wxAppInitializer");
             MoveTranslationUnitFromTo(ctx, "wx/unix/app.h", "wx/app.h");
-            MoveTranslationUnitFromTo(ctx, "wx/osx/app.h", "wx/app.h");
+
+            if (TargetPlatform == TargetPlatform.MacOS)
+                MoveTranslationUnitFromTo(ctx, "wx/osx/app.h", "wx/app.h");
+
+            if (TargetPlatform == TargetPlatform.Linux)
+                MoveTranslationUnitFromTo(ctx, "wx/gtk/app.h", "wx/app.h");     
+
             MoveDefinitionsFromTo(ctx, "wxAppConsoleBase", "wxAppConsole");
             MoveDefinitionsFromTo(ctx, "wxAppBase", "wxApp");
             ctx.IgnoreEnumWithMatchingItem("wxPRINT_WINDOWS");
@@ -213,19 +263,42 @@ namespace CppSharp
 
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "frame.h" });
-            MoveTranslationUnitFromTo(ctx, "wx/osx/frame.h", "wx/frame.h");
+
+            if (TargetPlatform == TargetPlatform.MacOS)
+                MoveTranslationUnitFromTo(ctx, "wx/osx/frame.h", "wx/frame.h");
+            
+            if (TargetPlatform == TargetPlatform.Linux)
+                MoveTranslationUnitFromTo(ctx, "wx/gtk/frame.h", "wx/frame.h");
+
             MoveDefinitionsFromTo(ctx, "wxFrameBase", "wxFrame");
 
+            var wxFrame = ctx.FindCompleteClass("wxFrame");
+            wxFrame.FindMethod("OnMenuOpen")?.ExplicitlyIgnore();
+            wxFrame.FindMethod("OnMenuClose")?.ExplicitlyIgnore();
+            wxFrame.FindMethod("OnMenuHighlight")?.ExplicitlyIgnore();
+
             ctx.GenerateTranslationUnits(new[] { "toplevel.h" });
-            MoveTranslationUnitFromTo(ctx, "wx/osx/toplevel.h", "wx/toplevel.h");
-            // TODO: Mac-specific code.
-            MoveDefinitionsFromTo(ctx, "wxTopLevelWindowBase", "wxTopLevelWindowMac");
-            MoveDefinitionsFromTo(ctx, "wxTopLevelWindowMac", "wxTopLevelWindow");
+
+            if (TargetPlatform == TargetPlatform.MacOS)
+            {
+                MoveTranslationUnitFromTo(ctx, "wx/osx/toplevel.h", "wx/toplevel.h");
+                MoveDefinitionsFromTo(ctx, "wxTopLevelWindowBase", "wxTopLevelWindowMac");
+                MoveDefinitionsFromTo(ctx, "wxTopLevelWindowMac", "wxTopLevelWindow");
+            }
+
+            if (TargetPlatform == TargetPlatform.Linux)
+            {
+                MoveTranslationUnitFromTo(ctx, "wx/gtk/toplevel.h", "wx/toplevel.h");
+                MoveDefinitionsFromTo(ctx, "wxTopLevelWindowBase", "wxTopLevelWindowGTK");
+                MoveDefinitionsFromTo(ctx, "wxTopLevelWindowGTK", "wxTopLevelWindow");
+            }
 
             // Undefined symbols "wxTopLevelWindow::wxCreateObject()"
             ctx.IgnoreClassMethodWithName("wxTopLevelWindow", "wxCreateObject");
 
-            ctx.FindCompleteClass("wxTopLevelWindow").FindClass("GeometrySerializer").ExplicitlyIgnore();
+            var geometrySerializer = ctx.FindCompleteClass("wxTopLevelWindow").FindClass("GeometrySerializer");
+            if (geometrySerializer != null)
+                geometrySerializer.ExplicitlyIgnore();
 
             // TODO: Fix parameters in wxTopLevelWindowBase::ShowFullScreen.
             var fullscreenMode = ctx.GetEnumWithMatchingItem("wxFULLSCREEN_NOMENUBAR");
@@ -390,13 +463,25 @@ namespace CppSharp
 
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "brush.h" });
-            MoveTranslationUnitFromTo(ctx, "wx/osx/brush.h", "wx/brush.h");
+
+            if (TargetPlatform == TargetPlatform.MacOS)
+                MoveTranslationUnitFromTo(ctx, "wx/osx/brush.h", "wx/brush.h");
+
+            if (TargetPlatform == TargetPlatform.Linux)
+                MoveTranslationUnitFromTo(ctx, "wx/gtk/brush.h", "wx/brush.h");
+
             MoveDefinitionsFromTo(ctx, "wxBrushBase", "wxBrush");
             passBuilder.RemovePrefix("wxBRUSHSTYLE_");
 
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "pen.h", "peninfobase.h" });
-            MoveTranslationUnitFromTo(ctx, "wx/osx/pen.h", "wx/pen.h");
+
+            if (TargetPlatform == TargetPlatform.MacOS)
+                MoveTranslationUnitFromTo(ctx, "wx/osx/pen.h", "wx/pen.h");
+
+            if (TargetPlatform == TargetPlatform.Linux)
+                MoveTranslationUnitFromTo(ctx, "wx/gtk/pen.h", "wx/pen.h");
+
             MoveDefinitionsFromTo(ctx, "wxPenBase", "wxPen");
 
             // ----------------------------------------------------------------
@@ -415,7 +500,13 @@ namespace CppSharp
 
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "colour.h" });
-            MoveTranslationUnitFromTo(ctx, "wx/osx/core/colour.h", "wx/colour.h");
+
+            if (TargetPlatform == TargetPlatform.MacOS)
+                MoveTranslationUnitFromTo(ctx, "wx/osx/core/colour.h", "wx/colour.h");
+
+            if (TargetPlatform == TargetPlatform.Linux)
+                MoveTranslationUnitFromTo(ctx, "wx/gtk/colour.h", "wx/colour.h");
+
             MoveDefinitionsFromTo(ctx, "wxColourBase", "wxColour");
 
             var colorClass = ctx.FindCompleteClass("wxColour");
@@ -594,7 +685,13 @@ namespace CppSharp
             string source, string dest)
         {
             var sourceClass = ctx.FindCompleteClass(source);
+            if (sourceClass == null)
+                throw new Exception($"Cannot find class {source}");
+
             var destClass = ctx.FindCompleteClass(dest);
+            if (destClass == null)
+                throw new Exception($"Cannot find class {dest}");
+
             MoveDefinitionsFromTo(sourceClass, destClass);
         }
 
@@ -1025,12 +1122,16 @@ namespace CppSharp
 
         string ProcessPath(string path)
         {
-            return path.Replace("panelg.h", "panel.h");
+            path = path.Replace("panelg.h", "panel.h");
+            path = path.Replace("paletteg.h", "palette.h");
+
+            return path;
         }
 
         bool TryFindFile(Class @class, out string path)
         {
             path = GetFilePath(@class.TranslationUnit.FileRelativePath);
+            path = ProcessPath(path);
 
             bool @continue = true;
             while (!File.Exists(path) && @continue)
@@ -1176,6 +1277,9 @@ namespace CppSharp
                             WxEventTypeId = eventId,
                             EventClass = eventClass
                         };
+
+                        if (@class.Events.FirstOrDefault(decl => decl.Name == @event.Name) != null)
+                            continue;
 
                         @class.Declarations.Add(@event);
 

@@ -3,14 +3,10 @@ _OPTIONS["disable-tests"] = true
 local cppsharp = '../'
 include(cppsharp .. "/build/premake5.lua")
 
-project "wxSharp.Gen"
-  kind "ConsoleApp"
-  language "C#"
-  files { "wxSharp.cs", "DoxygenParser.cs" }
-  links { "CppSharp", "CppSharp.AST", "CppSharp.Generator", "CppSharp.Parser" }
-  links { "System", "System.Core", "System.Xml" }
-  SetupParser()
+include("src/BakefileGen")
+include("src/WxGenerator")
 
+--[[
 project "wxSharp"
   kind "ConsoleApp"
   language "C#"  
@@ -21,7 +17,6 @@ project "wxSharp"
 
 include("./BakefileGen/premake5.lua")
 
---[[
 project "wxSharp.Tests"
 
   kind     "ConsoleApp"

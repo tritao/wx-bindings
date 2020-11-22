@@ -50,7 +50,7 @@ install_deps()
     fi
 
     if [ "$os" = "linux" ]; then
-        sudo apt install libcairo2-dev libgtk-2.0-dev libgtk-3-dev libfontconfig1-dev
+        sudo apt install libcairo2-dev libgtk2.0-dev libgtk-3-dev libfontconfig1-dev
     fi
 }
 

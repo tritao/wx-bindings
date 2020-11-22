@@ -1,50 +1,47 @@
-WX_BASE_DIR = "wxWidgets/"
-include("wx-files")
+local wx_path = "wxWidgets"
+local wx_build_path = "build/wxwidgets"
 
-workspace "wx"
-configurations {"Release"}
+function get_wx_config_path()
+  local wx_config_path = wx_build_path .. "/wx-config"
+  local result, errorcode = os.outputof(path.getabsolute(wx_config_path) .. " --cflags")
+  if errorcode ~= 0 then
+    print("Failed to invoke wx-config, exiting...")
+    os.exit(1)
+  end
+  return wx_config_path
+end
 
-project "wxcore"
-kind "SharedLib"
-includedirs { WX_BASE_DIR .. "include", WX_BASE_DIR .. "build-cmake/lib/wx/include/osx_cocoa-unicode-3.1" }
+function setup_wx_cflags()
+  buildoptions { "`" .. get_wx_config_path() .. " --cflags`" }
+end
 
-files { BASE_CMN_SRC }
+function setup_wx_libs(libs)
+  linkoptions { "`" .. get_wx_config_path() .. " --libs " .. libs .. "`" }
+end
 
-files { BASE_CMN_HDR }
+function setup_common()
+  buildoptions { "-std=c++11" }
 
---[[
-files { BASE_AND_GUI_CMN_SRC }
+  filter { "toolset:clang" }
+    buildoptions { "-std=c++11", "-fdeclspec" }
 
-files { GUI_CMN_SRC }
+  filter {}
 
-files { GUI_CMN_HDR }
+  buildoptions
+  {
+    "-isystem" .. path.getabsolute("../../../../include"),
+    "-iquote" .. path.getabsolute(".")
+  }
+end
 
-cfg = filter { "unix osx" }
-    files { BASE_UNIX_AND_DARWIN_SRC }
-    files { BASE_UNIX_AND_DARWIN_HDR }
-filter (cfg)
+function wx_get_target_dir()
+    if os.istarget("linux") then
+        return "gen/x86_64-pc-linux-gnu"
+    end
 
-cfg = filter { "unix" }
-    files { UNIX_SRC }
-filter (cfg)
+    if os.istarget("macosx") then
+        return "gen/i686-apple-darwin"
+    end
 
-cfg = filter { "macosx" }
-    files { BASE_COREFOUNDATION_SRC }
-    files { BASE_COREFOUNDATION_HDR }
-    files { BASE_OSX_SHARED_SRC }
-    files { BASE_OSX_SHARED_HDR }
-filter (cfg)
-
-cfg = filter { "windows" }
-    files { BASE_WIN32_SRC }
-    files { BASE_AND_GUI_WIN32_SRC }
-    files { BASE_WIN32_HDR }
-    files { MSW_LOWLEVEL_SRC }
-    files { MSW_SRC }
-    files { MSW_HDR }
-    files { MSW_DESKTOP_SRC }
-    files { MSW_DESKTOP_HDR }
-    files { MSW_DESKTOP_SRC }
-    files { MSW_DESKTOP_HDR }
-filter (cfg)
-]]
+    return ""
+end

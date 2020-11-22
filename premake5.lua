@@ -1,33 +1,34 @@
-_OPTIONS["disable-tests"] = true
-
 local cppsharp = '../'
-include(cppsharp .. "/build/premake5.lua")
+--_OPTIONS["disable-tests"] = true
+--_OPTIONS["disable-examples"] = true
 
-include("src/BakefileGen")
-include("src/WxGenerator")
+newoption {
+  trigger     = "arch",
+  description = "Choose a particular architecture / bitness",
+  allowed = {
+     { "x86",  "x86 32-bits" },
+     { "x64",  "x64 64-bits" },
+     { "AnyCPU",  "Any CPU (.NET)" },
+  },
+  default = "x64"
+}
 
---[[
-project "wxSharp"
-  kind "ConsoleApp"
-  language "C#"  
-  debugdir "."
-  files { "i686-apple-darwin/**.cs" }
-  clr "Unsafe"
-  framework "4.8"
+include("wx")
 
-include("./BakefileGen/premake5.lua")
+workspace "wx"
+  configurations { "Debug", "Release" }
 
-project "wxSharp.Tests"
+  location "build"
 
-  kind     "ConsoleApp"
-  language "C#"
-  location "."
-  
-  dependson "wxSharp"
+  --include(cppsharp .. "/build/premake5.lua")
+  --include("src/BakefileGen")
+  --include("src/WxGenerator")
 
-  files
-  {
-      libdir .. "/gen/**.cs",
-      "*.lua"
-  }
-]]
+  project "wx"
+    kind "StaticLib"
+    symbols "On"
+    files { wx_get_target_dir() .. "**.cpp" }
+    removefiles { "**/defs.cpp", "test-**" }
+    setup_common()
+    setup_wx_cflags()
+    setup_wx_libs("base core")

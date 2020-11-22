@@ -1,6 +1,6 @@
 project "WxGenerator"
   kind "ConsoleApp"
   language "C#"
-  files { "wxSharp.cs", "DoxygenParser.cs" }
+  files { "Generator.cs", "DoxygenParser.cs" }
   links { "CppSharp", "CppSharp.AST", "CppSharp.Generator", "CppSharp.Parser" }
   SetupParser()

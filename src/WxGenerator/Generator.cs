@@ -61,10 +61,15 @@ namespace CppSharp
 
             TargetPlatform = TargetPlatform.Linux;
 
+            var wxBuildPath = Path.Combine(WxPath, "../build/wxwidgets");
+            var wxBuildIncludePath = Path.Combine(wxBuildPath, "lib/wx/include");
+            var wxBuildVariantDirName = Directory.EnumerateDirectories(wxBuildIncludePath).FirstOrDefault();
+            if (string.IsNullOrEmpty(wxBuildVariantDirName))
+                throw new Exception("Expected wxWidgets build variant");
+
             var wxIncludePath = Path.Combine(WxPath, "include");
             module.IncludeDirs.Add(wxIncludePath);
-            module.IncludeDirs.Add(Path.Combine(WxPath,
-                "../build_wxwidgets/lib/wx/include/gtk3-unicode-3.1/"));
+            module.IncludeDirs.Add(Path.Combine(wxBuildIncludePath, wxBuildVariantDirName));
             
             module.Defines.Add("WXUSINGDLL");
             module.Defines.Add("wxUSE_GUI=1");
@@ -92,7 +97,7 @@ namespace CppSharp
                 module.Defines.Add("__WXGTK__");
             }
 
-            options.OutputDir = Path.Combine(GetExamplesDirectory("wxSharp"),
+            options.OutputDir = Path.Combine(GetExamplesDirectory("wxSharp/gen"),
                 parserOptions.TargetTriple, GeneratorKind.ToString().ToLowerInvariant());
             options.GenerateDeprecatedDeclarations = false;
             options.GenerationOutputMode = GenerationOutputMode.FilePerUnit;

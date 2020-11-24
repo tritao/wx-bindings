@@ -1,4 +1,3 @@
-local cppsharp = '../'
 --_OPTIONS["disable-tests"] = true
 --_OPTIONS["disable-examples"] = true
 
@@ -12,6 +11,9 @@ newoption {
   },
   default = "x64"
 }
+
+rootdir = path.getabsolute(".")
+cppsharpdir = path.getabsolute(path.join(rootdir, '../..'))
 
 include("wx")
 
@@ -27,8 +29,10 @@ workspace "wx"
   project "wx"
     kind "StaticLib"
     symbols "On"
-    files { wx_get_target_dir() .. "**.cpp" }
+    files { path.join(wx_get_target_dir(), "cplusplus", "**.cpp") }
     removefiles { "**/defs.cpp", "test-**" }
     setup_common()
     setup_wx_cflags()
     setup_wx_libs("base core")
+
+  include "tests/minimal"

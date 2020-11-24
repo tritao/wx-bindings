@@ -41,3 +41,7 @@ jobs:
       - name: Build wxWidgets
         shell: bash
         run: ./build-wx.sh -platform $PLATFORM
+
+      - name: Build generated bindings
+        shell: bash
+        run: ./build.sh -platform $PLATFORM

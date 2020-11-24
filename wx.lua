@@ -1,5 +1,19 @@
-local wx_path = "wxWidgets"
-local wx_build_path = "build/wxwidgets"
+local wx_path = path.join(rootdir, "wxWidgets")
+local wx_build_path = path.join(rootdir, "build/wxwidgets")
+
+function wx_get_target_dir()
+    local gendir = path.getabsolute(path.join(rootdir, "gen"))
+
+    if os.istarget("linux") then
+        return path.join(gendir, "x86_64-pc-linux-gnu")
+    end
+
+    if os.istarget("macosx") then
+        return path.join(gendir, "i686-apple-darwin")
+    end
+
+    return ""
+end
 
 function get_wx_config_path()
   local wx_config_path = wx_build_path .. "/wx-config"
@@ -29,19 +43,8 @@ function setup_common()
 
   buildoptions
   {
-    "-isystem" .. path.getabsolute("../../../../include"),
-    "-iquote" .. path.getabsolute(".")
+    "-iquote" .. path.join(wx_get_target_dir(), "cplusplus"),
+    "-isystem" .. path.join(cppsharpdir, "include"),
   }
 end
 
-function wx_get_target_dir()
-    if os.istarget("linux") then
-        return "gen/x86_64-pc-linux-gnu"
-    end
-
-    if os.istarget("macosx") then
-        return "gen/i686-apple-darwin"
-    end
-
-    return ""
-end

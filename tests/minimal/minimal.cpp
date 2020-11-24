@@ -6,6 +6,7 @@
 #include "wx/event.h"
 #include "wx/dcclient.h"
 #include "wx/sizer.h"
+#include "wx/eventhandlers.h"
 
 using namespace wxSharp;
 
@@ -64,7 +65,7 @@ int main(int argc, char *argv[])
     if(!wxEntryStart(dummy, static_cast<wxChar**>(nullptr)))
         return 1;
 
-    //wxEvtHandler::AddFilter(new _EventFilter());
+    wxEvtHandler::AddFilter(new _EventFilter());
 
     auto app = CreateApp();
     // -----------------------------------

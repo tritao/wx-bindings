@@ -77,7 +77,7 @@ namespace CppSharp
             var parserOptions = driver.ParserOptions;
             parserOptions.AddIncludeDirs(wxIncludePath);
             parserOptions.UnityBuild = true;
-            parserOptions.SkipLayoutInfo = true;
+            //parserOptions.SkipLayoutInfo = true;
 
             if (TargetPlatform == TargetPlatform.MacOS)
             {

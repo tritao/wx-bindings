@@ -120,6 +120,24 @@ wxSharp::DC::~DC()
 {
 }
 
+int wxSharp::DC::GetResolution() const
+{
+    int __ret = ((::wxDC*)__Instance)->GetResolution();
+    return __ret;
+}
+
+::wxSharp::GraphicsContext* wxSharp::DC::GetGraphicsContext() const
+{
+    ::wxGraphicsContext* __ret = ((::wxDC*)__Instance)->GetGraphicsContext();
+    return (__ret == nullptr) ? nullptr : new wxSharp::GraphicsContext((::wxGraphicsContext*)__ret);
+}
+
+void wxSharp::DC::SetGraphicsContext(::wxSharp::GraphicsContext* ctx)
+{
+    auto __arg0 = ctx ? (::wxGraphicsContext*)ctx->__Instance : nullptr;
+    ((::wxDC*)__Instance)->SetGraphicsContext(__arg0);
+}
+
 void wxSharp::DC::CopyAttributes(const ::wxSharp::DC& dc)
 {
     auto &__arg0 = *(::wxDC*)dc.__Instance;
@@ -199,12 +217,6 @@ int wxSharp::DC::GetDepth() const
     ::wxSize __ret = ((::wxDC*)__Instance)->GetPPI();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
-}
-
-int wxSharp::DC::GetResolution() const
-{
-    int __ret = ((::wxDC*)__Instance)->GetResolution();
-    return __ret;
 }
 
 double wxSharp::DC::GetContentScaleFactor() const
@@ -1037,17 +1049,5 @@ void wxSharp::DC::DrawSpline(const ::wxSharp::PointList* points)
 {
     auto __arg0 = points ? (::wxPointList*)points->__Instance : nullptr;
     ((::wxDC*)__Instance)->DrawSpline(__arg0);
-}
-
-::wxSharp::GraphicsContext* wxSharp::DC::GetGraphicsContext() const
-{
-    ::wxGraphicsContext* __ret = ((::wxDC*)__Instance)->GetGraphicsContext();
-    return (__ret == nullptr) ? nullptr : new wxSharp::GraphicsContext((::wxGraphicsContext*)__ret);
-}
-
-void wxSharp::DC::SetGraphicsContext(::wxSharp::GraphicsContext* ctx)
-{
-    auto __arg0 = ctx ? (::wxGraphicsContext*)ctx->__Instance : nullptr;
-    ((::wxDC*)__Instance)->SetGraphicsContext(__arg0);
 }
 

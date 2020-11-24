@@ -121,6 +121,12 @@ namespace wxSharp
 
         ~DC();
 
+        virtual int GetResolution() const;
+
+        virtual ::wxSharp::GraphicsContext* GetGraphicsContext() const;
+
+        virtual void SetGraphicsContext(::wxSharp::GraphicsContext* ctx);
+
         void CopyAttributes(const ::wxSharp::DC& dc);
 
         ::wxSharp::Window* GetWindow() const;
@@ -144,8 +150,6 @@ namespace wxSharp
         int GetDepth() const;
 
         ::wxSharp::Size GetPPI() const;
-
-        virtual int GetResolution() const;
 
         double GetContentScaleFactor() const;
 
@@ -368,9 +372,5 @@ namespace wxSharp
         void DrawSpline(int n, ::wxSharp::Point points[]);
 
         void DrawSpline(const ::wxSharp::PointList* points);
-
-        virtual ::wxSharp::GraphicsContext* GetGraphicsContext() const;
-
-        virtual void SetGraphicsContext(::wxSharp::GraphicsContext* ctx);
     };
 }

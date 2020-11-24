@@ -111,6 +111,8 @@ restore()
 
 build()
 {
+  download
+
   if [ $ci = true ]; then
     clean
   fi

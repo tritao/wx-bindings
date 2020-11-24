@@ -21,6 +21,16 @@ workspace "wx"
   configurations { "Debug", "Release" }
 
   location "build"
+  symbols "On"
+
+  filter { "configurations:Debug" }
+    defines { "DEBUG" }
+
+  filter { "configurations:Release" }
+    defines { "NDEBUG" }
+    optimize "On"
+
+  filter {}
 
   --include(cppsharp .. "/build/premake5.lua")
   --include("src/BakefileGen")
@@ -28,7 +38,6 @@ workspace "wx"
 
   project "wx"
     kind "StaticLib"
-    symbols "On"
     files { path.join(wx_get_target_dir(), "cplusplus", "**.cpp") }
     removefiles { "**/defs.cpp", "test-**" }
     setup_common()

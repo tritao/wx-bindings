@@ -52,6 +52,10 @@ parse_options()
       -debug)
         configuration=Debug
         ;;
+      -configuration|-config)
+        configuration=$2
+        shift
+        ;;
       -platform)
         platform=$2
         shift

@@ -1,7 +1,6 @@
 
 project "minimal"
   kind "ConsoleApp"
-  symbols "On"
   files { "*.cpp" }
   links { "wx" }
   setup_common()

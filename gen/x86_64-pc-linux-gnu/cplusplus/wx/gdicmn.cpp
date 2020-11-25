@@ -13,7 +13,9 @@
 #include "wx/pen.h"
 
 #include <wx/eventfilter.h>
-wxSharp::Size::Size(::wxSize* instance)
+
+wxSharp::Size::Size(::wxSize* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -178,7 +180,8 @@ void wxSharp::Size::set_y(int value)
     ((::wxSize*)__Instance)->y = value;
 }
 
-wxSharp::RealPoint::RealPoint(::wxRealPoint* instance)
+wxSharp::RealPoint::RealPoint(::wxRealPoint* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -237,7 +240,8 @@ void wxSharp::RealPoint::set_y(double value)
     ((::wxRealPoint*)__Instance)->y = value;
 }
 
-wxSharp::Point::Point(::wxPoint* instance)
+wxSharp::Point::Point(::wxPoint* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -308,7 +312,8 @@ void wxSharp::Point::set_y(int value)
     ((::wxPoint*)__Instance)->y = value;
 }
 
-wxSharp::wxPointListNode::wxPointListNode(::wxwxPointListNode* instance)
+wxSharp::wxPointListNode::wxPointListNode(::wxwxPointListNode* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -341,7 +346,8 @@ void wxSharp::wxPointListNode::SetData(::wxSharp::Point* data)
     ((::wxwxPointListNode*)__Instance)->SetData(__arg0);
 }
 
-wxSharp::PointList::PointList(::wxPointList* instance)
+wxSharp::PointList::PointList(::wxPointList* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -554,7 +560,8 @@ void wxSharp::PointList::reverse()
     ((::wxPointList*)__Instance)->reverse();
 }
 
-wxSharp::Rect::Rect(::wxRect* instance)
+wxSharp::Rect::Rect(::wxRect* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -967,7 +974,8 @@ void wxSharp::Rect::set_height(int value)
     ((::wxRect*)__Instance)->height = value;
 }
 
-wxSharp::GDIObjListBase::GDIObjListBase(::wxGDIObjListBase* instance)
+wxSharp::GDIObjListBase::GDIObjListBase(::wxGDIObjListBase* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -989,7 +997,8 @@ wxSharp::GDIObjListBase::GDIObjListBase(const ::wxSharp::GDIObjListBase& _0)
     __Instance = new ::wxGDIObjListBase(__arg0);
 }
 
-wxSharp::ColourDatabase::ColourDatabase(::wxColourDatabase* instance)
+wxSharp::ColourDatabase::ColourDatabase(::wxColourDatabase* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1033,7 +1042,8 @@ wxSharp::ColourDatabase::ColourDatabase(const ::wxSharp::ColourDatabase& _0)
     __Instance = new ::wxColourDatabase(__arg0);
 }
 
-wxSharp::ResourceCache::ResourceCache(::wxResourceCache* instance)
+wxSharp::ResourceCache::ResourceCache(::wxResourceCache* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1061,7 +1071,8 @@ wxSharp::ResourceCache::ResourceCache(const ::wxSharp::ResourceCache& _0)
     __Instance = new ::wxResourceCache(__arg0);
 }
 
-wxSharp::StockGDI::StockGDI(::wxStockGDI* instance)
+wxSharp::StockGDI::StockGDI(::wxStockGDI* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }

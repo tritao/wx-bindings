@@ -26,7 +26,7 @@ namespace wxSharp
     {
     public:
 
-        AppConsole(::wxAppConsole* instance);
+        AppConsole(::wxAppConsole* instance, bool ownNativeInstance = false);
 
         AppConsole();
 
@@ -135,7 +135,7 @@ namespace wxSharp
     {
     public:
 
-        App(::wxApp* instance);
+        App(::wxApp* instance, bool ownNativeInstance = false);
 
         App();
 

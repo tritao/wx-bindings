@@ -9,8 +9,9 @@
 #include "wx/window.h"
 
 #include <wx/eventfilter.h>
-wxSharp::WindowDC::WindowDC(::wxWindowDC* instance)
-    : wxSharp::DC((::wxDC*)instance)
+
+wxSharp::WindowDC::WindowDC(::wxWindowDC* instance, bool ownNativeInstance)
+    : wxSharp::DC((::wxDC*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -27,8 +28,8 @@ wxSharp::WindowDC::WindowDC(::wxSharp::Window* win)
     __Instance = new ::wxWindowDC(__arg0);
 }
 
-wxSharp::ClientDC::ClientDC(::wxClientDC* instance)
-    : wxSharp::WindowDC((::wxWindowDC*)instance)
+wxSharp::ClientDC::ClientDC(::wxClientDC* instance, bool ownNativeInstance)
+    : wxSharp::WindowDC((::wxWindowDC*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -45,8 +46,8 @@ wxSharp::ClientDC::ClientDC(::wxSharp::Window* win)
     __Instance = new ::wxClientDC(__arg0);
 }
 
-wxSharp::PaintDC::PaintDC(::wxPaintDC* instance)
-    : wxSharp::ClientDC((::wxClientDC*)instance)
+wxSharp::PaintDC::PaintDC(::wxPaintDC* instance, bool ownNativeInstance)
+    : wxSharp::ClientDC((::wxClientDC*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }

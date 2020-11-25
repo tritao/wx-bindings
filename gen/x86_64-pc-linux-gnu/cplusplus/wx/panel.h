@@ -27,7 +27,7 @@ namespace wxSharp
     {
     public:
 
-        Panel(::wxPanel* instance);
+        Panel(::wxPanel* instance, bool ownNativeInstance = false);
 
         Panel();
 

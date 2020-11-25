@@ -12,13 +12,15 @@
 #include "wx/panel.h"
 
 #include <wx/eventfilter.h>
-wxSharp::Panel::Panel(::wxPanel* instance)
+
+wxSharp::Panel::Panel(::wxPanel* instance, bool ownNativeInstance)
+    : wxSharp::Window((::wxWindow*)instance, ownNativeInstance)
 {
     __Instance = instance;
 
-    auto _instance = (wxPanel*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxPanel*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 wxSharp::Panel::~Panel()
@@ -26,16 +28,18 @@ wxSharp::Panel::~Panel()
 }
 
 wxSharp::Panel::Panel()
+    : wxSharp::Window((::wxWindow*)nullptr)
 {
     __ownsNativeInstance = true;
     __Instance = new ::wxPanel();
 
-    auto _instance = (wxPanel*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxPanel*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 wxSharp::Panel::Panel(::wxSharp::Window* parent, int winid, const ::wxSharp::Point& pos, const ::wxSharp::Size& size, long style, const char* name)
+    : wxSharp::Window((::wxWindow*)nullptr)
 {
     __ownsNativeInstance = true;
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
@@ -45,9 +49,9 @@ wxSharp::Panel::Panel(::wxSharp::Window* parent, int winid, const ::wxSharp::Poi
     auto __arg5 = name;
     __Instance = new ::wxPanel(__arg0, __arg1, __arg2, __arg3, style, __arg5);
 
-    auto _instance = (wxPanel*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxPanel*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 bool wxSharp::Panel::Create(::wxSharp::Window* parent, int winid, const ::wxSharp::Point& pos, const ::wxSharp::Size& size, long style, const char* name)

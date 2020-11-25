@@ -11,8 +11,9 @@
 #include "wx/window.h"
 
 #include <wx/eventfilter.h>
-wxSharp::Event::Event(::wxEvent* instance)
-    : wxSharp::Object((::wxObject*)instance)
+
+wxSharp::Event::Event(::wxEvent* instance, bool ownNativeInstance)
+    : wxSharp::Object((::wxObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -173,7 +174,8 @@ void wxSharp::Event::set_m_callbackUserData(::wxSharp::Object* value)
     ((::wxEvent*)__Instance)->m_callbackUserData = __arg0;
 }
 
-wxSharp::PropagateOnce::PropagateOnce(::wxPropagateOnce* instance)
+wxSharp::PropagateOnce::PropagateOnce(::wxPropagateOnce* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -190,8 +192,8 @@ wxSharp::PropagateOnce::PropagateOnce(::wxSharp::Event& event, ::wxSharp::EvtHan
     __Instance = new ::wxPropagateOnce(__arg0, __arg1);
 }
 
-wxSharp::IdleEvent::IdleEvent(::wxIdleEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::IdleEvent::IdleEvent(::wxIdleEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -236,8 +238,8 @@ void wxSharp::IdleEvent::SetMode(::wxSharp::IdleMode mode)
     return (::wxSharp::IdleMode)__ret;
 }
 
-wxSharp::ThreadEvent::ThreadEvent(::wxThreadEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::ThreadEvent::ThreadEvent(::wxThreadEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -266,8 +268,8 @@ wxSharp::ThreadEvent::ThreadEvent(int eventType, int id)
     return (::wxSharp::EventCategory)__ret;
 }
 
-wxSharp::AsyncMethodCallEvent::AsyncMethodCallEvent(::wxAsyncMethodCallEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::AsyncMethodCallEvent::AsyncMethodCallEvent(::wxAsyncMethodCallEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -287,8 +289,8 @@ void wxSharp::AsyncMethodCallEvent::Execute()
     ((::wxAsyncMethodCallEvent*)__Instance)->Execute();
 }
 
-wxSharp::CommandEvent::CommandEvent(::wxCommandEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::CommandEvent::CommandEvent(::wxCommandEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -353,8 +355,8 @@ bool wxSharp::CommandEvent::IsSelection() const
     return (::wxSharp::EventCategory)__ret;
 }
 
-wxSharp::NotifyEvent::NotifyEvent(::wxNotifyEvent* instance)
-    : wxSharp::CommandEvent((::wxCommandEvent*)instance)
+wxSharp::NotifyEvent::NotifyEvent(::wxNotifyEvent* instance, bool ownNativeInstance)
+    : wxSharp::CommandEvent((::wxCommandEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -393,8 +395,8 @@ bool wxSharp::NotifyEvent::IsAllowed() const
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::ScrollEvent::ScrollEvent(::wxScrollEvent* instance)
-    : wxSharp::CommandEvent((::wxCommandEvent*)instance)
+wxSharp::ScrollEvent::ScrollEvent(::wxScrollEvent* instance, bool ownNativeInstance)
+    : wxSharp::CommandEvent((::wxCommandEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -439,8 +441,8 @@ void wxSharp::ScrollEvent::SetPosition(int pos)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::ScrollWinEvent::ScrollWinEvent(::wxScrollWinEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::ScrollWinEvent::ScrollWinEvent(::wxScrollWinEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -485,8 +487,8 @@ void wxSharp::ScrollWinEvent::SetPosition(int pos)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::MouseEvent::MouseEvent(::wxMouseEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::MouseEvent::MouseEvent(::wxMouseEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -830,8 +832,8 @@ void wxSharp::MouseEvent::set_m_magnification(float value)
     ((::wxMouseEvent*)__Instance)->m_magnification = value;
 }
 
-wxSharp::SetCursorEvent::SetCursorEvent(::wxSetCursorEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::SetCursorEvent::SetCursorEvent(::wxSetCursorEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -873,8 +875,8 @@ bool wxSharp::SetCursorEvent::HasCursor() const
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::GestureEvent::GestureEvent(::wxGestureEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::GestureEvent::GestureEvent(::wxGestureEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -926,8 +928,8 @@ void wxSharp::GestureEvent::SetGestureEnd(bool isEnd)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::PanGestureEvent::PanGestureEvent(::wxPanGestureEvent* instance)
-    : wxSharp::GestureEvent((::wxGestureEvent*)instance)
+wxSharp::PanGestureEvent::PanGestureEvent(::wxPanGestureEvent* instance, bool ownNativeInstance)
+    : wxSharp::GestureEvent((::wxGestureEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -963,8 +965,8 @@ void wxSharp::PanGestureEvent::SetDelta(const ::wxSharp::Point& delta)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::ZoomGestureEvent::ZoomGestureEvent(::wxZoomGestureEvent* instance)
-    : wxSharp::GestureEvent((::wxGestureEvent*)instance)
+wxSharp::ZoomGestureEvent::ZoomGestureEvent(::wxZoomGestureEvent* instance, bool ownNativeInstance)
+    : wxSharp::GestureEvent((::wxGestureEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -998,8 +1000,8 @@ void wxSharp::ZoomGestureEvent::SetZoomFactor(double zoomFactor)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::RotateGestureEvent::RotateGestureEvent(::wxRotateGestureEvent* instance)
-    : wxSharp::GestureEvent((::wxGestureEvent*)instance)
+wxSharp::RotateGestureEvent::RotateGestureEvent(::wxRotateGestureEvent* instance, bool ownNativeInstance)
+    : wxSharp::GestureEvent((::wxGestureEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1033,8 +1035,8 @@ void wxSharp::RotateGestureEvent::SetRotationAngle(double rotationAngle)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::TwoFingerTapEvent::TwoFingerTapEvent(::wxTwoFingerTapEvent* instance)
-    : wxSharp::GestureEvent((::wxGestureEvent*)instance)
+wxSharp::TwoFingerTapEvent::TwoFingerTapEvent(::wxTwoFingerTapEvent* instance, bool ownNativeInstance)
+    : wxSharp::GestureEvent((::wxGestureEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1057,8 +1059,8 @@ wxSharp::TwoFingerTapEvent::TwoFingerTapEvent(int winid)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::LongPressEvent::LongPressEvent(::wxLongPressEvent* instance)
-    : wxSharp::GestureEvent((::wxGestureEvent*)instance)
+wxSharp::LongPressEvent::LongPressEvent(::wxLongPressEvent* instance, bool ownNativeInstance)
+    : wxSharp::GestureEvent((::wxGestureEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1081,8 +1083,8 @@ wxSharp::LongPressEvent::LongPressEvent(int winid)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::PressAndTapEvent::PressAndTapEvent(::wxPressAndTapEvent* instance)
-    : wxSharp::GestureEvent((::wxGestureEvent*)instance)
+wxSharp::PressAndTapEvent::PressAndTapEvent(::wxPressAndTapEvent* instance, bool ownNativeInstance)
+    : wxSharp::GestureEvent((::wxGestureEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1105,8 +1107,8 @@ wxSharp::PressAndTapEvent::PressAndTapEvent(int winid)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::KeyEvent::KeyEvent(::wxKeyEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::KeyEvent::KeyEvent(::wxKeyEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1299,8 +1301,8 @@ void wxSharp::KeyEvent::set_m_rawFlags(unsigned int value)
     ((::wxKeyEvent*)__Instance)->m_rawFlags = __arg0;
 }
 
-wxSharp::SizeEvent::SizeEvent(::wxSizeEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::SizeEvent::SizeEvent(::wxSizeEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1392,8 +1394,8 @@ void wxSharp::SizeEvent::set_m_rect(::wxSharp::Rect value)
     ((::wxSizeEvent*)__Instance)->m_rect = __arg0;
 }
 
-wxSharp::MoveEvent::MoveEvent(::wxMoveEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::MoveEvent::MoveEvent(::wxMoveEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1457,8 +1459,8 @@ void wxSharp::MoveEvent::SetRect(const ::wxSharp::Rect& rect)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::PaintEvent::PaintEvent(::wxPaintEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::PaintEvent::PaintEvent(::wxPaintEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1473,8 +1475,8 @@ wxSharp::PaintEvent::~PaintEvent()
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::NcPaintEvent::NcPaintEvent(::wxNcPaintEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::NcPaintEvent::NcPaintEvent(::wxNcPaintEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1489,8 +1491,8 @@ wxSharp::NcPaintEvent::~NcPaintEvent()
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::EraseEvent::EraseEvent(::wxEraseEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::EraseEvent::EraseEvent(::wxEraseEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1519,8 +1521,8 @@ wxSharp::EraseEvent::EraseEvent(int Id, ::wxSharp::DC* dc)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::FocusEvent::FocusEvent(::wxFocusEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::FocusEvent::FocusEvent(::wxFocusEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1555,8 +1557,8 @@ void wxSharp::FocusEvent::SetWindow(::wxSharp::Window* win)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::ChildFocusEvent::ChildFocusEvent(::wxChildFocusEvent* instance)
-    : wxSharp::CommandEvent((::wxCommandEvent*)instance)
+wxSharp::ChildFocusEvent::ChildFocusEvent(::wxChildFocusEvent* instance, bool ownNativeInstance)
+    : wxSharp::CommandEvent((::wxCommandEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1585,8 +1587,8 @@ wxSharp::ChildFocusEvent::ChildFocusEvent(::wxSharp::Window* win)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::ActivateEvent::ActivateEvent(::wxActivateEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::ActivateEvent::ActivateEvent(::wxActivateEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1622,8 +1624,8 @@ bool wxSharp::ActivateEvent::GetActive() const
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::InitDialogEvent::InitDialogEvent(::wxInitDialogEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::InitDialogEvent::InitDialogEvent(::wxInitDialogEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1645,8 +1647,8 @@ wxSharp::InitDialogEvent::InitDialogEvent(int Id)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::MenuEvent::MenuEvent(::wxMenuEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::MenuEvent::MenuEvent(::wxMenuEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1673,8 +1675,8 @@ bool wxSharp::MenuEvent::IsPopup() const
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::CloseEvent::CloseEvent(::wxCloseEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::CloseEvent::CloseEvent(::wxCloseEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1730,8 +1732,8 @@ bool wxSharp::CloseEvent::GetVeto() const
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::ShowEvent::ShowEvent(::wxShowEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::ShowEvent::ShowEvent(::wxShowEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1764,8 +1766,8 @@ bool wxSharp::ShowEvent::IsShown() const
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::IconizeEvent::IconizeEvent(::wxIconizeEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::IconizeEvent::IconizeEvent(::wxIconizeEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1793,8 +1795,8 @@ bool wxSharp::IconizeEvent::IsIconized() const
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::MaximizeEvent::MaximizeEvent(::wxMaximizeEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::MaximizeEvent::MaximizeEvent(::wxMaximizeEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1816,8 +1818,8 @@ wxSharp::MaximizeEvent::MaximizeEvent(int winid)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::JoystickEvent::JoystickEvent(::wxJoystickEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::JoystickEvent::JoystickEvent(::wxJoystickEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1939,8 +1941,8 @@ bool wxSharp::JoystickEvent::ButtonIsDown(int but) const
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::UpdateUIEvent::UpdateUIEvent(::wxUpdateUIEvent* instance)
-    : wxSharp::CommandEvent((::wxCommandEvent*)instance)
+wxSharp::UpdateUIEvent::UpdateUIEvent(::wxUpdateUIEvent* instance, bool ownNativeInstance)
+    : wxSharp::CommandEvent((::wxCommandEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2071,8 +2073,8 @@ void wxSharp::UpdateUIEvent::SetMode(::wxSharp::UpdateUIMode mode)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::SysColourChangedEvent::SysColourChangedEvent(::wxSysColourChangedEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::SysColourChangedEvent::SysColourChangedEvent(::wxSysColourChangedEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2094,8 +2096,8 @@ wxSharp::SysColourChangedEvent::SysColourChangedEvent()
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::MouseCaptureChangedEvent::MouseCaptureChangedEvent(::wxMouseCaptureChangedEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::MouseCaptureChangedEvent::MouseCaptureChangedEvent(::wxMouseCaptureChangedEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2125,8 +2127,8 @@ wxSharp::MouseCaptureChangedEvent::MouseCaptureChangedEvent(int winid, ::wxSharp
     return (__ret == nullptr) ? nullptr : new wxSharp::Window((::wxWindow*)__ret);
 }
 
-wxSharp::MouseCaptureLostEvent::MouseCaptureLostEvent(::wxMouseCaptureLostEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::MouseCaptureLostEvent::MouseCaptureLostEvent(::wxMouseCaptureLostEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2149,8 +2151,8 @@ wxSharp::MouseCaptureLostEvent::MouseCaptureLostEvent(int winid)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::DisplayChangedEvent::DisplayChangedEvent(::wxDisplayChangedEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::DisplayChangedEvent::DisplayChangedEvent(::wxDisplayChangedEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2172,8 +2174,8 @@ wxSharp::DisplayChangedEvent::DisplayChangedEvent()
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::DPIChangedEvent::DPIChangedEvent(::wxDPIChangedEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::DPIChangedEvent::DPIChangedEvent(::wxDPIChangedEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2211,8 +2213,8 @@ wxSharp::DPIChangedEvent::DPIChangedEvent(const ::wxSharp::Size& oldDPI, const :
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::PaletteChangedEvent::PaletteChangedEvent(::wxPaletteChangedEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::PaletteChangedEvent::PaletteChangedEvent(::wxPaletteChangedEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2247,8 +2249,8 @@ void wxSharp::PaletteChangedEvent::SetChangedWindow(::wxSharp::Window* win)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::QueryNewPaletteEvent::QueryNewPaletteEvent(::wxQueryNewPaletteEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::QueryNewPaletteEvent::QueryNewPaletteEvent(::wxQueryNewPaletteEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2282,8 +2284,8 @@ bool wxSharp::QueryNewPaletteEvent::GetPaletteRealized() const
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::NavigationKeyEvent::NavigationKeyEvent(::wxNavigationKeyEvent* instance)
-    : wxSharp::Event((::wxEvent*)instance)
+wxSharp::NavigationKeyEvent::NavigationKeyEvent(::wxNavigationKeyEvent* instance, bool ownNativeInstance)
+    : wxSharp::Event((::wxEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2380,8 +2382,8 @@ void wxSharp::NavigationKeyEvent::set_m_focus(::wxSharp::Window* value)
     ((::wxNavigationKeyEvent*)__Instance)->m_focus = __arg0;
 }
 
-wxSharp::WindowCreateEvent::WindowCreateEvent(::wxWindowCreateEvent* instance)
-    : wxSharp::CommandEvent((::wxCommandEvent*)instance)
+wxSharp::WindowCreateEvent::WindowCreateEvent(::wxWindowCreateEvent* instance, bool ownNativeInstance)
+    : wxSharp::CommandEvent((::wxCommandEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2410,8 +2412,8 @@ wxSharp::WindowCreateEvent::WindowCreateEvent(::wxSharp::Window* win)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::WindowDestroyEvent::WindowDestroyEvent(::wxWindowDestroyEvent* instance)
-    : wxSharp::CommandEvent((::wxCommandEvent*)instance)
+wxSharp::WindowDestroyEvent::WindowDestroyEvent(::wxWindowDestroyEvent* instance, bool ownNativeInstance)
+    : wxSharp::CommandEvent((::wxCommandEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2440,8 +2442,8 @@ wxSharp::WindowDestroyEvent::WindowDestroyEvent(::wxSharp::Window* win)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::HelpEvent::HelpEvent(::wxHelpEvent* instance)
-    : wxSharp::CommandEvent((::wxCommandEvent*)instance)
+wxSharp::HelpEvent::HelpEvent(::wxHelpEvent* instance, bool ownNativeInstance)
+    : wxSharp::CommandEvent((::wxCommandEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2497,8 +2499,8 @@ void wxSharp::HelpEvent::SetOrigin(::wxSharp::HelpEvent::Source origin)
     ((::wxHelpEvent*)__Instance)->SetOrigin(__arg0);
 }
 
-wxSharp::ClipboardTextEvent::ClipboardTextEvent(::wxClipboardTextEvent* instance)
-    : wxSharp::CommandEvent((::wxCommandEvent*)instance)
+wxSharp::ClipboardTextEvent::ClipboardTextEvent(::wxClipboardTextEvent* instance, bool ownNativeInstance)
+    : wxSharp::CommandEvent((::wxCommandEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2522,8 +2524,8 @@ wxSharp::ClipboardTextEvent::ClipboardTextEvent(int type, int winid)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::ContextMenuEvent::ContextMenuEvent(::wxContextMenuEvent* instance)
-    : wxSharp::CommandEvent((::wxCommandEvent*)instance)
+wxSharp::ContextMenuEvent::ContextMenuEvent(::wxContextMenuEvent* instance, bool ownNativeInstance)
+    : wxSharp::CommandEvent((::wxCommandEvent*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -2554,8 +2556,8 @@ void wxSharp::ContextMenuEvent::SetPosition(const ::wxSharp::Point& pos)
     return (__ret == nullptr) ? nullptr : new wxSharp::Event((::wxEvent*)__ret);
 }
 
-wxSharp::EvtHandler::EvtHandler(::wxEvtHandler* instance)
-    : wxSharp::Object((::wxObject*)instance)
+wxSharp::EvtHandler::EvtHandler(::wxEvtHandler* instance, bool ownNativeInstance)
+    : wxSharp::Object((::wxObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }

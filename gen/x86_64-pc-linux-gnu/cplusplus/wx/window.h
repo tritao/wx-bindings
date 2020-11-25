@@ -92,7 +92,7 @@ namespace wxSharp
 
         ::wxVisualAttributes* __Instance;
 
-        VisualAttributes(::wxVisualAttributes* instance);
+        VisualAttributes(::wxVisualAttributes* instance, bool ownNativeInstance = false);
 
         VisualAttributes(const ::wxSharp::VisualAttributes& _0);
 
@@ -118,7 +118,7 @@ namespace wxSharp
 
         ::wxWindowListNode* __Instance;
 
-        WindowListNode(::wxWindowListNode* instance);
+        WindowListNode(::wxWindowListNode* instance, bool ownNativeInstance = false);
 
         ~WindowListNode();
 
@@ -140,7 +140,7 @@ namespace wxSharp
 
         ::wxWindowList* __Instance;
 
-        WindowList(::wxWindowList* instance);
+        WindowList(::wxWindowList* instance, bool ownNativeInstance = false);
 
         WindowList(::wxSharp::KeyType keyType);
 
@@ -213,7 +213,7 @@ namespace wxSharp
             Accel = 1
         };
 
-        Window(::wxWindow* instance);
+        Window(::wxWindow* instance, bool ownNativeInstance = false);
 
         Window();
 

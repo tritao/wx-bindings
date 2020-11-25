@@ -13,13 +13,15 @@
 #include "wx/window.h"
 
 #include <wx/eventfilter.h>
-wxSharp::Frame::Frame(::wxFrame* instance)
+
+wxSharp::Frame::Frame(::wxFrame* instance, bool ownNativeInstance)
+    : wxSharp::TopLevelWindow((::wxTopLevelWindow*)instance, ownNativeInstance)
 {
     __Instance = instance;
 
-    auto _instance = (wxFrame*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxFrame*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 wxSharp::Frame::~Frame()
@@ -27,16 +29,18 @@ wxSharp::Frame::~Frame()
 }
 
 wxSharp::Frame::Frame()
+    : wxSharp::TopLevelWindow((::wxTopLevelWindow*)nullptr)
 {
     __ownsNativeInstance = true;
     __Instance = new ::wxFrame();
 
-    auto _instance = (wxFrame*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxFrame*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 wxSharp::Frame::Frame(::wxSharp::Window* parent, int id, const char* title, const ::wxSharp::Point& pos, const ::wxSharp::Size& size, ::wxSharp::FrameStyle style, const char* name)
+    : wxSharp::TopLevelWindow((::wxTopLevelWindow*)nullptr)
 {
     __ownsNativeInstance = true;
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
@@ -48,9 +52,9 @@ wxSharp::Frame::Frame(::wxSharp::Window* parent, int id, const char* title, cons
     auto __arg6 = name;
     __Instance = new ::wxFrame(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5, __arg6);
 
-    auto _instance = (wxFrame*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxFrame*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 bool wxSharp::Frame::Create(::wxSharp::Window* parent, int id, const char* title, const ::wxSharp::Point& pos, const ::wxSharp::Size& size, long style, const char* name)

@@ -11,7 +11,9 @@
 #include "wx/window.h"
 
 #include <wx/eventfilter.h>
-wxSharp::SizerFlags::SizerFlags(::wxSizerFlags* instance)
+
+wxSharp::SizerFlags::SizerFlags(::wxSizerFlags* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -63,7 +65,8 @@ wxSharp::SizerFlags::SizerFlags(const ::wxSharp::SizerFlags& _0)
     __Instance = new ::wxSizerFlags(__arg0);
 }
 
-wxSharp::SizerSpacer::SizerSpacer(::wxSizerSpacer* instance)
+wxSharp::SizerSpacer::SizerSpacer(::wxSizerSpacer* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -103,8 +106,8 @@ wxSharp::SizerSpacer::SizerSpacer(const ::wxSharp::SizerSpacer& _0)
     __Instance = new ::wxSizerSpacer(__arg0);
 }
 
-wxSharp::SizerItem::SizerItem(::wxSizerItem* instance)
-    : wxSharp::Object((::wxObject*)instance)
+wxSharp::SizerItem::SizerItem(::wxSizerItem* instance, bool ownNativeInstance)
+    : wxSharp::Object((::wxObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -421,7 +424,8 @@ void wxSharp::SizerItem::AssignSpacer(int w, int h)
     ((::wxSizerItem*)__Instance)->AssignSpacer(w, h);
 }
 
-wxSharp::SizerItemList::SizerItemList(::wxSizerItemList* instance)
+wxSharp::SizerItemList::SizerItemList(::wxSizerItemList* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -543,8 +547,8 @@ void wxSharp::SizerItemList::reverse()
     ((::wxSizerItemList*)__Instance)->reverse();
 }
 
-wxSharp::Sizer::Sizer(::wxSizer* instance)
-    : wxSharp::Object((::wxObject*)instance)
+wxSharp::Sizer::Sizer(::wxSizer* instance, bool ownNativeInstance)
+    : wxSharp::Object((::wxObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1120,8 +1124,8 @@ wxSharp::Sizer::Sizer(const ::wxSharp::Sizer& _0)
     __ownsNativeInstance = true;
 }
 
-wxSharp::GridSizer::GridSizer(::wxGridSizer* instance)
-    : wxSharp::Sizer((::wxSizer*)instance)
+wxSharp::GridSizer::GridSizer(::wxGridSizer* instance, bool ownNativeInstance)
+    : wxSharp::Sizer((::wxSizer*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1247,8 +1251,8 @@ wxSharp::GridSizer::GridSizer(const ::wxSharp::GridSizer& _0)
     __Instance = new ::wxGridSizer(__arg0);
 }
 
-wxSharp::FlexGridSizer::FlexGridSizer(::wxFlexGridSizer* instance)
-    : wxSharp::GridSizer((::wxGridSizer*)instance)
+wxSharp::FlexGridSizer::FlexGridSizer(::wxFlexGridSizer* instance, bool ownNativeInstance)
+    : wxSharp::GridSizer((::wxGridSizer*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1361,8 +1365,8 @@ void wxSharp::FlexGridSizer::RepositionChildren(const ::wxSharp::Size& minSize)
     return ____ret;
 }
 
-wxSharp::BoxSizer::BoxSizer(::wxBoxSizer* instance)
-    : wxSharp::Sizer((::wxSizer*)instance)
+wxSharp::BoxSizer::BoxSizer(::wxBoxSizer* instance, bool ownNativeInstance)
+    : wxSharp::Sizer((::wxSizer*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1430,8 +1434,8 @@ wxSharp::BoxSizer::BoxSizer(const ::wxSharp::BoxSizer& _0)
     __Instance = new ::wxBoxSizer(__arg0);
 }
 
-wxSharp::StaticBoxSizer::StaticBoxSizer(::wxStaticBoxSizer* instance)
-    : wxSharp::BoxSizer((::wxBoxSizer*)instance)
+wxSharp::StaticBoxSizer::StaticBoxSizer(::wxStaticBoxSizer* instance, bool ownNativeInstance)
+    : wxSharp::BoxSizer((::wxBoxSizer*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1494,8 +1498,8 @@ bool wxSharp::StaticBoxSizer::Detach(int index)
     return __ret;
 }
 
-wxSharp::StdDialogButtonSizer::StdDialogButtonSizer(::wxStdDialogButtonSizer* instance)
-    : wxSharp::BoxSizer((::wxBoxSizer*)instance)
+wxSharp::StdDialogButtonSizer::StdDialogButtonSizer(::wxStdDialogButtonSizer* instance, bool ownNativeInstance)
+    : wxSharp::BoxSizer((::wxBoxSizer*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }

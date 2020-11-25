@@ -71,7 +71,7 @@ namespace wxSharp
 
         ::wxPenInfo* __Instance;
 
-        PenInfo(::wxPenInfo* instance);
+        PenInfo(::wxPenInfo* instance, bool ownNativeInstance = false);
 
         explicit PenInfo(const ::wxSharp::Color& colour, int width, ::wxSharp::PenStyle style);
 
@@ -107,7 +107,7 @@ namespace wxSharp
 
         ::wxPen* __Instance;
 
-        Pen(::wxPen* instance);
+        Pen(::wxPen* instance, bool ownNativeInstance = false);
 
         Pen();
 
@@ -165,7 +165,7 @@ namespace wxSharp
     {
     public:
 
-        PenList(::wxPenList* instance);
+        PenList(::wxPenList* instance, bool ownNativeInstance = false);
 
         PenList(const ::wxSharp::PenList& _0);
 

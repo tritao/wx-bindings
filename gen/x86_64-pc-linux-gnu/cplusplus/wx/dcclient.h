@@ -25,7 +25,7 @@ namespace wxSharp
     {
     public:
 
-        WindowDC(::wxWindowDC* instance);
+        WindowDC(::wxWindowDC* instance, bool ownNativeInstance = false);
 
         WindowDC(::wxSharp::Window* win);
 
@@ -36,7 +36,7 @@ namespace wxSharp
     {
     public:
 
-        ClientDC(::wxClientDC* instance);
+        ClientDC(::wxClientDC* instance, bool ownNativeInstance = false);
 
         ClientDC(::wxSharp::Window* win);
 
@@ -47,7 +47,7 @@ namespace wxSharp
     {
     public:
 
-        PaintDC(::wxPaintDC* instance);
+        PaintDC(::wxPaintDC* instance, bool ownNativeInstance = false);
 
         PaintDC(::wxSharp::Window* win);
 

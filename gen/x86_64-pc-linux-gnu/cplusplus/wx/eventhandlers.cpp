@@ -12,6 +12,7 @@
 
 
 #include <wx/eventfilter.h>
+
 int _EventFilter::FilterEvent(::wxEvent& event)
 {
     wxEventType eventType = event.GetEventType();

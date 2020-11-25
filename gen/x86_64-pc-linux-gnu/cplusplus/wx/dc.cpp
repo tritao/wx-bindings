@@ -16,7 +16,9 @@
 #include "wx/window.h"
 
 #include <wx/eventfilter.h>
-wxSharp::FontMetrics::FontMetrics(::wxFontMetrics* instance)
+
+wxSharp::FontMetrics::FontMetrics(::wxFontMetrics* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -110,8 +112,8 @@ void wxSharp::FontMetrics::set_averageWidth(int value)
     ((::wxFontMetrics*)__Instance)->averageWidth = value;
 }
 
-wxSharp::DC::DC(::wxDC* instance)
-    : wxSharp::Object((::wxObject*)instance)
+wxSharp::DC::DC(::wxDC* instance, bool ownNativeInstance)
+    : wxSharp::Object((::wxObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }

@@ -9,7 +9,9 @@
 #include "wx/object.h"
 
 #include <wx/eventfilter.h>
-wxSharp::Color::Color(::wxColour* instance)
+
+wxSharp::Color::Color(::wxColour* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }

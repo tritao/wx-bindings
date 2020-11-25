@@ -24,7 +24,7 @@ namespace wxSharp
 
         ::wxRefCounter* __Instance;
 
-        RefCounter(::wxRefCounter* instance);
+        RefCounter(::wxRefCounter* instance, bool ownNativeInstance = false);
 
         RefCounter();
 
@@ -44,7 +44,7 @@ namespace wxSharp
 
         ::wxObject* __Instance;
 
-        Object(::wxObject* instance);
+        Object(::wxObject* instance, bool ownNativeInstance = false);
 
         Object();
 

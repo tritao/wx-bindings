@@ -8,7 +8,9 @@
 #include "wx/containr.h"
 
 #include <wx/eventfilter.h>
-wxSharp::ControlContainer::ControlContainer(::wxControlContainer* instance)
+
+wxSharp::ControlContainer::ControlContainer(::wxControlContainer* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }

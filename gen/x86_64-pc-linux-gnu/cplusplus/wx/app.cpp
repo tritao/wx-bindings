@@ -11,13 +11,15 @@
 #include "wx/window.h"
 
 #include <wx/eventfilter.h>
-wxSharp::AppConsole::AppConsole(::wxAppConsole* instance)
+
+wxSharp::AppConsole::AppConsole(::wxAppConsole* instance, bool ownNativeInstance)
+    : wxSharp::EvtHandler((::wxEvtHandler*)instance, ownNativeInstance)
 {
     __Instance = instance;
 
-    auto _instance = (wxAppConsole*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxAppConsole*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 wxSharp::AppConsole::~AppConsole()
@@ -25,13 +27,14 @@ wxSharp::AppConsole::~AppConsole()
 }
 
 wxSharp::AppConsole::AppConsole()
+    : wxSharp::EvtHandler((::wxEvtHandler*)nullptr)
 {
     __ownsNativeInstance = true;
     __Instance = new ::wxAppConsole();
 
-    auto _instance = (wxAppConsole*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxAppConsole*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 bool wxSharp::AppConsole::Initialize(int& argc, wchar_t** argv)
@@ -325,13 +328,14 @@ void wxSharp::AppConsole::set_argc(int value)
     ((::wxAppConsole*)__Instance)->argc = value;
 }
 
-wxSharp::App::App(::wxApp* instance)
+wxSharp::App::App(::wxApp* instance, bool ownNativeInstance)
+    : wxSharp::AppConsole((::wxAppConsole*)instance, ownNativeInstance)
 {
     __Instance = instance;
 
-    auto _instance = (wxApp*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxApp*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 wxSharp::App::~App()
@@ -339,13 +343,14 @@ wxSharp::App::~App()
 }
 
 wxSharp::App::App()
+    : wxSharp::AppConsole((::wxAppConsole*)nullptr)
 {
     __ownsNativeInstance = true;
     __Instance = new ::wxApp();
 
-    auto _instance = (wxApp*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxApp*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 bool wxSharp::App::SetNativeTheme(const char* theme)

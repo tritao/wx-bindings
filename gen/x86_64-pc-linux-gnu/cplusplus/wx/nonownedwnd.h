@@ -23,7 +23,7 @@ namespace wxSharp
     {
     public:
 
-        NonOwnedWindow(::wxNonOwnedWindow* instance);
+        NonOwnedWindow(::wxNonOwnedWindow* instance, bool ownNativeInstance = false);
 
         NonOwnedWindow();
 

@@ -25,7 +25,7 @@ namespace wxSharp
 
         ::wxControlContainer* __Instance;
 
-        ControlContainer(::wxControlContainer* instance);
+        ControlContainer(::wxControlContainer* instance, bool ownNativeInstance = false);
 
         ControlContainer(const ::wxSharp::ControlContainer& _0);
 

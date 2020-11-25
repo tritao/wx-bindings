@@ -9,13 +9,15 @@
 #include "wx/nonownedwnd.h"
 
 #include <wx/eventfilter.h>
-wxSharp::NonOwnedWindow::NonOwnedWindow(::wxNonOwnedWindow* instance)
+
+wxSharp::NonOwnedWindow::NonOwnedWindow(::wxNonOwnedWindow* instance, bool ownNativeInstance)
+    : wxSharp::Window((::wxWindow*)instance, ownNativeInstance)
 {
     __Instance = instance;
 
-    auto _instance = (wxNonOwnedWindow*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxNonOwnedWindow*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 wxSharp::NonOwnedWindow::~NonOwnedWindow()
@@ -23,13 +25,14 @@ wxSharp::NonOwnedWindow::~NonOwnedWindow()
 }
 
 wxSharp::NonOwnedWindow::NonOwnedWindow()
+    : wxSharp::Window((::wxWindow*)nullptr)
 {
     __ownsNativeInstance = true;
     __Instance = new ::wxNonOwnedWindow();
 
-    auto _instance = (wxNonOwnedWindow*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxNonOwnedWindow*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 bool wxSharp::NonOwnedWindow::SetShape(const ::wxSharp::GraphicsPath& path)

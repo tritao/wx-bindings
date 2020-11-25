@@ -150,7 +150,7 @@ namespace wxSharp
     {
     public:
 
-        Event(::wxEvent* instance);
+        Event(::wxEvent* instance, bool ownNativeInstance = false);
 
         Event(int winid, int commandType);
 
@@ -213,7 +213,7 @@ namespace wxSharp
 
         ::wxPropagateOnce* __Instance;
 
-        PropagateOnce(::wxPropagateOnce* instance);
+        PropagateOnce(::wxPropagateOnce* instance, bool ownNativeInstance = false);
 
         PropagateOnce(::wxSharp::Event& event, ::wxSharp::EvtHandler* handler);
 
@@ -227,7 +227,7 @@ namespace wxSharp
     {
     public:
 
-        IdleEvent(::wxIdleEvent* instance);
+        IdleEvent(::wxIdleEvent* instance, bool ownNativeInstance = false);
 
         IdleEvent();
 
@@ -248,7 +248,7 @@ namespace wxSharp
     {
     public:
 
-        ThreadEvent(::wxThreadEvent* instance);
+        ThreadEvent(::wxThreadEvent* instance, bool ownNativeInstance = false);
 
         ThreadEvent(int eventType, int id);
 
@@ -263,7 +263,7 @@ namespace wxSharp
     {
     public:
 
-        AsyncMethodCallEvent(::wxAsyncMethodCallEvent* instance);
+        AsyncMethodCallEvent(::wxAsyncMethodCallEvent* instance, bool ownNativeInstance = false);
 
         AsyncMethodCallEvent(::wxSharp::Object* object);
 
@@ -276,7 +276,7 @@ namespace wxSharp
     {
     public:
 
-        CommandEvent(::wxCommandEvent* instance);
+        CommandEvent(::wxCommandEvent* instance, bool ownNativeInstance = false);
 
         CommandEvent(int commandType, int winid);
 
@@ -303,7 +303,7 @@ namespace wxSharp
     {
     public:
 
-        NotifyEvent(::wxNotifyEvent* instance);
+        NotifyEvent(::wxNotifyEvent* instance, bool ownNativeInstance = false);
 
         NotifyEvent(int commandType, int winid);
 
@@ -322,7 +322,7 @@ namespace wxSharp
     {
     public:
 
-        ScrollEvent(::wxScrollEvent* instance);
+        ScrollEvent(::wxScrollEvent* instance, bool ownNativeInstance = false);
 
         ScrollEvent(int commandType, int winid, int pos, int orient);
 
@@ -343,7 +343,7 @@ namespace wxSharp
     {
     public:
 
-        ScrollWinEvent(::wxScrollWinEvent* instance);
+        ScrollWinEvent(::wxScrollWinEvent* instance, bool ownNativeInstance = false);
 
         ScrollWinEvent(int commandType, int pos, int orient);
 
@@ -364,7 +364,7 @@ namespace wxSharp
     {
     public:
 
-        MouseEvent(::wxMouseEvent* instance);
+        MouseEvent(::wxMouseEvent* instance, bool ownNativeInstance = false);
 
         MouseEvent(int mouseType);
 
@@ -483,7 +483,7 @@ namespace wxSharp
     {
     public:
 
-        SetCursorEvent(::wxSetCursorEvent* instance);
+        SetCursorEvent(::wxSetCursorEvent* instance, bool ownNativeInstance = false);
 
         SetCursorEvent(int x, int y);
 
@@ -502,7 +502,7 @@ namespace wxSharp
     {
     public:
 
-        GestureEvent(::wxGestureEvent* instance);
+        GestureEvent(::wxGestureEvent* instance, bool ownNativeInstance = false);
 
         GestureEvent(int winid, int type);
 
@@ -525,7 +525,7 @@ namespace wxSharp
     {
     public:
 
-        PanGestureEvent(::wxPanGestureEvent* instance);
+        PanGestureEvent(::wxPanGestureEvent* instance, bool ownNativeInstance = false);
 
         PanGestureEvent(int winid);
 
@@ -542,7 +542,7 @@ namespace wxSharp
     {
     public:
 
-        ZoomGestureEvent(::wxZoomGestureEvent* instance);
+        ZoomGestureEvent(::wxZoomGestureEvent* instance, bool ownNativeInstance = false);
 
         ZoomGestureEvent(int winid);
 
@@ -559,7 +559,7 @@ namespace wxSharp
     {
     public:
 
-        RotateGestureEvent(::wxRotateGestureEvent* instance);
+        RotateGestureEvent(::wxRotateGestureEvent* instance, bool ownNativeInstance = false);
 
         RotateGestureEvent(int winid);
 
@@ -576,7 +576,7 @@ namespace wxSharp
     {
     public:
 
-        TwoFingerTapEvent(::wxTwoFingerTapEvent* instance);
+        TwoFingerTapEvent(::wxTwoFingerTapEvent* instance, bool ownNativeInstance = false);
 
         TwoFingerTapEvent(int winid);
 
@@ -589,7 +589,7 @@ namespace wxSharp
     {
     public:
 
-        LongPressEvent(::wxLongPressEvent* instance);
+        LongPressEvent(::wxLongPressEvent* instance, bool ownNativeInstance = false);
 
         LongPressEvent(int winid);
 
@@ -602,7 +602,7 @@ namespace wxSharp
     {
     public:
 
-        PressAndTapEvent(::wxPressAndTapEvent* instance);
+        PressAndTapEvent(::wxPressAndTapEvent* instance, bool ownNativeInstance = false);
 
         PressAndTapEvent(int winid);
 
@@ -615,7 +615,7 @@ namespace wxSharp
     {
     public:
 
-        KeyEvent(::wxKeyEvent* instance);
+        KeyEvent(::wxKeyEvent* instance, bool ownNativeInstance = false);
 
         KeyEvent(int keyType);
 
@@ -680,7 +680,7 @@ namespace wxSharp
     {
     public:
 
-        SizeEvent(::wxSizeEvent* instance);
+        SizeEvent(::wxSizeEvent* instance, bool ownNativeInstance = false);
 
         SizeEvent();
 
@@ -713,7 +713,7 @@ namespace wxSharp
     {
     public:
 
-        MoveEvent(::wxMoveEvent* instance);
+        MoveEvent(::wxMoveEvent* instance, bool ownNativeInstance = false);
 
         MoveEvent();
 
@@ -738,7 +738,7 @@ namespace wxSharp
     {
     public:
 
-        PaintEvent(::wxPaintEvent* instance);
+        PaintEvent(::wxPaintEvent* instance, bool ownNativeInstance = false);
 
         ~PaintEvent();
 
@@ -749,7 +749,7 @@ namespace wxSharp
     {
     public:
 
-        NcPaintEvent(::wxNcPaintEvent* instance);
+        NcPaintEvent(::wxNcPaintEvent* instance, bool ownNativeInstance = false);
 
         ~NcPaintEvent();
 
@@ -760,7 +760,7 @@ namespace wxSharp
     {
     public:
 
-        EraseEvent(::wxEraseEvent* instance);
+        EraseEvent(::wxEraseEvent* instance, bool ownNativeInstance = false);
 
         EraseEvent(int Id, ::wxSharp::DC* dc);
 
@@ -775,7 +775,7 @@ namespace wxSharp
     {
     public:
 
-        FocusEvent(::wxFocusEvent* instance);
+        FocusEvent(::wxFocusEvent* instance, bool ownNativeInstance = false);
 
         FocusEvent(int type, int winid);
 
@@ -792,7 +792,7 @@ namespace wxSharp
     {
     public:
 
-        ChildFocusEvent(::wxChildFocusEvent* instance);
+        ChildFocusEvent(::wxChildFocusEvent* instance, bool ownNativeInstance = false);
 
         ChildFocusEvent(::wxSharp::Window* win);
 
@@ -809,11 +809,11 @@ namespace wxSharp
 
         enum class Reason : unsigned int
         {
-            Reason_Mouse = 0,
-            Reason_Unknown = 1
+            Mouse = 0,
+            Unknown = 1
         };
 
-        ActivateEvent(::wxActivateEvent* instance);
+        ActivateEvent(::wxActivateEvent* instance, bool ownNativeInstance = false);
 
         ActivateEvent(int type, bool active, int Id, ::wxSharp::ActivateEvent::Reason activationReason);
 
@@ -830,7 +830,7 @@ namespace wxSharp
     {
     public:
 
-        InitDialogEvent(::wxInitDialogEvent* instance);
+        InitDialogEvent(::wxInitDialogEvent* instance, bool ownNativeInstance = false);
 
         InitDialogEvent(int Id);
 
@@ -843,7 +843,7 @@ namespace wxSharp
     {
     public:
 
-        MenuEvent(::wxMenuEvent* instance);
+        MenuEvent(::wxMenuEvent* instance, bool ownNativeInstance = false);
 
         ~MenuEvent();
 
@@ -858,7 +858,7 @@ namespace wxSharp
     {
     public:
 
-        CloseEvent(::wxCloseEvent* instance);
+        CloseEvent(::wxCloseEvent* instance, bool ownNativeInstance = false);
 
         CloseEvent(int type, int winid);
 
@@ -883,7 +883,7 @@ namespace wxSharp
     {
     public:
 
-        ShowEvent(::wxShowEvent* instance);
+        ShowEvent(::wxShowEvent* instance, bool ownNativeInstance = false);
 
         ShowEvent(int winid, bool show);
 
@@ -900,7 +900,7 @@ namespace wxSharp
     {
     public:
 
-        IconizeEvent(::wxIconizeEvent* instance);
+        IconizeEvent(::wxIconizeEvent* instance, bool ownNativeInstance = false);
 
         IconizeEvent(int winid, bool iconized);
 
@@ -915,7 +915,7 @@ namespace wxSharp
     {
     public:
 
-        MaximizeEvent(::wxMaximizeEvent* instance);
+        MaximizeEvent(::wxMaximizeEvent* instance, bool ownNativeInstance = false);
 
         MaximizeEvent(int winid);
 
@@ -928,7 +928,7 @@ namespace wxSharp
     {
     public:
 
-        JoystickEvent(::wxJoystickEvent* instance);
+        JoystickEvent(::wxJoystickEvent* instance, bool ownNativeInstance = false);
 
         JoystickEvent(int type, int state, int joystick, int change);
 
@@ -975,7 +975,7 @@ namespace wxSharp
     {
     public:
 
-        UpdateUIEvent(::wxUpdateUIEvent* instance);
+        UpdateUIEvent(::wxUpdateUIEvent* instance, bool ownNativeInstance = false);
 
         UpdateUIEvent(int commandId);
 
@@ -1026,7 +1026,7 @@ namespace wxSharp
     {
     public:
 
-        SysColourChangedEvent(::wxSysColourChangedEvent* instance);
+        SysColourChangedEvent(::wxSysColourChangedEvent* instance, bool ownNativeInstance = false);
 
         SysColourChangedEvent();
 
@@ -1039,7 +1039,7 @@ namespace wxSharp
     {
     public:
 
-        MouseCaptureChangedEvent(::wxMouseCaptureChangedEvent* instance);
+        MouseCaptureChangedEvent(::wxMouseCaptureChangedEvent* instance, bool ownNativeInstance = false);
 
         MouseCaptureChangedEvent(int winid, ::wxSharp::Window* gainedCapture);
 
@@ -1054,7 +1054,7 @@ namespace wxSharp
     {
     public:
 
-        MouseCaptureLostEvent(::wxMouseCaptureLostEvent* instance);
+        MouseCaptureLostEvent(::wxMouseCaptureLostEvent* instance, bool ownNativeInstance = false);
 
         MouseCaptureLostEvent(int winid);
 
@@ -1067,7 +1067,7 @@ namespace wxSharp
     {
     public:
 
-        DisplayChangedEvent(::wxDisplayChangedEvent* instance);
+        DisplayChangedEvent(::wxDisplayChangedEvent* instance, bool ownNativeInstance = false);
 
         DisplayChangedEvent();
 
@@ -1080,7 +1080,7 @@ namespace wxSharp
     {
     public:
 
-        DPIChangedEvent(::wxDPIChangedEvent* instance);
+        DPIChangedEvent(::wxDPIChangedEvent* instance, bool ownNativeInstance = false);
 
         explicit DPIChangedEvent(const ::wxSharp::Size& oldDPI, const ::wxSharp::Size& newDPI);
 
@@ -1097,7 +1097,7 @@ namespace wxSharp
     {
     public:
 
-        PaletteChangedEvent(::wxPaletteChangedEvent* instance);
+        PaletteChangedEvent(::wxPaletteChangedEvent* instance, bool ownNativeInstance = false);
 
         PaletteChangedEvent(int winid);
 
@@ -1114,7 +1114,7 @@ namespace wxSharp
     {
     public:
 
-        QueryNewPaletteEvent(::wxQueryNewPaletteEvent* instance);
+        QueryNewPaletteEvent(::wxQueryNewPaletteEvent* instance, bool ownNativeInstance = false);
 
         QueryNewPaletteEvent(int winid);
 
@@ -1139,7 +1139,7 @@ namespace wxSharp
             FromTab = 0x4
         };
 
-        NavigationKeyEvent(::wxNavigationKeyEvent* instance);
+        NavigationKeyEvent(::wxNavigationKeyEvent* instance, bool ownNativeInstance = false);
 
         NavigationKeyEvent();
 
@@ -1178,7 +1178,7 @@ namespace wxSharp
     {
     public:
 
-        WindowCreateEvent(::wxWindowCreateEvent* instance);
+        WindowCreateEvent(::wxWindowCreateEvent* instance, bool ownNativeInstance = false);
 
         WindowCreateEvent(::wxSharp::Window* win);
 
@@ -1193,7 +1193,7 @@ namespace wxSharp
     {
     public:
 
-        WindowDestroyEvent(::wxWindowDestroyEvent* instance);
+        WindowDestroyEvent(::wxWindowDestroyEvent* instance, bool ownNativeInstance = false);
 
         WindowDestroyEvent(::wxSharp::Window* win);
 
@@ -1210,12 +1210,12 @@ namespace wxSharp
 
         enum class Source : unsigned int
         {
-            Origin_Unknown = 0,
-            Origin_Keyboard = 1,
-            Origin_HelpButton = 2
+            Unknown = 0,
+            Keyboard = 1,
+            HelpButton = 2
         };
 
-        HelpEvent(::wxHelpEvent* instance);
+        HelpEvent(::wxHelpEvent* instance, bool ownNativeInstance = false);
 
         HelpEvent(int type, int winid, const ::wxSharp::Point& pt, ::wxSharp::HelpEvent::Source origin);
 
@@ -1238,7 +1238,7 @@ namespace wxSharp
     {
     public:
 
-        ClipboardTextEvent(::wxClipboardTextEvent* instance);
+        ClipboardTextEvent(::wxClipboardTextEvent* instance, bool ownNativeInstance = false);
 
         ClipboardTextEvent(int type, int winid);
 
@@ -1251,7 +1251,7 @@ namespace wxSharp
     {
     public:
 
-        ContextMenuEvent(::wxContextMenuEvent* instance);
+        ContextMenuEvent(::wxContextMenuEvent* instance, bool ownNativeInstance = false);
 
         ContextMenuEvent(int type, int winid, const ::wxSharp::Point& pt);
 
@@ -1266,7 +1266,7 @@ namespace wxSharp
     {
     public:
 
-        EvtHandler(::wxEvtHandler* instance);
+        EvtHandler(::wxEvtHandler* instance, bool ownNativeInstance = false);
 
         EvtHandler();
 

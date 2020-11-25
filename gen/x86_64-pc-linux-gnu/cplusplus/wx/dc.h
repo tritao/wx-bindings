@@ -77,7 +77,7 @@ namespace wxSharp
 
         ::wxFontMetrics* __Instance;
 
-        FontMetrics(::wxFontMetrics* instance);
+        FontMetrics(::wxFontMetrics* instance, bool ownNativeInstance = false);
 
         FontMetrics();
 
@@ -117,7 +117,7 @@ namespace wxSharp
     {
     public:
 
-        DC(::wxDC* instance);
+        DC(::wxDC* instance, bool ownNativeInstance = false);
 
         ~DC();
 

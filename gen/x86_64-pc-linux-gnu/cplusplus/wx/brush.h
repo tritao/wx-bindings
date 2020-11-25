@@ -46,7 +46,7 @@ namespace wxSharp
 
         ::wxBrush* __Instance;
 
-        Brush(::wxBrush* instance);
+        Brush(::wxBrush* instance, bool ownNativeInstance = false);
 
         Brush();
 
@@ -84,7 +84,7 @@ namespace wxSharp
     {
     public:
 
-        BrushList(::wxBrushList* instance);
+        BrushList(::wxBrushList* instance, bool ownNativeInstance = false);
 
         BrushList(const ::wxSharp::BrushList& _0);
 

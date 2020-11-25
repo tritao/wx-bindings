@@ -47,7 +47,7 @@ namespace wxSharp
 
         ::wxSizerFlags* __Instance;
 
-        SizerFlags(::wxSizerFlags* instance);
+        SizerFlags(::wxSizerFlags* instance, bool ownNativeInstance = false);
 
         SizerFlags(int proportion);
 
@@ -75,7 +75,7 @@ namespace wxSharp
 
         ::wxSizerSpacer* __Instance;
 
-        SizerSpacer(::wxSizerSpacer* instance);
+        SizerSpacer(::wxSizerSpacer* instance, bool ownNativeInstance = false);
 
         SizerSpacer(const ::wxSharp::Size& size);
 
@@ -97,7 +97,7 @@ namespace wxSharp
     {
     public:
 
-        SizerItem(::wxSizerItem* instance);
+        SizerItem(::wxSizerItem* instance, bool ownNativeInstance = false);
 
         SizerItem(::wxSharp::Window* window, int proportion, int flag, int border, ::wxSharp::Object* userData);
 
@@ -206,7 +206,7 @@ namespace wxSharp
 
         ::wxSizerItemList* __Instance;
 
-        SizerItemList(::wxSizerItemList* instance);
+        SizerItemList(::wxSizerItemList* instance, bool ownNativeInstance = false);
 
         SizerItemList(::wxSharp::KeyType keyType);
 
@@ -256,7 +256,7 @@ namespace wxSharp
     {
     public:
 
-        Sizer(::wxSizer* instance);
+        Sizer(::wxSizer* instance, bool ownNativeInstance = false);
 
         Sizer();
 
@@ -429,7 +429,7 @@ namespace wxSharp
     {
     public:
 
-        GridSizer(::wxGridSizer* instance);
+        GridSizer(::wxGridSizer* instance, bool ownNativeInstance = false);
 
         GridSizer(int cols, int vgap, int hgap);
 
@@ -474,7 +474,7 @@ namespace wxSharp
     {
     public:
 
-        FlexGridSizer(::wxFlexGridSizer* instance);
+        FlexGridSizer(::wxFlexGridSizer* instance, bool ownNativeInstance = false);
 
         FlexGridSizer(int cols, int vgap, int hgap);
 
@@ -515,7 +515,7 @@ namespace wxSharp
     {
     public:
 
-        BoxSizer(::wxBoxSizer* instance);
+        BoxSizer(::wxBoxSizer* instance, bool ownNativeInstance = false);
 
         BoxSizer(::wxSharp::SizerOrientation orient);
 
@@ -542,7 +542,7 @@ namespace wxSharp
     {
     public:
 
-        StaticBoxSizer(::wxStaticBoxSizer* instance);
+        StaticBoxSizer(::wxStaticBoxSizer* instance, bool ownNativeInstance = false);
 
         StaticBoxSizer(::wxSharp::SizerOrientation orient, ::wxSharp::Window* win, const char* label);
 
@@ -567,7 +567,7 @@ namespace wxSharp
     {
     public:
 
-        StdDialogButtonSizer(::wxStdDialogButtonSizer* instance);
+        StdDialogButtonSizer(::wxStdDialogButtonSizer* instance, bool ownNativeInstance = false);
 
         StdDialogButtonSizer();
 

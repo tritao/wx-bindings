@@ -16,8 +16,9 @@
 #include "wx/window.h"
 
 #include <wx/eventfilter.h>
-wxSharp::GraphicsObject::GraphicsObject(::wxGraphicsObject* instance)
-    : wxSharp::Object((::wxObject*)instance)
+
+wxSharp::GraphicsObject::GraphicsObject(::wxGraphicsObject* instance, bool ownNativeInstance)
+    : wxSharp::Object((::wxObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -61,8 +62,8 @@ wxSharp::GraphicsObject::GraphicsObject(const ::wxSharp::GraphicsObject& _0)
     __Instance = new ::wxGraphicsObject(__arg0);
 }
 
-wxSharp::GraphicsPen::GraphicsPen(::wxGraphicsPen* instance)
-    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance)
+wxSharp::GraphicsPen::GraphicsPen(::wxGraphicsPen* instance, bool ownNativeInstance)
+    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -86,8 +87,8 @@ wxSharp::GraphicsPen::GraphicsPen(const ::wxSharp::GraphicsPen& _0)
     __Instance = new ::wxGraphicsPen(__arg0);
 }
 
-wxSharp::GraphicsBrush::GraphicsBrush(::wxGraphicsBrush* instance)
-    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance)
+wxSharp::GraphicsBrush::GraphicsBrush(::wxGraphicsBrush* instance, bool ownNativeInstance)
+    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -111,8 +112,8 @@ wxSharp::GraphicsBrush::GraphicsBrush(const ::wxSharp::GraphicsBrush& _0)
     __Instance = new ::wxGraphicsBrush(__arg0);
 }
 
-wxSharp::GraphicsFont::GraphicsFont(::wxGraphicsFont* instance)
-    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance)
+wxSharp::GraphicsFont::GraphicsFont(::wxGraphicsFont* instance, bool ownNativeInstance)
+    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -136,8 +137,8 @@ wxSharp::GraphicsFont::GraphicsFont(const ::wxSharp::GraphicsFont& _0)
     __Instance = new ::wxGraphicsFont(__arg0);
 }
 
-wxSharp::GraphicsBitmap::GraphicsBitmap(::wxGraphicsBitmap* instance)
-    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance)
+wxSharp::GraphicsBitmap::GraphicsBitmap(::wxGraphicsBitmap* instance, bool ownNativeInstance)
+    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -167,8 +168,8 @@ wxSharp::GraphicsBitmap::GraphicsBitmap(const ::wxSharp::GraphicsBitmap& _0)
     __Instance = new ::wxGraphicsBitmap(__arg0);
 }
 
-wxSharp::GraphicsMatrix::GraphicsMatrix(::wxGraphicsMatrix* instance)
-    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance)
+wxSharp::GraphicsMatrix::GraphicsMatrix(::wxGraphicsMatrix* instance, bool ownNativeInstance)
+    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -288,7 +289,8 @@ wxSharp::GraphicsMatrix::GraphicsMatrix(const ::wxSharp::GraphicsMatrix& _0)
     __Instance = new ::wxGraphicsMatrix(__arg0);
 }
 
-wxSharp::GraphicsGradientStop::GraphicsGradientStop(::wxGraphicsGradientStop* instance)
+wxSharp::GraphicsGradientStop::GraphicsGradientStop(::wxGraphicsGradientStop* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -328,7 +330,8 @@ wxSharp::GraphicsGradientStop::GraphicsGradientStop(const ::wxSharp::GraphicsGra
     __Instance = new ::wxGraphicsGradientStop(__arg0);
 }
 
-wxSharp::GraphicsGradientStops::GraphicsGradientStops(::wxGraphicsGradientStops* instance)
+wxSharp::GraphicsGradientStops::GraphicsGradientStops(::wxGraphicsGradientStops* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -403,7 +406,8 @@ wxSharp::GraphicsGradientStops::GraphicsGradientStops(const ::wxSharp::GraphicsG
     __Instance = new ::wxGraphicsGradientStops(__arg0);
 }
 
-wxSharp::GraphicsPenInfo::GraphicsPenInfo(::wxGraphicsPenInfo* instance)
+wxSharp::GraphicsPenInfo::GraphicsPenInfo(::wxGraphicsPenInfo* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -544,8 +548,8 @@ bool wxSharp::GraphicsPenInfo::IsTransparent() const
     return __ret;
 }
 
-wxSharp::GraphicsPath::GraphicsPath(::wxGraphicsPath* instance)
-    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance)
+wxSharp::GraphicsPath::GraphicsPath(::wxGraphicsPath* instance, bool ownNativeInstance)
+    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -719,8 +723,8 @@ wxSharp::GraphicsPath::GraphicsPath(const ::wxSharp::GraphicsPath& _0)
     __Instance = new ::wxGraphicsPath(__arg0);
 }
 
-wxSharp::GraphicsContext::GraphicsContext(::wxGraphicsContext* instance)
-    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance)
+wxSharp::GraphicsContext::GraphicsContext(::wxGraphicsContext* instance, bool ownNativeInstance)
+    : wxSharp::GraphicsObject((::wxGraphicsObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1260,8 +1264,8 @@ bool wxSharp::GraphicsContext::OffsetEnabled()
     return __ret;
 }
 
-wxSharp::GraphicsRenderer::GraphicsRenderer(::wxGraphicsRenderer* instance)
-    : wxSharp::Object((::wxObject*)instance)
+wxSharp::GraphicsRenderer::GraphicsRenderer(::wxGraphicsRenderer* instance, bool ownNativeInstance)
+    : wxSharp::Object((::wxObject*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }

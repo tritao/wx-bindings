@@ -15,7 +15,9 @@
 #include "wx/window.h"
 
 #include <wx/eventfilter.h>
-wxSharp::VisualAttributes::VisualAttributes(::wxVisualAttributes* instance)
+
+wxSharp::VisualAttributes::VisualAttributes(::wxVisualAttributes* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -65,7 +67,8 @@ void wxSharp::VisualAttributes::set_colBg(::wxSharp::Color value)
     ((::wxVisualAttributes*)__Instance)->colBg = __arg0;
 }
 
-wxSharp::WindowListNode::WindowListNode(::wxWindowListNode* instance)
+wxSharp::WindowListNode::WindowListNode(::wxWindowListNode* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -98,7 +101,8 @@ void wxSharp::WindowListNode::SetData(::wxSharp::Window* data)
     ((::wxWindowListNode*)__Instance)->SetData(__arg0);
 }
 
-wxSharp::WindowList::WindowList(::wxWindowList* instance)
+wxSharp::WindowList::WindowList(::wxWindowList* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -253,13 +257,14 @@ void wxSharp::WindowList::reverse()
     ((::wxWindowList*)__Instance)->reverse();
 }
 
-wxSharp::Window::Window(::wxWindow* instance)
+wxSharp::Window::Window(::wxWindow* instance, bool ownNativeInstance)
+    : wxSharp::EvtHandler((::wxEvtHandler*)instance, ownNativeInstance)
 {
     __Instance = instance;
 
-    auto _instance = (wxWindow*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxWindow*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 wxSharp::Window::~Window()
@@ -267,16 +272,18 @@ wxSharp::Window::~Window()
 }
 
 wxSharp::Window::Window()
+    : wxSharp::EvtHandler((::wxEvtHandler*)nullptr)
 {
     __ownsNativeInstance = true;
     __Instance = new ::wxWindow();
 
-    auto _instance = (wxWindow*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxWindow*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 wxSharp::Window::Window(::wxSharp::Window* parent, int id, const ::wxSharp::Point& pos, const ::wxSharp::Size& size, long style, const char* name)
+    : wxSharp::EvtHandler((::wxEvtHandler*)nullptr)
 {
     __ownsNativeInstance = true;
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
@@ -286,9 +293,9 @@ wxSharp::Window::Window(::wxSharp::Window* parent, int id, const ::wxSharp::Poin
     auto __arg5 = name;
     __Instance = new ::wxWindow(__arg0, __arg1, __arg2, __arg3, style, __arg5);
 
-    auto _instance = (wxWindow*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxWindow*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 bool wxSharp::Window::Create(::wxSharp::Window* parent, int id, const ::wxSharp::Point& pos, const ::wxSharp::Size& size, long style, const char* name)

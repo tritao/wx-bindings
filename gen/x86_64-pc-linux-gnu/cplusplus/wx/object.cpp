@@ -8,7 +8,9 @@
 #include "wx/object.h"
 
 #include <wx/eventfilter.h>
-wxSharp::RefCounter::RefCounter(::wxRefCounter* instance)
+
+wxSharp::RefCounter::RefCounter(::wxRefCounter* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -35,7 +37,8 @@ void wxSharp::RefCounter::DecRef()
     ((::wxRefCounter*)__Instance)->DecRef();
 }
 
-wxSharp::Object::Object(::wxObject* instance)
+wxSharp::Object::Object(::wxObject* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }

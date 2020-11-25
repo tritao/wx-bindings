@@ -32,7 +32,7 @@ namespace wxSharp
 
         ::wxColour* __Instance;
 
-        Color(::wxColour* instance);
+        Color(::wxColour* instance, bool ownNativeInstance = false);
 
         Color();
 

@@ -10,7 +10,9 @@
 #include "wx/object.h"
 
 #include <wx/eventfilter.h>
-wxSharp::Brush::Brush(::wxBrush* instance)
+
+wxSharp::Brush::Brush(::wxBrush* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -88,8 +90,8 @@ bool wxSharp::Brush::IsNonTransparent() const
     return __ret;
 }
 
-wxSharp::BrushList::BrushList(::wxBrushList* instance)
-    : wxSharp::GDIObjListBase((::wxGDIObjListBase*)instance)
+wxSharp::BrushList::BrushList(::wxBrushList* instance, bool ownNativeInstance)
+    : wxSharp::GDIObjListBase((::wxGDIObjListBase*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }

@@ -38,7 +38,7 @@ namespace wxSharp
     {
     public:
 
-        Frame(::wxFrame* instance);
+        Frame(::wxFrame* instance, bool ownNativeInstance = false);
 
         Frame();
 

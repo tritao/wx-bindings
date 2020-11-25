@@ -89,7 +89,7 @@ namespace wxSharp
     {
     public:
 
-        GraphicsObject(::wxGraphicsObject* instance);
+        GraphicsObject(::wxGraphicsObject* instance, bool ownNativeInstance = false);
 
         GraphicsObject();
 
@@ -108,7 +108,7 @@ namespace wxSharp
     {
     public:
 
-        GraphicsPen(::wxGraphicsPen* instance);
+        GraphicsPen(::wxGraphicsPen* instance, bool ownNativeInstance = false);
 
         GraphicsPen();
 
@@ -121,7 +121,7 @@ namespace wxSharp
     {
     public:
 
-        GraphicsBrush(::wxGraphicsBrush* instance);
+        GraphicsBrush(::wxGraphicsBrush* instance, bool ownNativeInstance = false);
 
         GraphicsBrush();
 
@@ -134,7 +134,7 @@ namespace wxSharp
     {
     public:
 
-        GraphicsFont(::wxGraphicsFont* instance);
+        GraphicsFont(::wxGraphicsFont* instance, bool ownNativeInstance = false);
 
         GraphicsFont();
 
@@ -147,7 +147,7 @@ namespace wxSharp
     {
     public:
 
-        GraphicsBitmap(::wxGraphicsBitmap* instance);
+        GraphicsBitmap(::wxGraphicsBitmap* instance, bool ownNativeInstance = false);
 
         GraphicsBitmap();
 
@@ -162,7 +162,7 @@ namespace wxSharp
     {
     public:
 
-        GraphicsMatrix(::wxGraphicsMatrix* instance);
+        GraphicsMatrix(::wxGraphicsMatrix* instance, bool ownNativeInstance = false);
 
         GraphicsMatrix();
 
@@ -201,7 +201,7 @@ namespace wxSharp
 
         ::wxGraphicsGradientStop* __Instance;
 
-        GraphicsGradientStop(::wxGraphicsGradientStop* instance);
+        GraphicsGradientStop(::wxGraphicsGradientStop* instance, bool ownNativeInstance = false);
 
         GraphicsGradientStop(::wxSharp::Color col, float pos);
 
@@ -225,7 +225,7 @@ namespace wxSharp
 
         ::wxGraphicsGradientStops* __Instance;
 
-        GraphicsGradientStops(::wxGraphicsGradientStops* instance);
+        GraphicsGradientStops(::wxGraphicsGradientStops* instance, bool ownNativeInstance = false);
 
         GraphicsGradientStops(::wxSharp::Color startCol, ::wxSharp::Color endCol);
 
@@ -259,7 +259,7 @@ namespace wxSharp
 
         ::wxGraphicsPenInfo* __Instance;
 
-        GraphicsPenInfo(::wxGraphicsPenInfo* instance);
+        GraphicsPenInfo(::wxGraphicsPenInfo* instance, bool ownNativeInstance = false);
 
         explicit GraphicsPenInfo(const ::wxSharp::Color& colour, double width, ::wxSharp::PenStyle style);
 
@@ -313,7 +313,7 @@ namespace wxSharp
     {
     public:
 
-        GraphicsPath(::wxGraphicsPath* instance);
+        GraphicsPath(::wxGraphicsPath* instance, bool ownNativeInstance = false);
 
         GraphicsPath();
 
@@ -362,7 +362,7 @@ namespace wxSharp
     {
     public:
 
-        GraphicsContext(::wxGraphicsContext* instance);
+        GraphicsContext(::wxGraphicsContext* instance, bool ownNativeInstance = false);
 
         GraphicsContext(::wxSharp::GraphicsRenderer* renderer, ::wxSharp::Window* window);
 
@@ -509,7 +509,7 @@ namespace wxSharp
     {
     public:
 
-        GraphicsRenderer(::wxGraphicsRenderer* instance);
+        GraphicsRenderer(::wxGraphicsRenderer* instance, bool ownNativeInstance = false);
 
         GraphicsRenderer();
 

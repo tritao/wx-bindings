@@ -75,7 +75,7 @@ namespace wxSharp
 
             ::wxTopLevelWindow::DecorSize* __Instance;
 
-            DecorSize(::wxTopLevelWindow::DecorSize* instance);
+            DecorSize(::wxTopLevelWindow::DecorSize* instance, bool ownNativeInstance = false);
 
             DecorSize();
 
@@ -103,7 +103,7 @@ namespace wxSharp
             bool __ownsNativeInstance;
         };
 
-        TopLevelWindow(::wxTopLevelWindow* instance);
+        TopLevelWindow(::wxTopLevelWindow* instance, bool ownNativeInstance = false);
 
         TopLevelWindow();
 

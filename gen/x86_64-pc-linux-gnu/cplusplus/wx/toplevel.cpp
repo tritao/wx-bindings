@@ -12,7 +12,9 @@
 #include "wx/window.h"
 
 #include <wx/eventfilter.h>
-wxSharp::TopLevelWindow::DecorSize::DecorSize(::wxTopLevelWindowGTK::DecorSize* instance)
+
+wxSharp::TopLevelWindow::DecorSize::DecorSize(::wxTopLevelWindowGTK::DecorSize* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -82,13 +84,14 @@ void wxSharp::TopLevelWindow::DecorSize::set_bottom(int value)
     ((::wxTopLevelWindowGTK::DecorSize*)__Instance)->bottom = value;
 }
 
-wxSharp::TopLevelWindow::TopLevelWindow(::wxTopLevelWindow* instance)
+wxSharp::TopLevelWindow::TopLevelWindow(::wxTopLevelWindow* instance, bool ownNativeInstance)
+    : wxSharp::NonOwnedWindow((::wxNonOwnedWindow*)instance, ownNativeInstance)
 {
     __Instance = instance;
 
-    auto _instance = (wxTopLevelWindow*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxTopLevelWindow*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 wxSharp::TopLevelWindow::~TopLevelWindow()
@@ -96,16 +99,18 @@ wxSharp::TopLevelWindow::~TopLevelWindow()
 }
 
 wxSharp::TopLevelWindow::TopLevelWindow()
+    : wxSharp::NonOwnedWindow((::wxNonOwnedWindow*)nullptr)
 {
     __ownsNativeInstance = true;
     __Instance = new ::wxTopLevelWindow();
 
-    auto _instance = (wxTopLevelWindow*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxTopLevelWindow*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 wxSharp::TopLevelWindow::TopLevelWindow(::wxSharp::Window* parent, int winid, const char* title, const ::wxSharp::Point& pos, const ::wxSharp::Size& size, long style, const char* name)
+    : wxSharp::NonOwnedWindow((::wxNonOwnedWindow*)nullptr)
 {
     __ownsNativeInstance = true;
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
@@ -116,9 +121,9 @@ wxSharp::TopLevelWindow::TopLevelWindow(::wxSharp::Window* parent, int winid, co
     auto __arg6 = name;
     __Instance = new ::wxTopLevelWindow(__arg0, __arg1, __arg2, __arg3, __arg4, style, __arg6);
 
-    auto _instance = (wxTopLevelWindow*) __Instance;
-    if (_instance->GetClientData() == nullptr)
-        _instance->SetClientData(this);
+    auto __instance = (wxTopLevelWindow*) __Instance;
+    if (__instance && __instance->GetClientData() == nullptr)
+        __instance->SetClientData(this);
 }
 
 bool wxSharp::TopLevelWindow::Create(::wxSharp::Window* parent, int id, const char* title, const ::wxSharp::Point& pos, const ::wxSharp::Size& size, long style, const char* name)

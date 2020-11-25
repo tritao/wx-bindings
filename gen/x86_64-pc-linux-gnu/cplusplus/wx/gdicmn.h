@@ -139,7 +139,7 @@ namespace wxSharp
 
         ::wxSize* __Instance;
 
-        Size(::wxSize* instance);
+        Size(::wxSize* instance, bool ownNativeInstance = false);
 
         Size();
 
@@ -207,7 +207,7 @@ namespace wxSharp
 
         ::wxRealPoint* __Instance;
 
-        RealPoint(::wxRealPoint* instance);
+        RealPoint(::wxRealPoint* instance, bool ownNativeInstance = false);
 
         RealPoint();
 
@@ -237,7 +237,7 @@ namespace wxSharp
 
         ::wxPoint* __Instance;
 
-        Point(::wxPoint* instance);
+        Point(::wxPoint* instance, bool ownNativeInstance = false);
 
         Point();
 
@@ -271,7 +271,7 @@ namespace wxSharp
 
         ::wxwxPointListNode* __Instance;
 
-        wxPointListNode(::wxwxPointListNode* instance);
+        wxPointListNode(::wxwxPointListNode* instance, bool ownNativeInstance = false);
 
         ~wxPointListNode();
 
@@ -293,7 +293,7 @@ namespace wxSharp
 
         ::wxPointList* __Instance;
 
-        PointList(::wxPointList* instance);
+        PointList(::wxPointList* instance, bool ownNativeInstance = false);
 
         PointList(::wxSharp::KeyType keyType);
 
@@ -371,7 +371,7 @@ namespace wxSharp
 
         ::wxRect* __Instance;
 
-        Rect(::wxRect* instance);
+        Rect(::wxRect* instance, bool ownNativeInstance = false);
 
         Rect();
 
@@ -511,7 +511,7 @@ namespace wxSharp
 
         ::wxGDIObjListBase* __Instance;
 
-        GDIObjListBase(::wxGDIObjListBase* instance);
+        GDIObjListBase(::wxGDIObjListBase* instance, bool ownNativeInstance = false);
 
         GDIObjListBase();
 
@@ -529,7 +529,7 @@ namespace wxSharp
 
         ::wxColourDatabase* __Instance;
 
-        ColourDatabase(::wxColourDatabase* instance);
+        ColourDatabase(::wxColourDatabase* instance, bool ownNativeInstance = false);
 
         ColourDatabase();
 
@@ -553,7 +553,7 @@ namespace wxSharp
 
         ::wxResourceCache* __Instance;
 
-        ResourceCache(::wxResourceCache* instance);
+        ResourceCache(::wxResourceCache* instance, bool ownNativeInstance = false);
 
         ResourceCache();
 
@@ -616,7 +616,7 @@ namespace wxSharp
 
         ::wxStockGDI* __Instance;
 
-        StockGDI(::wxStockGDI* instance);
+        StockGDI(::wxStockGDI* instance, bool ownNativeInstance = false);
 
         StockGDI();
 

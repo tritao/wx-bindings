@@ -11,7 +11,9 @@
 #include "wx/pen.h"
 
 #include <wx/eventfilter.h>
-wxSharp::PenInfo::PenInfo(::wxPenInfo* instance)
+
+wxSharp::PenInfo::PenInfo(::wxPenInfo* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -91,7 +93,8 @@ bool wxSharp::PenInfo::IsTransparent() const
     return __ret;
 }
 
-wxSharp::Pen::Pen(::wxPen* instance)
+wxSharp::Pen::Pen(::wxPen* instance, bool ownNativeInstance)
+    : __ownsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -230,8 +233,8 @@ bool wxSharp::Pen::IsNonTransparent() const
     return __ret;
 }
 
-wxSharp::PenList::PenList(::wxPenList* instance)
-    : wxSharp::GDIObjListBase((::wxGDIObjListBase*)instance)
+wxSharp::PenList::PenList(::wxPenList* instance, bool ownNativeInstance)
+    : wxSharp::GDIObjListBase((::wxGDIObjListBase*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }

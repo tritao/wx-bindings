@@ -45,3 +45,5 @@ workspace "wx"
     setup_wx_libs("base core")
 
   include "tests/minimal"
+  include "tests/events"
+  include "tests/canvas"

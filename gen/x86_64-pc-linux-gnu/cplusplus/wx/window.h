@@ -202,9 +202,9 @@ namespace wxSharp
 
         enum class ScrollDir : unsigned int
         {
-            ScrollDir_Horz = 0,
-            ScrollDir_Vert = 1,
-            ScrollDir_Max = 2
+            Horz = 0,
+            Vert = 1,
+            Max = 2
         };
 
         enum class NavigationKind : unsigned int

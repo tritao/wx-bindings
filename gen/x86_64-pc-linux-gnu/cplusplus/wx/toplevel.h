@@ -207,10 +207,6 @@ namespace wxSharp
 
         virtual bool Layout() override;
 
-        void OnCloseWindow(::wxSharp::CloseEvent& event);
-
-        void OnSize(::wxSharp::SizeEvent& _0);
-
         virtual void GetRectForTopLevelChildren(int* x, int* y, int* w, int* h);
 
         void OnActivate(::wxSharp::ActivateEvent& _0);

@@ -390,18 +390,6 @@ bool wxSharp::TopLevelWindow::Layout()
     return __ret;
 }
 
-void wxSharp::TopLevelWindow::OnCloseWindow(::wxSharp::CloseEvent& event)
-{
-    auto &__arg0 = *(::wxCloseEvent*)event.__Instance;
-    ((::wxTopLevelWindow*)__Instance)->OnCloseWindow(__arg0);
-}
-
-void wxSharp::TopLevelWindow::OnSize(::wxSharp::SizeEvent& _0)
-{
-    auto &__arg0 = *(::wxSizeEvent*)_0.__Instance;
-    ((::wxTopLevelWindow*)__Instance)->OnSize(__arg0);
-}
-
 void wxSharp::TopLevelWindow::GetRectForTopLevelChildren(int* x, int* y, int* w, int* h)
 {
     int* __arg0 = (int*)x;

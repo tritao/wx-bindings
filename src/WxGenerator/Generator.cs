@@ -101,7 +101,7 @@ namespace CppSharp
                 parserOptions.TargetTriple, GeneratorKind.ToString().ToLowerInvariant());
             options.GenerateDeprecatedDeclarations = false;
             options.GenerationOutputMode = GenerationOutputMode.FilePerUnit;
-            options.CompileCode = true;
+            options.CompileCode = false;
             options.GenerateClassTemplates = true;
             options.GeneratorKind = GeneratorKind;
             options.UseHeaderDirectories = true;
@@ -202,7 +202,7 @@ namespace CppSharp
 
                 ctx.FindCompleteClass("wxArrayGdkWindows").ExplicitlyIgnore();
             }
-            
+
             wxWindow.FindMethod("OnIdle")?.ExplicitlyIgnore();
 
             MoveDefinitionsFromTo(ctx, "wxWindowBase", "wxWindow");
@@ -231,6 +231,8 @@ namespace CppSharp
 
             ctx.FindCompleteClass("wxWindowBase").FindMethod("IsTransparentBackgroundSupported")
                 .Parameters[0].Usage = ParameterUsage.Out;
+
+            passBuilder.RemovePrefix("ScrollDir_");
 
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "nonownedwnd.h" });
@@ -282,6 +284,9 @@ namespace CppSharp
             wxFrame.FindMethod("OnMenuClose")?.ExplicitlyIgnore();
             wxFrame.FindMethod("OnMenuHighlight")?.ExplicitlyIgnore();
 
+            //passBuilder.RemovePrefix("wxFRAME_");
+
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "toplevel.h" });
 
             if (TargetPlatform == TargetPlatform.MacOS)
@@ -300,10 +305,11 @@ namespace CppSharp
 
             // Undefined symbols "wxTopLevelWindow::wxCreateObject()"
             ctx.IgnoreClassMethodWithName("wxTopLevelWindow", "wxCreateObject");
+            ctx.IgnoreClassMethodWithName("wxTopLevelWindow", "OnCloseWindow");
+            ctx.IgnoreClassMethodWithName("wxTopLevelWindow", "OnSize");
 
             var geometrySerializer = ctx.FindCompleteClass("wxTopLevelWindow").FindClass("GeometrySerializer");
-            if (geometrySerializer != null)
-                geometrySerializer.ExplicitlyIgnore();
+            geometrySerializer?.ExplicitlyIgnore();
 
             // TODO: Fix parameters in wxTopLevelWindowBase::ShowFullScreen.
             var fullscreenMode = ctx.GetEnumWithMatchingItem("wxFULLSCREEN_NOMENUBAR");
@@ -339,6 +345,7 @@ namespace CppSharp
             passBuilder.RemovePrefix("wxINTERPOLATION_");
             passBuilder.RemovePrefix("wxGRADIENT_");
 
+            // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "event.h" });
             ctx.IgnoreClassWithName("wxEventFunctor");
             ctx.IgnoreClassMethodWithName("wxEventFunctor", "GetWxTypeId");
@@ -511,6 +518,8 @@ namespace CppSharp
 
             if (TargetPlatform == TargetPlatform.Linux)
                 MoveTranslationUnitFromTo(ctx, "wx/gtk/colour.h", "wx/colour.h");
+
+            var c2s = ctx.FindCompleteEnum("wxC2S");
 
             MoveDefinitionsFromTo(ctx, "wxColourBase", "wxColour");
 
@@ -895,14 +904,16 @@ namespace CppSharp
                 return;
 
             block.NewLine();
-            block.WriteLine($"auto _instance = ({@class.OriginalName}*) __Instance;");
-            block.WriteLine($"if (_instance->GetClientData() == nullptr)");
-            block.WriteLineIndent($"_instance->SetClientData(this);");
+
+            block.WriteLine($"auto __instance = ({@class.OriginalName}*) __Instance;");
+            block.WriteLine($"if (__instance && __instance->GetClientData() == nullptr)");
+            block.WriteLineIndent($"__instance->SetClientData(this);");
         }
 
         public override void VisitIncludes(Block block)
         {
             block.WriteLine("#include <wx/eventfilter.h>");
+            block.NewLine();
         }
     }
 

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -14,24 +13,99 @@ using CppSharp.Generators.Cpp;
 using CppSharp.Passes;
 using CppSharp.Types;
 using static CppSharp.ASTHelpers;
+using static CppSharp.Program;
 
 namespace CppSharp
 {
-    class wxSharpGen : ILibrary
+    static class Program
     {
+        public static string WxPath => Path.Combine(GetExamplesDirectory("wxSharp"), "wxWidgets");
+
+        public static void Main(string[] args)
+        {
+            const TargetPlatform targetPlatform = TargetPlatform.Linux;
+            ////ConsoleDriver.Run(new HighLevelGen(GeneratorKind.CSharp, targetPlatform));
+            ConsoleDriver.Run(new HighLevelGen(GeneratorKind.NAPI, targetPlatform));
+        }
+
+        public static string GetExamplesDirectory(string name)
+        {
+            var directory = Directory.GetParent(Directory.GetCurrentDirectory());
+            while (directory != null)
+            {
+                var path = Path.Combine(directory.FullName, "examples", name);
+                if (Directory.Exists(path))
+                    return path;
+
+                directory = directory.Parent;
+            }
+
+            throw new Exception($"Examples directory for project '{name}' was not found");
+        }
+
+        public static void SetupWx(Driver driver, Module module, TargetPlatform targetPlatform)
+        {
+            // TODO: Replace this with wx-config invocations.
+
+            var wxIncludePath = Path.Combine(WxPath, "include");
+            module.IncludeDirs.Add(wxIncludePath);
+
+            var wxBuildPath = Path.Combine(WxPath, "../build/wxwidgets");
+            var wxBuildIncludePath = Path.Combine(wxBuildPath, "lib/wx/include");
+            var wxBuildVariantDirName = Directory.EnumerateDirectories(wxBuildIncludePath).FirstOrDefault();
+
+            var wxBuildVariantPath = Path.Combine(wxBuildIncludePath, wxBuildVariantDirName);
+            if (!Directory.Exists(wxBuildVariantPath))
+                throw new Exception("Expected wxWidgets build variant: " + wxBuildVariantPath);
+
+            module.IncludeDirs.Add(wxBuildVariantPath);
+
+            module.Defines.Add("WXUSINGDLL");
+            module.Defines.Add("wxUSE_GUI=1");
+
+            var parserOptions = driver.ParserOptions;
+
+            if (targetPlatform == TargetPlatform.MacOS)
+            {
+                parserOptions.TargetTriple = "i686-apple-darwin";
+
+                module.Defines.Add("__WXMAC__");
+                module.Defines.Add("__WXOSX__");
+                module.Defines.Add("__WXOSX_COCOA__");
+                module.Defines.Add("HAVE_SSIZE_T");
+                module.Defines.Add("_FILE_OFFSET_BITS=64");
+            }
+            else if (targetPlatform == TargetPlatform.Linux)
+            {
+                parserOptions.TargetTriple = "x86_64-pc-linux-gnu";
+
+                module.Defines.Add("__WXGTK3__");
+                module.Defines.Add("__WXGTK__");
+            }
+
+            parserOptions.AddIncludeDirs(wxIncludePath);
+        }
+    }
+
+    class LowLevelGen : ILibrary
+    {
+        public GeneratorKind GeneratorKind;
+
         public TargetPlatform TargetPlatform;
 
-        public static string WxPath => Path.Combine(GetExamplesDirectory("wxSharp"),
-            "wxWidgets");
-
-        public GeneratorKind GeneratorKind = GeneratorKind.CPlusPlus;
-        //public GeneratorKind GeneratorKind = GeneratorKind.CSharp;
-
         public WxEventsIndexer WxEventsIndexer;
+
+        public LowLevelGen(GeneratorKind kind, TargetPlatform platform)
+        {
+            GeneratorKind = kind;
+            TargetPlatform = platform;
+        }
 
         public void Setup(Driver driver)
         {
             var options = driver.Options;
+
+            options.GenerateName = GenerateName;
 
             var module = options.AddModule("wxSharp");
             module.LibraryName = "wxSharp";
@@ -57,48 +131,14 @@ namespace CppSharp
 
             module.Headers.AddRange(headers);
 
-            // TODO: Replace this with wx-config invocations.
-
-            TargetPlatform = TargetPlatform.Linux;
-
-            var wxBuildPath = Path.Combine(WxPath, "../build/wxwidgets");
-            var wxBuildIncludePath = Path.Combine(wxBuildPath, "lib/wx/include");
-            var wxBuildVariantDirName = Directory.EnumerateDirectories(wxBuildIncludePath).FirstOrDefault();
-            if (string.IsNullOrEmpty(wxBuildVariantDirName))
-                throw new Exception("Expected wxWidgets build variant");
-
-            var wxIncludePath = Path.Combine(WxPath, "include");
-            module.IncludeDirs.Add(wxIncludePath);
-            module.IncludeDirs.Add(Path.Combine(wxBuildIncludePath, wxBuildVariantDirName));
-            
-            module.Defines.Add("WXUSINGDLL");
-            module.Defines.Add("wxUSE_GUI=1");
+            SetupWx(driver, module, TargetPlatform);
 
             var parserOptions = driver.ParserOptions;
-            parserOptions.AddIncludeDirs(wxIncludePath);
             parserOptions.UnityBuild = true;
             //parserOptions.SkipLayoutInfo = true;
 
-            if (TargetPlatform == TargetPlatform.MacOS)
-            {
-                parserOptions.TargetTriple = "i686-apple-darwin";
-
-                module.Defines.Add("__WXMAC__");
-                module.Defines.Add("__WXOSX__");
-                module.Defines.Add("__WXOSX_COCOA__");
-                module.Defines.Add("HAVE_SSIZE_T");
-                module.Defines.Add("_FILE_OFFSET_BITS=64");
-            } 
-            else if (TargetPlatform == TargetPlatform.Linux)
-            {
-                parserOptions.TargetTriple = "x86_64-pc-linux-gnu";
-
-                module.Defines.Add("__WXGTK3__"); 
-                module.Defines.Add("__WXGTK__");
-            }
-
             options.OutputDir = Path.Combine(GetExamplesDirectory("wxSharp/gen"),
-                parserOptions.TargetTriple, GeneratorKind.ToString().ToLowerInvariant());
+                "wx", GeneratorKind.ToString().ToLowerInvariant(), parserOptions.TargetTriple);
             options.GenerateDeprecatedDeclarations = false;
             options.GenerationOutputMode = GenerationOutputMode.FilePerUnit;
             options.CompileCode = false;
@@ -107,6 +147,16 @@ namespace CppSharp
             options.UseHeaderDirectories = true;
             //options.DryRun = true;
             //options.Verbose = true;
+        }
+
+        private string GenerateName(TranslationUnit arg)
+        {
+            var fileRelativePath = arg.FileRelativeDirectory;
+            var elements = fileRelativePath.Split('/');
+            elements[0] = "wxsharp";
+
+            var path = Path.Combine(string.Join('/', elements), arg.FileNameWithoutExtension);
+            return path;
         }
 
         public void SetupPasses(Driver driver)
@@ -234,6 +284,8 @@ namespace CppSharp
 
             passBuilder.RemovePrefix("ScrollDir_");
 
+            // TODO: Remove wxWindow::LayoutPhase1/2
+
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "nonownedwnd.h" });
 
@@ -286,8 +338,17 @@ namespace CppSharp
 
             //passBuilder.RemovePrefix("wxFRAME_");
 
+            // TODO: Remove wxApp::GetXVisualInfo
+
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "toplevel.h" });
+
+            var topLevelGTK = ctx.FindCompleteClass("wxTopLevelWindowGTK");
+            if (topLevelGTK != null)
+            {
+                var decorSize = topLevelGTK.FindClass("DecorSize");
+                decorSize.ExplicitlyIgnore();
+            }
 
             if (TargetPlatform == TargetPlatform.MacOS)
             {
@@ -321,6 +382,8 @@ namespace CppSharp
             var userAttention = ctx.GetEnumWithMatchingItem("wxUSER_ATTENTION_INFO");
             userAttention.Name = "wxUserAttention";
             passBuilder.RemovePrefix("wxUSER_ATTENTION_");
+
+            // TODO: Remove GetRectForTopLevelChildren()
 
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "gdicmn.h" });
@@ -604,24 +667,6 @@ namespace CppSharp
             var method = window.FindClass("Window").FindMethod("SetSizer");
 
             var pen = ctx.FindCompleteClass("EvtHandler");
-
-        }
-
-        public static string GetExamplesDirectory(string name)
-        {
-            var directory = Directory.GetParent(Directory.GetCurrentDirectory());
-
-            while (directory != null)
-            {
-                var path = Path.Combine(directory.FullName, "examples", name);
-
-                if (Directory.Exists(path))
-                    return path;
-
-                directory = directory.Parent;
-            }
-
-            throw new Exception($"Examples directory for project '{name}' was not found");
         }
 
         public void GenerateCode(Driver driver, List<GeneratorOutput> outputs)
@@ -663,14 +708,6 @@ namespace CppSharp
                 handlersUnit, WxEventsIndexer));
 
             outputs.Add(eventsOutput);
-        }
-
-        static class Program
-        {
-            public static void Main(string[] args)
-            {
-                ConsoleDriver.Run(new wxSharpGen());
-            }
         }
     }
 
@@ -804,7 +841,8 @@ namespace CppSharp
 
             foreach (var unit in units)
             {
-                WriteInclude(unit.FileRelativePath, CInclude.IncludeKind.Quoted);
+                var path = unit.FileRelativePath;
+                WriteInclude(path, CInclude.IncludeKind.Quoted);
             }
         }
 
@@ -1122,8 +1160,7 @@ namespace CppSharp
             CreateHandleEventMethod();
         }
 
-        static string GetFilePath(string path) =>
-            Path.Combine(wxSharpGen.WxPath, "interface", path);
+        static string GetFilePath(string path) => Path.Combine(WxPath, "interface", path);
 
         static bool RemovePathLastDir(ref string path)
         {

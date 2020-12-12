@@ -9,6 +9,8 @@
 #include "CppSharp.h"
 #include "FastDelegates.h"
 #include <wx/event.h>
+#include "wxsharp/dc.h"
+#include "wxsharp/gdicmn.h"
 #include "wxsharp/object.h"
 
 namespace wxSharp
@@ -20,7 +22,6 @@ namespace wxSharp
     class CloseEvent;
     class CommandEvent;
     class ContextMenuEvent;
-    class DC;
     class DPIChangedEvent;
     class DisplayChangedEvent;
     class EraseEvent;
@@ -48,17 +49,14 @@ namespace wxSharp
     class PaintEvent;
     class PaletteChangedEvent;
     class PanGestureEvent;
-    class Point;
     class PressAndTapEvent;
     class PropagateOnce;
     class QueryNewPaletteEvent;
-    class Rect;
     class RotateGestureEvent;
     class ScrollEvent;
     class ScrollWinEvent;
     class SetCursorEvent;
     class ShowEvent;
-    class Size;
     class SizeEvent;
     class SysColourChangedEvent;
     class ThreadEvent;

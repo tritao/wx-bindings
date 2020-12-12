@@ -9,6 +9,7 @@
 #include "CppSharp.h"
 #include "FastDelegates.h"
 #include <wx/dc.h>
+#include "wxsharp/gdicmn.h"
 #include "wxsharp/object.h"
 
 namespace wxSharp
@@ -21,10 +22,7 @@ namespace wxSharp
     class GraphicsContext;
     class PaintDC;
     class Pen;
-    class Point;
     class PointList;
-    class Rect;
-    class Size;
     class Window;
     class WindowDC;
     enum class Direction : unsigned int;

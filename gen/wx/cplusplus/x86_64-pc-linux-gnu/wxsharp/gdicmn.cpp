@@ -6,7 +6,6 @@
 // ----------------------------------------------------------------------------
 #include "wxsharp/gdicmn.h"
 #include "wxsharp/brush.h"
-#include "wxsharp/colour.h"
 #include "wxsharp/defs.h"
 #include "wxsharp/gdicmn.h"
 #include "wxsharp/object.h"

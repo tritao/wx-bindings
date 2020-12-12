@@ -5,7 +5,6 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------
 #include "wxsharp/pen.h"
-#include "wxsharp/colour.h"
 #include "wxsharp/graphics.h"
 #include "wxsharp/object.h"
 #include "wxsharp/pen.h"

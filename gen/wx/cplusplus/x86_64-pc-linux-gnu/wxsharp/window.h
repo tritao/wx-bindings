@@ -9,11 +9,12 @@
 #include "CppSharp.h"
 #include "FastDelegates.h"
 #include <wx/window.h>
+#include "wxsharp/colour.h"
 #include "wxsharp/event.h"
+#include "wxsharp/gdicmn.h"
 
 namespace wxSharp
 {
-    class Color;
     class DC;
     class Event;
     class HelpEvent;
@@ -22,9 +23,6 @@ namespace wxSharp
     class KeyEvent;
     class MouseEvent;
     class Object;
-    class Point;
-    class Rect;
-    class Size;
     class Sizer;
     class SysColourChangedEvent;
     class UpdateUIEvent;

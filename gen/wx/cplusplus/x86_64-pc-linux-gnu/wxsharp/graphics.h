@@ -9,12 +9,14 @@
 #include "CppSharp.h"
 #include "FastDelegates.h"
 #include <wx/graphics.h>
+#include "wxsharp/brush.h"
+#include "wxsharp/colour.h"
+#include "wxsharp/gdicmn.h"
 #include "wxsharp/object.h"
+#include "wxsharp/pen.h"
 
 namespace wxSharp
 {
-    class Brush;
-    class Color;
     class DC;
     class GraphicsBitmap;
     class GraphicsBrush;
@@ -28,8 +30,6 @@ namespace wxSharp
     class GraphicsPen;
     class GraphicsPenInfo;
     class GraphicsRenderer;
-    class Pen;
-    class RealPoint;
     class RefCounter;
     class Window;
     class WindowDC;

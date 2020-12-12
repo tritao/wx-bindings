@@ -9,16 +9,15 @@
 #include "CppSharp.h"
 #include "FastDelegates.h"
 #include <wx/sizer.h>
+#include "wxsharp/gdicmn.h"
 #include "wxsharp/object.h"
+#include "wxsharp/window.h"
 
 namespace wxSharp
 {
     class BoxSizer;
     class FlexGridSizer;
     class GridSizer;
-    class Point;
-    class Rect;
-    class Size;
     class Sizer;
     class SizerFlags;
     class SizerItem;
@@ -26,7 +25,6 @@ namespace wxSharp
     class SizerSpacer;
     class StaticBoxSizer;
     class StdDialogButtonSizer;
-    class Window;
     enum class FlexSizerGrowMode : unsigned int;
     enum class KeyType : unsigned int;
     enum class SizerOrientation : unsigned int;

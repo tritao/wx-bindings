@@ -5,11 +5,9 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------
 #include "wxsharp/window.h"
-#include "wxsharp/colour.h"
 #include "wxsharp/dc.h"
 #include "wxsharp/defs.h"
 #include "wxsharp/event.h"
-#include "wxsharp/gdicmn.h"
 #include "wxsharp/object.h"
 #include "wxsharp/sizer.h"
 #include "wxsharp/window.h"

@@ -6,9 +6,7 @@
 // ----------------------------------------------------------------------------
 #include "wxsharp/sizer.h"
 #include "wxsharp/defs.h"
-#include "wxsharp/gdicmn.h"
 #include "wxsharp/sizer.h"
-#include "wxsharp/window.h"
 
 #include <wx/eventfilter.h>
 

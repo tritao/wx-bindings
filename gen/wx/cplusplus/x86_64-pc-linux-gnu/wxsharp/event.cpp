@@ -5,9 +5,7 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------
 #include "wxsharp/event.h"
-#include "wxsharp/dc.h"
 #include "wxsharp/event.h"
-#include "wxsharp/gdicmn.h"
 #include "wxsharp/window.h"
 
 #include <wx/eventfilter.h>

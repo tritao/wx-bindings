@@ -9,11 +9,11 @@
 #include "CppSharp.h"
 #include "FastDelegates.h"
 #include <wx/pen.h>
+#include "wxsharp/colour.h"
 #include "wxsharp/gdicmn.h"
 
 namespace wxSharp
 {
-    class Color;
     class Object;
     class Pen;
     class PenInfo;

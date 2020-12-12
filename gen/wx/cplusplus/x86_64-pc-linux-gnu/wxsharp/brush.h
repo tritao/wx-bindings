@@ -9,13 +9,13 @@
 #include "CppSharp.h"
 #include "FastDelegates.h"
 #include <wx/brush.h>
+#include "wxsharp/colour.h"
 #include "wxsharp/gdicmn.h"
 
 namespace wxSharp
 {
     class Brush;
     class BrushList;
-    class Color;
     class Object;
     enum class BrushStyle;
 }

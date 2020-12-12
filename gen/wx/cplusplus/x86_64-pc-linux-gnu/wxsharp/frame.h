@@ -9,6 +9,7 @@
 #include "CppSharp.h"
 #include "FastDelegates.h"
 #include <wx/frame.h>
+#include "wxsharp/gdicmn.h"
 #include "wxsharp/toplevel.h"
 
 namespace wxSharp
@@ -18,7 +19,6 @@ namespace wxSharp
     class IdleEvent;
     class MenuEvent;
     class Object;
-    class Point;
     class Size;
     class Window;
     enum class FrameFlags : signed char;

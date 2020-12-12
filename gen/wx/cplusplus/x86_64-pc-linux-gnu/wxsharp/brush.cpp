@@ -6,7 +6,6 @@
 // ----------------------------------------------------------------------------
 #include "wxsharp/brush.h"
 #include "wxsharp/brush.h"
-#include "wxsharp/colour.h"
 #include "wxsharp/object.h"
 
 #include <wx/eventfilter.h>

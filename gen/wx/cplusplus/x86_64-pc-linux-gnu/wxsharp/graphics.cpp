@@ -5,8 +5,6 @@
 // </auto-generated>
 // ----------------------------------------------------------------------------
 #include "wxsharp/graphics.h"
-#include "wxsharp/brush.h"
-#include "wxsharp/colour.h"
 #include "wxsharp/dc.h"
 #include "wxsharp/dcclient.h"
 #include "wxsharp/gdicmn.h"

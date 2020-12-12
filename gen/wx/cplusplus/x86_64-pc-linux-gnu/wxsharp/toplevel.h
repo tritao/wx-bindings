@@ -9,6 +9,7 @@
 #include "CppSharp.h"
 #include "FastDelegates.h"
 #include <wx/toplevel.h>
+#include "wxsharp/gdicmn.h"
 #include "wxsharp/nonownedwnd.h"
 #include "wxsharp/window.h"
 
@@ -19,12 +20,9 @@ namespace wxSharp
     class Event;
     class Object;
     class Point;
-    class Rect;
-    class Size;
     class SizeEvent;
     class TopLevelWindow;
     class UpdateUIEvent;
-    class VisualAttributes;
     class Window;
     enum class FrameStyle;
     enum class FullscreenMode : unsigned int;

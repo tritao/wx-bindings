@@ -12,11 +12,8 @@ newoption {
   default = "x64"
 }
 
-rootdir = path.getabsolute(".")
-cppsharpdir = path.getabsolute(path.join(rootdir, '../..'))
-
-include("wx")
-
+local standalone_build = rootdir == nil
+if standalone_build then
 workspace "wx"
   configurations { "Debug", "Release" }
 
@@ -32,13 +29,26 @@ workspace "wx"
 
   filter {}
 
-  --include(cppsharp .. "/build/premake5.lua")
-  --include("src/BakefileGen")
-  --include("src/WxGenerator")
+--include(cppsharp .. "/build/premake5.lua")
+end
 
+if _ACTION ~= "gmake2" then
+  include("src/BakefileGen")
+  include("src/WxGenerator")
+  include("src/SkiaGenerator")
+end
+
+rootdir = path.getabsolute(".")
+cppsharpdir = path.getabsolute(path.join(rootdir, '../..'))
+
+include("wx")
+
+if _ACTION == "gmake2" then
   project "wx"
-    kind "StaticLib"
-    files { path.join(wx_get_target_dir(), "cplusplus", "**.cpp") }
+    --kind "StaticLib"
+    kind "SharedLib"
+    files { path.join(wx_get_target_dir(), "**.cpp") }
+    files { path.join(wx_get_target_dir(), "../support/**.cpp") }
     removefiles { "**/defs.cpp", "test-**" }
     setup_common()
     setup_wx_cflags()
@@ -47,3 +57,4 @@ workspace "wx"
   include "tests/minimal"
   include "tests/events"
   include "tests/canvas"
+end

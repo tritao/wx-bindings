@@ -86,9 +86,9 @@ download()
   premake_dir=$DIR/build/premake
 
   if [ ! -d $premake_dir ]; then
-    mkdir -p $DIR/build/premake
+    mkdir -p $premake_dir
     (cd $DIR/build && curl -L -O $premake_url --create-dirs)
-    (cd $DIR/build/premake && unzip -o $DIR/build/premake-$oshost-$platform.zip && chmod +x premake5*)
+    (cd $premake_dir && unzip -o $DIR/build/premake-$oshost-$platform.zip && chmod +x premake5*)
     rm -rf $DIR/build/premake-$oshost-$platform.zip
   fi
 }

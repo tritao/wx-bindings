@@ -5,11 +5,11 @@ function wx_get_target_dir()
     local gendir = path.getabsolute(path.join(rootdir, "gen"))
 
     if os.istarget("linux") then
-        return path.join(gendir, "x86_64-pc-linux-gnu")
+        return path.join(gendir, "wx", "cplusplus", "x86_64-pc-linux-gnu")
     end
 
     if os.istarget("macosx") then
-        return path.join(gendir, "i686-apple-darwin")
+        return path.join(gendir, "wx", "cplusplus", "i686-apple-darwin")
     end
 
     return ""
@@ -43,7 +43,7 @@ function setup_common()
 
   buildoptions
   {
-    "-iquote" .. path.join(wx_get_target_dir(), "cplusplus"),
+    "-iquote" .. wx_get_target_dir(),
     "-isystem" .. path.join(cppsharpdir, "include"),
   }
 end

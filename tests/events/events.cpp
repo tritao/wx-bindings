@@ -1,9 +1,10 @@
-#include "wx/app.h"
-#include "wx/defs.h"
-#include "wx/window.h"
-#include "wx/event.h"
-#include "wx/eventhandlers.h"
-#include <wx/app.h>
+#include "wxsharp/app.h"
+#include "wxsharp/defs.h"
+#include "wxsharp/event.h"
+#include "wxsharp/eventhandlers.h"
+#include "wxsharp/frame.h"
+#include "wxsharp/gdicmn.h"
+#include "wxsharp/window.h"
 
 using namespace wxSharp;
 

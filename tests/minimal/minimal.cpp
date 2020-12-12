@@ -1,8 +1,11 @@
-#include "wx/app.h"
-#include "wx/defs.h"
-#include "wx/window.h"
-#include "wx/event.h"
-#include "wx/eventhandlers.h"
+#include "wxsharp/app.h"
+#include "wxsharp/defs.h"
+#include "wxsharp/frame.h"
+#include "wxsharp/gdicmn.h"
+#include "wxsharp/window.h"
+#include "wxsharp/event.h"
+#include "wxsharp/eventhandlers.h"
+#include <wx/evtloop.h>
 
 using namespace wxSharp;
 
@@ -12,12 +15,13 @@ int main(int argc, char *argv[])
     wxDISABLE_DEBUG_SUPPORT();
 
     int dummy = 0;
-    if(!wxEntryStart(dummy, static_cast<wxChar**>(nullptr)))
+    if(!wxInitialize(dummy, static_cast<wxChar**>(nullptr)))
         return 1;
 
     wxEvtHandler::AddFilter(new _EventFilter());
 
     auto app = CreateApp();
+
     // -----------------------------------
 
     Point pos(-1, -1);
@@ -27,10 +31,17 @@ int main(int argc, char *argv[])
     frame->Show(true);
 
     app->CallOnInit();
-    app->OnRun();
+    //app->OnRun();
+
+    wxAppBase* appBase = (wxAppBase*)app->__Instance;
+    appBase->MainLoop();
+
+    wxEventLoopBase* mainLoop = appBase->GetMainLoop();
+    printf("%p\n", mainLoop);
+    mainLoop->Run();
 
     // -----------------------------------
-    wxEntryCleanup();
+    wxUninitialize();
 
     return 0;
 }

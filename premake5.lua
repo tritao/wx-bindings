@@ -13,7 +13,16 @@ newoption {
 }
 
 local standalone_build = rootdir == nil
-if standalone_build then
+if not standalone_build then
+  --include("src/BakefileGen")
+  --include("src/SkiaGenerator")
+  include("src/WxGenerator")
+  return
+end
+
+rootdir = path.getabsolute(".")
+cppsharpdir = path.getabsolute(path.join(rootdir, '../..'))
+
 workspace "wx"
   configurations { "Debug", "Release" }
 
@@ -29,21 +38,8 @@ workspace "wx"
 
   filter {}
 
---include(cppsharp .. "/build/premake5.lua")
-end
+  include("wx")
 
-if _ACTION ~= "gmake2" then
-  include("src/BakefileGen")
-  include("src/WxGenerator")
-  include("src/SkiaGenerator")
-end
-
-rootdir = path.getabsolute(".")
-cppsharpdir = path.getabsolute(path.join(rootdir, '../..'))
-
-include("wx")
-
-if _ACTION == "gmake2" then
   project "wx"
     --kind "StaticLib"
     kind "SharedLib"
@@ -57,4 +53,3 @@ if _ACTION == "gmake2" then
   include "tests/minimal"
   include "tests/events"
   include "tests/canvas"
-end

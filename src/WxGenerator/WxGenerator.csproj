@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <UseNugetPackage>true</UseNugetPackage>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(UseNugetPackage)' != 'true'">
+    <Reference Include="CppSharp" />
+    <Reference Include="CppSharp.AST" />
+    <Reference Include="CppSharp.Generator" />
+    <Reference Include="CppSharp.Parser" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseNugetPackage)' == 'true'">
+    <PackageReference Include="CppSharp"/>
+  </ItemGroup>
+</Project>

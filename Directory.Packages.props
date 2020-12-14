@@ -1,0 +1,5 @@
+<Project>
+  <ItemGroup>
+    <PackageVersion Include="CppSharp" Version="0.10.6" />
+  </ItemGroup>
+</Project>

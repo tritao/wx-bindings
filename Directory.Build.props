@@ -1,0 +1,23 @@
+<Project>
+  <PropertyGroup>
+    <PlatformTarget>x64</PlatformTarget>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Configuration>Release</Configuration>
+    <CI>false</CI>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RootDir>$(MSBuildThisFileDirectory)</RootDir>
+    <Platforms>x86;x64</Platforms>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <BuildDir>$(RootDir)build\</BuildDir>
+    <ObjDir>$(BuildDir)obj\</ObjDir>
+    <BaseIntermediateOutputPath>$(ObjDir)$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(RootDir)bin\</BaseOutputPath>
+    <OutputPath>$(BaseOutputPath)$(Configuration)_$(PlatformTarget)\</OutputPath>
+    <TargetDir>$(OutputPath)</TargetDir>
+    <LangVersion>8.0</LangVersion>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+</Project>

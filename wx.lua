@@ -1,4 +1,4 @@
-local wx_path = path.join(rootdir, "wxWidgets")
+local wx_path = path.join(rootdir, "deps", "wxWidgets")
 local wx_build_path = path.join(rootdir, "build/wxwidgets")
 
 function wx_get_target_dir()

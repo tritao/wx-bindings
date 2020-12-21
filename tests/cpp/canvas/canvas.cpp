@@ -1,17 +1,17 @@
-#include "wxsharp/app.h"
-#include "wxsharp/colour.h"
-#include "wxsharp/dcclient.h"
-#include "wxsharp/defs.h"
-#include "wxsharp/frame.h"
-#include "wxsharp/event.h"
-#include "wxsharp/eventhandlers.h"
-#include "wxsharp/gdicmn.h"
-#include "wxsharp/panel.h"
-#include "wxsharp/pen.h"
-#include "wxsharp/sizer.h"
-#include "wxsharp/window.h"
+#include "ozone/app.h"
+#include "ozone/colour.h"
+#include "ozone/dcclient.h"
+#include "ozone/defs.h"
+#include "ozone/frame.h"
+#include "ozone/event.h"
+#include "ozone/eventhandlers.h"
+#include "ozone/gdicmn.h"
+#include "ozone/panel.h"
+#include "ozone/pen.h"
+#include "ozone/sizer.h"
+#include "ozone/window.h"
 
-using namespace wxSharp;
+using namespace Ozone;
 
 class DrawPane : public Panel
 {

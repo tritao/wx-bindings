@@ -1,12 +1,12 @@
-#include "wxsharp/app.h"
-#include "wxsharp/defs.h"
-#include "wxsharp/event.h"
-#include "wxsharp/eventhandlers.h"
-#include "wxsharp/frame.h"
-#include "wxsharp/gdicmn.h"
-#include "wxsharp/window.h"
+#include "ozone/app.h"
+#include "ozone/defs.h"
+#include "ozone/event.h"
+#include "ozone/eventhandlers.h"
+#include "ozone/frame.h"
+#include "ozone/gdicmn.h"
+#include "ozone/window.h"
 
-using namespace wxSharp;
+using namespace Ozone;
 
 int main(int argc, char *argv[])
 {
@@ -19,12 +19,12 @@ int main(int argc, char *argv[])
 
     wxEvtHandler::AddFilter(new _EventFilter());    
 
-    auto _app = dynamic_cast<::wxApp*>(wxApp::GetInstance());
-    auto app = wxSharp::App(_app);
+    auto _app = static_cast<::wxApp*>(wxApp::GetInstance());
+    auto app = Ozone::App(_app);
 
     // -----------------------------------
 
-    app.OnActivateApp.bind([](::wxSharp::ActivateEvent& evt) {
+    app.OnActivateApp.bind([](::Ozone::ActivateEvent& evt) {
         printf("OnActivateApp: %s\n", evt.GetActive() ? "true" : "false");
     });
 
@@ -33,17 +33,17 @@ int main(int argc, char *argv[])
     auto frame = new Frame(nullptr, -1, "Hello World", pos, size,
         FrameStyle::DEFAULT_FRAME_STYLE, nullptr);
 
-    frame->OnMove.bind([](::wxSharp::MoveEvent& evt) {
+    frame->OnMove.bind([](::Ozone::MoveEvent& evt) {
         auto position = evt.GetPosition();
         printf("OnMove: (%d, %d)\n", position.get_x(), position.get_y());
     });
 
-    frame->OnSize.bind([](::wxSharp::SizeEvent& evt) {
+    frame->OnSize.bind([](::Ozone::SizeEvent& evt) {
         auto size = evt.GetSize();
         printf("OnSize: (%d, %d)\n", size.GetX(), size.GetY());
     });
 
-    frame->OnClose.bind([](::wxSharp::CloseEvent& evt) {
+    frame->OnClose.bind([](::Ozone::CloseEvent& evt) {
         printf("OnClose\n");
     });
 

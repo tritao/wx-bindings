@@ -1,13 +1,13 @@
-#include "wxsharp/app.h"
-#include "wxsharp/defs.h"
-#include "wxsharp/frame.h"
-#include "wxsharp/gdicmn.h"
-#include "wxsharp/window.h"
-#include "wxsharp/event.h"
-#include "wxsharp/eventhandlers.h"
+#include "ozone/app.h"
+#include "ozone/defs.h"
+#include "ozone/frame.h"
+#include "ozone/gdicmn.h"
+#include "ozone/window.h"
+#include "ozone/event.h"
+#include "ozone/eventhandlers.h"
 #include <wx/evtloop.h>
 
-using namespace wxSharp;
+using namespace Ozone;
 
 int main(int argc, char *argv[])
 {

@@ -50,6 +50,6 @@ workspace "wx"
     setup_wx_cflags()
     setup_wx_libs("base core")
 
-  include "tests/minimal"
-  include "tests/events"
-  include "tests/canvas"
+  include "tests/cpp/minimal"
+  include "tests/cpp/events"
+  include "tests/cpp/canvas"

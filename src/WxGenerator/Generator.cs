@@ -321,6 +321,8 @@ namespace CppSharp
             appConsole.FindMethod("GetInitializerFunction").ExplicitlyIgnore();
             appConsole.FindMethod("SetInitializerFunction").ExplicitlyIgnore();
 
+            ctx.IgnoreFunctionWithName("wxCreateApp");
+
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "frame.h" });
 

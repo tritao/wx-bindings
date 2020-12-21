@@ -77,6 +77,8 @@ namespace CppSharp
                     unit.ExplicitlyIgnore();
             }
 
+            ctx.IgnoreHeadersWithName("eventhandlers.h");
+
             //var fastDelegatesUnit = ctx.TranslationUnits.Find(unit => unit.FileNameWithoutExtension == "FastDelegates");
             //fastDelegatesUnit.ExplicitlyIgnore();
         }

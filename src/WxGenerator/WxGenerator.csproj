@@ -1,17 +1,41 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <UseNugetPackage>true</UseNugetPackage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
   </PropertyGroup>
-
-  <ItemGroup Condition="'$(UseNugetPackage)' != 'true'">
-    <Reference Include="CppSharp" />
-    <Reference Include="CppSharp.AST" />
-    <Reference Include="CppSharp.Generator" />
-    <Reference Include="CppSharp.Parser" />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>../../../../bin/Release_x64\</OutputPath>
+    <IntermediateOutputPath>../../../../build/obj/WxGenerator/Release\</IntermediateOutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
   </ItemGroup>
-
-  <ItemGroup Condition="'$(UseNugetPackage)' == 'true'">
-    <PackageReference Include="CppSharp"/>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../../src/Core/CppSharp.csproj">
+      <Project>{C600C309-B2CD-1D15-DBE6-0BBDC71253A3}</Project>
+      <Name>CppSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="../../../../src/AST/CppSharp.AST.csproj">
+      <Project>{BC4C5C41-A8AF-EBE5-5135-249C3D77B768}</Project>
+      <Name>CppSharp.AST</Name>
+    </ProjectReference>
+    <ProjectReference Include="../../../../src/Generator/CppSharp.Generator.csproj">
+      <Project>{1BD1FEC4-07B5-BF1A-7015-BA6D5C18AA9C}</Project>
+      <Name>CppSharp.Generator</Name>
+    </ProjectReference>
+    <ProjectReference Include="../../../../src/Parser/CppSharp.Parser.csproj">
+      <Project>{C105FD61-2D91-6A26-36A2-ED1AA2ACC626}</Project>
+      <Name>CppSharp.Parser</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

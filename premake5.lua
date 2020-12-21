@@ -23,11 +23,22 @@ end
 rootdir = path.getabsolute(".")
 cppsharpdir = path.getabsolute(path.join(rootdir, '../..'))
 
-workspace "wx"
+txiki = path.join(rootdir, "deps/txiki.js")
+txiki_build = path.join(txiki, "build")
+curl = path.join(txiki, "deps/curl")
+libuv = path.join(txiki, "deps/libuv")
+qjs = path.join(txiki, "deps/quickjs")
+wasm3 = path.join(txiki, "deps/wasm3")
+qjsc = path.join(txiki_build, "qjsc")
+
+include("wx")
+
+workspace "ozone"
   configurations { "Debug", "Release" }
 
   location "build"
   symbols "On"
+  linkgroups 'On'
 
   filter { "configurations:Debug" }
     defines { "DEBUG" }
@@ -38,18 +49,33 @@ workspace "wx"
 
   filter {}
 
-  include("wx")
-
-  project "wx"
+  project "ozone"
     --kind "StaticLib"
     kind "SharedLib"
-    files { path.join(wx_get_target_dir(), "**.cpp") }
-    files { path.join(wx_get_target_dir(), "../support/**.cpp") }
+    files { path.join(wx_get_target_dir("cplusplus"), "**.cpp") }
     removefiles { "**/defs.cpp", "test-**" }
+    includedirs
+    {
+      path.join(wx_get_target_dir("cplusplus"))
+    }
     setup_common()
     setup_wx_cflags()
-    setup_wx_libs("base core")
+
+  project "ozone-quickjs"
+    kind "StaticLib"
+    includedirs
+    {
+      path.join(qjs, "include"),
+      path.join(wx_get_target_dir("cplusplus"))
+    }
+    files { "gen/wx/quickjs/**.cpp" }
+    removefiles {  "test-**" }
+    setup_common()
+    setup_wx_cflags()
 
   include "tests/cpp/minimal"
   include "tests/cpp/events"
   include "tests/cpp/canvas"
+
+  include("src/Runtime")
+

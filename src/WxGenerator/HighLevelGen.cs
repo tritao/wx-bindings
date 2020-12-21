@@ -26,17 +26,17 @@ namespace CppSharp
         {
             var options = driver.Options;
             
-            var module = options.AddModule("wxSharpJS");
-            module.LibraryName = "wxSharpJS";
+            var module = options.AddModule("Ozone");
+            module.LibraryName = "Ozone";
 
-            var path = Path.Combine(GetExamplesDirectory("wxSharp"), "gen/wx/cplusplus/x86_64-pc-linux-gnu");
+            var path = Path.Combine(GetExamplesDirectory("Ozone"), "gen/wx/cplusplus/x86_64-pc-linux-gnu");
             var headers = Directory.GetFiles(path, "*.h", SearchOption.AllDirectories);
             module.Headers.AddRange(headers);
             module.IncludeDirs.Add(path);
 
             SetupWx(driver, module, TargetPlatform);
 
-            var cppsharpIncludePath = Path.Combine(GetExamplesDirectory("wxSharp"), "../../include");
+            var cppsharpIncludePath = Path.Combine(GetExamplesDirectory("Ozone"), "../../include");
             module.IncludeDirs.Add(cppsharpIncludePath);
 
             var parserOptions = driver.ParserOptions;
@@ -44,7 +44,7 @@ namespace CppSharp
             parserOptions.SkipLayoutInfo = true;
             //parserOptions.Verbose = true;
 
-            options.OutputDir = Path.Combine(GetExamplesDirectory("wxSharp"), "gen/wx",
+            options.OutputDir = Path.Combine(GetExamplesDirectory("Ozone"), "gen/wx",
                 GeneratorKind.ToString().ToLowerInvariant());
             options.GenerateDeprecatedDeclarations = false;
             options.GenerationOutputMode = GenerationOutputMode.FilePerUnit;
@@ -73,10 +73,10 @@ namespace CppSharp
                     continue;
                 
                 var path = unit.FileRelativeDirectory;
-                if (!path.StartsWith("wxsharp"))
+                if (!path.StartsWith("ozone"))
                     unit.ExplicitlyIgnore();
             }
-            
+
             //var fastDelegatesUnit = ctx.TranslationUnits.Find(unit => unit.FileNameWithoutExtension == "FastDelegates");
             //fastDelegatesUnit.ExplicitlyIgnore();
         }

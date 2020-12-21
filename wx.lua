@@ -1,15 +1,19 @@
 local wx_path = path.join(rootdir, "deps", "wxWidgets")
 local wx_build_path = path.join(rootdir, "build/wxwidgets")
 
-function wx_get_target_dir()
+function wx_get_target_dir(kind)
+    if not kind then
+      error("Invalid target kind passed to wx_get_target_dir")
+    end
+
     local gendir = path.getabsolute(path.join(rootdir, "gen"))
 
     if os.istarget("linux") then
-        return path.join(gendir, "wx", "cplusplus", "x86_64-pc-linux-gnu")
+        return path.join(gendir, "wx", kind, "x86_64-pc-linux-gnu")
     end
 
     if os.istarget("macosx") then
-        return path.join(gendir, "wx", "cplusplus", "i686-apple-darwin")
+        return path.join(gendir, "wx", kind, "i686-apple-darwin")
     end
 
     return ""
@@ -30,20 +34,24 @@ function setup_wx_cflags()
 end
 
 function setup_wx_libs(libs)
-  linkoptions { "`" .. get_wx_config_path() .. " --libs " .. libs .. "`" }
+  --linkoptions { "`" .. get_wx_config_path() .. " --libs " .. libs .. "`" }
+  libdirs { wx_build_path .. "/lib" }
+  linkoptions { "-Wl,-rpath,/home/joao/dev/CppSharp/examples/Ozone/build/wxwidgets/lib" }
+  links { "pthread", "wx_baseu-3.1", "wx_gtk3u_core-3.1"}
 end
 
 function setup_common()
-  buildoptions { "-std=c++11" }
+  cdialect "C11"
+  cppdialect "C++11"
 
   filter { "toolset:clang" }
-    buildoptions { "-std=c++11", "-fdeclspec" }
+    buildoptions { "-fdeclspec" }
 
   filter {}
 
   buildoptions
   {
-    "-iquote" .. wx_get_target_dir(),
+    "-iquote" .. wx_get_target_dir("cpluscplus"),
     "-isystem" .. path.join(cppsharpdir, "include"),
   }
 end

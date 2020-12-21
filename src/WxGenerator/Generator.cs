@@ -19,13 +19,14 @@ namespace CppSharp
 {
     static class Program
     {
-        public static string WxPath => Path.Combine(GetExamplesDirectory("wxSharp"), "wxWidgets");
+        public static string WxPath => Path.Combine(GetExamplesDirectory("Ozone"), "deps", "wxWidgets");
 
         public static void Main(string[] args)
         {
             const TargetPlatform targetPlatform = TargetPlatform.Linux;
-            ////ConsoleDriver.Run(new HighLevelGen(GeneratorKind.CSharp, targetPlatform));
-            ConsoleDriver.Run(new HighLevelGen(GeneratorKind.NAPI, targetPlatform));
+            ConsoleDriver.Run(new LowLevelGen(GeneratorKind.CPlusPlus, targetPlatform));
+            ConsoleDriver.Run(new HighLevelGen(GeneratorKind.QuickJS, targetPlatform));
+            //ConsoleDriver.Run(new HighLevelGen(GeneratorKind.CSharp, targetPlatform));
         }
 
         public static string GetExamplesDirectory(string name)
@@ -50,7 +51,7 @@ namespace CppSharp
             var wxIncludePath = Path.Combine(WxPath, "include");
             module.IncludeDirs.Add(wxIncludePath);
 
-            var wxBuildPath = Path.Combine(WxPath, "../build/wxwidgets");
+            var wxBuildPath = Path.Combine(WxPath, "../../build/wxwidgets");
             var wxBuildIncludePath = Path.Combine(wxBuildPath, "lib/wx/include");
             var wxBuildVariantDirName = Directory.EnumerateDirectories(wxBuildIncludePath).FirstOrDefault();
 
@@ -107,8 +108,8 @@ namespace CppSharp
 
             options.GenerateName = GenerateName;
 
-            var module = options.AddModule("wxSharp");
-            module.LibraryName = "wxSharp";
+            var module = options.AddModule("Ozone");
+            module.LibraryName = "Ozone";
 
             var headers = new string[]
             {
@@ -137,7 +138,7 @@ namespace CppSharp
             parserOptions.UnityBuild = true;
             //parserOptions.SkipLayoutInfo = true;
 
-            options.OutputDir = Path.Combine(GetExamplesDirectory("wxSharp/gen"),
+            options.OutputDir = Path.Combine(GetExamplesDirectory("Ozone/gen"),
                 "wx", GeneratorKind.ToString().ToLowerInvariant(), parserOptions.TargetTriple);
             options.GenerateDeprecatedDeclarations = false;
             options.GenerationOutputMode = GenerationOutputMode.FilePerUnit;
@@ -153,7 +154,7 @@ namespace CppSharp
         {
             var fileRelativePath = arg.FileRelativeDirectory;
             var elements = fileRelativePath.Split('/');
-            elements[0] = "wxsharp";
+            elements[0] = "ozone";
 
             var path = Path.Combine(string.Join('/', elements), arg.FileNameWithoutExtension);
             return path;
@@ -891,7 +892,7 @@ namespace CppSharp
             WriteLine("wxEventType eventType = event.GetEventType();");
             WriteLine("wxEvtHandler* eventObject = wxStaticCast(event.GetEventObject(), wxEvtHandler);");
 
-            WriteLine("wxSharp::EvtHandler* evtHandler = static_cast<wxSharp::EvtHandler*>(eventObject->GetClientData());");
+            WriteLine("Ozone::EvtHandler* evtHandler = static_cast<Ozone::EvtHandler*>(eventObject->GetClientData());");
             WriteLine("if (evtHandler)");
             WriteLineIndent("evtHandler->HandleEvent(event);");
 
@@ -989,7 +990,7 @@ namespace CppSharp
 
                 var eventClass = @event.EventClass;
                 gen.WriteLine($"{eventClass.OriginalName}* _event = wxStaticCast(&event, {eventClass.OriginalName});");
-                gen.WriteLine($"wxSharp::{eventClass.Name} _e(_event);");
+                gen.WriteLine($"Ozone::{eventClass.Name} _e(_event);");
                 gen.WriteLine($"{@event.Name}(_e);");
 
                 gen.UnindentAndWriteCloseBrace();

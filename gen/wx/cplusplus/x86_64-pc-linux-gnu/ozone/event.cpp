@@ -23,7 +23,7 @@ Ozone::Event::~Event()
 Ozone::Event::Event(int winid, int commandType)
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
 }
 
 void Ozone::Event::SetEventType(int typ)
@@ -173,7 +173,7 @@ void Ozone::Event::set_m_callbackUserData(::Ozone::Object* value)
 }
 
 Ozone::PropagateOnce::PropagateOnce(::wxPropagateOnce* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -184,7 +184,7 @@ Ozone::PropagateOnce::~PropagateOnce()
 
 Ozone::PropagateOnce::PropagateOnce(::Ozone::Event& event, ::Ozone::EvtHandler* handler)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxEvent*)event.__Instance;
     auto __arg1 = handler ? (::wxEvtHandler*)handler->__Instance : nullptr;
     __Instance = new ::wxPropagateOnce(__arg0, __arg1);
@@ -203,7 +203,7 @@ Ozone::IdleEvent::~IdleEvent()
 Ozone::IdleEvent::IdleEvent()
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxIdleEvent();
 }
 
@@ -249,7 +249,7 @@ Ozone::ThreadEvent::~ThreadEvent()
 Ozone::ThreadEvent::ThreadEvent(int eventType, int id)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)eventType;
     __Instance = new ::wxThreadEvent(__arg0, id);
 }
@@ -279,7 +279,7 @@ Ozone::AsyncMethodCallEvent::~AsyncMethodCallEvent()
 Ozone::AsyncMethodCallEvent::AsyncMethodCallEvent(::Ozone::Object* object)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
 }
 
 void Ozone::AsyncMethodCallEvent::Execute()
@@ -300,7 +300,7 @@ Ozone::CommandEvent::~CommandEvent()
 Ozone::CommandEvent::CommandEvent(int commandType, int winid)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)commandType;
     __Instance = new ::wxCommandEvent(__arg0, winid);
 }
@@ -366,7 +366,7 @@ Ozone::NotifyEvent::~NotifyEvent()
 Ozone::NotifyEvent::NotifyEvent(int commandType, int winid)
     : Ozone::CommandEvent((::wxCommandEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)commandType;
     __Instance = new ::wxNotifyEvent(__arg0, winid);
 }
@@ -406,7 +406,7 @@ Ozone::ScrollEvent::~ScrollEvent()
 Ozone::ScrollEvent::ScrollEvent(int commandType, int winid, int pos, int orient)
     : Ozone::CommandEvent((::wxCommandEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)commandType;
     __Instance = new ::wxScrollEvent(__arg0, winid, pos, orient);
 }
@@ -452,7 +452,7 @@ Ozone::ScrollWinEvent::~ScrollWinEvent()
 Ozone::ScrollWinEvent::ScrollWinEvent(int commandType, int pos, int orient)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)commandType;
     __Instance = new ::wxScrollWinEvent(__arg0, pos, orient);
 }
@@ -498,7 +498,7 @@ Ozone::MouseEvent::~MouseEvent()
 Ozone::MouseEvent::MouseEvent(int mouseType)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)mouseType;
     __Instance = new ::wxMouseEvent(__arg0);
 }
@@ -843,7 +843,7 @@ Ozone::SetCursorEvent::~SetCursorEvent()
 Ozone::SetCursorEvent::SetCursorEvent(int x, int y)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxCoord)x;
     auto __arg1 = (::wxCoord)y;
     __Instance = new ::wxSetCursorEvent(__arg0, __arg1);
@@ -886,7 +886,7 @@ Ozone::GestureEvent::~GestureEvent()
 Ozone::GestureEvent::GestureEvent(int winid, int type)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)winid;
     auto __arg1 = (::wxEventType)type;
     __Instance = new ::wxGestureEvent(__arg0, __arg1);
@@ -939,7 +939,7 @@ Ozone::PanGestureEvent::~PanGestureEvent()
 Ozone::PanGestureEvent::PanGestureEvent(int winid)
     : Ozone::GestureEvent((::wxGestureEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)winid;
     __Instance = new ::wxPanGestureEvent(__arg0);
 }
@@ -976,7 +976,7 @@ Ozone::ZoomGestureEvent::~ZoomGestureEvent()
 Ozone::ZoomGestureEvent::ZoomGestureEvent(int winid)
     : Ozone::GestureEvent((::wxGestureEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)winid;
     __Instance = new ::wxZoomGestureEvent(__arg0);
 }
@@ -1011,7 +1011,7 @@ Ozone::RotateGestureEvent::~RotateGestureEvent()
 Ozone::RotateGestureEvent::RotateGestureEvent(int winid)
     : Ozone::GestureEvent((::wxGestureEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)winid;
     __Instance = new ::wxRotateGestureEvent(__arg0);
 }
@@ -1046,7 +1046,7 @@ Ozone::TwoFingerTapEvent::~TwoFingerTapEvent()
 Ozone::TwoFingerTapEvent::TwoFingerTapEvent(int winid)
     : Ozone::GestureEvent((::wxGestureEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)winid;
     __Instance = new ::wxTwoFingerTapEvent(__arg0);
 }
@@ -1070,7 +1070,7 @@ Ozone::LongPressEvent::~LongPressEvent()
 Ozone::LongPressEvent::LongPressEvent(int winid)
     : Ozone::GestureEvent((::wxGestureEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)winid;
     __Instance = new ::wxLongPressEvent(__arg0);
 }
@@ -1094,7 +1094,7 @@ Ozone::PressAndTapEvent::~PressAndTapEvent()
 Ozone::PressAndTapEvent::PressAndTapEvent(int winid)
     : Ozone::GestureEvent((::wxGestureEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)winid;
     __Instance = new ::wxPressAndTapEvent(__arg0);
 }
@@ -1118,7 +1118,7 @@ Ozone::KeyEvent::~KeyEvent()
 Ozone::KeyEvent::KeyEvent(int keyType)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)keyType;
     __Instance = new ::wxKeyEvent(__arg0);
 }
@@ -1126,7 +1126,7 @@ Ozone::KeyEvent::KeyEvent(int keyType)
 Ozone::KeyEvent::KeyEvent(int eventType, const ::Ozone::KeyEvent& evt)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)eventType;
     auto &__arg1 = *(::wxKeyEvent*)evt.__Instance;
     __Instance = new ::wxKeyEvent(__arg0, __arg1);
@@ -1312,14 +1312,14 @@ Ozone::SizeEvent::~SizeEvent()
 Ozone::SizeEvent::SizeEvent()
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxSizeEvent();
 }
 
 Ozone::SizeEvent::SizeEvent(const ::Ozone::Size& sz, int winid)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSize*)sz.__Instance;
     __Instance = new ::wxSizeEvent(__arg0, winid);
 }
@@ -1327,7 +1327,7 @@ Ozone::SizeEvent::SizeEvent(const ::Ozone::Size& sz, int winid)
 Ozone::SizeEvent::SizeEvent(const ::Ozone::Rect& rect, int id)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxRect*)rect.__Instance;
     __Instance = new ::wxSizeEvent(__arg0, id);
 }
@@ -1405,14 +1405,14 @@ Ozone::MoveEvent::~MoveEvent()
 Ozone::MoveEvent::MoveEvent()
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxMoveEvent();
 }
 
 Ozone::MoveEvent::MoveEvent(const ::Ozone::Point& pos, int winid)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPoint*)pos.__Instance;
     __Instance = new ::wxMoveEvent(__arg0, winid);
 }
@@ -1420,7 +1420,7 @@ Ozone::MoveEvent::MoveEvent(const ::Ozone::Point& pos, int winid)
 Ozone::MoveEvent::MoveEvent(const ::Ozone::Rect& rect, int id)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxRect*)rect.__Instance;
     __Instance = new ::wxMoveEvent(__arg0, id);
 }
@@ -1502,7 +1502,7 @@ Ozone::EraseEvent::~EraseEvent()
 Ozone::EraseEvent::EraseEvent(int Id, ::Ozone::DC* dc)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg1 = dc ? (::wxDC*)dc->__Instance : nullptr;
     __Instance = new ::wxEraseEvent(Id, __arg1);
 }
@@ -1532,7 +1532,7 @@ Ozone::FocusEvent::~FocusEvent()
 Ozone::FocusEvent::FocusEvent(int type, int winid)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)type;
     __Instance = new ::wxFocusEvent(__arg0, winid);
 }
@@ -1568,7 +1568,7 @@ Ozone::ChildFocusEvent::~ChildFocusEvent()
 Ozone::ChildFocusEvent::ChildFocusEvent(::Ozone::Window* win)
     : Ozone::CommandEvent((::wxCommandEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     __Instance = new ::wxChildFocusEvent(__arg0);
 }
@@ -1598,7 +1598,7 @@ Ozone::ActivateEvent::~ActivateEvent()
 Ozone::ActivateEvent::ActivateEvent(int type, bool active, int Id, ::Ozone::ActivateEvent::Reason activationReason)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)type;
     auto __arg3 = (::wxActivateEvent::Reason)activationReason;
     __Instance = new ::wxActivateEvent(__arg0, active, Id, __arg3);
@@ -1635,7 +1635,7 @@ Ozone::InitDialogEvent::~InitDialogEvent()
 Ozone::InitDialogEvent::InitDialogEvent(int Id)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxInitDialogEvent(Id);
 }
 
@@ -1686,7 +1686,7 @@ Ozone::CloseEvent::~CloseEvent()
 Ozone::CloseEvent::CloseEvent(int type, int winid)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)type;
     __Instance = new ::wxCloseEvent(__arg0, winid);
 }
@@ -1743,7 +1743,7 @@ Ozone::ShowEvent::~ShowEvent()
 Ozone::ShowEvent::ShowEvent(int winid, bool show)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxShowEvent(winid, show);
 }
 
@@ -1777,7 +1777,7 @@ Ozone::IconizeEvent::~IconizeEvent()
 Ozone::IconizeEvent::IconizeEvent(int winid, bool iconized)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxIconizeEvent(winid, iconized);
 }
 
@@ -1806,7 +1806,7 @@ Ozone::MaximizeEvent::~MaximizeEvent()
 Ozone::MaximizeEvent::MaximizeEvent(int winid)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxMaximizeEvent(winid);
 }
 
@@ -1829,7 +1829,7 @@ Ozone::JoystickEvent::~JoystickEvent()
 Ozone::JoystickEvent::JoystickEvent(int type, int state, int joystick, int change)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)type;
     __Instance = new ::wxJoystickEvent(__arg0, state, joystick, change);
 }
@@ -1952,7 +1952,7 @@ Ozone::UpdateUIEvent::~UpdateUIEvent()
 Ozone::UpdateUIEvent::UpdateUIEvent(int commandId)
     : Ozone::CommandEvent((::wxCommandEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)commandId;
     __Instance = new ::wxUpdateUIEvent(__arg0);
 }
@@ -2084,7 +2084,7 @@ Ozone::SysColourChangedEvent::~SysColourChangedEvent()
 Ozone::SysColourChangedEvent::SysColourChangedEvent()
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxSysColourChangedEvent();
 }
 
@@ -2107,7 +2107,7 @@ Ozone::MouseCaptureChangedEvent::~MouseCaptureChangedEvent()
 Ozone::MouseCaptureChangedEvent::MouseCaptureChangedEvent(int winid, ::Ozone::Window* gainedCapture)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)winid;
     auto __arg1 = gainedCapture ? (::wxWindow*)gainedCapture->__Instance : nullptr;
     __Instance = new ::wxMouseCaptureChangedEvent(__arg0, __arg1);
@@ -2138,7 +2138,7 @@ Ozone::MouseCaptureLostEvent::~MouseCaptureLostEvent()
 Ozone::MouseCaptureLostEvent::MouseCaptureLostEvent(int winid)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)winid;
     __Instance = new ::wxMouseCaptureLostEvent(__arg0);
 }
@@ -2162,7 +2162,7 @@ Ozone::DisplayChangedEvent::~DisplayChangedEvent()
 Ozone::DisplayChangedEvent::DisplayChangedEvent()
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxDisplayChangedEvent();
 }
 
@@ -2185,7 +2185,7 @@ Ozone::DPIChangedEvent::~DPIChangedEvent()
 Ozone::DPIChangedEvent::DPIChangedEvent(const ::Ozone::Size& oldDPI, const ::Ozone::Size& newDPI)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSize*)oldDPI.__Instance;
     auto &__arg1 = *(::wxSize*)newDPI.__Instance;
     __Instance = new ::wxDPIChangedEvent(__arg0, __arg1);
@@ -2224,7 +2224,7 @@ Ozone::PaletteChangedEvent::~PaletteChangedEvent()
 Ozone::PaletteChangedEvent::PaletteChangedEvent(int winid)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)winid;
     __Instance = new ::wxPaletteChangedEvent(__arg0);
 }
@@ -2260,7 +2260,7 @@ Ozone::QueryNewPaletteEvent::~QueryNewPaletteEvent()
 Ozone::QueryNewPaletteEvent::QueryNewPaletteEvent(int winid)
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowID)winid;
     __Instance = new ::wxQueryNewPaletteEvent(__arg0);
 }
@@ -2295,7 +2295,7 @@ Ozone::NavigationKeyEvent::~NavigationKeyEvent()
 Ozone::NavigationKeyEvent::NavigationKeyEvent()
     : Ozone::Event((::wxEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxNavigationKeyEvent();
 }
 
@@ -2393,7 +2393,7 @@ Ozone::WindowCreateEvent::~WindowCreateEvent()
 Ozone::WindowCreateEvent::WindowCreateEvent(::Ozone::Window* win)
     : Ozone::CommandEvent((::wxCommandEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     __Instance = new ::wxWindowCreateEvent(__arg0);
 }
@@ -2423,7 +2423,7 @@ Ozone::WindowDestroyEvent::~WindowDestroyEvent()
 Ozone::WindowDestroyEvent::WindowDestroyEvent(::Ozone::Window* win)
     : Ozone::CommandEvent((::wxCommandEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     __Instance = new ::wxWindowDestroyEvent(__arg0);
 }
@@ -2453,7 +2453,7 @@ Ozone::HelpEvent::~HelpEvent()
 Ozone::HelpEvent::HelpEvent(int type, int winid, const ::Ozone::Point& pt, ::Ozone::HelpEvent::Source origin)
     : Ozone::CommandEvent((::wxCommandEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)type;
     auto __arg1 = (::wxWindowID)winid;
     auto &__arg2 = *(::wxPoint*)pt.__Instance;
@@ -2510,7 +2510,7 @@ Ozone::ClipboardTextEvent::~ClipboardTextEvent()
 Ozone::ClipboardTextEvent::ClipboardTextEvent(int type, int winid)
     : Ozone::CommandEvent((::wxCommandEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)type;
     auto __arg1 = (::wxWindowID)winid;
     __Instance = new ::wxClipboardTextEvent(__arg0, __arg1);
@@ -2535,7 +2535,7 @@ Ozone::ContextMenuEvent::~ContextMenuEvent()
 Ozone::ContextMenuEvent::ContextMenuEvent(int type, int winid, const ::Ozone::Point& pt)
     : Ozone::CommandEvent((::wxCommandEvent*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxEventType)type;
     auto __arg1 = (::wxWindowID)winid;
     auto &__arg2 = *(::wxPoint*)pt.__Instance;
@@ -2567,7 +2567,7 @@ Ozone::EvtHandler::~EvtHandler()
 Ozone::EvtHandler::EvtHandler()
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxEvtHandler();
 }
 

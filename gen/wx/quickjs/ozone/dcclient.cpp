@@ -60,19 +60,27 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_WindowDC);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
 }
+
+void finalizer_Ozone_WindowDC(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_WindowDC
 {
     "WindowDC",
+    .finalizer = finalizer_Ozone_WindowDC
 };
 
 static JSCFunctionListEntry funcDef_Ozone_WindowDC[]
 {
 };
-
 
 static void register_class_Ozone_WindowDC(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -152,19 +160,27 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ClientDC);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
 }
+
+void finalizer_Ozone_ClientDC(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ClientDC
 {
     "ClientDC",
+    .finalizer = finalizer_Ozone_ClientDC
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ClientDC[]
 {
 };
-
 
 static void register_class_Ozone_ClientDC(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -244,19 +260,27 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PaintDC);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
 }
+
+void finalizer_Ozone_PaintDC(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_PaintDC
 {
     "PaintDC",
+    .finalizer = finalizer_Ozone_PaintDC
 };
 
 static JSCFunctionListEntry funcDef_Ozone_PaintDC[]
 {
 };
-
 
 static void register_class_Ozone_PaintDC(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -294,10 +318,6 @@ static void register_class_Ozone_PaintDC(JSContext *ctx, JSModuleDef *m, bool se
 
 void register_ozone_dcclient(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
-    if (phase == 0)
-    {
-    }
-
     register_class_Ozone_WindowDC(ctx, m, set, phase);
 
     register_class_Ozone_ClientDC(ctx, m, set, phase);

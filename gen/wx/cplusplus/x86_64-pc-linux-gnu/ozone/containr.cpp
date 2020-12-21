@@ -10,7 +10,7 @@
 #include <wx/eventfilter.h>
 
 Ozone::ControlContainer::ControlContainer(::wxControlContainer* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -21,14 +21,14 @@ Ozone::ControlContainer::~ControlContainer()
 
 Ozone::ControlContainer::ControlContainer(const ::Ozone::ControlContainer& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxControlContainer*)_0.__Instance;
     __Instance = new ::wxControlContainer(__arg0);
 }
 
 Ozone::ControlContainer::ControlContainer()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxControlContainer();
 }
 

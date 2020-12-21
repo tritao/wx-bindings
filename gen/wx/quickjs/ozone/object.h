@@ -12,8 +12,6 @@ class RefCounter
 {
 public:
 
-    ::Ozone::RefCounter* __Instance;
-
     RefCounter(::Ozone::RefCounter* instance, bool ownNativeInstance = false);
 
     RefCounter();
@@ -30,14 +28,12 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class Object
 {
 public:
-
-    ::Ozone::Object* __Instance;
 
     Object(::Ozone::Object* instance, bool ownNativeInstance = false);
 
@@ -61,5 +57,5 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };

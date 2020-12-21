@@ -193,19 +193,19 @@ static void register_enum_Ozone_TouchMode(JSContext *ctx, JSModuleDef *m, bool s
 
     // NONE
     {
-        JSValue __item = JS_NewUint32(ctx, 0);
+        JSValue __item = JS_NewUint32(ctx, 0x0);
         JS_SetPropertyStr(ctx, val, "NONE", __item);
     }
 
     // VERTICAL_PAN_GESTURE
     {
-        JSValue __item = JS_NewUint32(ctx, 1);
+        JSValue __item = JS_NewUint32(ctx, 0x1);
         JS_SetPropertyStr(ctx, val, "VERTICAL_PAN_GESTURE", __item);
     }
 
     // HORIZONTAL_PAN_GESTURE
     {
-        JSValue __item = JS_NewUint32(ctx, 2);
+        JSValue __item = JS_NewUint32(ctx, 0x2);
         JS_SetPropertyStr(ctx, val, "HORIZONTAL_PAN_GESTURE", __item);
     }
 
@@ -217,25 +217,25 @@ static void register_enum_Ozone_TouchMode(JSContext *ctx, JSModuleDef *m, bool s
 
     // ZOOM_GESTURE
     {
-        JSValue __item = JS_NewUint32(ctx, 4);
+        JSValue __item = JS_NewUint32(ctx, 0x4);
         JS_SetPropertyStr(ctx, val, "ZOOM_GESTURE", __item);
     }
 
     // ROTATE_GESTURE
     {
-        JSValue __item = JS_NewUint32(ctx, 8);
+        JSValue __item = JS_NewUint32(ctx, 0x8);
         JS_SetPropertyStr(ctx, val, "ROTATE_GESTURE", __item);
     }
 
     // PRESS_GESTURES
     {
-        JSValue __item = JS_NewUint32(ctx, 16);
+        JSValue __item = JS_NewUint32(ctx, 0x10);
         JS_SetPropertyStr(ctx, val, "PRESS_GESTURES", __item);
     }
 
     // ALL_GESTURES
     {
-        JSValue __item = JS_NewUint32(ctx, 31);
+        JSValue __item = JS_NewUint32(ctx, 0x1f);
         JS_SetPropertyStr(ctx, val, "ALL_GESTURES", __item);
     }
 
@@ -271,6 +271,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_VisualAttributes);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -374,9 +377,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_VisualAttributes(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_VisualAttributes
 {
     "VisualAttributes",
+    .finalizer = finalizer_Ozone_VisualAttributes
 };
 
 static JSCFunctionListEntry funcDef_Ozone_VisualAttributes[]
@@ -386,7 +395,6 @@ static JSCFunctionListEntry funcDef_Ozone_VisualAttributes[]
     JS_CFUNC_DEF("get_colBg", 0, callback_method_Ozone_VisualAttributes_get_colBg),
     JS_CFUNC_DEF("set_colBg", 1, callback_method_Ozone_VisualAttributes_set_colBg),
 };
-
 
 static void register_class_Ozone_VisualAttributes(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -495,9 +503,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_WindowListNode(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_WindowListNode
 {
     "WindowListNode",
+    .finalizer = finalizer_Ozone_WindowListNode
 };
 
 static JSCFunctionListEntry funcDef_Ozone_WindowListNode[]
@@ -507,7 +521,6 @@ static JSCFunctionListEntry funcDef_Ozone_WindowListNode[]
     JS_CFUNC_DEF("GetData", 0, callback_method_Ozone_WindowListNode_GetData),
     JS_CFUNC_DEF("SetData", 1, callback_method_Ozone_WindowListNode_SetData),
 };
-
 
 static void register_class_Ozone_WindowListNode(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -651,6 +664,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Window);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -8949,9 +8965,15 @@ overload0:
         return ____ret_instance;
     }
 }
+
+void finalizer_Ozone_Window(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Window
 {
     "Window",
+    .finalizer = finalizer_Ozone_Window
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Window[]
@@ -9241,7 +9263,6 @@ static JSCFunctionListEntry funcDef_Ozone_Window[]
     JS_CFUNC_DEF("GetCapture", 0, callback_method_Ozone_Window_GetCapture),
     JS_CFUNC_DEF("GetClassDefaultAttributes", 1, callback_method_Ozone_Window_GetClassDefaultAttributes),
 };
-
 
 static void register_class_Ozone_Window(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

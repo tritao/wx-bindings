@@ -19,8 +19,6 @@ class SizerFlags
 {
 public:
 
-    ::Ozone::SizerFlags* __Instance;
-
     SizerFlags(::Ozone::SizerFlags* instance, bool ownNativeInstance = false);
 
     SizerFlags(int proportion);
@@ -43,14 +41,12 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class SizerSpacer
 {
 public:
-
-    ::Ozone::SizerSpacer* __Instance;
 
     SizerSpacer(::Ozone::SizerSpacer* instance, bool ownNativeInstance = false);
 
@@ -70,7 +66,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class SizerItem : public Ozone::Ozone::Object
@@ -186,8 +182,6 @@ class SizerItemList
 {
 public:
 
-    ::Ozone::SizerItemList* __Instance;
-
     SizerItemList(::Ozone::SizerItemList* instance, bool ownNativeInstance = false);
 
     SizerItemList(::Ozone::Ozone::KeyType keyType);
@@ -234,7 +228,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class Sizer : public Ozone::Ozone::Object

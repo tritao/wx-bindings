@@ -19,8 +19,6 @@ class Color
 {
 public:
 
-    ::Ozone::Color* __Instance;
-
     Color(::Ozone::Color* instance, bool ownNativeInstance = false);
 
     Color();
@@ -77,5 +75,5 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };

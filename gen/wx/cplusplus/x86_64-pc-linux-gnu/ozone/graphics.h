@@ -201,6 +201,8 @@ namespace Ozone
 
         ::wxGraphicsGradientStop* __Instance;
 
+        void* __ExternalInstance;
+
         GraphicsGradientStop(::wxGraphicsGradientStop* instance, bool ownNativeInstance = false);
 
         GraphicsGradientStop(::Ozone::Color col, float pos);
@@ -217,7 +219,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class GraphicsGradientStops
@@ -225,6 +227,8 @@ namespace Ozone
     public:
 
         ::wxGraphicsGradientStops* __Instance;
+
+        void* __ExternalInstance;
 
         GraphicsGradientStops(::wxGraphicsGradientStops* instance, bool ownNativeInstance = false);
 
@@ -252,7 +256,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class GraphicsPenInfo
@@ -260,6 +264,8 @@ namespace Ozone
     public:
 
         ::wxGraphicsPenInfo* __Instance;
+
+        void* __ExternalInstance;
 
         GraphicsPenInfo(::wxGraphicsPenInfo* instance, bool ownNativeInstance = false);
 
@@ -309,7 +315,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class GraphicsPath : public Ozone::GraphicsObject

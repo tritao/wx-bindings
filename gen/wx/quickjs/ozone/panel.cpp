@@ -124,6 +124,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Panel);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -231,9 +234,15 @@ static JSValue callback_method_Ozone_Panel_InitDialog(JSContext* ctx, JSValueCon
 
     return JS_UNDEFINED;
 }
+
+void finalizer_Ozone_Panel(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Panel
 {
     "Panel",
+    .finalizer = finalizer_Ozone_Panel
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Panel[]
@@ -241,7 +250,6 @@ static JSCFunctionListEntry funcDef_Ozone_Panel[]
     JS_CFUNC_DEF("Create", 6, callback_method_Ozone_Panel_Create),
     JS_CFUNC_DEF("InitDialog", 0, callback_method_Ozone_Panel_InitDialog),
 };
-
 
 static void register_class_Ozone_Panel(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -279,10 +287,6 @@ static void register_class_Ozone_Panel(JSContext *ctx, JSModuleDef *m, bool set,
 
 void register_ozone_panel(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
-    if (phase == 0)
-    {
-    }
-
     register_class_Ozone_Panel(ctx, m, set, phase);
 }
 }

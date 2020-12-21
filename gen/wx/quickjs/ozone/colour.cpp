@@ -197,6 +197,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Color);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -719,9 +722,15 @@ overload0:
         return ____ret;
     }
 }
+
+void finalizer_Ozone_Color(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Color
 {
     "Color",
+    .finalizer = finalizer_Ozone_Color
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Color[]
@@ -743,7 +752,6 @@ static JSCFunctionListEntry funcDef_Ozone_Color[]
     JS_CFUNC_DEF("ChangeLightness", 1, callback_method_Ozone_Color_ChangeLightness),
     JS_CFUNC_DEF("AlphaBlend", 3, callback_method_Ozone_Color_AlphaBlend),
 };
-
 
 static void register_class_Ozone_Color(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

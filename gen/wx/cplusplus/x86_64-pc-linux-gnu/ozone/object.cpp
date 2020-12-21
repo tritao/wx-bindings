@@ -10,14 +10,14 @@
 #include <wx/eventfilter.h>
 
 Ozone::RefCounter::RefCounter(::wxRefCounter* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
 
 Ozone::RefCounter::RefCounter()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxRefCounter();
 }
 
@@ -38,7 +38,7 @@ void Ozone::RefCounter::DecRef()
 }
 
 Ozone::Object::Object(::wxObject* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -49,13 +49,13 @@ Ozone::Object::~Object()
 
 Ozone::Object::Object()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxObject();
 }
 
 Ozone::Object::Object(const ::Ozone::Object& other)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxObject*)other.__Instance;
     __Instance = new ::wxObject(__arg0);
 }

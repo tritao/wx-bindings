@@ -234,6 +234,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_FontMetrics);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -544,9 +547,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_FontMetrics(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_FontMetrics
 {
     "FontMetrics",
+    .finalizer = finalizer_Ozone_FontMetrics
 };
 
 static JSCFunctionListEntry funcDef_Ozone_FontMetrics[]
@@ -564,7 +573,6 @@ static JSCFunctionListEntry funcDef_Ozone_FontMetrics[]
     JS_CFUNC_DEF("get_averageWidth", 0, callback_method_Ozone_FontMetrics_get_averageWidth),
     JS_CFUNC_DEF("set_averageWidth", 1, callback_method_Ozone_FontMetrics_set_averageWidth),
 };
-
 
 static void register_class_Ozone_FontMetrics(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -4838,9 +4846,15 @@ overload1:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_DC(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_DC
 {
     "DC",
+    .finalizer = finalizer_Ozone_DC
 };
 
 static JSCFunctionListEntry funcDef_Ozone_DC[]
@@ -4933,7 +4947,6 @@ static JSCFunctionListEntry funcDef_Ozone_DC[]
     JS_CFUNC_DEF("StretchBlit", 13, callback_method_Ozone_DC_StretchBlit),
     JS_CFUNC_DEF("DrawSpline", 6, callback_method_Ozone_DC_DrawSpline),
 };
-
 
 static void register_class_Ozone_DC(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

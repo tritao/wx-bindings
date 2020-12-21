@@ -46,6 +46,8 @@ namespace Ozone
 
         ::wxBrush* __Instance;
 
+        void* __ExternalInstance;
+
         Brush(::wxBrush* instance, bool ownNativeInstance = false);
 
         Brush();
@@ -78,7 +80,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class BrushList : public Ozone::GDIObjListBase

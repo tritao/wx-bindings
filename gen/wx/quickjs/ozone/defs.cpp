@@ -56,25 +56,25 @@ static void register_enum_Ozone_Direction(JSContext *ctx, JSModuleDef *m, bool s
 
     // LEFT
     {
-        JSValue __item = JS_NewUint32(ctx, 16);
+        JSValue __item = JS_NewUint32(ctx, 0x10);
         JS_SetPropertyStr(ctx, val, "LEFT", __item);
     }
 
     // RIGHT
     {
-        JSValue __item = JS_NewUint32(ctx, 32);
+        JSValue __item = JS_NewUint32(ctx, 0x20);
         JS_SetPropertyStr(ctx, val, "RIGHT", __item);
     }
 
     // UP
     {
-        JSValue __item = JS_NewUint32(ctx, 64);
+        JSValue __item = JS_NewUint32(ctx, 0x40);
         JS_SetPropertyStr(ctx, val, "UP", __item);
     }
 
     // DOWN
     {
-        JSValue __item = JS_NewUint32(ctx, 128);
+        JSValue __item = JS_NewUint32(ctx, 0x80);
         JS_SetPropertyStr(ctx, val, "DOWN", __item);
     }
 
@@ -311,37 +311,37 @@ static void register_enum_Ozone_Border(JSContext *ctx, JSModuleDef *m, bool set)
 
     // NONE
     {
-        JSValue __item = JS_NewUint32(ctx, 2097152);
+        JSValue __item = JS_NewUint32(ctx, 0x200000);
         JS_SetPropertyStr(ctx, val, "NONE", __item);
     }
 
     // STATIC
     {
-        JSValue __item = JS_NewUint32(ctx, 16777216);
+        JSValue __item = JS_NewUint32(ctx, 0x1000000);
         JS_SetPropertyStr(ctx, val, "STATIC", __item);
     }
 
     // SIMPLE
     {
-        JSValue __item = JS_NewUint32(ctx, 33554432);
+        JSValue __item = JS_NewUint32(ctx, 0x2000000);
         JS_SetPropertyStr(ctx, val, "SIMPLE", __item);
     }
 
     // RAISED
     {
-        JSValue __item = JS_NewUint32(ctx, 67108864);
+        JSValue __item = JS_NewUint32(ctx, 0x4000000);
         JS_SetPropertyStr(ctx, val, "RAISED", __item);
     }
 
     // SUNKEN
     {
-        JSValue __item = JS_NewUint32(ctx, 134217728);
+        JSValue __item = JS_NewUint32(ctx, 0x8000000);
         JS_SetPropertyStr(ctx, val, "SUNKEN", __item);
     }
 
     // DOUBLE
     {
-        JSValue __item = JS_NewUint32(ctx, 268435456);
+        JSValue __item = JS_NewUint32(ctx, 0x10000000);
         JS_SetPropertyStr(ctx, val, "DOUBLE", __item);
     }
 
@@ -353,7 +353,7 @@ static void register_enum_Ozone_Border(JSContext *ctx, JSModuleDef *m, bool set)
 
     // MASK
     {
-        JSValue __item = JS_NewUint32(ctx, 522190848);
+        JSValue __item = JS_NewUint32(ctx, 0x1f200000);
         JS_SetPropertyStr(ctx, val, "MASK", __item);
     }
 
@@ -374,13 +374,13 @@ static void register_enum_Ozone_SizerOrientation(JSContext *ctx, JSModuleDef *m,
 
     // HORIZONTAL
     {
-        JSValue __item = JS_NewUint32(ctx, 4);
+        JSValue __item = JS_NewUint32(ctx, 0x4);
         JS_SetPropertyStr(ctx, val, "HORIZONTAL", __item);
     }
 
     // VERTICAL
     {
-        JSValue __item = JS_NewUint32(ctx, 8);
+        JSValue __item = JS_NewUint32(ctx, 0x8);
         JS_SetPropertyStr(ctx, val, "VERTICAL", __item);
     }
 
@@ -413,7 +413,7 @@ static void register_enum_Ozone_Alignment(JSContext *ctx, JSModuleDef *m, bool s
 
     // INVALID
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551615);
+        JSValue __item = JS_NewInt32(ctx, -1);
         JS_SetPropertyStr(ctx, val, "INVALID", __item);
     }
 
@@ -674,7 +674,7 @@ static void register_enum_Ozone_GeometryCentre(JSContext *ctx, JSModuleDef *m, b
 
     // CENTRE
     {
-        JSValue __item = JS_NewUint32(ctx, 1);
+        JSValue __item = JS_NewUint32(ctx, 0x1);
         JS_SetPropertyStr(ctx, val, "CENTRE", __item);
     }
 
@@ -701,7 +701,7 @@ static void register_enum_Ozone_HatchStyle(JSContext *ctx, JSModuleDef *m, bool 
 
     // INVALID
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551615);
+        JSValue __item = JS_NewInt32(ctx, -1);
         JS_SetPropertyStr(ctx, val, "INVALID", __item);
     }
 
@@ -770,7 +770,7 @@ static void register_enum_Ozone_ItemKind(JSContext *ctx, JSModuleDef *m, bool se
 
     // SEPARATOR
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551615);
+        JSValue __item = JS_NewInt32(ctx, -1);
         JS_SetPropertyStr(ctx, val, "SEPARATOR", __item);
     }
 
@@ -1844,19 +1844,19 @@ static void register_enum_Ozone_KeyModifier(JSContext *ctx, JSModuleDef *m, bool
 
     // NONE
     {
-        JSValue __item = JS_NewUint32(ctx, 0);
+        JSValue __item = JS_NewUint32(ctx, 0x0);
         JS_SetPropertyStr(ctx, val, "NONE", __item);
     }
 
     // ALT
     {
-        JSValue __item = JS_NewUint32(ctx, 1);
+        JSValue __item = JS_NewUint32(ctx, 0x1);
         JS_SetPropertyStr(ctx, val, "ALT", __item);
     }
 
     // CONTROL
     {
-        JSValue __item = JS_NewUint32(ctx, 2);
+        JSValue __item = JS_NewUint32(ctx, 0x2);
         JS_SetPropertyStr(ctx, val, "CONTROL", __item);
     }
 
@@ -1868,13 +1868,13 @@ static void register_enum_Ozone_KeyModifier(JSContext *ctx, JSModuleDef *m, bool
 
     // SHIFT
     {
-        JSValue __item = JS_NewUint32(ctx, 4);
+        JSValue __item = JS_NewUint32(ctx, 0x4);
         JS_SetPropertyStr(ctx, val, "SHIFT", __item);
     }
 
     // META
     {
-        JSValue __item = JS_NewUint32(ctx, 8);
+        JSValue __item = JS_NewUint32(ctx, 0x8);
         JS_SetPropertyStr(ctx, val, "META", __item);
     }
 
@@ -1898,7 +1898,7 @@ static void register_enum_Ozone_KeyModifier(JSContext *ctx, JSModuleDef *m, bool
 
     // ALL
     {
-        JSValue __item = JS_NewUint32(ctx, 65535);
+        JSValue __item = JS_NewUint32(ctx, 0xffff);
         JS_SetPropertyStr(ctx, val, "ALL", __item);
     }
 
@@ -1919,19 +1919,19 @@ static void register_enum_Ozone_SizerFlagBits(JSContext *ctx, JSModuleDef *m, bo
 
     // FIXED_MINSIZE
     {
-        JSValue __item = JS_NewUint32(ctx, 32768);
+        JSValue __item = JS_NewUint32(ctx, 0x8000);
         JS_SetPropertyStr(ctx, val, "FIXED_MINSIZE", __item);
     }
 
     // RESERVE_SPACE_EVEN_IF_HIDDEN
     {
-        JSValue __item = JS_NewUint32(ctx, 2);
+        JSValue __item = JS_NewUint32(ctx, 0x2);
         JS_SetPropertyStr(ctx, val, "RESERVE_SPACE_EVEN_IF_HIDDEN", __item);
     }
 
     // SIZER_FLAG_BITS_MASK
     {
-        JSValue __item = JS_NewUint32(ctx, 32770);
+        JSValue __item = JS_NewUint32(ctx, 0x8002);
         JS_SetPropertyStr(ctx, val, "SIZER_FLAG_BITS_MASK", __item);
     }
 
@@ -1952,31 +1952,31 @@ static void register_enum_Ozone_StandardID(JSContext *ctx, JSModuleDef *m, bool 
 
     // AUTO_LOWEST
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073708551616);
+        JSValue __item = JS_NewInt32(ctx, -1000000);
         JS_SetPropertyStr(ctx, val, "AUTO_LOWEST", __item);
     }
 
     // AUTO_HIGHEST
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709549616);
+        JSValue __item = JS_NewInt32(ctx, -2000);
         JS_SetPropertyStr(ctx, val, "AUTO_HIGHEST", __item);
     }
 
     // NONE
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551613);
+        JSValue __item = JS_NewInt32(ctx, -3);
         JS_SetPropertyStr(ctx, val, "NONE", __item);
     }
 
     // SEPARATOR
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551614);
+        JSValue __item = JS_NewInt32(ctx, -2);
         JS_SetPropertyStr(ctx, val, "SEPARATOR", __item);
     }
 
     // ANY
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551615);
+        JSValue __item = JS_NewInt32(ctx, -1);
         JS_SetPropertyStr(ctx, val, "ANY", __item);
     }
 
@@ -2819,19 +2819,19 @@ static void register_enum_Ozone_Stretch(JSContext *ctx, JSModuleDef *m, bool set
 
     // STRETCH_NOT
     {
-        JSValue __item = JS_NewUint32(ctx, 0);
+        JSValue __item = JS_NewUint32(ctx, 0x0);
         JS_SetPropertyStr(ctx, val, "STRETCH_NOT", __item);
     }
 
     // SHRINK
     {
-        JSValue __item = JS_NewUint32(ctx, 4096);
+        JSValue __item = JS_NewUint32(ctx, 0x1000);
         JS_SetPropertyStr(ctx, val, "SHRINK", __item);
     }
 
     // GROW
     {
-        JSValue __item = JS_NewUint32(ctx, 8192);
+        JSValue __item = JS_NewUint32(ctx, 0x2000);
         JS_SetPropertyStr(ctx, val, "GROW", __item);
     }
 
@@ -2843,7 +2843,7 @@ static void register_enum_Ozone_Stretch(JSContext *ctx, JSModuleDef *m, bool set
 
     // SHAPED
     {
-        JSValue __item = JS_NewUint32(ctx, 16384);
+        JSValue __item = JS_NewUint32(ctx, 0x4000);
         JS_SetPropertyStr(ctx, val, "SHAPED", __item);
     }
 
@@ -2855,7 +2855,7 @@ static void register_enum_Ozone_Stretch(JSContext *ctx, JSModuleDef *m, bool set
 
     // STRETCH_MASK
     {
-        JSValue __item = JS_NewUint32(ctx, 28672);
+        JSValue __item = JS_NewUint32(ctx, 0x7000);
         JS_SetPropertyStr(ctx, val, "STRETCH_MASK", __item);
     }
 

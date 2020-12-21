@@ -137,8 +137,6 @@ class PropagateOnce
 {
 public:
 
-    ::Ozone::PropagateOnce* __Instance;
-
     PropagateOnce(::Ozone::PropagateOnce* instance, bool ownNativeInstance = false);
 
     PropagateOnce(::Ozone::Ozone::Event& event, ::Ozone::Ozone::EvtHandler* handler);
@@ -149,7 +147,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class IdleEvent : public Ozone::Ozone::Event

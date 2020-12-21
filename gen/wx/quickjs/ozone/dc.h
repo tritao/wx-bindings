@@ -47,8 +47,6 @@ class FontMetrics
 {
 public:
 
-    ::Ozone::FontMetrics* __Instance;
-
     FontMetrics(::Ozone::FontMetrics* instance, bool ownNativeInstance = false);
 
     FontMetrics();
@@ -83,7 +81,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class DC : public Ozone::Ozone::Object

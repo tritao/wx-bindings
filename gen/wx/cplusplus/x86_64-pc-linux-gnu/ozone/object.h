@@ -24,6 +24,8 @@ namespace Ozone
 
         ::wxRefCounter* __Instance;
 
+        void* __ExternalInstance;
+
         RefCounter(::wxRefCounter* instance, bool ownNativeInstance = false);
 
         RefCounter();
@@ -36,7 +38,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class Object
@@ -44,6 +46,8 @@ namespace Ozone
     public:
 
         ::wxObject* __Instance;
+
+        void* __ExternalInstance;
 
         Object(::wxObject* instance, bool ownNativeInstance = false);
 
@@ -67,6 +71,6 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 }

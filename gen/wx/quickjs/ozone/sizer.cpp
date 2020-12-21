@@ -105,6 +105,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_SizerFlags);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -195,9 +198,15 @@ static JSValue callback_method_Ozone_SizerFlags_GetDefaultBorderFractional(JSCon
 
     return ____ret;
 }
+
+void finalizer_Ozone_SizerFlags(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_SizerFlags
 {
     "SizerFlags",
+    .finalizer = finalizer_Ozone_SizerFlags
 };
 
 static JSCFunctionListEntry funcDef_Ozone_SizerFlags[]
@@ -208,7 +217,6 @@ static JSCFunctionListEntry funcDef_Ozone_SizerFlags[]
     JS_CFUNC_DEF("GetDefaultBorder", 0, callback_method_Ozone_SizerFlags_GetDefaultBorder),
     JS_CFUNC_DEF("GetDefaultBorderFractional", 0, callback_method_Ozone_SizerFlags_GetDefaultBorderFractional),
 };
-
 
 static void register_class_Ozone_SizerFlags(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -278,6 +286,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_SizerSpacer);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -366,9 +377,15 @@ static JSValue callback_method_Ozone_SizerSpacer_IsShown(JSContext* ctx, JSValue
 
     return ____ret;
 }
+
+void finalizer_Ozone_SizerSpacer(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_SizerSpacer
 {
     "SizerSpacer",
+    .finalizer = finalizer_Ozone_SizerSpacer
 };
 
 static JSCFunctionListEntry funcDef_Ozone_SizerSpacer[]
@@ -377,7 +394,6 @@ static JSCFunctionListEntry funcDef_Ozone_SizerSpacer[]
     JS_CFUNC_DEF("Show", 1, callback_method_Ozone_SizerSpacer_Show),
     JS_CFUNC_DEF("IsShown", 0, callback_method_Ozone_SizerSpacer_IsShown),
 };
-
 
 static void register_class_Ozone_SizerSpacer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -683,6 +699,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_SizerItem);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -1710,9 +1729,15 @@ overload1:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_SizerItem(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_SizerItem
 {
     "SizerItem",
+    .finalizer = finalizer_Ozone_SizerItem
 };
 
 static JSCFunctionListEntry funcDef_Ozone_SizerItem[]
@@ -1756,7 +1781,6 @@ static JSCFunctionListEntry funcDef_Ozone_SizerItem[]
     JS_CFUNC_DEF("AssignSizer", 1, callback_method_Ozone_SizerItem_AssignSizer),
     JS_CFUNC_DEF("AssignSpacer", 2, callback_method_Ozone_SizerItem_AssignSpacer),
 };
-
 
 static void register_class_Ozone_SizerItem(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1862,6 +1886,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_SizerItemList);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -2296,9 +2323,15 @@ static JSValue callback_method_Ozone_SizerItemList_reverse(JSContext* ctx, JSVal
 
     return JS_UNDEFINED;
 }
+
+void finalizer_Ozone_SizerItemList(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_SizerItemList
 {
     "SizerItemList",
+    .finalizer = finalizer_Ozone_SizerItemList
 };
 
 static JSCFunctionListEntry funcDef_Ozone_SizerItemList[]
@@ -2320,7 +2353,6 @@ static JSCFunctionListEntry funcDef_Ozone_SizerItemList[]
     JS_CFUNC_DEF("remove", 1, callback_method_Ozone_SizerItemList_remove),
     JS_CFUNC_DEF("reverse", 0, callback_method_Ozone_SizerItemList_reverse),
 };
-
 
 static void register_class_Ozone_SizerItemList(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -2375,6 +2407,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Sizer);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -5099,9 +5134,15 @@ static JSValue callback_method_Ozone_Sizer_AreAnyItemsShown(JSContext* ctx, JSVa
 
     return ____ret;
 }
+
+void finalizer_Ozone_Sizer(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Sizer
 {
     "Sizer",
+    .finalizer = finalizer_Ozone_Sizer
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Sizer[]
@@ -5148,7 +5189,6 @@ static JSCFunctionListEntry funcDef_Ozone_Sizer[]
     JS_CFUNC_DEF("ShowItems", 1, callback_method_Ozone_Sizer_ShowItems),
     JS_CFUNC_DEF("AreAnyItemsShown", 0, callback_method_Ozone_Sizer_AreAnyItemsShown),
 };
-
 
 static void register_class_Ozone_Sizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -5322,6 +5362,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GridSizer);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -5616,9 +5659,15 @@ static JSValue callback_method_Ozone_GridSizer_GetEffectiveRowsCount(JSContext* 
 
     return ____ret;
 }
+
+void finalizer_Ozone_GridSizer(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GridSizer
 {
     "GridSizer",
+    .finalizer = finalizer_Ozone_GridSizer
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GridSizer[]
@@ -5636,7 +5685,6 @@ static JSCFunctionListEntry funcDef_Ozone_GridSizer[]
     JS_CFUNC_DEF("GetEffectiveColsCount", 0, callback_method_Ozone_GridSizer_GetEffectiveColsCount),
     JS_CFUNC_DEF("GetEffectiveRowsCount", 0, callback_method_Ozone_GridSizer_GetEffectiveRowsCount),
 };
-
 
 static void register_class_Ozone_GridSizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -5810,6 +5858,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_FlexGridSizer);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -6190,9 +6241,15 @@ static JSValue callback_method_Ozone_FlexGridSizer_CalcMin(JSContext* ctx, JSVal
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_FlexGridSizer(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_FlexGridSizer
 {
     "FlexGridSizer",
+    .finalizer = finalizer_Ozone_FlexGridSizer
 };
 
 static JSCFunctionListEntry funcDef_Ozone_FlexGridSizer[]
@@ -6210,7 +6267,6 @@ static JSCFunctionListEntry funcDef_Ozone_FlexGridSizer[]
     JS_CFUNC_DEF("RepositionChildren", 1, callback_method_Ozone_FlexGridSizer_RepositionChildren),
     JS_CFUNC_DEF("CalcMin", 0, callback_method_Ozone_FlexGridSizer_CalcMin),
 };
-
 
 static void register_class_Ozone_FlexGridSizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -6291,6 +6347,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_BoxSizer);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -6506,9 +6565,15 @@ overload0:
         return ____ret;
     }
 }
+
+void finalizer_Ozone_BoxSizer(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_BoxSizer
 {
     "BoxSizer",
+    .finalizer = finalizer_Ozone_BoxSizer
 };
 
 static JSCFunctionListEntry funcDef_Ozone_BoxSizer[]
@@ -6521,7 +6586,6 @@ static JSCFunctionListEntry funcDef_Ozone_BoxSizer[]
     JS_CFUNC_DEF("RepositionChildren", 1, callback_method_Ozone_BoxSizer_RepositionChildren),
     JS_CFUNC_DEF("InformFirstDirection", 3, callback_method_Ozone_BoxSizer_InformFirstDirection),
 };
-
 
 static void register_class_Ozone_BoxSizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -6625,6 +6689,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_StaticBoxSizer);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -6800,9 +6867,15 @@ overload2:
         return ____ret;
     }
 }
+
+void finalizer_Ozone_StaticBoxSizer(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_StaticBoxSizer
 {
     "StaticBoxSizer",
+    .finalizer = finalizer_Ozone_StaticBoxSizer
 };
 
 static JSCFunctionListEntry funcDef_Ozone_StaticBoxSizer[]
@@ -6813,7 +6886,6 @@ static JSCFunctionListEntry funcDef_Ozone_StaticBoxSizer[]
     JS_CFUNC_DEF("AreAnyItemsShown", 0, callback_method_Ozone_StaticBoxSizer_AreAnyItemsShown),
     JS_CFUNC_DEF("Detach", 1, callback_method_Ozone_StaticBoxSizer_Detach),
 };
-
 
 static void register_class_Ozone_StaticBoxSizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -6878,6 +6950,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_StdDialogButtonSizer);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -6898,16 +6973,21 @@ static JSValue callback_method_Ozone_StdDialogButtonSizer_Realize(JSContext* ctx
 
     return JS_UNDEFINED;
 }
+
+void finalizer_Ozone_StdDialogButtonSizer(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_StdDialogButtonSizer
 {
     "StdDialogButtonSizer",
+    .finalizer = finalizer_Ozone_StdDialogButtonSizer
 };
 
 static JSCFunctionListEntry funcDef_Ozone_StdDialogButtonSizer[]
 {
     JS_CFUNC_DEF("Realize", 0, callback_method_Ozone_StdDialogButtonSizer_Realize),
 };
-
 
 static void register_class_Ozone_StdDialogButtonSizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

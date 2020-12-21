@@ -30,7 +30,7 @@ Ozone::TopLevelWindow::~TopLevelWindow()
 Ozone::TopLevelWindow::TopLevelWindow()
     : Ozone::NonOwnedWindow((::wxNonOwnedWindow*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxTopLevelWindow();
 
     auto __instance = (wxTopLevelWindow*) __Instance;
@@ -41,7 +41,7 @@ Ozone::TopLevelWindow::TopLevelWindow()
 Ozone::TopLevelWindow::TopLevelWindow(::Ozone::Window* parent, int winid, const char* title, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
     : Ozone::NonOwnedWindow((::wxNonOwnedWindow*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
     auto __arg1 = (::wxWindowID)winid;
     auto __arg2 = title;

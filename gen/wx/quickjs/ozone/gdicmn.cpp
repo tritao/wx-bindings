@@ -628,6 +628,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Size);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -1222,9 +1225,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_Size(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Size
 {
     "Size",
+    .finalizer = finalizer_Ozone_Size
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Size[]
@@ -1248,7 +1257,6 @@ static JSCFunctionListEntry funcDef_Ozone_Size[]
     JS_CFUNC_DEF("get_y", 0, callback_method_Ozone_Size_get_y),
     JS_CFUNC_DEF("set_y", 1, callback_method_Ozone_Size_set_y),
 };
-
 
 static void register_class_Ozone_Size(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1357,6 +1365,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_RealPoint);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -1463,9 +1474,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_RealPoint(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_RealPoint
 {
     "RealPoint",
+    .finalizer = finalizer_Ozone_RealPoint
 };
 
 static JSCFunctionListEntry funcDef_Ozone_RealPoint[]
@@ -1475,7 +1492,6 @@ static JSCFunctionListEntry funcDef_Ozone_RealPoint[]
     JS_CFUNC_DEF("get_y", 0, callback_method_Ozone_RealPoint_get_y),
     JS_CFUNC_DEF("set_y", 1, callback_method_Ozone_RealPoint_set_y),
 };
-
 
 static void register_class_Ozone_RealPoint(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1583,6 +1599,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Point);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -1739,9 +1758,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_Point(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Point
 {
     "Point",
+    .finalizer = finalizer_Ozone_Point
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Point[]
@@ -1753,7 +1778,6 @@ static JSCFunctionListEntry funcDef_Ozone_Point[]
     JS_CFUNC_DEF("get_y", 0, callback_method_Ozone_Point_get_y),
     JS_CFUNC_DEF("set_y", 1, callback_method_Ozone_Point_set_y),
 };
-
 
 static void register_class_Ozone_Point(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1866,9 +1890,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_wxPointListNode(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_wxPointListNode
 {
     "wxPointListNode",
+    .finalizer = finalizer_Ozone_wxPointListNode
 };
 
 static JSCFunctionListEntry funcDef_Ozone_wxPointListNode[]
@@ -1878,7 +1908,6 @@ static JSCFunctionListEntry funcDef_Ozone_wxPointListNode[]
     JS_CFUNC_DEF("GetData", 0, callback_method_Ozone_wxPointListNode_GetData),
     JS_CFUNC_DEF("SetData", 1, callback_method_Ozone_wxPointListNode_SetData),
 };
-
 
 static void register_class_Ozone_wxPointListNode(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -2044,6 +2073,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Rect);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -3587,9 +3619,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_Rect(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Rect
 {
     "Rect",
+    .finalizer = finalizer_Ozone_Rect
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Rect[]
@@ -3650,7 +3688,6 @@ static JSCFunctionListEntry funcDef_Ozone_Rect[]
     JS_CFUNC_DEF("set_height", 1, callback_method_Ozone_Rect_set_height),
 };
 
-
 static void register_class_Ozone_Rect(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -3705,19 +3742,27 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GDIObjListBase);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
 }
+
+void finalizer_Ozone_GDIObjListBase(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GDIObjListBase
 {
     "GDIObjListBase",
+    .finalizer = finalizer_Ozone_GDIObjListBase
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GDIObjListBase[]
 {
 };
-
 
 static void register_class_Ozone_GDIObjListBase(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -3772,6 +3817,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ColourDatabase);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -3893,9 +3941,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_ColourDatabase(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ColourDatabase
 {
     "ColourDatabase",
+    .finalizer = finalizer_Ozone_ColourDatabase
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ColourDatabase[]
@@ -3904,7 +3958,6 @@ static JSCFunctionListEntry funcDef_Ozone_ColourDatabase[]
     JS_CFUNC_DEF("FindName", 1, callback_method_Ozone_ColourDatabase_FindName),
     JS_CFUNC_DEF("AddColour", 2, callback_method_Ozone_ColourDatabase_AddColour),
 };
-
 
 static void register_class_Ozone_ColourDatabase(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -3988,19 +4041,27 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ResourceCache);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
 }
+
+void finalizer_Ozone_ResourceCache(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ResourceCache
 {
     "ResourceCache",
+    .finalizer = finalizer_Ozone_ResourceCache
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ResourceCache[]
 {
 };
-
 
 static void register_class_Ozone_ResourceCache(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -4098,6 +4159,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_StockGDI);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -4216,9 +4280,15 @@ overload0:
         return ____ret_instance;
     }
 }
+
+void finalizer_Ozone_StockGDI(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_StockGDI
 {
     "StockGDI",
+    .finalizer = finalizer_Ozone_StockGDI
 };
 
 static JSCFunctionListEntry funcDef_Ozone_StockGDI[]
@@ -4228,7 +4298,6 @@ static JSCFunctionListEntry funcDef_Ozone_StockGDI[]
     JS_CFUNC_DEF("GetColour", 1, callback_method_Ozone_StockGDI_GetColour),
     JS_CFUNC_DEF("GetPen", 1, callback_method_Ozone_StockGDI_GetPen),
 };
-
 
 static void register_class_Ozone_StockGDI(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

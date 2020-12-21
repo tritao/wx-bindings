@@ -15,7 +15,7 @@
 #include <wx/eventfilter.h>
 
 Ozone::VisualAttributes::VisualAttributes(::wxVisualAttributes* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -26,14 +26,14 @@ Ozone::VisualAttributes::~VisualAttributes()
 
 Ozone::VisualAttributes::VisualAttributes(const ::Ozone::VisualAttributes& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxVisualAttributes*)_0.__Instance;
     __Instance = new ::wxVisualAttributes(__arg0);
 }
 
 Ozone::VisualAttributes::VisualAttributes()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxVisualAttributes();
 }
 
@@ -66,7 +66,7 @@ void Ozone::VisualAttributes::set_colBg(::Ozone::Color value)
 }
 
 Ozone::WindowListNode::WindowListNode(::wxWindowListNode* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -100,7 +100,7 @@ void Ozone::WindowListNode::SetData(::Ozone::Window* data)
 }
 
 Ozone::WindowList::WindowList(::wxWindowList* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -111,14 +111,14 @@ Ozone::WindowList::~WindowList()
 
 Ozone::WindowList::WindowList(::Ozone::KeyType keyType)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxKeyType)keyType;
     __Instance = new ::wxWindowList(__arg0);
 }
 
 Ozone::WindowList::WindowList(const ::Ozone::WindowList& list)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxWindowList*)list.__Instance;
     __Instance = new ::wxWindowList(__arg0);
 }
@@ -140,6 +140,13 @@ Ozone::WindowList::WindowList(const ::Ozone::WindowList& list)
     auto __arg0 = (::size_t)index;
     ::wxWindowListNode* __ret = ((::wxWindowList*)__Instance)->Item(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::WindowListNode((::wxWindowListNode*)__ret);
+}
+
+::Ozone::Window* Ozone::WindowList::operator[](unsigned long index) const
+{
+    auto __arg0 = (::size_t)index;
+    ::wxWindow* __ret = ((::wxWindowList*)__Instance)->operator[](__arg0);
+    return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
 ::Ozone::WindowListNode* Ozone::WindowList::Append(long key, void* object)
@@ -179,7 +186,7 @@ void Ozone::WindowList::Erase(::Ozone::WindowListNode* it)
 
 Ozone::WindowList::WindowList(unsigned long n, ::Ozone::Window*const & v)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowList::size_type)(::size_t)n;
     auto __arg1 = v ? (::wxWindow*)v->__Instance : nullptr;
     __Instance = new ::wxWindowList(__arg0, __arg1);
@@ -272,7 +279,7 @@ Ozone::Window::~Window()
 Ozone::Window::Window()
     : Ozone::EvtHandler((::wxEvtHandler*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxWindow();
 
     auto __instance = (wxWindow*) __Instance;
@@ -283,7 +290,7 @@ Ozone::Window::Window()
 Ozone::Window::Window(::Ozone::Window* parent, int id, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
     : Ozone::EvtHandler((::wxEvtHandler*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
     auto __arg1 = (::wxWindowID)id;
     auto &__arg2 = *(::wxPoint*)pos.__Instance;

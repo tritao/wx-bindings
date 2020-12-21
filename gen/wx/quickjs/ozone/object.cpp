@@ -42,6 +42,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_RefCounter);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -96,9 +99,15 @@ static JSValue callback_method_Ozone_RefCounter_DecRef(JSContext* ctx, JSValueCo
 
     return JS_UNDEFINED;
 }
+
+void finalizer_Ozone_RefCounter(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_RefCounter
 {
     "RefCounter",
+    .finalizer = finalizer_Ozone_RefCounter
 };
 
 static JSCFunctionListEntry funcDef_Ozone_RefCounter[]
@@ -107,7 +116,6 @@ static JSCFunctionListEntry funcDef_Ozone_RefCounter[]
     JS_CFUNC_DEF("IncRef", 0, callback_method_Ozone_RefCounter_IncRef),
     JS_CFUNC_DEF("DecRef", 0, callback_method_Ozone_RefCounter_DecRef),
 };
-
 
 static void register_class_Ozone_RefCounter(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -162,6 +170,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Object);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -312,9 +323,15 @@ overload0:
         return ____ret;
     }
 }
+
+void finalizer_Ozone_Object(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Object
 {
     "Object",
+    .finalizer = finalizer_Ozone_Object
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Object[]
@@ -326,7 +343,6 @@ static JSCFunctionListEntry funcDef_Ozone_Object[]
     JS_CFUNC_DEF("UnShare", 0, callback_method_Ozone_Object_UnShare),
     JS_CFUNC_DEF("IsSameAs", 1, callback_method_Ozone_Object_IsSameAs),
 };
-
 
 static void register_class_Ozone_Object(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -355,10 +371,6 @@ static void register_class_Ozone_Object(JSContext *ctx, JSModuleDef *m, bool set
 
 void register_ozone_object(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
-    if (phase == 0)
-    {
-    }
-
     register_class_Ozone_RefCounter(ctx, m, set, phase);
 
     register_class_Ozone_Object(ctx, m, set, phase);

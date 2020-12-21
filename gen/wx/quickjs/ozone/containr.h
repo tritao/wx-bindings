@@ -12,8 +12,6 @@ class ControlContainer
 {
 public:
 
-    ::Ozone::ControlContainer* __Instance;
-
     ControlContainer(::Ozone::ControlContainer* instance, bool ownNativeInstance = false);
 
     ControlContainer(const ::Ozone::Ozone::ControlContainer& _0);
@@ -40,5 +38,5 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };

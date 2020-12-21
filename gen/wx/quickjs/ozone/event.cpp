@@ -258,7 +258,7 @@ static void register_enum_Ozone_JoystickButton(JSContext *ctx, JSModuleDef *m, b
 
     // BUTTON_ANY
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551615);
+        JSValue __item = JS_NewInt32(ctx, -1);
         JS_SetPropertyStr(ctx, val, "BUTTON_ANY", __item);
     }
 
@@ -424,6 +424,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Event);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -992,9 +995,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_Event(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Event
 {
     "Event",
+    .finalizer = finalizer_Ozone_Event
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Event[]
@@ -1025,7 +1034,6 @@ static JSCFunctionListEntry funcDef_Ozone_Event[]
     JS_CFUNC_DEF("get_m_callbackUserData", 0, callback_method_Ozone_Event_get_m_callbackUserData),
     JS_CFUNC_DEF("set_m_callbackUserData", 1, callback_method_Ozone_Event_set_m_callbackUserData),
 };
-
 
 static void register_class_Ozone_Event(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1114,19 +1122,27 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PropagateOnce);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
 }
+
+void finalizer_Ozone_PropagateOnce(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_PropagateOnce
 {
     "PropagateOnce",
+    .finalizer = finalizer_Ozone_PropagateOnce
 };
 
 static JSCFunctionListEntry funcDef_Ozone_PropagateOnce[]
 {
 };
-
 
 static void register_class_Ozone_PropagateOnce(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1181,6 +1197,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_IdleEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -1303,9 +1322,15 @@ static JSValue callback_method_Ozone_IdleEvent_GetMode(JSContext* ctx, JSValueCo
 
     return ____ret;
 }
+
+void finalizer_Ozone_IdleEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_IdleEvent
 {
     "IdleEvent",
+    .finalizer = finalizer_Ozone_IdleEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_IdleEvent[]
@@ -1316,7 +1341,6 @@ static JSCFunctionListEntry funcDef_Ozone_IdleEvent[]
     JS_CFUNC_DEF("SetMode", 1, callback_method_Ozone_IdleEvent_SetMode),
     JS_CFUNC_DEF("GetMode", 0, callback_method_Ozone_IdleEvent_GetMode),
 };
-
 
 static void register_class_Ozone_IdleEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1409,6 +1433,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ThreadEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -1449,9 +1476,15 @@ static JSValue callback_method_Ozone_ThreadEvent_GetEventCategory(JSContext* ctx
 
     return ____ret;
 }
+
+void finalizer_Ozone_ThreadEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ThreadEvent
 {
     "ThreadEvent",
+    .finalizer = finalizer_Ozone_ThreadEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ThreadEvent[]
@@ -1459,7 +1492,6 @@ static JSCFunctionListEntry funcDef_Ozone_ThreadEvent[]
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_ThreadEvent_Clone),
     JS_CFUNC_DEF("GetEventCategory", 0, callback_method_Ozone_ThreadEvent_GetEventCategory),
 };
-
 
 static void register_class_Ozone_ThreadEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1539,6 +1571,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_AsyncMethodCallEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -1559,16 +1594,21 @@ static JSValue callback_method_Ozone_AsyncMethodCallEvent_Execute(JSContext* ctx
 
     return JS_UNDEFINED;
 }
+
+void finalizer_Ozone_AsyncMethodCallEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_AsyncMethodCallEvent
 {
     "AsyncMethodCallEvent",
+    .finalizer = finalizer_Ozone_AsyncMethodCallEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_AsyncMethodCallEvent[]
 {
     JS_CFUNC_DEF("Execute", 0, callback_method_Ozone_AsyncMethodCallEvent_Execute),
 };
-
 
 static void register_class_Ozone_AsyncMethodCallEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1660,6 +1700,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_CommandEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -1773,9 +1816,15 @@ static JSValue callback_method_Ozone_CommandEvent_GetEventCategory(JSContext* ct
 
     return ____ret;
 }
+
+void finalizer_Ozone_CommandEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_CommandEvent
 {
     "CommandEvent",
+    .finalizer = finalizer_Ozone_CommandEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_CommandEvent[]
@@ -1787,7 +1836,6 @@ static JSCFunctionListEntry funcDef_Ozone_CommandEvent[]
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_CommandEvent_Clone),
     JS_CFUNC_DEF("GetEventCategory", 0, callback_method_Ozone_CommandEvent_GetEventCategory),
 };
-
 
 static void register_class_Ozone_CommandEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1880,6 +1928,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_NotifyEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -1952,9 +2003,15 @@ static JSValue callback_method_Ozone_NotifyEvent_Clone(JSContext* ctx, JSValueCo
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_NotifyEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_NotifyEvent
 {
     "NotifyEvent",
+    .finalizer = finalizer_Ozone_NotifyEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_NotifyEvent[]
@@ -1964,7 +2021,6 @@ static JSCFunctionListEntry funcDef_Ozone_NotifyEvent[]
     JS_CFUNC_DEF("IsAllowed", 0, callback_method_Ozone_NotifyEvent_IsAllowed),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_NotifyEvent_Clone),
 };
-
 
 static void register_class_Ozone_NotifyEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -2078,6 +2134,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ScrollEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -2203,9 +2262,15 @@ static JSValue callback_method_Ozone_ScrollEvent_Clone(JSContext* ctx, JSValueCo
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_ScrollEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ScrollEvent
 {
     "ScrollEvent",
+    .finalizer = finalizer_Ozone_ScrollEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ScrollEvent[]
@@ -2216,7 +2281,6 @@ static JSCFunctionListEntry funcDef_Ozone_ScrollEvent[]
     JS_CFUNC_DEF("SetPosition", 1, callback_method_Ozone_ScrollEvent_SetPosition),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_ScrollEvent_Clone),
 };
-
 
 static void register_class_Ozone_ScrollEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -2319,6 +2383,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ScrollWinEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -2444,9 +2511,15 @@ static JSValue callback_method_Ozone_ScrollWinEvent_Clone(JSContext* ctx, JSValu
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_ScrollWinEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ScrollWinEvent
 {
     "ScrollWinEvent",
+    .finalizer = finalizer_Ozone_ScrollWinEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ScrollWinEvent[]
@@ -2457,7 +2530,6 @@ static JSCFunctionListEntry funcDef_Ozone_ScrollWinEvent[]
     JS_CFUNC_DEF("SetPosition", 1, callback_method_Ozone_ScrollWinEvent_SetPosition),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_ScrollWinEvent_Clone),
 };
-
 
 static void register_class_Ozone_ScrollWinEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -2538,6 +2610,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_MouseEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -3721,9 +3796,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_MouseEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_MouseEvent
 {
     "MouseEvent",
+    .finalizer = finalizer_Ozone_MouseEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_MouseEvent[]
@@ -3783,7 +3864,6 @@ static JSCFunctionListEntry funcDef_Ozone_MouseEvent[]
     JS_CFUNC_DEF("get_m_magnification", 0, callback_method_Ozone_MouseEvent_get_m_magnification),
     JS_CFUNC_DEF("set_m_magnification", 1, callback_method_Ozone_MouseEvent_set_m_magnification),
 };
-
 
 static void register_class_Ozone_MouseEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -3876,6 +3956,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_SetCursorEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -3952,9 +4035,15 @@ static JSValue callback_method_Ozone_SetCursorEvent_Clone(JSContext* ctx, JSValu
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_SetCursorEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_SetCursorEvent
 {
     "SetCursorEvent",
+    .finalizer = finalizer_Ozone_SetCursorEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_SetCursorEvent[]
@@ -3964,7 +4053,6 @@ static JSCFunctionListEntry funcDef_Ozone_SetCursorEvent[]
     JS_CFUNC_DEF("HasCursor", 0, callback_method_Ozone_SetCursorEvent_HasCursor),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_SetCursorEvent_Clone),
 };
-
 
 static void register_class_Ozone_SetCursorEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -4056,6 +4144,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GestureEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -4214,9 +4305,15 @@ static JSValue callback_method_Ozone_GestureEvent_Clone(JSContext* ctx, JSValueC
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_GestureEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GestureEvent
 {
     "GestureEvent",
+    .finalizer = finalizer_Ozone_GestureEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GestureEvent[]
@@ -4228,7 +4325,6 @@ static JSCFunctionListEntry funcDef_Ozone_GestureEvent[]
     JS_CFUNC_DEF("SetGestureEnd", 1, callback_method_Ozone_GestureEvent_SetGestureEnd),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_GestureEvent_Clone),
 };
-
 
 static void register_class_Ozone_GestureEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -4310,6 +4406,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PanGestureEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -4381,9 +4480,15 @@ static JSValue callback_method_Ozone_PanGestureEvent_Clone(JSContext* ctx, JSVal
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_PanGestureEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_PanGestureEvent
 {
     "PanGestureEvent",
+    .finalizer = finalizer_Ozone_PanGestureEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_PanGestureEvent[]
@@ -4392,7 +4497,6 @@ static JSCFunctionListEntry funcDef_Ozone_PanGestureEvent[]
     JS_CFUNC_DEF("SetDelta", 1, callback_method_Ozone_PanGestureEvent_SetDelta),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_PanGestureEvent_Clone),
 };
-
 
 static void register_class_Ozone_PanGestureEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -4474,6 +4578,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ZoomGestureEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -4547,9 +4654,15 @@ static JSValue callback_method_Ozone_ZoomGestureEvent_Clone(JSContext* ctx, JSVa
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_ZoomGestureEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ZoomGestureEvent
 {
     "ZoomGestureEvent",
+    .finalizer = finalizer_Ozone_ZoomGestureEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ZoomGestureEvent[]
@@ -4558,7 +4671,6 @@ static JSCFunctionListEntry funcDef_Ozone_ZoomGestureEvent[]
     JS_CFUNC_DEF("SetZoomFactor", 1, callback_method_Ozone_ZoomGestureEvent_SetZoomFactor),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_ZoomGestureEvent_Clone),
 };
-
 
 static void register_class_Ozone_ZoomGestureEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -4640,6 +4752,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_RotateGestureEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -4713,9 +4828,15 @@ static JSValue callback_method_Ozone_RotateGestureEvent_Clone(JSContext* ctx, JS
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_RotateGestureEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_RotateGestureEvent
 {
     "RotateGestureEvent",
+    .finalizer = finalizer_Ozone_RotateGestureEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_RotateGestureEvent[]
@@ -4724,7 +4845,6 @@ static JSCFunctionListEntry funcDef_Ozone_RotateGestureEvent[]
     JS_CFUNC_DEF("SetRotationAngle", 1, callback_method_Ozone_RotateGestureEvent_SetRotationAngle),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_RotateGestureEvent_Clone),
 };
-
 
 static void register_class_Ozone_RotateGestureEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -4806,6 +4926,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_TwoFingerTapEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -4828,16 +4951,21 @@ static JSValue callback_method_Ozone_TwoFingerTapEvent_Clone(JSContext* ctx, JSV
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_TwoFingerTapEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_TwoFingerTapEvent
 {
     "TwoFingerTapEvent",
+    .finalizer = finalizer_Ozone_TwoFingerTapEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_TwoFingerTapEvent[]
 {
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_TwoFingerTapEvent_Clone),
 };
-
 
 static void register_class_Ozone_TwoFingerTapEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -4919,6 +5047,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_LongPressEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -4941,16 +5072,21 @@ static JSValue callback_method_Ozone_LongPressEvent_Clone(JSContext* ctx, JSValu
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_LongPressEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_LongPressEvent
 {
     "LongPressEvent",
+    .finalizer = finalizer_Ozone_LongPressEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_LongPressEvent[]
 {
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_LongPressEvent_Clone),
 };
-
 
 static void register_class_Ozone_LongPressEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -5032,6 +5168,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PressAndTapEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -5054,16 +5193,21 @@ static JSValue callback_method_Ozone_PressAndTapEvent_Clone(JSContext* ctx, JSVa
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_PressAndTapEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_PressAndTapEvent
 {
     "PressAndTapEvent",
+    .finalizer = finalizer_Ozone_PressAndTapEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_PressAndTapEvent[]
 {
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_PressAndTapEvent_Clone),
 };
-
 
 static void register_class_Ozone_PressAndTapEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -5160,6 +5304,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_KeyEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -5704,9 +5851,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_KeyEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_KeyEvent
 {
     "KeyEvent",
+    .finalizer = finalizer_Ozone_KeyEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_KeyEvent[]
@@ -5736,7 +5889,6 @@ static JSCFunctionListEntry funcDef_Ozone_KeyEvent[]
     JS_CFUNC_DEF("get_m_rawFlags", 0, callback_method_Ozone_KeyEvent_get_m_rawFlags),
     JS_CFUNC_DEF("set_m_rawFlags", 1, callback_method_Ozone_KeyEvent_set_m_rawFlags),
 };
-
 
 static void register_class_Ozone_KeyEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -5862,6 +6014,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_SizeEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -6081,9 +6236,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_SizeEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_SizeEvent
 {
     "SizeEvent",
+    .finalizer = finalizer_Ozone_SizeEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_SizeEvent[]
@@ -6098,7 +6259,6 @@ static JSCFunctionListEntry funcDef_Ozone_SizeEvent[]
     JS_CFUNC_DEF("get_m_rect", 0, callback_method_Ozone_SizeEvent_get_m_rect),
     JS_CFUNC_DEF("set_m_rect", 1, callback_method_Ozone_SizeEvent_set_m_rect),
 };
-
 
 static void register_class_Ozone_SizeEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -6225,6 +6385,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_MoveEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -6345,9 +6508,15 @@ static JSValue callback_method_Ozone_MoveEvent_Clone(JSContext* ctx, JSValueCons
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_MoveEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_MoveEvent
 {
     "MoveEvent",
+    .finalizer = finalizer_Ozone_MoveEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_MoveEvent[]
@@ -6358,7 +6527,6 @@ static JSCFunctionListEntry funcDef_Ozone_MoveEvent[]
     JS_CFUNC_DEF("SetRect", 1, callback_method_Ozone_MoveEvent_SetRect),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_MoveEvent_Clone),
 };
-
 
 static void register_class_Ozone_MoveEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -6413,16 +6581,21 @@ static JSValue callback_method_Ozone_PaintEvent_Clone(JSContext* ctx, JSValueCon
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_PaintEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_PaintEvent
 {
     "PaintEvent",
+    .finalizer = finalizer_Ozone_PaintEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_PaintEvent[]
 {
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_PaintEvent_Clone),
 };
-
 
 static void register_class_Ozone_PaintEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -6473,16 +6646,21 @@ static JSValue callback_method_Ozone_NcPaintEvent_Clone(JSContext* ctx, JSValueC
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_NcPaintEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_NcPaintEvent
 {
     "NcPaintEvent",
+    .finalizer = finalizer_Ozone_NcPaintEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_NcPaintEvent[]
 {
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_NcPaintEvent_Clone),
 };
-
 
 static void register_class_Ozone_NcPaintEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -6569,6 +6747,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_EraseEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -6609,9 +6790,15 @@ static JSValue callback_method_Ozone_EraseEvent_Clone(JSContext* ctx, JSValueCon
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_EraseEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_EraseEvent
 {
     "EraseEvent",
+    .finalizer = finalizer_Ozone_EraseEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_EraseEvent[]
@@ -6619,7 +6806,6 @@ static JSCFunctionListEntry funcDef_Ozone_EraseEvent[]
     JS_CFUNC_DEF("GetDC", 0, callback_method_Ozone_EraseEvent_GetDC),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_EraseEvent_Clone),
 };
-
 
 static void register_class_Ozone_EraseEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -6712,6 +6898,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_FocusEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -6783,9 +6972,15 @@ static JSValue callback_method_Ozone_FocusEvent_Clone(JSContext* ctx, JSValueCon
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_FocusEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_FocusEvent
 {
     "FocusEvent",
+    .finalizer = finalizer_Ozone_FocusEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_FocusEvent[]
@@ -6794,7 +6989,6 @@ static JSCFunctionListEntry funcDef_Ozone_FocusEvent[]
     JS_CFUNC_DEF("SetWindow", 1, callback_method_Ozone_FocusEvent_SetWindow),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_FocusEvent_Clone),
 };
-
 
 static void register_class_Ozone_FocusEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -6874,6 +7068,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ChildFocusEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -6914,9 +7111,15 @@ static JSValue callback_method_Ozone_ChildFocusEvent_Clone(JSContext* ctx, JSVal
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_ChildFocusEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ChildFocusEvent
 {
     "ChildFocusEvent",
+    .finalizer = finalizer_Ozone_ChildFocusEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ChildFocusEvent[]
@@ -6924,7 +7127,6 @@ static JSCFunctionListEntry funcDef_Ozone_ChildFocusEvent[]
     JS_CFUNC_DEF("GetWindow", 0, callback_method_Ozone_ChildFocusEvent_GetWindow),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_ChildFocusEvent_Clone),
 };
-
 
 static void register_class_Ozone_ChildFocusEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -7046,6 +7248,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ActivateEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -7104,9 +7309,15 @@ static JSValue callback_method_Ozone_ActivateEvent_Clone(JSContext* ctx, JSValue
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_ActivateEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ActivateEvent
 {
     "ActivateEvent",
+    .finalizer = finalizer_Ozone_ActivateEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ActivateEvent[]
@@ -7115,7 +7326,6 @@ static JSCFunctionListEntry funcDef_Ozone_ActivateEvent[]
     JS_CFUNC_DEF("GetActivationReason", 0, callback_method_Ozone_ActivateEvent_GetActivationReason),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_ActivateEvent_Clone),
 };
-
 
 static void register_class_Ozone_ActivateEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -7197,6 +7407,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_InitDialogEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -7219,16 +7432,21 @@ static JSValue callback_method_Ozone_InitDialogEvent_Clone(JSContext* ctx, JSVal
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_InitDialogEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_InitDialogEvent
 {
     "InitDialogEvent",
+    .finalizer = finalizer_Ozone_InitDialogEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_InitDialogEvent[]
 {
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_InitDialogEvent_Clone),
 };
-
 
 static void register_class_Ozone_InitDialogEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -7319,9 +7537,15 @@ static JSValue callback_method_Ozone_MenuEvent_Clone(JSContext* ctx, JSValueCons
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_MenuEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_MenuEvent
 {
     "MenuEvent",
+    .finalizer = finalizer_Ozone_MenuEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_MenuEvent[]
@@ -7330,7 +7554,6 @@ static JSCFunctionListEntry funcDef_Ozone_MenuEvent[]
     JS_CFUNC_DEF("IsPopup", 0, callback_method_Ozone_MenuEvent_IsPopup),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_MenuEvent_Clone),
 };
-
 
 static void register_class_Ozone_MenuEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -7418,6 +7641,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_CloseEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -7597,9 +7823,15 @@ static JSValue callback_method_Ozone_CloseEvent_Clone(JSContext* ctx, JSValueCon
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_CloseEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_CloseEvent
 {
     "CloseEvent",
+    .finalizer = finalizer_Ozone_CloseEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_CloseEvent[]
@@ -7612,7 +7844,6 @@ static JSCFunctionListEntry funcDef_Ozone_CloseEvent[]
     JS_CFUNC_DEF("GetVeto", 0, callback_method_Ozone_CloseEvent_GetVeto),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_CloseEvent_Clone),
 };
-
 
 static void register_class_Ozone_CloseEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -7706,6 +7937,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ShowEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -7780,9 +8014,15 @@ static JSValue callback_method_Ozone_ShowEvent_Clone(JSContext* ctx, JSValueCons
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_ShowEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ShowEvent
 {
     "ShowEvent",
+    .finalizer = finalizer_Ozone_ShowEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ShowEvent[]
@@ -7791,7 +8031,6 @@ static JSCFunctionListEntry funcDef_Ozone_ShowEvent[]
     JS_CFUNC_DEF("IsShown", 0, callback_method_Ozone_ShowEvent_IsShown),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_ShowEvent_Clone),
 };
-
 
 static void register_class_Ozone_ShowEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -7885,6 +8124,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_IconizeEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -7925,9 +8167,15 @@ static JSValue callback_method_Ozone_IconizeEvent_Clone(JSContext* ctx, JSValueC
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_IconizeEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_IconizeEvent
 {
     "IconizeEvent",
+    .finalizer = finalizer_Ozone_IconizeEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_IconizeEvent[]
@@ -7935,7 +8183,6 @@ static JSCFunctionListEntry funcDef_Ozone_IconizeEvent[]
     JS_CFUNC_DEF("IsIconized", 0, callback_method_Ozone_IconizeEvent_IsIconized),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_IconizeEvent_Clone),
 };
-
 
 static void register_class_Ozone_IconizeEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -8017,6 +8264,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_MaximizeEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -8039,16 +8289,21 @@ static JSValue callback_method_Ozone_MaximizeEvent_Clone(JSContext* ctx, JSValue
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_MaximizeEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_MaximizeEvent
 {
     "MaximizeEvent",
+    .finalizer = finalizer_Ozone_MaximizeEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_MaximizeEvent[]
 {
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_MaximizeEvent_Clone),
 };
-
 
 static void register_class_Ozone_MaximizeEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -8162,6 +8417,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_JoystickEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -8615,9 +8873,15 @@ static JSValue callback_method_Ozone_JoystickEvent_Clone(JSContext* ctx, JSValue
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_JoystickEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_JoystickEvent
 {
     "JoystickEvent",
+    .finalizer = finalizer_Ozone_JoystickEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_JoystickEvent[]
@@ -8641,7 +8905,6 @@ static JSCFunctionListEntry funcDef_Ozone_JoystickEvent[]
     JS_CFUNC_DEF("ButtonIsDown", 1, callback_method_Ozone_JoystickEvent_ButtonIsDown),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_JoystickEvent_Clone),
 };
-
 
 static void register_class_Ozone_JoystickEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -8722,6 +8985,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_UpdateUIEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -9169,9 +9435,15 @@ static JSValue callback_method_Ozone_UpdateUIEvent_GetMode(JSContext* ctx, JSVal
 
     return ____ret;
 }
+
+void finalizer_Ozone_UpdateUIEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_UpdateUIEvent
 {
     "UpdateUIEvent",
+    .finalizer = finalizer_Ozone_UpdateUIEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_UpdateUIEvent[]
@@ -9197,7 +9469,6 @@ static JSCFunctionListEntry funcDef_Ozone_UpdateUIEvent[]
     JS_CFUNC_DEF("SetMode", 1, callback_method_Ozone_UpdateUIEvent_SetMode),
     JS_CFUNC_DEF("GetMode", 0, callback_method_Ozone_UpdateUIEvent_GetMode),
 };
-
 
 static void register_class_Ozone_UpdateUIEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -9262,6 +9533,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_SysColourChangedEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -9284,16 +9558,21 @@ static JSValue callback_method_Ozone_SysColourChangedEvent_Clone(JSContext* ctx,
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_SysColourChangedEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_SysColourChangedEvent
 {
     "SysColourChangedEvent",
+    .finalizer = finalizer_Ozone_SysColourChangedEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_SysColourChangedEvent[]
 {
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_SysColourChangedEvent_Clone),
 };
-
 
 static void register_class_Ozone_SysColourChangedEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -9384,6 +9663,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_MouseCaptureChangedEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -9424,9 +9706,15 @@ static JSValue callback_method_Ozone_MouseCaptureChangedEvent_GetCapturedWindow(
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_MouseCaptureChangedEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_MouseCaptureChangedEvent
 {
     "MouseCaptureChangedEvent",
+    .finalizer = finalizer_Ozone_MouseCaptureChangedEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_MouseCaptureChangedEvent[]
@@ -9434,7 +9722,6 @@ static JSCFunctionListEntry funcDef_Ozone_MouseCaptureChangedEvent[]
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_MouseCaptureChangedEvent_Clone),
     JS_CFUNC_DEF("GetCapturedWindow", 0, callback_method_Ozone_MouseCaptureChangedEvent_GetCapturedWindow),
 };
-
 
 static void register_class_Ozone_MouseCaptureChangedEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -9516,6 +9803,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_MouseCaptureLostEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -9538,16 +9828,21 @@ static JSValue callback_method_Ozone_MouseCaptureLostEvent_Clone(JSContext* ctx,
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_MouseCaptureLostEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_MouseCaptureLostEvent
 {
     "MouseCaptureLostEvent",
+    .finalizer = finalizer_Ozone_MouseCaptureLostEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_MouseCaptureLostEvent[]
 {
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_MouseCaptureLostEvent_Clone),
 };
-
 
 static void register_class_Ozone_MouseCaptureLostEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -9612,6 +9907,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_DisplayChangedEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -9634,16 +9932,21 @@ static JSValue callback_method_Ozone_DisplayChangedEvent_Clone(JSContext* ctx, J
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_DisplayChangedEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_DisplayChangedEvent
 {
     "DisplayChangedEvent",
+    .finalizer = finalizer_Ozone_DisplayChangedEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_DisplayChangedEvent[]
 {
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_DisplayChangedEvent_Clone),
 };
-
 
 static void register_class_Ozone_DisplayChangedEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -9732,6 +10035,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_DPIChangedEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -9790,9 +10096,15 @@ static JSValue callback_method_Ozone_DPIChangedEvent_Clone(JSContext* ctx, JSVal
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_DPIChangedEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_DPIChangedEvent
 {
     "DPIChangedEvent",
+    .finalizer = finalizer_Ozone_DPIChangedEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_DPIChangedEvent[]
@@ -9801,7 +10113,6 @@ static JSCFunctionListEntry funcDef_Ozone_DPIChangedEvent[]
     JS_CFUNC_DEF("GetNewDPI", 0, callback_method_Ozone_DPIChangedEvent_GetNewDPI),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_DPIChangedEvent_Clone),
 };
-
 
 static void register_class_Ozone_DPIChangedEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -9883,6 +10194,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PaletteChangedEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -9954,9 +10268,15 @@ static JSValue callback_method_Ozone_PaletteChangedEvent_Clone(JSContext* ctx, J
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_PaletteChangedEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_PaletteChangedEvent
 {
     "PaletteChangedEvent",
+    .finalizer = finalizer_Ozone_PaletteChangedEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_PaletteChangedEvent[]
@@ -9965,7 +10285,6 @@ static JSCFunctionListEntry funcDef_Ozone_PaletteChangedEvent[]
     JS_CFUNC_DEF("GetChangedWindow", 0, callback_method_Ozone_PaletteChangedEvent_GetChangedWindow),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_PaletteChangedEvent_Clone),
 };
-
 
 static void register_class_Ozone_PaletteChangedEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -10047,6 +10366,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_QueryNewPaletteEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -10121,9 +10443,15 @@ static JSValue callback_method_Ozone_QueryNewPaletteEvent_Clone(JSContext* ctx, 
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_QueryNewPaletteEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_QueryNewPaletteEvent
 {
     "QueryNewPaletteEvent",
+    .finalizer = finalizer_Ozone_QueryNewPaletteEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_QueryNewPaletteEvent[]
@@ -10132,7 +10460,6 @@ static JSCFunctionListEntry funcDef_Ozone_QueryNewPaletteEvent[]
     JS_CFUNC_DEF("GetPaletteRealized", 0, callback_method_Ozone_QueryNewPaletteEvent_GetPaletteRealized),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_QueryNewPaletteEvent_Clone),
 };
-
 
 static void register_class_Ozone_QueryNewPaletteEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -10204,6 +10531,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_NavigationKeyEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -10565,9 +10895,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_NavigationKeyEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_NavigationKeyEvent
 {
     "NavigationKeyEvent",
+    .finalizer = finalizer_Ozone_NavigationKeyEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_NavigationKeyEvent[]
@@ -10587,7 +10923,6 @@ static JSCFunctionListEntry funcDef_Ozone_NavigationKeyEvent[]
     JS_CFUNC_DEF("get_m_focus", 0, callback_method_Ozone_NavigationKeyEvent_get_m_focus),
     JS_CFUNC_DEF("set_m_focus", 1, callback_method_Ozone_NavigationKeyEvent_set_m_focus),
 };
-
 
 static void register_class_Ozone_NavigationKeyEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -10667,6 +11002,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_WindowCreateEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -10707,9 +11045,15 @@ static JSValue callback_method_Ozone_WindowCreateEvent_Clone(JSContext* ctx, JSV
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_WindowCreateEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_WindowCreateEvent
 {
     "WindowCreateEvent",
+    .finalizer = finalizer_Ozone_WindowCreateEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_WindowCreateEvent[]
@@ -10717,7 +11061,6 @@ static JSCFunctionListEntry funcDef_Ozone_WindowCreateEvent[]
     JS_CFUNC_DEF("GetWindow", 0, callback_method_Ozone_WindowCreateEvent_GetWindow),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_WindowCreateEvent_Clone),
 };
-
 
 static void register_class_Ozone_WindowCreateEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -10797,6 +11140,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_WindowDestroyEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -10837,9 +11183,15 @@ static JSValue callback_method_Ozone_WindowDestroyEvent_Clone(JSContext* ctx, JS
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_WindowDestroyEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_WindowDestroyEvent
 {
     "WindowDestroyEvent",
+    .finalizer = finalizer_Ozone_WindowDestroyEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_WindowDestroyEvent[]
@@ -10847,7 +11199,6 @@ static JSCFunctionListEntry funcDef_Ozone_WindowDestroyEvent[]
     JS_CFUNC_DEF("GetWindow", 0, callback_method_Ozone_WindowDestroyEvent_GetWindow),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_WindowDestroyEvent_Clone),
 };
-
 
 static void register_class_Ozone_WindowDestroyEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -10966,6 +11317,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_HelpEvent);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -11143,9 +11497,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_HelpEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_HelpEvent
 {
     "HelpEvent",
+    .finalizer = finalizer_Ozone_HelpEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_HelpEvent[]
@@ -11157,7 +11517,6 @@ static JSCFunctionListEntry funcDef_Ozone_HelpEvent[]
     JS_CFUNC_DEF("GetOrigin", 0, callback_method_Ozone_HelpEvent_GetOrigin),
     JS_CFUNC_DEF("SetOrigin", 1, callback_method_Ozone_HelpEvent_SetOrigin),
 };
-
 
 static void register_class_Ozone_HelpEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -11250,6 +11609,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ClipboardTextEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -11272,16 +11634,21 @@ static JSValue callback_method_Ozone_ClipboardTextEvent_Clone(JSContext* ctx, JS
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_ClipboardTextEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ClipboardTextEvent
 {
     "ClipboardTextEvent",
+    .finalizer = finalizer_Ozone_ClipboardTextEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ClipboardTextEvent[]
 {
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_ClipboardTextEvent_Clone),
 };
-
 
 static void register_class_Ozone_ClipboardTextEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -11383,6 +11750,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ContextMenuEvent);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -11436,9 +11806,15 @@ static JSValue callback_method_Ozone_ContextMenuEvent_Clone(JSContext* ctx, JSVa
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_ContextMenuEvent(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ContextMenuEvent
 {
     "ContextMenuEvent",
+    .finalizer = finalizer_Ozone_ContextMenuEvent
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ContextMenuEvent[]
@@ -11446,7 +11822,6 @@ static JSCFunctionListEntry funcDef_Ozone_ContextMenuEvent[]
     JS_CFUNC_DEF("SetPosition", 1, callback_method_Ozone_ContextMenuEvent_SetPosition),
     JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_ContextMenuEvent_Clone),
 };
-
 
 static void register_class_Ozone_ContextMenuEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -11510,6 +11885,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_EvtHandler);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -12019,9 +12397,15 @@ static JSValue callback_method_Ozone_EvtHandler_WXConsumeException(JSContext* ct
 
     return JS_UNDEFINED;
 }
+
+void finalizer_Ozone_EvtHandler(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_EvtHandler
 {
     "EvtHandler",
+    .finalizer = finalizer_Ozone_EvtHandler
 };
 
 static JSCFunctionListEntry funcDef_Ozone_EvtHandler[]
@@ -12047,7 +12431,6 @@ static JSCFunctionListEntry funcDef_Ozone_EvtHandler[]
     JS_CFUNC_DEF("OnSinkDestroyed", 1, callback_method_Ozone_EvtHandler_OnSinkDestroyed),
     JS_CFUNC_DEF("WXConsumeException", 0, callback_method_Ozone_EvtHandler_WXConsumeException),
 };
-
 
 static void register_class_Ozone_EvtHandler(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

@@ -148,7 +148,7 @@ static void register_enum_Ozone_CompositionMode(JSContext *ctx, JSModuleDef *m, 
 
     // INVALID
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551615);
+        JSValue __item = JS_NewInt32(ctx, -1);
         JS_SetPropertyStr(ctx, val, "INVALID", __item);
     }
 
@@ -289,6 +289,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsObject);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -329,9 +332,15 @@ static JSValue callback_method_Ozone_GraphicsObject_GetRenderer(JSContext* ctx, 
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_GraphicsObject(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsObject
 {
     "GraphicsObject",
+    .finalizer = finalizer_Ozone_GraphicsObject
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsObject[]
@@ -339,7 +348,6 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsObject[]
     JS_CFUNC_DEF("IsNull", 0, callback_method_Ozone_GraphicsObject_IsNull),
     JS_CFUNC_DEF("GetRenderer", 0, callback_method_Ozone_GraphicsObject_GetRenderer),
 };
-
 
 static void register_class_Ozone_GraphicsObject(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -404,19 +412,27 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsPen);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
 }
+
+void finalizer_Ozone_GraphicsPen(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsPen
 {
     "GraphicsPen",
+    .finalizer = finalizer_Ozone_GraphicsPen
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsPen[]
 {
 };
-
 
 static void register_class_Ozone_GraphicsPen(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -481,19 +497,27 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsBrush);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
 }
+
+void finalizer_Ozone_GraphicsBrush(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsBrush
 {
     "GraphicsBrush",
+    .finalizer = finalizer_Ozone_GraphicsBrush
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsBrush[]
 {
 };
-
 
 static void register_class_Ozone_GraphicsBrush(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -558,19 +582,27 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsFont);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
 }
+
+void finalizer_Ozone_GraphicsFont(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsFont
 {
     "GraphicsFont",
+    .finalizer = finalizer_Ozone_GraphicsFont
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsFont[]
 {
 };
-
 
 static void register_class_Ozone_GraphicsFont(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -635,19 +667,27 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsBitmap);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
 }
+
+void finalizer_Ozone_GraphicsBitmap(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsBitmap
 {
     "GraphicsBitmap",
+    .finalizer = finalizer_Ozone_GraphicsBitmap
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsBitmap[]
 {
 };
-
 
 static void register_class_Ozone_GraphicsBitmap(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -711,6 +751,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsMatrix);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -1023,9 +1066,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_GraphicsMatrix(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsMatrix
 {
     "GraphicsMatrix",
+    .finalizer = finalizer_Ozone_GraphicsMatrix
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsMatrix[]
@@ -1039,7 +1088,6 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsMatrix[]
     JS_CFUNC_DEF("Scale", 2, callback_method_Ozone_GraphicsMatrix_Scale),
     JS_CFUNC_DEF("Rotate", 1, callback_method_Ozone_GraphicsMatrix_Rotate),
 };
-
 
 static void register_class_Ozone_GraphicsMatrix(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1132,6 +1180,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsGradientStop);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -1220,9 +1271,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_GraphicsGradientStop(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsGradientStop
 {
     "GraphicsGradientStop",
+    .finalizer = finalizer_Ozone_GraphicsGradientStop
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsGradientStop[]
@@ -1231,7 +1288,6 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsGradientStop[]
     JS_CFUNC_DEF("GetPosition", 0, callback_method_Ozone_GraphicsGradientStop_GetPosition),
     JS_CFUNC_DEF("SetPosition", 1, callback_method_Ozone_GraphicsGradientStop_SetPosition),
 };
-
 
 static void register_class_Ozone_GraphicsGradientStop(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1310,6 +1366,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsGradientStops);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -1525,9 +1584,15 @@ static JSValue callback_method_Ozone_GraphicsGradientStops_GetEndColour(JSContex
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_GraphicsGradientStops(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsGradientStops
 {
     "GraphicsGradientStops",
+    .finalizer = finalizer_Ozone_GraphicsGradientStops
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsGradientStops[]
@@ -1540,7 +1605,6 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsGradientStops[]
     JS_CFUNC_DEF("SetEndColour", 1, callback_method_Ozone_GraphicsGradientStops_SetEndColour),
     JS_CFUNC_DEF("GetEndColour", 0, callback_method_Ozone_GraphicsGradientStops_GetEndColour),
 };
-
 
 static void register_class_Ozone_GraphicsGradientStops(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1632,6 +1696,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsPenInfo);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -1943,9 +2010,15 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_IsTransparent(JSContext* ct
 
     return ____ret;
 }
+
+void finalizer_Ozone_GraphicsPenInfo(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsPenInfo
 {
     "GraphicsPenInfo",
+    .finalizer = finalizer_Ozone_GraphicsPenInfo
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsPenInfo[]
@@ -1968,7 +2041,6 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsPenInfo[]
     JS_CFUNC_DEF("GetDashCount", 0, callback_method_Ozone_GraphicsPenInfo_GetDashCount),
     JS_CFUNC_DEF("IsTransparent", 0, callback_method_Ozone_GraphicsPenInfo_IsTransparent),
 };
-
 
 static void register_class_Ozone_GraphicsPenInfo(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -2023,6 +2095,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsPath);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -2835,9 +2910,15 @@ overload0:
         return ____ret;
     }
 }
+
+void finalizer_Ozone_GraphicsPath(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsPath
 {
     "GraphicsPath",
+    .finalizer = finalizer_Ozone_GraphicsPath
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsPath[]
@@ -2857,7 +2938,6 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsPath[]
     JS_CFUNC_DEF("Transform", 1, callback_method_Ozone_GraphicsPath_Transform),
     JS_CFUNC_DEF("Contains", 3, callback_method_Ozone_GraphicsPath_Contains),
 };
-
 
 static void register_class_Ozone_GraphicsPath(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -2945,6 +3025,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsContext);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -5244,9 +5327,15 @@ overload0:
         return ____ret_instance;
     }
 }
+
+void finalizer_Ozone_GraphicsContext(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsContext
 {
     "GraphicsContext",
+    .finalizer = finalizer_Ozone_GraphicsContext
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsContext[]
@@ -5303,7 +5392,6 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsContext[]
     JS_CFUNC_DEF("Create", 1, callback_method_Ozone_GraphicsContext_Create),
     JS_CFUNC_DEF("CreateFromUnknownDC", 1, callback_method_Ozone_GraphicsContext_CreateFromUnknownDC),
 };
-
 
 static void register_class_Ozone_GraphicsContext(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -5367,6 +5455,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GraphicsRenderer);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -6026,9 +6117,15 @@ static JSValue callback_method_Ozone_GraphicsRenderer_GetCairoRenderer(JSContext
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_GraphicsRenderer(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_GraphicsRenderer
 {
     "GraphicsRenderer",
+    .finalizer = finalizer_Ozone_GraphicsRenderer
 };
 
 static JSCFunctionListEntry funcDef_Ozone_GraphicsRenderer[]
@@ -6048,7 +6145,6 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsRenderer[]
     JS_CFUNC_DEF("GetDefaultRenderer", 0, callback_method_Ozone_GraphicsRenderer_GetDefaultRenderer),
     JS_CFUNC_DEF("GetCairoRenderer", 0, callback_method_Ozone_GraphicsRenderer_GetCairoRenderer),
 };
-
 
 static void register_class_Ozone_GraphicsRenderer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

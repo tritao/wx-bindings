@@ -75,6 +75,8 @@ namespace Ozone
 
         ::wxFontMetrics* __Instance;
 
+        void* __ExternalInstance;
+
         FontMetrics(::wxFontMetrics* instance, bool ownNativeInstance = false);
 
         FontMetrics();
@@ -109,7 +111,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class DC : public Ozone::Object

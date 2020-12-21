@@ -28,7 +28,7 @@ static void register_enum_Ozone_BrushStyle(JSContext *ctx, JSModuleDef *m, bool 
 
     // INVALID
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551615);
+        JSValue __item = JS_NewInt32(ctx, -1);
         JS_SetPropertyStr(ctx, val, "INVALID", __item);
     }
 
@@ -179,6 +179,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Brush);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -449,9 +452,15 @@ static JSValue callback_method_Ozone_Brush_IsNonTransparent(JSContext* ctx, JSVa
 
     return ____ret;
 }
+
+void finalizer_Ozone_Brush(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Brush
 {
     "Brush",
+    .finalizer = finalizer_Ozone_Brush
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Brush[]
@@ -466,7 +475,6 @@ static JSCFunctionListEntry funcDef_Ozone_Brush[]
     JS_CFUNC_DEF("IsTransparent", 0, callback_method_Ozone_Brush_IsTransparent),
     JS_CFUNC_DEF("IsNonTransparent", 0, callback_method_Ozone_Brush_IsNonTransparent),
 };
-
 
 static void register_class_Ozone_Brush(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -522,6 +530,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_BrushList);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -570,16 +581,21 @@ overload0:
         return ____ret_instance;
     }
 }
+
+void finalizer_Ozone_BrushList(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_BrushList
 {
     "BrushList",
+    .finalizer = finalizer_Ozone_BrushList
 };
 
 static JSCFunctionListEntry funcDef_Ozone_BrushList[]
 {
     JS_CFUNC_DEF("FindOrCreateBrush", 2, callback_method_Ozone_BrushList_FindOrCreateBrush),
 };
-
 
 static void register_class_Ozone_BrushList(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

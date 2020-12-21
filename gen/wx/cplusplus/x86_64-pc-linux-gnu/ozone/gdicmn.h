@@ -139,6 +139,8 @@ namespace Ozone
 
         ::wxSize* __Instance;
 
+        void* __ExternalInstance;
+
         Size(::wxSize* instance, bool ownNativeInstance = false);
 
         Size();
@@ -199,7 +201,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class RealPoint
@@ -207,6 +209,8 @@ namespace Ozone
     public:
 
         ::wxRealPoint* __Instance;
+
+        void* __ExternalInstance;
 
         RealPoint(::wxRealPoint* instance, bool ownNativeInstance = false);
 
@@ -230,7 +234,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class Point
@@ -238,6 +242,8 @@ namespace Ozone
     public:
 
         ::wxPoint* __Instance;
+
+        void* __ExternalInstance;
 
         Point(::wxPoint* instance, bool ownNativeInstance = false);
 
@@ -265,7 +271,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class wxPointListNode
@@ -273,6 +279,8 @@ namespace Ozone
     public:
 
         ::wxwxPointListNode* __Instance;
+
+        void* __ExternalInstance;
 
         wxPointListNode(::wxwxPointListNode* instance, bool ownNativeInstance = false);
 
@@ -288,7 +296,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class PointList
@@ -296,6 +304,8 @@ namespace Ozone
     public:
 
         ::wxPointList* __Instance;
+
+        void* __ExternalInstance;
 
         PointList(::wxPointList* instance, bool ownNativeInstance = false);
 
@@ -367,7 +377,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class Rect
@@ -375,6 +385,8 @@ namespace Ozone
     public:
 
         ::wxRect* __Instance;
+
+        void* __ExternalInstance;
 
         Rect(::wxRect* instance, bool ownNativeInstance = false);
 
@@ -508,7 +520,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class GDIObjListBase
@@ -516,6 +528,8 @@ namespace Ozone
     public:
 
         ::wxGDIObjListBase* __Instance;
+
+        void* __ExternalInstance;
 
         GDIObjListBase(::wxGDIObjListBase* instance, bool ownNativeInstance = false);
 
@@ -527,7 +541,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class ColourDatabase
@@ -535,6 +549,8 @@ namespace Ozone
     public:
 
         ::wxColourDatabase* __Instance;
+
+        void* __ExternalInstance;
 
         ColourDatabase(::wxColourDatabase* instance, bool ownNativeInstance = false);
 
@@ -552,7 +568,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class ResourceCache
@@ -560,6 +576,8 @@ namespace Ozone
     public:
 
         ::wxResourceCache* __Instance;
+
+        void* __ExternalInstance;
 
         ResourceCache(::wxResourceCache* instance, bool ownNativeInstance = false);
 
@@ -573,7 +591,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class StockGDI
@@ -625,6 +643,8 @@ namespace Ozone
 
         ::wxStockGDI* __Instance;
 
+        void* __ExternalInstance;
+
         StockGDI(::wxStockGDI* instance, bool ownNativeInstance = false);
 
         StockGDI();
@@ -641,7 +661,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     bool operator==(const ::Ozone::Size& s1, const ::Ozone::Size& s2);

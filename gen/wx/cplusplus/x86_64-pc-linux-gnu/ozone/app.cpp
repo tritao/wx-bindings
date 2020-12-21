@@ -29,7 +29,7 @@ Ozone::AppConsole::~AppConsole()
 Ozone::AppConsole::AppConsole()
     : Ozone::EvtHandler((::wxEvtHandler*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxAppConsole();
 
     auto __instance = (wxAppConsole*) __Instance;
@@ -345,7 +345,7 @@ Ozone::App::~App()
 Ozone::App::App()
     : Ozone::AppConsole((::wxAppConsole*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxApp();
 
     auto __instance = (wxApp*) __Instance;

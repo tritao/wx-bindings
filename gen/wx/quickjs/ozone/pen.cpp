@@ -30,7 +30,7 @@ static void register_enum_Ozone_PenStyle(JSContext *ctx, JSModuleDef *m, bool se
 
     // INVALID
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551615);
+        JSValue __item = JS_NewInt32(ctx, -1);
         JS_SetPropertyStr(ctx, val, "INVALID", __item);
     }
 
@@ -159,7 +159,7 @@ static void register_enum_Ozone_PenJoin(JSContext *ctx, JSModuleDef *m, bool set
 
     // INVALID
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551615);
+        JSValue __item = JS_NewInt32(ctx, -1);
         JS_SetPropertyStr(ctx, val, "INVALID", __item);
     }
 
@@ -198,7 +198,7 @@ static void register_enum_Ozone_PenCap(JSContext *ctx, JSModuleDef *m, bool set)
 
     // INVALID
     {
-        JSValue __item = JS_NewInt32(ctx, 18446744073709551615);
+        JSValue __item = JS_NewInt32(ctx, -1);
         JS_SetPropertyStr(ctx, val, "INVALID", __item);
     }
 
@@ -289,6 +289,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PenInfo);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -420,9 +423,15 @@ static JSValue callback_method_Ozone_PenInfo_IsTransparent(JSContext* ctx, JSVal
 
     return ____ret;
 }
+
+void finalizer_Ozone_PenInfo(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_PenInfo
 {
     "PenInfo",
+    .finalizer = finalizer_Ozone_PenInfo
 };
 
 static JSCFunctionListEntry funcDef_Ozone_PenInfo[]
@@ -435,7 +444,6 @@ static JSCFunctionListEntry funcDef_Ozone_PenInfo[]
     JS_CFUNC_DEF("GetDashCount", 0, callback_method_Ozone_PenInfo_GetDashCount),
     JS_CFUNC_DEF("IsTransparent", 0, callback_method_Ozone_PenInfo_IsTransparent),
 };
-
 
 static void register_class_Ozone_PenInfo(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -552,6 +560,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Pen);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -975,9 +986,15 @@ static JSValue callback_method_Ozone_Pen_IsNonTransparent(JSContext* ctx, JSValu
 
     return ____ret;
 }
+
+void finalizer_Ozone_Pen(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Pen
 {
     "Pen",
+    .finalizer = finalizer_Ozone_Pen
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Pen[]
@@ -998,7 +1015,6 @@ static JSCFunctionListEntry funcDef_Ozone_Pen[]
     JS_CFUNC_DEF("IsTransparent", 0, callback_method_Ozone_Pen_IsTransparent),
     JS_CFUNC_DEF("IsNonTransparent", 0, callback_method_Ozone_Pen_IsNonTransparent),
 };
-
 
 static void register_class_Ozone_Pen(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1053,6 +1069,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PenList);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -1113,16 +1132,21 @@ overload0:
         return ____ret_instance;
     }
 }
+
+void finalizer_Ozone_PenList(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_PenList
 {
     "PenList",
+    .finalizer = finalizer_Ozone_PenList
 };
 
 static JSCFunctionListEntry funcDef_Ozone_PenList[]
 {
     JS_CFUNC_DEF("FindOrCreatePen", 3, callback_method_Ozone_PenList_FindOrCreatePen),
 };
-
 
 static void register_class_Ozone_PenList(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

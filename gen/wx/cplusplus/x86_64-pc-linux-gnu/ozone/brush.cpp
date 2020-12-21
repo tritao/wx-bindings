@@ -11,7 +11,7 @@
 #include <wx/eventfilter.h>
 
 Ozone::Brush::Brush(::wxBrush* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -22,16 +22,30 @@ Ozone::Brush::~Brush()
 
 Ozone::Brush::Brush()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxBrush();
 }
 
 Ozone::Brush::Brush(const ::Ozone::Color& colour, ::Ozone::BrushStyle style)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxColour*)colour.__Instance;
     auto __arg1 = (::wxBrushStyle)style;
     __Instance = new ::wxBrush(__arg0, __arg1);
+}
+
+bool Ozone::Brush::operator==(const ::Ozone::Brush& brush) const
+{
+    auto &__arg0 = *(::wxBrush*)brush.__Instance;
+    bool __ret = ((::wxBrush*)__Instance)->operator==(__arg0);
+    return __ret;
+}
+
+bool Ozone::Brush::operator!=(const ::Ozone::Brush& brush) const
+{
+    auto &__arg0 = *(::wxBrush*)brush.__Instance;
+    bool __ret = ((::wxBrush*)__Instance)->operator!=(__arg0);
+    return __ret;
 }
 
 ::Ozone::BrushStyle Ozone::Brush::GetStyle() const
@@ -66,7 +80,7 @@ void Ozone::Brush::SetStyle(::Ozone::BrushStyle style)
 
 Ozone::Brush::Brush(const ::Ozone::Brush& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxBrush*)_0.__Instance;
     __Instance = new ::wxBrush(__arg0);
 }
@@ -110,7 +124,7 @@ Ozone::BrushList::~BrushList()
 Ozone::BrushList::BrushList(const ::Ozone::BrushList& _0)
     : Ozone::GDIObjListBase((::wxGDIObjListBase*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxBrushList*)_0.__Instance;
     __Instance = new ::wxBrushList(__arg0);
 }
@@ -118,7 +132,7 @@ Ozone::BrushList::BrushList(const ::Ozone::BrushList& _0)
 Ozone::BrushList::BrushList()
     : Ozone::GDIObjListBase((::wxGDIObjListBase*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxBrushList();
 }
 

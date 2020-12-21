@@ -71,6 +71,8 @@ namespace Ozone
 
         ::wxPenInfo* __Instance;
 
+        void* __ExternalInstance;
+
         PenInfo(::wxPenInfo* instance, bool ownNativeInstance = false);
 
         explicit PenInfo(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style);
@@ -99,7 +101,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class Pen
@@ -107,6 +109,8 @@ namespace Ozone
     public:
 
         ::wxPen* __Instance;
+
+        void* __ExternalInstance;
 
         Pen(::wxPen* instance, bool ownNativeInstance = false);
 
@@ -160,7 +164,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class PenList : public Ozone::GDIObjListBase

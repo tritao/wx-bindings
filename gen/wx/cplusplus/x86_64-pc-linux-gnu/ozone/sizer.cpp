@@ -11,7 +11,7 @@
 #include <wx/eventfilter.h>
 
 Ozone::SizerFlags::SizerFlags(::wxSizerFlags* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -22,7 +22,7 @@ Ozone::SizerFlags::~SizerFlags()
 
 Ozone::SizerFlags::SizerFlags(int proportion)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxSizerFlags(proportion);
 }
 
@@ -58,13 +58,13 @@ int Ozone::SizerFlags::GetBorderInPixels() const
 
 Ozone::SizerFlags::SizerFlags(const ::Ozone::SizerFlags& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSizerFlags*)_0.__Instance;
     __Instance = new ::wxSizerFlags(__arg0);
 }
 
 Ozone::SizerSpacer::SizerSpacer(::wxSizerSpacer* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -75,7 +75,7 @@ Ozone::SizerSpacer::~SizerSpacer()
 
 Ozone::SizerSpacer::SizerSpacer(const ::Ozone::Size& size)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSize*)size.__Instance;
     __Instance = new ::wxSizerSpacer(__arg0);
 }
@@ -99,7 +99,7 @@ bool Ozone::SizerSpacer::IsShown() const
 
 Ozone::SizerSpacer::SizerSpacer(const ::Ozone::SizerSpacer& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSizerSpacer*)_0.__Instance;
     __Instance = new ::wxSizerSpacer(__arg0);
 }
@@ -117,7 +117,7 @@ Ozone::SizerItem::~SizerItem()
 Ozone::SizerItem::SizerItem(::Ozone::Window* window, int proportion, int flag, int border, ::Ozone::Object* userData)
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     auto __arg4 = userData ? (::wxObject*)userData->__Instance : nullptr;
     __Instance = new ::wxSizerItem(__arg0, proportion, flag, border, __arg4);
@@ -126,7 +126,7 @@ Ozone::SizerItem::SizerItem(::Ozone::Window* window, int proportion, int flag, i
 Ozone::SizerItem::SizerItem(::Ozone::Window* window, const ::Ozone::SizerFlags& flags)
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     auto &__arg1 = *(::wxSizerFlags*)flags.__Instance;
     __Instance = new ::wxSizerItem(__arg0, __arg1);
@@ -135,7 +135,7 @@ Ozone::SizerItem::SizerItem(::Ozone::Window* window, const ::Ozone::SizerFlags& 
 Ozone::SizerItem::SizerItem(::Ozone::Sizer* sizer, int proportion, int flag, int border, ::Ozone::Object* userData)
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     auto __arg4 = userData ? (::wxObject*)userData->__Instance : nullptr;
     __Instance = new ::wxSizerItem(__arg0, proportion, flag, border, __arg4);
@@ -144,7 +144,7 @@ Ozone::SizerItem::SizerItem(::Ozone::Sizer* sizer, int proportion, int flag, int
 Ozone::SizerItem::SizerItem(::Ozone::Sizer* sizer, const ::Ozone::SizerFlags& flags)
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     auto &__arg1 = *(::wxSizerFlags*)flags.__Instance;
     __Instance = new ::wxSizerItem(__arg0, __arg1);
@@ -153,7 +153,7 @@ Ozone::SizerItem::SizerItem(::Ozone::Sizer* sizer, const ::Ozone::SizerFlags& fl
 Ozone::SizerItem::SizerItem(int width, int height, int proportion, int flag, int border, ::Ozone::Object* userData)
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg5 = userData ? (::wxObject*)userData->__Instance : nullptr;
     __Instance = new ::wxSizerItem(width, height, proportion, flag, border, __arg5);
 }
@@ -161,7 +161,7 @@ Ozone::SizerItem::SizerItem(int width, int height, int proportion, int flag, int
 Ozone::SizerItem::SizerItem(int width, int height, const ::Ozone::SizerFlags& flags)
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg2 = *(::wxSizerFlags*)flags.__Instance;
     __Instance = new ::wxSizerItem(width, height, __arg2);
 }
@@ -169,7 +169,7 @@ Ozone::SizerItem::SizerItem(int width, int height, const ::Ozone::SizerFlags& fl
 Ozone::SizerItem::SizerItem()
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxSizerItem();
 }
 
@@ -423,7 +423,7 @@ void Ozone::SizerItem::AssignSpacer(int w, int h)
 }
 
 Ozone::SizerItemList::SizerItemList(::wxSizerItemList* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -434,16 +434,23 @@ Ozone::SizerItemList::~SizerItemList()
 
 Ozone::SizerItemList::SizerItemList(::Ozone::KeyType keyType)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxKeyType)keyType;
     __Instance = new ::wxSizerItemList(__arg0);
 }
 
 Ozone::SizerItemList::SizerItemList(const ::Ozone::SizerItemList& list)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSizerItemList*)list.__Instance;
     __Instance = new ::wxSizerItemList(__arg0);
+}
+
+::Ozone::SizerItem* Ozone::SizerItemList::operator[](unsigned long index) const
+{
+    auto __arg0 = (::size_t)index;
+    ::wxSizerItem* __ret = ((::wxSizerItemList*)__Instance)->operator[](__arg0);
+    return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
 bool Ozone::SizerItemList::DeleteObject(::Ozone::SizerItem* object)
@@ -469,7 +476,7 @@ int Ozone::SizerItemList::IndexOf(::Ozone::SizerItem* object) const
 
 Ozone::SizerItemList::SizerItemList(unsigned long n, ::Ozone::SizerItem*const & v)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxSizerItemList::size_type)(::size_t)n;
     auto __arg1 = v ? (::wxSizerItem*)v->__Instance : nullptr;
     __Instance = new ::wxSizerItemList(__arg0, __arg1);
@@ -558,7 +565,7 @@ Ozone::Sizer::~Sizer()
 Ozone::Sizer::Sizer()
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
 }
 
 ::Ozone::SizerItem* Ozone::Sizer::Add(::Ozone::Window* window, int proportion, int flag, int border, ::Ozone::Object* userData)
@@ -1119,7 +1126,7 @@ bool Ozone::Sizer::AreAnyItemsShown() const
 Ozone::Sizer::Sizer(const ::Ozone::Sizer& _0)
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
 }
 
 Ozone::GridSizer::GridSizer(::wxGridSizer* instance, bool ownNativeInstance)
@@ -1135,14 +1142,14 @@ Ozone::GridSizer::~GridSizer()
 Ozone::GridSizer::GridSizer(int cols, int vgap, int hgap)
     : Ozone::Sizer((::wxSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxGridSizer(cols, vgap, hgap);
 }
 
 Ozone::GridSizer::GridSizer(int cols, const ::Ozone::Size& gap)
     : Ozone::Sizer((::wxSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg1 = *(::wxSize*)gap.__Instance;
     __Instance = new ::wxGridSizer(cols, __arg1);
 }
@@ -1150,14 +1157,14 @@ Ozone::GridSizer::GridSizer(int cols, const ::Ozone::Size& gap)
 Ozone::GridSizer::GridSizer(int rows, int cols, int vgap, int hgap)
     : Ozone::Sizer((::wxSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxGridSizer(rows, cols, vgap, hgap);
 }
 
 Ozone::GridSizer::GridSizer(int rows, int cols, const ::Ozone::Size& gap)
     : Ozone::Sizer((::wxSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg2 = *(::wxSize*)gap.__Instance;
     __Instance = new ::wxGridSizer(rows, cols, __arg2);
 }
@@ -1244,7 +1251,7 @@ int Ozone::GridSizer::CalcRowsCols(int& rows, int& cols) const
 Ozone::GridSizer::GridSizer(const ::Ozone::GridSizer& _0)
     : Ozone::Sizer((::wxSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGridSizer*)_0.__Instance;
     __Instance = new ::wxGridSizer(__arg0);
 }
@@ -1262,14 +1269,14 @@ Ozone::FlexGridSizer::~FlexGridSizer()
 Ozone::FlexGridSizer::FlexGridSizer(int cols, int vgap, int hgap)
     : Ozone::GridSizer((::wxGridSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxFlexGridSizer(cols, vgap, hgap);
 }
 
 Ozone::FlexGridSizer::FlexGridSizer(int cols, const ::Ozone::Size& gap)
     : Ozone::GridSizer((::wxGridSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg1 = *(::wxSize*)gap.__Instance;
     __Instance = new ::wxFlexGridSizer(cols, __arg1);
 }
@@ -1277,14 +1284,14 @@ Ozone::FlexGridSizer::FlexGridSizer(int cols, const ::Ozone::Size& gap)
 Ozone::FlexGridSizer::FlexGridSizer(int rows, int cols, int vgap, int hgap)
     : Ozone::GridSizer((::wxGridSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxFlexGridSizer(rows, cols, vgap, hgap);
 }
 
 Ozone::FlexGridSizer::FlexGridSizer(int rows, int cols, const ::Ozone::Size& gap)
     : Ozone::GridSizer((::wxGridSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg2 = *(::wxSize*)gap.__Instance;
     __Instance = new ::wxFlexGridSizer(rows, cols, __arg2);
 }
@@ -1376,7 +1383,7 @@ Ozone::BoxSizer::~BoxSizer()
 Ozone::BoxSizer::BoxSizer(::Ozone::SizerOrientation orient)
     : Ozone::Sizer((::wxSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (int)orient;
     __Instance = new ::wxBoxSizer(__arg0);
 }
@@ -1427,7 +1434,7 @@ bool Ozone::BoxSizer::InformFirstDirection(int direction, int size, int availabl
 Ozone::BoxSizer::BoxSizer(const ::Ozone::BoxSizer& _0)
     : Ozone::Sizer((::wxSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxBoxSizer*)_0.__Instance;
     __Instance = new ::wxBoxSizer(__arg0);
 }
@@ -1445,7 +1452,7 @@ Ozone::StaticBoxSizer::~StaticBoxSizer()
 Ozone::StaticBoxSizer::StaticBoxSizer(::Ozone::SizerOrientation orient, ::Ozone::Window* win, const char* label)
     : Ozone::BoxSizer((::wxBoxSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (int)orient;
     auto __arg1 = win ? (::wxWindow*)win->__Instance : nullptr;
     auto __arg2 = label;
@@ -1509,7 +1516,7 @@ Ozone::StdDialogButtonSizer::~StdDialogButtonSizer()
 Ozone::StdDialogButtonSizer::StdDialogButtonSizer()
     : Ozone::BoxSizer((::wxBoxSizer*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxStdDialogButtonSizer();
 }
 

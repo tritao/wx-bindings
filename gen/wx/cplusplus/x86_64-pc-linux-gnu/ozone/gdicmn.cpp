@@ -14,7 +14,7 @@
 #include <wx/eventfilter.h>
 
 Ozone::Size::Size(::wxSize* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -25,13 +25,13 @@ Ozone::Size::~Size()
 
 Ozone::Size::Size()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxSize();
 }
 
 Ozone::Size::Size(int xx, int yy)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxSize(xx, yy);
 }
 
@@ -150,7 +150,7 @@ int Ozone::Size::GetY() const
 
 Ozone::Size::Size(const ::Ozone::Size& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSize*)_0.__Instance;
     __Instance = new ::wxSize(__arg0);
 }
@@ -180,7 +180,7 @@ void Ozone::Size::set_y(int value)
 }
 
 Ozone::RealPoint::RealPoint(::wxRealPoint* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -191,26 +191,26 @@ Ozone::RealPoint::~RealPoint()
 
 Ozone::RealPoint::RealPoint()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxRealPoint();
 }
 
 Ozone::RealPoint::RealPoint(double xx, double yy)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxRealPoint(xx, yy);
 }
 
 Ozone::RealPoint::RealPoint(const ::Ozone::Point& pt)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     __Instance = new ::wxRealPoint(__arg0);
 }
 
 Ozone::RealPoint::RealPoint(const ::Ozone::RealPoint& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxRealPoint*)_0.__Instance;
     __Instance = new ::wxRealPoint(__arg0);
 }
@@ -240,7 +240,7 @@ void Ozone::RealPoint::set_y(double value)
 }
 
 Ozone::Point::Point(::wxPoint* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -251,19 +251,19 @@ Ozone::Point::~Point()
 
 Ozone::Point::Point()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxPoint();
 }
 
 Ozone::Point::Point(int xx, int yy)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxPoint(xx, yy);
 }
 
 Ozone::Point::Point(const ::Ozone::RealPoint& pt)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxRealPoint*)pt.__Instance;
     __Instance = new ::wxPoint(__arg0);
 }
@@ -282,7 +282,7 @@ void Ozone::Point::SetDefaults(const ::Ozone::Point& pt)
 
 Ozone::Point::Point(const ::Ozone::Point& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPoint*)_0.__Instance;
     __Instance = new ::wxPoint(__arg0);
 }
@@ -312,7 +312,7 @@ void Ozone::Point::set_y(int value)
 }
 
 Ozone::wxPointListNode::wxPointListNode(::wxwxPointListNode* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -346,7 +346,7 @@ void Ozone::wxPointListNode::SetData(::Ozone::Point* data)
 }
 
 Ozone::PointList::PointList(::wxPointList* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -357,14 +357,14 @@ Ozone::PointList::~PointList()
 
 Ozone::PointList::PointList(::Ozone::KeyType keyType)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxKeyType)keyType;
     __Instance = new ::wxPointList(__arg0);
 }
 
 Ozone::PointList::PointList(const ::Ozone::PointList& list)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPointList*)list.__Instance;
     __Instance = new ::wxPointList(__arg0);
 }
@@ -386,6 +386,13 @@ Ozone::PointList::PointList(const ::Ozone::PointList& list)
     auto __arg0 = (::size_t)index;
     ::wxwxPointListNode* __ret = ((::wxPointList*)__Instance)->Item(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
+}
+
+::Ozone::Point* Ozone::PointList::operator[](unsigned long index) const
+{
+    auto __arg0 = (::size_t)index;
+    ::wxPoint* __ret = ((::wxPointList*)__Instance)->operator[](__arg0);
+    return (__ret == nullptr) ? nullptr : new Ozone::Point((::wxPoint*)__ret);
 }
 
 ::Ozone::wxPointListNode* Ozone::PointList::Append(::Ozone::Point* object)
@@ -483,7 +490,7 @@ int Ozone::PointList::IndexOf(::Ozone::Point* object) const
 
 Ozone::PointList::PointList(unsigned long n, ::Ozone::Point*const & v)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxPointList::size_type)(::size_t)n;
     auto __arg1 = v ? (::wxPoint*)v->__Instance : nullptr;
     __Instance = new ::wxPointList(__arg0, __arg1);
@@ -560,7 +567,7 @@ void Ozone::PointList::reverse()
 }
 
 Ozone::Rect::Rect(::wxRect* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -571,19 +578,19 @@ Ozone::Rect::~Rect()
 
 Ozone::Rect::Rect()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxRect();
 }
 
 Ozone::Rect::Rect(int xx, int yy, int ww, int hh)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxRect(xx, yy, ww, hh);
 }
 
 Ozone::Rect::Rect(const ::Ozone::Point& topLeft, const ::Ozone::Point& bottomRight)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPoint*)topLeft.__Instance;
     auto &__arg1 = *(::wxPoint*)bottomRight.__Instance;
     __Instance = new ::wxRect(__arg0, __arg1);
@@ -591,7 +598,7 @@ Ozone::Rect::Rect(const ::Ozone::Point& topLeft, const ::Ozone::Point& bottomRig
 
 Ozone::Rect::Rect(const ::Ozone::Point& pt, const ::Ozone::Size& size)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     auto &__arg1 = *(::wxSize*)size.__Instance;
     __Instance = new ::wxRect(__arg0, __arg1);
@@ -599,7 +606,7 @@ Ozone::Rect::Rect(const ::Ozone::Point& pt, const ::Ozone::Size& size)
 
 Ozone::Rect::Rect(const ::Ozone::Size& size)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSize*)size.__Instance;
     __Instance = new ::wxRect(__arg0);
 }
@@ -920,7 +927,7 @@ bool Ozone::Rect::Intersects(const ::Ozone::Rect& rect) const
 
 Ozone::Rect::Rect(const ::Ozone::Rect& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxRect*)_0.__Instance;
     __Instance = new ::wxRect(__arg0);
 }
@@ -974,7 +981,7 @@ void Ozone::Rect::set_height(int value)
 }
 
 Ozone::GDIObjListBase::GDIObjListBase(::wxGDIObjListBase* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -985,19 +992,19 @@ Ozone::GDIObjListBase::~GDIObjListBase()
 
 Ozone::GDIObjListBase::GDIObjListBase()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxGDIObjListBase();
 }
 
 Ozone::GDIObjListBase::GDIObjListBase(const ::Ozone::GDIObjListBase& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGDIObjListBase*)_0.__Instance;
     __Instance = new ::wxGDIObjListBase(__arg0);
 }
 
 Ozone::ColourDatabase::ColourDatabase(::wxColourDatabase* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1008,7 +1015,7 @@ Ozone::ColourDatabase::~ColourDatabase()
 
 Ozone::ColourDatabase::ColourDatabase()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxColourDatabase();
 }
 
@@ -1036,13 +1043,13 @@ void Ozone::ColourDatabase::AddColour(const char* name, const ::Ozone::Color& co
 
 Ozone::ColourDatabase::ColourDatabase(const ::Ozone::ColourDatabase& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxColourDatabase*)_0.__Instance;
     __Instance = new ::wxColourDatabase(__arg0);
 }
 
 Ozone::ResourceCache::ResourceCache(::wxResourceCache* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1053,25 +1060,25 @@ Ozone::ResourceCache::~ResourceCache()
 
 Ozone::ResourceCache::ResourceCache()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxResourceCache();
 }
 
 Ozone::ResourceCache::ResourceCache(unsigned int keyType)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxResourceCache(keyType);
 }
 
 Ozone::ResourceCache::ResourceCache(const ::Ozone::ResourceCache& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxResourceCache*)_0.__Instance;
     __Instance = new ::wxResourceCache(__arg0);
 }
 
 Ozone::StockGDI::StockGDI(::wxStockGDI* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -1082,7 +1089,7 @@ Ozone::StockGDI::~StockGDI()
 
 Ozone::StockGDI::StockGDI()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxStockGDI();
 }
 

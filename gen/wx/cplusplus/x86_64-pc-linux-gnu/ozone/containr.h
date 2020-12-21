@@ -25,6 +25,8 @@ namespace Ozone
 
         ::wxControlContainer* __Instance;
 
+        void* __ExternalInstance;
+
         ControlContainer(::wxControlContainer* instance, bool ownNativeInstance = false);
 
         ControlContainer(const ::Ozone::ControlContainer& _0);
@@ -51,6 +53,6 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 }

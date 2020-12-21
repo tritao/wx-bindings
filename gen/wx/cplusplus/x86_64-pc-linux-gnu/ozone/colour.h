@@ -32,6 +32,8 @@ namespace Ozone
 
         ::wxColour* __Instance;
 
+        void* __ExternalInstance;
+
         Color(::wxColour* instance, bool ownNativeInstance = false);
 
         Color();
@@ -96,6 +98,6 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 }

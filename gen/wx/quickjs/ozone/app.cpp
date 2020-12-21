@@ -45,6 +45,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_AppConsole);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -1077,9 +1080,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_AppConsole(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_AppConsole
 {
     "AppConsole",
+    .finalizer = finalizer_Ozone_AppConsole
 };
 
 static JSCFunctionListEntry funcDef_Ozone_AppConsole[]
@@ -1131,7 +1140,6 @@ static JSCFunctionListEntry funcDef_Ozone_AppConsole[]
     JS_CFUNC_DEF("GetInstance", 0, callback_method_Ozone_AppConsole_GetInstance),
     JS_CFUNC_DEF("SetInstance", 1, callback_method_Ozone_AppConsole_SetInstance),
 };
-
 
 static void register_class_Ozone_AppConsole(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -1195,6 +1203,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_App);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -1762,9 +1773,15 @@ overload0:
         return JS_UNDEFINED;
     }
 }
+
+void finalizer_Ozone_App(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_App
 {
     "App",
+    .finalizer = finalizer_Ozone_App
 };
 
 static JSCFunctionListEntry funcDef_Ozone_App[]
@@ -1792,7 +1809,6 @@ static JSCFunctionListEntry funcDef_Ozone_App[]
     JS_CFUNC_DEF("GetPrintMode", 0, callback_method_Ozone_App_GetPrintMode),
     JS_CFUNC_DEF("SetActive", 2, callback_method_Ozone_App_SetActive),
 };
-
 
 static void register_class_Ozone_App(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

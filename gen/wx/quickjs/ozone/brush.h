@@ -30,8 +30,6 @@ class Brush
 {
 public:
 
-    ::Ozone::Brush* __Instance;
-
     Brush(::Ozone::Brush* instance, bool ownNativeInstance = false);
 
     Brush();
@@ -64,7 +62,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class BrushList : public Ozone::Ozone::GDIObjListBase

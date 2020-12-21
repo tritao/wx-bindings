@@ -43,6 +43,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ControlContainer);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -200,9 +203,15 @@ static JSValue callback_method_Ozone_ControlContainer_UpdateCanFocusChildren(JSC
 
     return ____ret;
 }
+
+void finalizer_Ozone_ControlContainer(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_ControlContainer
 {
     "ControlContainer",
+    .finalizer = finalizer_Ozone_ControlContainer
 };
 
 static JSCFunctionListEntry funcDef_Ozone_ControlContainer[]
@@ -216,7 +225,6 @@ static JSCFunctionListEntry funcDef_Ozone_ControlContainer[]
     JS_CFUNC_DEF("AcceptsFocusFromKeyboard", 0, callback_method_Ozone_ControlContainer_AcceptsFocusFromKeyboard),
     JS_CFUNC_DEF("UpdateCanFocusChildren", 0, callback_method_Ozone_ControlContainer_UpdateCanFocusChildren),
 };
-
 
 static void register_class_Ozone_ControlContainer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -241,10 +249,6 @@ static void register_class_Ozone_ControlContainer(JSContext *ctx, JSModuleDef *m
 
 void register_ozone_containr(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
-    if (phase == 0)
-    {
-    }
-
     register_class_Ozone_ControlContainer(ctx, m, set, phase);
 }
 }

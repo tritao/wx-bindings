@@ -54,8 +54,6 @@ class VisualAttributes
 {
 public:
 
-    ::Ozone::VisualAttributes* __Instance;
-
     VisualAttributes(::Ozone::VisualAttributes* instance, bool ownNativeInstance = false);
 
     VisualAttributes(const ::Ozone::Ozone::VisualAttributes& _0);
@@ -74,14 +72,12 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class WindowListNode
 {
 public:
-
-    ::Ozone::WindowListNode* __Instance;
 
     WindowListNode(::Ozone::WindowListNode* instance, bool ownNativeInstance = false);
 
@@ -99,7 +95,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class Window : public Ozone::Ozone::EvtHandler

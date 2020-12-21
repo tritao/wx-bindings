@@ -11,7 +11,7 @@
 #include <wx/eventfilter.h>
 
 Ozone::Color::Color(::wxColour* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -22,13 +22,13 @@ Ozone::Color::~Color()
 
 Ozone::Color::Color()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxColour();
 }
 
 Ozone::Color::Color(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (::wxColourBase::ChannelType)red;
     auto __arg1 = (::wxColourBase::ChannelType)green;
     auto __arg2 = (::wxColourBase::ChannelType)blue;
@@ -38,22 +38,36 @@ Ozone::Color::Color(unsigned char red, unsigned char green, unsigned char blue, 
 
 Ozone::Color::Color(unsigned long colRGB)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxColour(colRGB);
 }
 
 Ozone::Color::Color(const char* colourName)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = colourName;
     __Instance = new ::wxColour(__arg0);
 }
 
 Ozone::Color::Color(const wchar_t* colourName)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = (const wchar_t*)colourName;
     __Instance = new ::wxColour(__arg0);
+}
+
+bool Ozone::Color::operator==(const ::Ozone::Color& col) const
+{
+    auto &__arg0 = *(::wxColour*)col.__Instance;
+    bool __ret = ((::wxColour*)__Instance)->operator==(__arg0);
+    return __ret;
+}
+
+bool Ozone::Color::operator!=(const ::Ozone::Color& col) const
+{
+    auto &__arg0 = *(::wxColour*)col.__Instance;
+    bool __ret = ((::wxColour*)__Instance)->operator!=(__arg0);
+    return __ret;
 }
 
 unsigned char Ozone::Color::Red() const
@@ -82,7 +96,7 @@ unsigned char Ozone::Color::Alpha() const
 
 Ozone::Color::Color(const ::Ozone::Color& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxColour*)_0.__Instance;
     __Instance = new ::wxColour(__arg0);
 }

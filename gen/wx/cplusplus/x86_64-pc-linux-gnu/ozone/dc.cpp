@@ -18,7 +18,7 @@
 #include <wx/eventfilter.h>
 
 Ozone::FontMetrics::FontMetrics(::wxFontMetrics* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -29,13 +29,13 @@ Ozone::FontMetrics::~FontMetrics()
 
 Ozone::FontMetrics::FontMetrics()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxFontMetrics();
 }
 
 Ozone::FontMetrics::FontMetrics(const ::Ozone::FontMetrics& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxFontMetrics*)_0.__Instance;
     __Instance = new ::wxFontMetrics(__arg0);
 }

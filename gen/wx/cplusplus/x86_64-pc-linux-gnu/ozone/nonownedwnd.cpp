@@ -27,7 +27,7 @@ Ozone::NonOwnedWindow::~NonOwnedWindow()
 Ozone::NonOwnedWindow::NonOwnedWindow()
     : Ozone::Window((::wxWindow*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxNonOwnedWindow();
 
     auto __instance = (wxNonOwnedWindow*) __Instance;

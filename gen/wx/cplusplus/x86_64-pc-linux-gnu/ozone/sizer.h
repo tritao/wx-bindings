@@ -45,6 +45,8 @@ namespace Ozone
 
         ::wxSizerFlags* __Instance;
 
+        void* __ExternalInstance;
+
         SizerFlags(::wxSizerFlags* instance, bool ownNativeInstance = false);
 
         SizerFlags(int proportion);
@@ -65,7 +67,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class SizerSpacer
@@ -73,6 +75,8 @@ namespace Ozone
     public:
 
         ::wxSizerSpacer* __Instance;
+
+        void* __ExternalInstance;
 
         SizerSpacer(::wxSizerSpacer* instance, bool ownNativeInstance = false);
 
@@ -90,7 +94,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class SizerItem : public Ozone::Object
@@ -206,6 +210,8 @@ namespace Ozone
 
         ::wxSizerItemList* __Instance;
 
+        void* __ExternalInstance;
+
         SizerItemList(::wxSizerItemList* instance, bool ownNativeInstance = false);
 
         SizerItemList(::Ozone::KeyType keyType);
@@ -250,7 +256,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class Sizer : public Ozone::Object

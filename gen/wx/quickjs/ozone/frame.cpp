@@ -172,6 +172,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Frame);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -857,9 +860,15 @@ overload0:
         return ____ret;
     }
 }
+
+void finalizer_Ozone_Frame(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_Frame
 {
     "Frame",
+    .finalizer = finalizer_Ozone_Frame
 };
 
 static JSCFunctionListEntry funcDef_Ozone_Frame[]
@@ -881,7 +890,6 @@ static JSCFunctionListEntry funcDef_Ozone_Frame[]
     JS_CFUNC_DEF("DoGiveHelp", 2, callback_method_Ozone_Frame_DoGiveHelp),
     JS_CFUNC_DEF("IsClientAreaChild", 1, callback_method_Ozone_Frame_IsClientAreaChild),
 };
-
 
 static void register_class_Ozone_Frame(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

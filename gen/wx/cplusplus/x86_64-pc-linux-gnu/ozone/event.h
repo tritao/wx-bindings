@@ -211,6 +211,8 @@ namespace Ozone
 
         ::wxPropagateOnce* __Instance;
 
+        void* __ExternalInstance;
+
         PropagateOnce(::wxPropagateOnce* instance, bool ownNativeInstance = false);
 
         PropagateOnce(::Ozone::Event& event, ::Ozone::EvtHandler* handler);
@@ -219,7 +221,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class IdleEvent : public Ozone::Event

@@ -111,6 +111,8 @@ public:
 
     ::Ozone::Size* __Instance;
 
+    void* __ExternalInstance;
+
     Size(::Ozone::Size* instance, bool ownNativeInstance = false);
 
     Size();
@@ -171,7 +173,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class RealPoint
@@ -179,6 +181,8 @@ class RealPoint
 public:
 
     ::Ozone::RealPoint* __Instance;
+
+    void* __ExternalInstance;
 
     RealPoint(::Ozone::RealPoint* instance, bool ownNativeInstance = false);
 
@@ -204,7 +208,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class Point
@@ -212,6 +216,8 @@ class Point
 public:
 
     ::Ozone::Point* __Instance;
+
+    void* __ExternalInstance;
 
     Point(::Ozone::Point* instance, bool ownNativeInstance = false);
 
@@ -241,7 +247,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class wxPointListNode
@@ -249,6 +255,8 @@ class wxPointListNode
 public:
 
     ::Ozone::wxPointListNode* __Instance;
+
+    void* __ExternalInstance;
 
     wxPointListNode(::Ozone::wxPointListNode* instance, bool ownNativeInstance = false);
 
@@ -266,7 +274,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class Rect
@@ -274,6 +282,8 @@ class Rect
 public:
 
     ::Ozone::Rect* __Instance;
+
+    void* __ExternalInstance;
 
     Rect(::Ozone::Rect* instance, bool ownNativeInstance = false);
 
@@ -409,7 +419,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class GDIObjListBase
@@ -417,6 +427,8 @@ class GDIObjListBase
 public:
 
     ::Ozone::GDIObjListBase* __Instance;
+
+    void* __ExternalInstance;
 
     GDIObjListBase(::Ozone::GDIObjListBase* instance, bool ownNativeInstance = false);
 
@@ -428,7 +440,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class ColourDatabase
@@ -436,6 +448,8 @@ class ColourDatabase
 public:
 
     ::Ozone::ColourDatabase* __Instance;
+
+    void* __ExternalInstance;
 
     ColourDatabase(::Ozone::ColourDatabase* instance, bool ownNativeInstance = false);
 
@@ -453,7 +467,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class ResourceCache
@@ -461,6 +475,8 @@ class ResourceCache
 public:
 
     ::Ozone::ResourceCache* __Instance;
+
+    void* __ExternalInstance;
 
     ResourceCache(::Ozone::ResourceCache* instance, bool ownNativeInstance = false);
 
@@ -476,7 +492,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class StockGDI
@@ -528,6 +544,8 @@ public:
 
     ::Ozone::StockGDI* __Instance;
 
+    void* __ExternalInstance;
+
     StockGDI(::Ozone::StockGDI* instance, bool ownNativeInstance = false);
 
     StockGDI();
@@ -546,7 +564,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 extern "C" JSValue js_operator==(JSContext* ctx, JSValueConst this_val,

@@ -28,14 +28,14 @@ Ozone::GraphicsObject::~GraphicsObject()
 Ozone::GraphicsObject::GraphicsObject()
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxGraphicsObject();
 }
 
 Ozone::GraphicsObject::GraphicsObject(::Ozone::GraphicsRenderer* renderer)
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = renderer ? (::wxGraphicsRenderer*)renderer->__Instance : nullptr;
     __Instance = new ::wxGraphicsObject(__arg0);
 }
@@ -55,7 +55,7 @@ bool Ozone::GraphicsObject::IsNull() const
 Ozone::GraphicsObject::GraphicsObject(const ::Ozone::GraphicsObject& _0)
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGraphicsObject*)_0.__Instance;
     __Instance = new ::wxGraphicsObject(__arg0);
 }
@@ -73,14 +73,14 @@ Ozone::GraphicsPen::~GraphicsPen()
 Ozone::GraphicsPen::GraphicsPen()
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxGraphicsPen();
 }
 
 Ozone::GraphicsPen::GraphicsPen(const ::Ozone::GraphicsPen& _0)
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGraphicsPen*)_0.__Instance;
     __Instance = new ::wxGraphicsPen(__arg0);
 }
@@ -98,14 +98,14 @@ Ozone::GraphicsBrush::~GraphicsBrush()
 Ozone::GraphicsBrush::GraphicsBrush()
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxGraphicsBrush();
 }
 
 Ozone::GraphicsBrush::GraphicsBrush(const ::Ozone::GraphicsBrush& _0)
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGraphicsBrush*)_0.__Instance;
     __Instance = new ::wxGraphicsBrush(__arg0);
 }
@@ -123,14 +123,14 @@ Ozone::GraphicsFont::~GraphicsFont()
 Ozone::GraphicsFont::GraphicsFont()
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxGraphicsFont();
 }
 
 Ozone::GraphicsFont::GraphicsFont(const ::Ozone::GraphicsFont& _0)
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGraphicsFont*)_0.__Instance;
     __Instance = new ::wxGraphicsFont(__arg0);
 }
@@ -148,7 +148,7 @@ Ozone::GraphicsBitmap::~GraphicsBitmap()
 Ozone::GraphicsBitmap::GraphicsBitmap()
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxGraphicsBitmap();
 }
 
@@ -161,7 +161,7 @@ void* Ozone::GraphicsBitmap::GetNativeBitmap() const
 Ozone::GraphicsBitmap::GraphicsBitmap(const ::Ozone::GraphicsBitmap& _0)
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGraphicsBitmap*)_0.__Instance;
     __Instance = new ::wxGraphicsBitmap(__arg0);
 }
@@ -179,7 +179,7 @@ Ozone::GraphicsMatrix::~GraphicsMatrix()
 Ozone::GraphicsMatrix::GraphicsMatrix()
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxGraphicsMatrix();
 }
 
@@ -282,13 +282,13 @@ void* Ozone::GraphicsMatrix::GetNativeMatrix() const
 Ozone::GraphicsMatrix::GraphicsMatrix(const ::Ozone::GraphicsMatrix& _0)
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGraphicsMatrix*)_0.__Instance;
     __Instance = new ::wxGraphicsMatrix(__arg0);
 }
 
 Ozone::GraphicsGradientStop::GraphicsGradientStop(::wxGraphicsGradientStop* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -299,7 +299,7 @@ Ozone::GraphicsGradientStop::~GraphicsGradientStop()
 
 Ozone::GraphicsGradientStop::GraphicsGradientStop(::Ozone::Color col, float pos)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = *(::wxColour*)col.__Instance;
     __Instance = new ::wxGraphicsGradientStop(__arg0, pos);
 }
@@ -323,13 +323,13 @@ void Ozone::GraphicsGradientStop::SetPosition(float pos)
 
 Ozone::GraphicsGradientStop::GraphicsGradientStop(const ::Ozone::GraphicsGradientStop& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGraphicsGradientStop*)_0.__Instance;
     __Instance = new ::wxGraphicsGradientStop(__arg0);
 }
 
 Ozone::GraphicsGradientStops::GraphicsGradientStops(::wxGraphicsGradientStops* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -340,7 +340,7 @@ Ozone::GraphicsGradientStops::~GraphicsGradientStops()
 
 Ozone::GraphicsGradientStops::GraphicsGradientStops(::Ozone::Color startCol, ::Ozone::Color endCol)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = *(::wxColour*)startCol.__Instance;
     auto __arg1 = *(::wxColour*)endCol.__Instance;
     __Instance = new ::wxGraphicsGradientStops(__arg0, __arg1);
@@ -399,13 +399,13 @@ void Ozone::GraphicsGradientStops::SetEndColour(::Ozone::Color col)
 
 Ozone::GraphicsGradientStops::GraphicsGradientStops(const ::Ozone::GraphicsGradientStops& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGraphicsGradientStops*)_0.__Instance;
     __Instance = new ::wxGraphicsGradientStops(__arg0);
 }
 
 Ozone::GraphicsPenInfo::GraphicsPenInfo(::wxGraphicsPenInfo* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -416,7 +416,7 @@ Ozone::GraphicsPenInfo::~GraphicsPenInfo()
 
 Ozone::GraphicsPenInfo::GraphicsPenInfo(const ::Ozone::Color& colour, double width, ::Ozone::PenStyle style)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxColour*)colour.__Instance;
     auto __arg1 = (::wxDouble)width;
     auto __arg2 = (::wxPenStyle)style;
@@ -491,7 +491,7 @@ double Ozone::GraphicsPenInfo::GetRadius() const
 
 Ozone::GraphicsPenInfo::GraphicsPenInfo(const ::Ozone::GraphicsPenInfo& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGraphicsPenInfo*)_0.__Instance;
     __Instance = new ::wxGraphicsPenInfo(__arg0);
 }
@@ -559,7 +559,7 @@ Ozone::GraphicsPath::~GraphicsPath()
 Ozone::GraphicsPath::GraphicsPath()
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxGraphicsPath();
 }
 
@@ -716,7 +716,7 @@ bool Ozone::GraphicsPath::Contains(double x, double y, ::Ozone::PolygonFillMode 
 Ozone::GraphicsPath::GraphicsPath(const ::Ozone::GraphicsPath& _0)
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGraphicsPath*)_0.__Instance;
     __Instance = new ::wxGraphicsPath(__arg0);
 }
@@ -734,7 +734,7 @@ Ozone::GraphicsContext::~GraphicsContext()
 Ozone::GraphicsContext::GraphicsContext(::Ozone::GraphicsRenderer* renderer, ::Ozone::Window* window)
     : Ozone::GraphicsObject((::wxGraphicsObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
 }
 
 ::Ozone::GraphicsContext* Ozone::GraphicsContext::Create(const ::Ozone::WindowDC& dc)
@@ -1275,7 +1275,7 @@ Ozone::GraphicsRenderer::~GraphicsRenderer()
 Ozone::GraphicsRenderer::GraphicsRenderer()
     : Ozone::Object((::wxObject*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
 }
 
 ::Ozone::GraphicsRenderer* Ozone::GraphicsRenderer::GetDefaultRenderer()

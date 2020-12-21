@@ -51,8 +51,6 @@ class PenInfo
 {
 public:
 
-    ::Ozone::PenInfo* __Instance;
-
     PenInfo(::Ozone::PenInfo* instance, bool ownNativeInstance = false);
 
     explicit PenInfo(const ::Ozone::Ozone::Color& colour, int width, ::Ozone::Ozone::PenStyle style);
@@ -77,14 +75,12 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class Pen
 {
 public:
-
-    ::Ozone::Pen* __Instance;
 
     Pen(::Ozone::Pen* instance, bool ownNativeInstance = false);
 
@@ -134,7 +130,7 @@ public:
 
 protected:
 
-    bool __ownsNativeInstance;
+    bool __OwnsNativeInstance;
 };
 
 class PenList : public Ozone::Ozone::GDIObjListBase

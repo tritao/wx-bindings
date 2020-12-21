@@ -120,31 +120,31 @@ static void register_enum_Ozone_FullscreenMode(JSContext *ctx, JSModuleDef *m, b
 
     // NOMENUBAR
     {
-        JSValue __item = JS_NewUint32(ctx, 1);
+        JSValue __item = JS_NewUint32(ctx, 0x1);
         JS_SetPropertyStr(ctx, val, "NOMENUBAR", __item);
     }
 
     // NOTOOLBAR
     {
-        JSValue __item = JS_NewUint32(ctx, 2);
+        JSValue __item = JS_NewUint32(ctx, 0x2);
         JS_SetPropertyStr(ctx, val, "NOTOOLBAR", __item);
     }
 
     // NOSTATUSBAR
     {
-        JSValue __item = JS_NewUint32(ctx, 4);
+        JSValue __item = JS_NewUint32(ctx, 0x4);
         JS_SetPropertyStr(ctx, val, "NOSTATUSBAR", __item);
     }
 
     // NOBORDER
     {
-        JSValue __item = JS_NewUint32(ctx, 8);
+        JSValue __item = JS_NewUint32(ctx, 0x8);
         JS_SetPropertyStr(ctx, val, "NOBORDER", __item);
     }
 
     // NOCAPTION
     {
-        JSValue __item = JS_NewUint32(ctx, 16);
+        JSValue __item = JS_NewUint32(ctx, 0x10);
         JS_SetPropertyStr(ctx, val, "NOCAPTION", __item);
     }
 
@@ -306,6 +306,9 @@ wrap:
 
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_TopLevelWindow);
     JS_SetOpaque(__obj, instance);
+
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
 
     JS_FreeValue(ctx, proto);
 
@@ -2094,9 +2097,15 @@ static JSValue callback_method_Ozone_TopLevelWindow_GetDefaultSize(JSContext* ct
 
     return ____ret_instance;
 }
+
+void finalizer_Ozone_TopLevelWindow(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_TopLevelWindow
 {
     "TopLevelWindow",
+    .finalizer = finalizer_Ozone_TopLevelWindow
 };
 
 static JSCFunctionListEntry funcDef_Ozone_TopLevelWindow[]
@@ -2167,7 +2176,6 @@ static JSCFunctionListEntry funcDef_Ozone_TopLevelWindow[]
     JS_CFUNC_DEF("set_m_netFrameExtentsTimerId", 1, callback_method_Ozone_TopLevelWindow_set_m_netFrameExtentsTimerId),
     JS_CFUNC_DEF("GetDefaultSize", 0, callback_method_Ozone_TopLevelWindow_GetDefaultSize),
 };
-
 
 static void register_class_Ozone_TopLevelWindow(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {

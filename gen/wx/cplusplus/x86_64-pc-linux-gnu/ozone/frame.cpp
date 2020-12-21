@@ -31,7 +31,7 @@ Ozone::Frame::~Frame()
 Ozone::Frame::Frame()
     : Ozone::TopLevelWindow((::wxTopLevelWindow*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxFrame();
 
     auto __instance = (wxFrame*) __Instance;
@@ -42,7 +42,7 @@ Ozone::Frame::Frame()
 Ozone::Frame::Frame(::Ozone::Window* parent, int id, const char* title, const ::Ozone::Point& pos, const ::Ozone::Size& size, ::Ozone::FrameStyle style, const char* name)
     : Ozone::TopLevelWindow((::wxTopLevelWindow*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
     auto __arg1 = (::wxWindowID)id;
     auto __arg2 = title;

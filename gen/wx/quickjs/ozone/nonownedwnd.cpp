@@ -43,6 +43,9 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_NonOwnedWindow);
     JS_SetOpaque(__obj, instance);
 
+    JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
+    instance->__ExternalInstance = (void*) __js_obj;
+
     JS_FreeValue(ctx, proto);
 
     return __obj;
@@ -96,9 +99,15 @@ static JSValue callback_method_Ozone_NonOwnedWindow_InheritAttributes(JSContext*
 
     return JS_UNDEFINED;
 }
+
+void finalizer_Ozone_NonOwnedWindow(JSRuntime *rt, JSValue val)
+{
+}
+
 static JSClassDef classDef_Ozone_NonOwnedWindow
 {
     "NonOwnedWindow",
+    .finalizer = finalizer_Ozone_NonOwnedWindow
 };
 
 static JSCFunctionListEntry funcDef_Ozone_NonOwnedWindow[]
@@ -106,7 +115,6 @@ static JSCFunctionListEntry funcDef_Ozone_NonOwnedWindow[]
     JS_CFUNC_DEF("SetShape", 1, callback_method_Ozone_NonOwnedWindow_SetShape),
     JS_CFUNC_DEF("InheritAttributes", 0, callback_method_Ozone_NonOwnedWindow_InheritAttributes),
 };
-
 
 static void register_class_Ozone_NonOwnedWindow(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
@@ -144,10 +152,6 @@ static void register_class_Ozone_NonOwnedWindow(JSContext *ctx, JSModuleDef *m, 
 
 void register_ozone_nonownedwnd(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
-    if (phase == 0)
-    {
-    }
-
     register_class_Ozone_NonOwnedWindow(ctx, m, set, phase);
 }
 }

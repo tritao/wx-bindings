@@ -12,7 +12,7 @@
 #include <wx/eventfilter.h>
 
 Ozone::PenInfo::PenInfo(::wxPenInfo* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -23,7 +23,7 @@ Ozone::PenInfo::~PenInfo()
 
 Ozone::PenInfo::PenInfo(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxColour*)colour.__Instance;
     auto __arg2 = (::wxPenStyle)style;
     __Instance = new ::wxPenInfo(__arg0, width, __arg2);
@@ -37,7 +37,7 @@ int Ozone::PenInfo::GetWidth() const
 
 Ozone::PenInfo::PenInfo(const ::Ozone::PenInfo& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPenInfo*)_0.__Instance;
     __Instance = new ::wxPenInfo(__arg0);
 }
@@ -93,7 +93,7 @@ bool Ozone::PenInfo::IsTransparent() const
 }
 
 Ozone::Pen::Pen(::wxPen* instance, bool ownNativeInstance)
-    : __ownsNativeInstance(ownNativeInstance)
+    : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
@@ -104,13 +104,13 @@ Ozone::Pen::~Pen()
 
 Ozone::Pen::Pen()
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxPen();
 }
 
 Ozone::Pen::Pen(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxColour*)colour.__Instance;
     auto __arg2 = (::wxPenStyle)style;
     __Instance = new ::wxPen(__arg0, width, __arg2);
@@ -118,9 +118,23 @@ Ozone::Pen::Pen(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style
 
 Ozone::Pen::Pen(const ::Ozone::PenInfo& info)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPenInfo*)info.__Instance;
     __Instance = new ::wxPen(__arg0);
+}
+
+bool Ozone::Pen::operator==(const ::Ozone::Pen& pen) const
+{
+    auto &__arg0 = *(::wxPen*)pen.__Instance;
+    bool __ret = ((::wxPen*)__Instance)->operator==(__arg0);
+    return __ret;
+}
+
+bool Ozone::Pen::operator!=(const ::Ozone::Pen& pen) const
+{
+    auto &__arg0 = *(::wxPen*)pen.__Instance;
+    bool __ret = ((::wxPen*)__Instance)->operator!=(__arg0);
+    return __ret;
 }
 
 void Ozone::Pen::SetColour(const ::Ozone::Color& colour)
@@ -215,7 +229,7 @@ signed char* Ozone::Pen::GetDash() const
 
 Ozone::Pen::Pen(const ::Ozone::Pen& _0)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPen*)_0.__Instance;
     __Instance = new ::wxPen(__arg0);
 }
@@ -253,7 +267,7 @@ Ozone::PenList::~PenList()
 Ozone::PenList::PenList(const ::Ozone::PenList& _0)
     : Ozone::GDIObjListBase((::wxGDIObjListBase*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPenList*)_0.__Instance;
     __Instance = new ::wxPenList(__arg0);
 }
@@ -261,7 +275,7 @@ Ozone::PenList::PenList(const ::Ozone::PenList& _0)
 Ozone::PenList::PenList()
     : Ozone::GDIObjListBase((::wxGDIObjListBase*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxPenList();
 }
 

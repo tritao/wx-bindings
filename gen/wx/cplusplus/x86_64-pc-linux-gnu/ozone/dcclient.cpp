@@ -23,7 +23,7 @@ Ozone::WindowDC::~WindowDC()
 Ozone::WindowDC::WindowDC(::Ozone::Window* win)
     : Ozone::DC((::wxDC*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     __Instance = new ::wxWindowDC(__arg0);
 }
@@ -41,7 +41,7 @@ Ozone::ClientDC::~ClientDC()
 Ozone::ClientDC::ClientDC(::Ozone::Window* win)
     : Ozone::WindowDC((::wxWindowDC*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     __Instance = new ::wxClientDC(__arg0);
 }
@@ -59,7 +59,7 @@ Ozone::PaintDC::~PaintDC()
 Ozone::PaintDC::PaintDC(::Ozone::Window* win)
     : Ozone::ClientDC((::wxClientDC*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     __Instance = new ::wxPaintDC(__arg0);
 }

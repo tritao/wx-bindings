@@ -90,6 +90,8 @@ namespace Ozone
 
         ::wxVisualAttributes* __Instance;
 
+        void* __ExternalInstance;
+
         VisualAttributes(::wxVisualAttributes* instance, bool ownNativeInstance = false);
 
         VisualAttributes(const ::Ozone::VisualAttributes& _0);
@@ -108,7 +110,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class WindowListNode
@@ -116,6 +118,8 @@ namespace Ozone
     public:
 
         ::wxWindowListNode* __Instance;
+
+        void* __ExternalInstance;
 
         WindowListNode(::wxWindowListNode* instance, bool ownNativeInstance = false);
 
@@ -131,7 +135,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class WindowList
@@ -139,6 +143,8 @@ namespace Ozone
     public:
 
         ::wxWindowList* __Instance;
+
+        void* __ExternalInstance;
 
         WindowList(::wxWindowList* instance, bool ownNativeInstance = false);
 
@@ -194,7 +200,7 @@ namespace Ozone
 
     protected:
 
-        bool __ownsNativeInstance;
+        bool __OwnsNativeInstance;
     };
 
     class Window : public Ozone::EvtHandler

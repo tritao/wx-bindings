@@ -30,7 +30,7 @@ Ozone::Panel::~Panel()
 Ozone::Panel::Panel()
     : Ozone::Window((::wxWindow*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     __Instance = new ::wxPanel();
 
     auto __instance = (wxPanel*) __Instance;
@@ -41,7 +41,7 @@ Ozone::Panel::Panel()
 Ozone::Panel::Panel(::Ozone::Window* parent, int winid, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
     : Ozone::Window((::wxWindow*)nullptr)
 {
-    __ownsNativeInstance = true;
+    __OwnsNativeInstance = true;
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
     auto __arg1 = (::wxWindowID)winid;
     auto &__arg2 = *(::wxPoint*)pos.__Instance;

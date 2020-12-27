@@ -66,16 +66,23 @@ workspace "ozone"
     includedirs
     {
       path.join(qjs, "include"),
-      path.join(wx_get_target_dir("cplusplus"))
+      path.join(qjs, "src"),
+      path.join(wx_get_target_dir("cplusplus")),
+      cppsharpdir .. "/src/Generator/Generators/QuickJS/Runtime"
     }
-    files { "gen/wx/quickjs/**.cpp" }
+    files
+    {
+      cppsharpdir .. "/src/Generator/Generators/QuickJS/Runtime/**.cpp",
+      "gen/wx/quickjs/**.cpp",
+    }
+
     removefiles {  "test-**" }
     setup_common()
     setup_wx_cflags()
 
-  include "tests/cpp/minimal"
-  include "tests/cpp/events"
-  include "tests/cpp/canvas"
+  --include "tests/cpp/minimal"
+  --include "tests/cpp/events"
+  --include "tests/cpp/canvas"
 
   include("src/Runtime")
 

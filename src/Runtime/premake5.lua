@@ -25,7 +25,7 @@ project "qjs"
 local qjsversion = "2020-11-08"
 local tjsplatform = "linux"
 
-project "Runtime"
+project "ozone-runtime"
   kind "ConsoleApp"
   language "C++"
 
@@ -37,6 +37,7 @@ project "Runtime"
     string.format("TJS__PLATFORM=\"%s\"", tjsplatform),
     "TJS_HAVE_CURL",
     "DISABLE_WASM",
+    "ENABLE_GUI",
     --"TJS_HAVE_SYSTEM_CURL"
     --"TJS_HAVE_WASM"
     --"d_m3HasWASI"

@@ -372,6 +372,8 @@ namespace CppSharp
             ctx.IgnoreClassMethodWithName("wxTopLevelWindow", "OnCloseWindow");
             ctx.IgnoreClassMethodWithName("wxTopLevelWindow", "OnSize");
 
+            ctx.IgnoreClassMethodWithName("wxTopLevelWindow", "OnActivate");
+
             var geometrySerializer = ctx.FindCompleteClass("wxTopLevelWindow").FindClass("GeometrySerializer");
             geometrySerializer?.ExplicitlyIgnore();
 

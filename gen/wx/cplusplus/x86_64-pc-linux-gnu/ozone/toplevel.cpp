@@ -332,12 +332,6 @@ void Ozone::TopLevelWindow::GetRectForTopLevelChildren(int* x, int* y, int* w, i
     h = __arg3;
 }
 
-void Ozone::TopLevelWindow::OnActivate(::Ozone::ActivateEvent& _0)
-{
-    auto &__arg0 = *(::wxActivateEvent*)_0.__Instance;
-    ((::wxTopLevelWindow*)__Instance)->OnActivate(__arg0);
-}
-
 void Ozone::TopLevelWindow::DoUpdateWindowUI(::Ozone::UpdateUIEvent& event)
 {
     auto &__arg0 = *(::wxUpdateUIEvent*)event.__Instance;

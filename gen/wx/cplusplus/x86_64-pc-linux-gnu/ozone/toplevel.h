@@ -173,8 +173,6 @@ namespace Ozone
 
         virtual void GetRectForTopLevelChildren(int* x, int* y, int* w, int* h);
 
-        void OnActivate(::Ozone::ActivateEvent& _0);
-
         virtual void DoUpdateWindowUI(::Ozone::UpdateUIEvent& event) override;
 
         virtual void SetMinSize(const ::Ozone::Size& minSize) override;

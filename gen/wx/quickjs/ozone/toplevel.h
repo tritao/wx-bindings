@@ -140,8 +140,6 @@ public:
 
     virtual bool Layout() override;
 
-    void OnActivate(::Ozone::Ozone::ActivateEvent& _0);
-
     virtual void DoUpdateWindowUI(::Ozone::Ozone::UpdateUIEvent& event) override;
 
     virtual void SetMinSize(const ::Ozone::Ozone::Size& minSize) override;

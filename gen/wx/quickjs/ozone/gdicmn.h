@@ -109,10 +109,6 @@ class Size
 {
 public:
 
-    ::Ozone::Size* __Instance;
-
-    void* __ExternalInstance;
-
     Size(::Ozone::Size* instance, bool ownNativeInstance = false);
 
     Size();
@@ -180,10 +176,6 @@ class RealPoint
 {
 public:
 
-    ::Ozone::RealPoint* __Instance;
-
-    void* __ExternalInstance;
-
     RealPoint(::Ozone::RealPoint* instance, bool ownNativeInstance = false);
 
     RealPoint();
@@ -214,10 +206,6 @@ protected:
 class Point
 {
 public:
-
-    ::Ozone::Point* __Instance;
-
-    void* __ExternalInstance;
 
     Point(::Ozone::Point* instance, bool ownNativeInstance = false);
 
@@ -254,10 +242,6 @@ class wxPointListNode
 {
 public:
 
-    ::Ozone::wxPointListNode* __Instance;
-
-    void* __ExternalInstance;
-
     wxPointListNode(::Ozone::wxPointListNode* instance, bool ownNativeInstance = false);
 
     wxPointListNode(const ::Ozone::Ozone::wxPointListNode& _0);
@@ -280,10 +264,6 @@ protected:
 class Rect
 {
 public:
-
-    ::Ozone::Rect* __Instance;
-
-    void* __ExternalInstance;
 
     Rect(::Ozone::Rect* instance, bool ownNativeInstance = false);
 
@@ -426,10 +406,6 @@ class GDIObjListBase
 {
 public:
 
-    ::Ozone::GDIObjListBase* __Instance;
-
-    void* __ExternalInstance;
-
     GDIObjListBase(::Ozone::GDIObjListBase* instance, bool ownNativeInstance = false);
 
     GDIObjListBase();
@@ -446,10 +422,6 @@ protected:
 class ColourDatabase
 {
 public:
-
-    ::Ozone::ColourDatabase* __Instance;
-
-    void* __ExternalInstance;
 
     ColourDatabase(::Ozone::ColourDatabase* instance, bool ownNativeInstance = false);
 
@@ -473,10 +445,6 @@ protected:
 class ResourceCache
 {
 public:
-
-    ::Ozone::ResourceCache* __Instance;
-
-    void* __ExternalInstance;
 
     ResourceCache(::Ozone::ResourceCache* instance, bool ownNativeInstance = false);
 
@@ -541,10 +509,6 @@ public:
         PEN_WHITE = 37,
         ITEMCOUNT = 38
     };
-
-    ::Ozone::StockGDI* __Instance;
-
-    void* __ExternalInstance;
 
     StockGDI(::Ozone::StockGDI* instance, bool ownNativeInstance = false);
 

@@ -11,6 +11,7 @@
 extern "C" {
 
 extern JSClassID classId_Ozone_Panel;
+extern JSClassID classId_Ozone_NavigationKeyEvent;
 extern JSClassID classId_Ozone_Window;
 extern JSClassID classId_Ozone_Point;
 extern JSClassID classId_Ozone_Size;
@@ -18,12 +19,8 @@ extern JSClassID classId__Signal;
 
 JSClassID classId_Ozone_Panel;
 
-struct data_Ozone_Panel
+struct data_Ozone_Panel : public JS_Interop_ClassData
 {
-    Ozone::Panel* instance;
-    JSContext* ctx;
-    JS_EventMap events;
-
     void event_invoke_OnNavigationKey(::Ozone::NavigationKeyEvent& arg0)
     {
         JSValue event = JS_Interop_FindEvent(&events, 49);
@@ -31,7 +28,11 @@ struct data_Ozone_Panel
             return;
 
         auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 0, NULL);
+
+        JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_NavigationKeyEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
+
+        JSValueConst argv[] = { __arg0 };
+        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
 };
@@ -55,7 +56,7 @@ JSValue callback_event_getter_Ozone_Panel_OnNavigationKey(JSContext *ctx, JSValu
 
     JS_Interop_InsertEvent(&data->events, 49, JS_DupValue(ctx, __obj));
 
-    data->instance->OnNavigationKey.bind(data, &data_Ozone_Panel::event_invoke_OnNavigationKey);
+    ((Ozone::Panel*)data->instance)->OnNavigationKey.bind(data, &data_Ozone_Panel::event_invoke_OnNavigationKey);
 
     return __obj;
 }
@@ -167,14 +168,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Panel);
     JS_FreeValue(ctx, proto);
 
-    data_Ozone_Panel* __data = new data_Ozone_Panel;
-
-    JS_Interop_InitEventMap(&__data->events);
-
-    __data->instance = instance;
-    __data->ctx = ctx;
-
-    JS_SetOpaque(__obj, __data);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -192,7 +186,7 @@ static JSValue callback_method_Ozone_Panel_Create(JSContext* ctx, JSValueConst t
     }
 
     auto data = (data_Ozone_Panel*) JS_GetOpaque(this_val, 0);
-    Ozone::Panel* instance = data->instance;
+    Ozone::Panel* instance = (Ozone::Panel*) data->instance;
 
     if (JS_IsObject(argv[0]))
         goto typecheck1;
@@ -280,7 +274,7 @@ static JSValue callback_method_Ozone_Panel_InitDialog(JSContext* ctx, JSValueCon
     }
 
     auto data = (data_Ozone_Panel*) JS_GetOpaque(this_val, 0);
-    Ozone::Panel* instance = data->instance;
+    Ozone::Panel* instance = (Ozone::Panel*) data->instance;
 
     instance->InitDialog();
 
@@ -296,7 +290,7 @@ static JSValue callback_class_Ozone_Panel_toString(JSContext* ctx, JSValueConst 
 void finalizer_Ozone_Panel(JSRuntime *rt, JSValue val)
 {
     auto data = (data_Ozone_Panel*) JS_GetOpaque(val, 0);
-    Ozone::Panel* instance = data->instance;
+    Ozone::Panel* instance = (Ozone::Panel*) data->instance;
     JS_Interop_FreeEventMap(&data->events, data->ctx);
 }
 

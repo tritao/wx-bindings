@@ -43,7 +43,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_RefCounter);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -180,7 +180,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Object);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -201,9 +201,9 @@ static JSValue callback_method_Ozone_Object_GetRefData(JSContext* ctx, JSValueCo
 
     ::Ozone::RefCounter* __ret = instance->GetRefData();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_RefCounter, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Object::SetRefData

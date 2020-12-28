@@ -181,7 +181,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Brush);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -286,9 +286,9 @@ static JSValue callback_method_Ozone_Brush_GetColour(JSContext* ctx, JSValueCons
 
     ::Ozone::Color __ret = instance->GetColour();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Brush::SetColour
@@ -539,7 +539,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_BrushList);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -585,9 +585,9 @@ overload0:
         auto __arg1 = (::Ozone::BrushStyle)style;
         ::Ozone::Brush* __ret = instance->FindOrCreateBrush(__arg0, __arg1);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 

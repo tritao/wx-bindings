@@ -17,12 +17,8 @@ extern JSClassID classId__Signal;
 
 JSClassID classId_Ozone_NonOwnedWindow;
 
-struct data_Ozone_NonOwnedWindow
+struct data_Ozone_NonOwnedWindow : public JS_Interop_ClassData
 {
-    Ozone::NonOwnedWindow* instance;
-    JSContext* ctx;
-    JS_EventMap events;
-
 };
 
 // Ozone::NonOwnedWindow::NonOwnedWindow
@@ -52,14 +48,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_NonOwnedWindow);
     JS_FreeValue(ctx, proto);
 
-    data_Ozone_NonOwnedWindow* __data = new data_Ozone_NonOwnedWindow;
-
-    JS_Interop_InitEventMap(&__data->events);
-
-    __data->instance = instance;
-    __data->ctx = ctx;
-
-    JS_SetOpaque(__obj, __data);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -77,7 +66,7 @@ static JSValue callback_method_Ozone_NonOwnedWindow_SetShape(JSContext* ctx, JSV
     }
 
     auto data = (data_Ozone_NonOwnedWindow*) JS_GetOpaque(this_val, 0);
-    Ozone::NonOwnedWindow* instance = data->instance;
+    Ozone::NonOwnedWindow* instance = (Ozone::NonOwnedWindow*) data->instance;
 
     if (JS_IsObject(argv[0]))
         goto overload0;
@@ -111,7 +100,7 @@ static JSValue callback_method_Ozone_NonOwnedWindow_InheritAttributes(JSContext*
     }
 
     auto data = (data_Ozone_NonOwnedWindow*) JS_GetOpaque(this_val, 0);
-    Ozone::NonOwnedWindow* instance = data->instance;
+    Ozone::NonOwnedWindow* instance = (Ozone::NonOwnedWindow*) data->instance;
 
     instance->InheritAttributes();
 
@@ -127,7 +116,7 @@ static JSValue callback_class_Ozone_NonOwnedWindow_toString(JSContext* ctx, JSVa
 void finalizer_Ozone_NonOwnedWindow(JSRuntime *rt, JSValue val)
 {
     auto data = (data_Ozone_NonOwnedWindow*) JS_GetOpaque(val, 0);
-    Ozone::NonOwnedWindow* instance = data->instance;
+    Ozone::NonOwnedWindow* instance = (Ozone::NonOwnedWindow*) data->instance;
     JS_Interop_FreeEventMap(&data->events, data->ctx);
 }
 

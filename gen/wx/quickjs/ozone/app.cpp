@@ -14,6 +14,9 @@ extern JSClassID classId_Ozone_AppConsole;
 extern JSClassID classId_Ozone_EvtHandler;
 extern JSClassID classId_Ozone_Object;
 extern JSClassID classId_Ozone_App;
+extern JSClassID classId_Ozone_CloseEvent;
+extern JSClassID classId_Ozone_ActivateEvent;
+extern JSClassID classId_Ozone_IdleEvent;
 extern JSClassID classId_Ozone_Window;
 extern JSClassID classId__Signal;
 
@@ -46,7 +49,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_AppConsole);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -1048,9 +1051,9 @@ static JSValue callback_method_Ozone_AppConsole_GetInstance(JSContext* ctx, JSVa
 
     ::Ozone::AppConsole* __ret = ::Ozone::AppConsole::GetInstance();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_AppConsole, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::AppConsole::SetInstance
@@ -1186,12 +1189,8 @@ static void register_class_Ozone_AppConsole(JSContext *ctx, JSModuleDef *m, bool
 
 JSClassID classId_Ozone_App;
 
-struct data_Ozone_App
+struct data_Ozone_App : public JS_Interop_ClassData
 {
-    Ozone::App* instance;
-    JSContext* ctx;
-    JS_EventMap events;
-
     void event_invoke_OnQueryEndSession(::Ozone::CloseEvent& arg0)
     {
         JSValue event = JS_Interop_FindEvent(&events, 50);
@@ -1199,7 +1198,11 @@ struct data_Ozone_App
             return;
 
         auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 0, NULL);
+
+        JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_CloseEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
+
+        JSValueConst argv[] = { __arg0 };
+        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
 
@@ -1210,7 +1213,11 @@ struct data_Ozone_App
             return;
 
         auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 0, NULL);
+
+        JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_CloseEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
+
+        JSValueConst argv[] = { __arg0 };
+        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
 
@@ -1221,7 +1228,11 @@ struct data_Ozone_App
             return;
 
         auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 0, NULL);
+
+        JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ActivateEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
+
+        JSValueConst argv[] = { __arg0 };
+        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
 
@@ -1232,7 +1243,11 @@ struct data_Ozone_App
             return;
 
         auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 0, NULL);
+
+        JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ActivateEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
+
+        JSValueConst argv[] = { __arg0 };
+        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
 
@@ -1243,7 +1258,11 @@ struct data_Ozone_App
             return;
 
         auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 0, NULL);
+
+        JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_IdleEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
+
+        JSValueConst argv[] = { __arg0 };
+        JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
 };
@@ -1267,7 +1286,7 @@ JSValue callback_event_getter_Ozone_App_OnQueryEndSession(JSContext *ctx, JSValu
 
     JS_Interop_InsertEvent(&data->events, 50, JS_DupValue(ctx, __obj));
 
-    data->instance->OnQueryEndSession.bind(data, &data_Ozone_App::event_invoke_OnQueryEndSession);
+    ((Ozone::App*)data->instance)->OnQueryEndSession.bind(data, &data_Ozone_App::event_invoke_OnQueryEndSession);
 
     return __obj;
 }
@@ -1291,7 +1310,7 @@ JSValue callback_event_getter_Ozone_App_OnEndSession(JSContext *ctx, JSValueCons
 
     JS_Interop_InsertEvent(&data->events, 51, JS_DupValue(ctx, __obj));
 
-    data->instance->OnEndSession.bind(data, &data_Ozone_App::event_invoke_OnEndSession);
+    ((Ozone::App*)data->instance)->OnEndSession.bind(data, &data_Ozone_App::event_invoke_OnEndSession);
 
     return __obj;
 }
@@ -1315,7 +1334,7 @@ JSValue callback_event_getter_Ozone_App_OnActivateApp(JSContext *ctx, JSValueCon
 
     JS_Interop_InsertEvent(&data->events, 52, JS_DupValue(ctx, __obj));
 
-    data->instance->OnActivateApp.bind(data, &data_Ozone_App::event_invoke_OnActivateApp);
+    ((Ozone::App*)data->instance)->OnActivateApp.bind(data, &data_Ozone_App::event_invoke_OnActivateApp);
 
     return __obj;
 }
@@ -1339,7 +1358,7 @@ JSValue callback_event_getter_Ozone_App_OnHibernate(JSContext *ctx, JSValueConst
 
     JS_Interop_InsertEvent(&data->events, 53, JS_DupValue(ctx, __obj));
 
-    data->instance->OnHibernate.bind(data, &data_Ozone_App::event_invoke_OnHibernate);
+    ((Ozone::App*)data->instance)->OnHibernate.bind(data, &data_Ozone_App::event_invoke_OnHibernate);
 
     return __obj;
 }
@@ -1363,7 +1382,7 @@ JSValue callback_event_getter_Ozone_App_OnIdle(JSContext *ctx, JSValueConst this
 
     JS_Interop_InsertEvent(&data->events, 54, JS_DupValue(ctx, __obj));
 
-    data->instance->OnIdle.bind(data, &data_Ozone_App::event_invoke_OnIdle);
+    ((Ozone::App*)data->instance)->OnIdle.bind(data, &data_Ozone_App::event_invoke_OnIdle);
 
     return __obj;
 }
@@ -1395,14 +1414,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_App);
     JS_FreeValue(ctx, proto);
 
-    data_Ozone_App* __data = new data_Ozone_App;
-
-    JS_Interop_InitEventMap(&__data->events);
-
-    __data->instance = instance;
-    __data->ctx = ctx;
-
-    JS_SetOpaque(__obj, __data);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -1420,7 +1432,7 @@ static JSValue callback_method_Ozone_App_SetNativeTheme(JSContext* ctx, JSValueC
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     if (JS_IsString(argv[0]))
         goto overload0;
@@ -1459,7 +1471,7 @@ static JSValue callback_method_Ozone_App_OnInitGui(JSContext* ctx, JSValueConst 
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     bool __ret = instance->OnInitGui();
 
@@ -1478,7 +1490,7 @@ static JSValue callback_method_Ozone_App_WakeUpIdle(JSContext* ctx, JSValueConst
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     instance->WakeUpIdle();
 
@@ -1495,7 +1507,7 @@ static JSValue callback_method_Ozone_App_CleanUp(JSContext* ctx, JSValueConst th
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     instance->CleanUp();
 
@@ -1512,7 +1524,7 @@ static JSValue callback_method_Ozone_App_EventsPending(JSContext* ctx, JSValueCo
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     bool __ret = instance->EventsPending();
 
@@ -1531,7 +1543,7 @@ static JSValue callback_method_Ozone_App_DoIdle(JSContext* ctx, JSValueConst thi
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     bool __ret = instance->DoIdle();
 
@@ -1550,7 +1562,7 @@ static JSValue callback_method_Ozone_App_OnRun(JSContext* ctx, JSValueConst this
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     int __ret = instance->OnRun();
 
@@ -1569,7 +1581,7 @@ static JSValue callback_method_Ozone_App_OnExit(JSContext* ctx, JSValueConst thi
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     int __ret = instance->OnExit();
 
@@ -1588,7 +1600,7 @@ static JSValue callback_method_Ozone_App_SafeYield(JSContext* ctx, JSValueConst 
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     if (JS_IsObject(argv[0]))
         goto typecheck1;
@@ -1634,7 +1646,7 @@ static JSValue callback_method_Ozone_App_SafeYieldFor(JSContext* ctx, JSValueCon
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     if (JS_IsObject(argv[0]))
         goto typecheck1;
@@ -1679,7 +1691,7 @@ static JSValue callback_method_Ozone_App_ProcessIdle(JSContext* ctx, JSValueCons
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     bool __ret = instance->ProcessIdle();
 
@@ -1698,7 +1710,7 @@ static JSValue callback_method_Ozone_App_UsesEventLoop(JSContext* ctx, JSValueCo
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     bool __ret = instance->UsesEventLoop();
 
@@ -1717,7 +1729,7 @@ static JSValue callback_method_Ozone_App_IsActive(JSContext* ctx, JSValueConst t
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     bool __ret = instance->IsActive();
 
@@ -1736,7 +1748,7 @@ static JSValue callback_method_Ozone_App_SetTopWindow(JSContext* ctx, JSValueCon
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     if (JS_IsObject(argv[0]))
         goto overload0;
@@ -1768,13 +1780,13 @@ static JSValue callback_method_Ozone_App_GetTopWindow(JSContext* ctx, JSValueCon
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     ::Ozone::Window* __ret = instance->GetTopWindow();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::App::SetExitOnFrameDelete
@@ -1787,7 +1799,7 @@ static JSValue callback_method_Ozone_App_SetExitOnFrameDelete(JSContext* ctx, JS
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     if (JS_IsBool(argv[0]))
         goto overload0;
@@ -1822,7 +1834,7 @@ static JSValue callback_method_Ozone_App_GetExitOnFrameDelete(JSContext* ctx, JS
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     bool __ret = instance->GetExitOnFrameDelete();
 
@@ -1841,7 +1853,7 @@ static JSValue callback_method_Ozone_App_SetUseBestVisual(JSContext* ctx, JSValu
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     if (JS_IsBool(argv[0]))
         goto typecheck1;
@@ -1888,7 +1900,7 @@ static JSValue callback_method_Ozone_App_GetUseBestVisual(JSContext* ctx, JSValu
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     bool __ret = instance->GetUseBestVisual();
 
@@ -1907,7 +1919,7 @@ static JSValue callback_method_Ozone_App_SetPrintMode(JSContext* ctx, JSValueCon
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     if (JS_IsNumber(argv[0]))
         goto overload0;
@@ -1941,7 +1953,7 @@ static JSValue callback_method_Ozone_App_GetPrintMode(JSContext* ctx, JSValueCon
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     int __ret = instance->GetPrintMode();
 
@@ -1960,7 +1972,7 @@ static JSValue callback_method_Ozone_App_SetActive(JSContext* ctx, JSValueConst 
     }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
 
     if (JS_IsBool(argv[0]))
         goto typecheck1;
@@ -2003,7 +2015,7 @@ static JSValue callback_class_Ozone_App_toString(JSContext* ctx, JSValueConst th
 void finalizer_Ozone_App(JSRuntime *rt, JSValue val)
 {
     auto data = (data_Ozone_App*) JS_GetOpaque(val, 0);
-    Ozone::App* instance = data->instance;
+    Ozone::App* instance = (Ozone::App*) data->instance;
     JS_Interop_FreeEventMap(&data->events, data->ctx);
 }
 

@@ -629,7 +629,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Size);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -1374,7 +1374,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_RealPoint);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -1617,7 +1617,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Point);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -1844,9 +1844,9 @@ static JSValue callback_method_Ozone_wxPointListNode_GetNext(JSContext* ctx, JSV
 
     ::Ozone::wxPointListNode* __ret = instance->GetNext();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_wxPointListNode, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::wxPointListNode::GetPrevious
@@ -1862,9 +1862,9 @@ static JSValue callback_method_Ozone_wxPointListNode_GetPrevious(JSContext* ctx,
 
     ::Ozone::wxPointListNode* __ret = instance->GetPrevious();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_wxPointListNode, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::wxPointListNode::GetData
@@ -1880,9 +1880,9 @@ static JSValue callback_method_Ozone_wxPointListNode_GetData(JSContext* ctx, JSV
 
     ::Ozone::Point* __ret = instance->GetData();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::wxPointListNode::SetData
@@ -2107,7 +2107,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Rect);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -2332,9 +2332,9 @@ static JSValue callback_method_Ozone_Rect_GetPosition(JSContext* ctx, JSValueCon
 
     ::Ozone::Point __ret = instance->GetPosition();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Rect::SetPosition
@@ -2381,9 +2381,9 @@ static JSValue callback_method_Ozone_Rect_GetSize(JSContext* ctx, JSValueConst t
 
     ::Ozone::Size __ret = instance->GetSize();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Rect::SetSize
@@ -2652,9 +2652,9 @@ static JSValue callback_method_Ozone_Rect_GetTopLeft(JSContext* ctx, JSValueCons
 
     ::Ozone::Point __ret = instance->GetTopLeft();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Rect::GetLeftTop
@@ -2670,9 +2670,9 @@ static JSValue callback_method_Ozone_Rect_GetLeftTop(JSContext* ctx, JSValueCons
 
     ::Ozone::Point __ret = instance->GetLeftTop();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Rect::SetTopLeft
@@ -2750,9 +2750,9 @@ static JSValue callback_method_Ozone_Rect_GetBottomRight(JSContext* ctx, JSValue
 
     ::Ozone::Point __ret = instance->GetBottomRight();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Rect::GetRightBottom
@@ -2768,9 +2768,9 @@ static JSValue callback_method_Ozone_Rect_GetRightBottom(JSContext* ctx, JSValue
 
     ::Ozone::Point __ret = instance->GetRightBottom();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Rect::SetBottomRight
@@ -2848,9 +2848,9 @@ static JSValue callback_method_Ozone_Rect_GetTopRight(JSContext* ctx, JSValueCon
 
     ::Ozone::Point __ret = instance->GetTopRight();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Rect::GetRightTop
@@ -2866,9 +2866,9 @@ static JSValue callback_method_Ozone_Rect_GetRightTop(JSContext* ctx, JSValueCon
 
     ::Ozone::Point __ret = instance->GetRightTop();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Rect::SetTopRight
@@ -2946,9 +2946,9 @@ static JSValue callback_method_Ozone_Rect_GetBottomLeft(JSContext* ctx, JSValueC
 
     ::Ozone::Point __ret = instance->GetBottomLeft();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Rect::GetLeftBottom
@@ -2964,9 +2964,9 @@ static JSValue callback_method_Ozone_Rect_GetLeftBottom(JSContext* ctx, JSValueC
 
     ::Ozone::Point __ret = instance->GetLeftBottom();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Rect::SetBottomLeft
@@ -3071,9 +3071,9 @@ overload0:
         auto __arg1 = dy;
         ::Ozone::Rect __ret = instance->Inflate(__arg0, __arg1);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 
@@ -3117,9 +3117,9 @@ overload0:
         auto __arg1 = dy;
         ::Ozone::Rect __ret = instance->Deflate(__arg0, __arg1);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 
@@ -3209,9 +3209,9 @@ overload0:
         auto &__arg0 = *rect_instance;
         ::Ozone::Rect __ret = instance->Intersect(__arg0);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 
@@ -3242,9 +3242,9 @@ overload0:
         auto &__arg0 = *rect_instance;
         ::Ozone::Rect __ret = instance->Union(__arg0);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 
@@ -3399,9 +3399,9 @@ overload0:
         auto __arg1 = dir;
         ::Ozone::Rect __ret = instance->CentreIn(__arg0, __arg1);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 
@@ -3443,9 +3443,9 @@ overload0:
         auto __arg1 = dir;
         ::Ozone::Rect __ret = instance->CenterIn(__arg0, __arg1);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 
@@ -3783,7 +3783,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GDIObjListBase);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -3867,7 +3867,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ColourDatabase);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -3907,9 +3907,9 @@ overload0:
 
         JS_FreeCString(ctx, name);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 
@@ -4098,7 +4098,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ResourceCache);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -4225,7 +4225,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_StockGDI);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -4274,9 +4274,9 @@ overload0:
         auto __arg0 = (::Ozone::StockGDI::Item)item;
         const ::Ozone::Brush* __ret = ::Ozone::StockGDI::GetBrush(__arg0);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 
@@ -4307,9 +4307,9 @@ overload0:
         auto __arg0 = (::Ozone::StockGDI::Item)item;
         const ::Ozone::Color* __ret = ::Ozone::StockGDI::GetColour(__arg0);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 
@@ -4340,9 +4340,9 @@ overload0:
         auto __arg0 = (::Ozone::StockGDI::Item)item;
         const ::Ozone::Pen* __ret = ::Ozone::StockGDI::GetPen(__arg0);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 
@@ -4524,9 +4524,9 @@ static JSValue callback_function_Ozone_GetDisplaySize(JSContext* ctx, JSValueCon
 
     ::Ozone::Size __ret = ::Ozone::GetDisplaySize();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static void register_function_Ozone_GetDisplaySize(JSContext *ctx, JSModuleDef *m, bool set)
@@ -4554,9 +4554,9 @@ static JSValue callback_function_Ozone_GetDisplaySizeMM(JSContext* ctx, JSValueC
 
     ::Ozone::Size __ret = ::Ozone::GetDisplaySizeMM();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static void register_function_Ozone_GetDisplaySizeMM(JSContext *ctx, JSModuleDef *m, bool set)
@@ -4584,9 +4584,9 @@ static JSValue callback_function_Ozone_GetDisplayPPI(JSContext* ctx, JSValueCons
 
     ::Ozone::Size __ret = ::Ozone::GetDisplayPPI();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static void register_function_Ozone_GetDisplayPPI(JSContext *ctx, JSModuleDef *m, bool set)
@@ -4614,9 +4614,9 @@ static JSValue callback_function_Ozone_GetClientDisplayRect(JSContext* ctx, JSVa
 
     ::Ozone::Rect __ret = ::Ozone::GetClientDisplayRect();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static void register_function_Ozone_GetClientDisplayRect(JSContext *ctx, JSModuleDef *m, bool set)

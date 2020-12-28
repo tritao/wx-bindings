@@ -291,7 +291,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PenInfo);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -330,9 +330,9 @@ static JSValue callback_method_Ozone_PenInfo_GetColour(JSContext* ctx, JSValueCo
 
     ::Ozone::Color __ret = instance->GetColour();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::PenInfo::GetStyle
@@ -570,7 +570,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Pen);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -865,9 +865,9 @@ static JSValue callback_method_Ozone_Pen_GetColour(JSContext* ctx, JSValueConst 
 
     ::Ozone::Color __ret = instance->GetColour();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Pen::GetCap
@@ -1087,7 +1087,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PenList);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -1144,9 +1144,9 @@ overload0:
         auto __arg2 = (::Ozone::PenStyle)style;
         ::Ozone::Pen* __ret = instance->FindOrCreatePen(__arg0, __arg1, __arg2);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 

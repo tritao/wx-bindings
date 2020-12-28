@@ -426,7 +426,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_Event);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -498,9 +498,9 @@ static JSValue callback_method_Ozone_Event_GetEventObject(JSContext* ctx, JSValu
 
     ::Ozone::Object* __ret = instance->GetEventObject();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Event::SetEventObject
@@ -649,9 +649,9 @@ static JSValue callback_method_Ozone_Event_GetEventUserData(JSContext* ctx, JSVa
 
     ::Ozone::Object* __ret = instance->GetEventUserData();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Event::Skip
@@ -719,9 +719,9 @@ static JSValue callback_method_Ozone_Event_Clone(JSContext* ctx, JSValueConst th
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Event::GetEventCategory
@@ -842,9 +842,9 @@ static JSValue callback_method_Ozone_Event_GetPropagatedFrom(JSContext* ctx, JSV
 
     ::Ozone::EvtHandler* __ret = instance->GetPropagatedFrom();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Event::WasProcessed
@@ -961,9 +961,9 @@ static JSValue callback_method_Ozone_Event_get_m_callbackUserData(JSContext* ctx
 
     ::Ozone::Object* __ret = instance->get_m_callbackUserData();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::Event::set_m_callbackUserData
@@ -1131,7 +1131,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PropagateOnce);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -1215,7 +1215,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_IdleEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -1288,9 +1288,9 @@ static JSValue callback_method_Ozone_IdleEvent_Clone(JSContext* ctx, JSValueCons
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::IdleEvent::SetMode
@@ -1458,7 +1458,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ThreadEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -1479,9 +1479,9 @@ static JSValue callback_method_Ozone_ThreadEvent_Clone(JSContext* ctx, JSValueCo
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::ThreadEvent::GetEventCategory
@@ -1604,7 +1604,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_AsyncMethodCallEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -1742,7 +1742,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_CommandEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -1835,9 +1835,9 @@ static JSValue callback_method_Ozone_CommandEvent_Clone(JSContext* ctx, JSValueC
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::CommandEvent::GetEventCategory
@@ -1977,7 +1977,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_NotifyEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -2048,9 +2048,9 @@ static JSValue callback_method_Ozone_NotifyEvent_Clone(JSContext* ctx, JSValueCo
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_NotifyEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -2192,7 +2192,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ScrollEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -2315,9 +2315,9 @@ static JSValue callback_method_Ozone_ScrollEvent_Clone(JSContext* ctx, JSValueCo
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_ScrollEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -2449,7 +2449,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ScrollWinEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -2572,9 +2572,9 @@ static JSValue callback_method_Ozone_ScrollWinEvent_Clone(JSContext* ctx, JSValu
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_ScrollWinEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -2684,7 +2684,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_MouseEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -3273,9 +3273,9 @@ overload0:
         auto &__arg0 = *dc_instance;
         ::Ozone::Point __ret = instance->GetLogicalPosition(__arg0);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 
@@ -3436,9 +3436,9 @@ static JSValue callback_method_Ozone_MouseEvent_Clone(JSContext* ctx, JSValueCon
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::MouseEvent::GetEventCategory
@@ -4037,7 +4037,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_SetCursorEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -4112,9 +4112,9 @@ static JSValue callback_method_Ozone_SetCursorEvent_Clone(JSContext* ctx, JSValu
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_SetCursorEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -4234,7 +4234,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_GestureEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -4390,9 +4390,9 @@ static JSValue callback_method_Ozone_GestureEvent_Clone(JSContext* ctx, JSValueC
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_GestureEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -4503,7 +4503,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PanGestureEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -4524,9 +4524,9 @@ static JSValue callback_method_Ozone_PanGestureEvent_GetDelta(JSContext* ctx, JS
 
     ::Ozone::Point __ret = instance->GetDelta();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::PanGestureEvent::SetDelta
@@ -4573,9 +4573,9 @@ static JSValue callback_method_Ozone_PanGestureEvent_Clone(JSContext* ctx, JSVal
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_PanGestureEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -4683,7 +4683,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ZoomGestureEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -4755,9 +4755,9 @@ static JSValue callback_method_Ozone_ZoomGestureEvent_Clone(JSContext* ctx, JSVa
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_ZoomGestureEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -4865,7 +4865,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_RotateGestureEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -4937,9 +4937,9 @@ static JSValue callback_method_Ozone_RotateGestureEvent_Clone(JSContext* ctx, JS
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_RotateGestureEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -5047,7 +5047,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_TwoFingerTapEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -5068,9 +5068,9 @@ static JSValue callback_method_Ozone_TwoFingerTapEvent_Clone(JSContext* ctx, JSV
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_TwoFingerTapEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -5176,7 +5176,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_LongPressEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -5197,9 +5197,9 @@ static JSValue callback_method_Ozone_LongPressEvent_Clone(JSContext* ctx, JSValu
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_LongPressEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -5305,7 +5305,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PressAndTapEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -5326,9 +5326,9 @@ static JSValue callback_method_Ozone_PressAndTapEvent_Clone(JSContext* ctx, JSVa
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_PressAndTapEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -5450,7 +5450,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_KeyEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -5578,9 +5578,9 @@ static JSValue callback_method_Ozone_KeyEvent_GetPosition(JSContext* ctx, JSValu
 
     ::Ozone::Point __ret = instance->GetPosition();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::KeyEvent::GetX
@@ -5666,9 +5666,9 @@ static JSValue callback_method_Ozone_KeyEvent_Clone(JSContext* ctx, JSValueConst
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::KeyEvent::GetEventCategory
@@ -6168,7 +6168,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_SizeEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -6189,9 +6189,9 @@ static JSValue callback_method_Ozone_SizeEvent_GetSize(JSContext* ctx, JSValueCo
 
     ::Ozone::Size __ret = instance->GetSize();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::SizeEvent::SetSize
@@ -6238,9 +6238,9 @@ static JSValue callback_method_Ozone_SizeEvent_GetRect(JSContext* ctx, JSValueCo
 
     ::Ozone::Rect __ret = instance->GetRect();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::SizeEvent::SetRect
@@ -6287,9 +6287,9 @@ static JSValue callback_method_Ozone_SizeEvent_Clone(JSContext* ctx, JSValueCons
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::SizeEvent::get_m_size
@@ -6305,9 +6305,9 @@ static JSValue callback_method_Ozone_SizeEvent_get_m_size(JSContext* ctx, JSValu
 
     ::Ozone::Size __ret = instance->get_m_size();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::SizeEvent::set_m_size
@@ -6354,9 +6354,9 @@ static JSValue callback_method_Ozone_SizeEvent_get_m_rect(JSContext* ctx, JSValu
 
     ::Ozone::Rect __ret = instance->get_m_rect();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::SizeEvent::set_m_rect
@@ -6546,7 +6546,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_MoveEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -6567,9 +6567,9 @@ static JSValue callback_method_Ozone_MoveEvent_GetPosition(JSContext* ctx, JSVal
 
     ::Ozone::Point __ret = instance->GetPosition();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::MoveEvent::SetPosition
@@ -6616,9 +6616,9 @@ static JSValue callback_method_Ozone_MoveEvent_GetRect(JSContext* ctx, JSValueCo
 
     ::Ozone::Rect __ret = instance->GetRect();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::MoveEvent::SetRect
@@ -6665,9 +6665,9 @@ static JSValue callback_method_Ozone_MoveEvent_Clone(JSContext* ctx, JSValueCons
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_MoveEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -6746,9 +6746,9 @@ static JSValue callback_method_Ozone_PaintEvent_Clone(JSContext* ctx, JSValueCon
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_PaintEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -6819,9 +6819,9 @@ static JSValue callback_method_Ozone_NcPaintEvent_Clone(JSContext* ctx, JSValueC
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_NcPaintEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -6932,7 +6932,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_EraseEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -6953,9 +6953,9 @@ static JSValue callback_method_Ozone_EraseEvent_GetDC(JSContext* ctx, JSValueCon
 
     ::Ozone::DC* __ret = instance->GetDC();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_DC, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::EraseEvent::Clone
@@ -6971,9 +6971,9 @@ static JSValue callback_method_Ozone_EraseEvent_Clone(JSContext* ctx, JSValueCon
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_EraseEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -7091,7 +7091,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_FocusEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -7112,9 +7112,9 @@ static JSValue callback_method_Ozone_FocusEvent_GetWindow(JSContext* ctx, JSValu
 
     ::Ozone::Window* __ret = instance->GetWindow();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::FocusEvent::SetWindow
@@ -7161,9 +7161,9 @@ static JSValue callback_method_Ozone_FocusEvent_Clone(JSContext* ctx, JSValueCon
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_FocusEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -7269,7 +7269,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ChildFocusEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -7290,9 +7290,9 @@ static JSValue callback_method_Ozone_ChildFocusEvent_GetWindow(JSContext* ctx, J
 
     ::Ozone::Window* __ret = instance->GetWindow();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::ChildFocusEvent::Clone
@@ -7308,9 +7308,9 @@ static JSValue callback_method_Ozone_ChildFocusEvent_Clone(JSContext* ctx, JSVal
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_ChildFocusEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -7457,7 +7457,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ActivateEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -7514,9 +7514,9 @@ static JSValue callback_method_Ozone_ActivateEvent_Clone(JSContext* ctx, JSValue
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_ActivateEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -7624,7 +7624,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_InitDialogEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -7645,9 +7645,9 @@ static JSValue callback_method_Ozone_InitDialogEvent_Clone(JSContext* ctx, JSVal
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_InitDialogEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -7758,9 +7758,9 @@ static JSValue callback_method_Ozone_MenuEvent_Clone(JSContext* ctx, JSValueCons
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_MenuEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -7875,7 +7875,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_CloseEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -8052,9 +8052,9 @@ static JSValue callback_method_Ozone_CloseEvent_Clone(JSContext* ctx, JSValueCon
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_CloseEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -8178,7 +8178,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ShowEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -8251,9 +8251,9 @@ static JSValue callback_method_Ozone_ShowEvent_Clone(JSContext* ctx, JSValueCons
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_ShowEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -8373,7 +8373,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_IconizeEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -8412,9 +8412,9 @@ static JSValue callback_method_Ozone_IconizeEvent_Clone(JSContext* ctx, JSValueC
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_IconizeEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -8521,7 +8521,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_MaximizeEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -8542,9 +8542,9 @@ static JSValue callback_method_Ozone_MaximizeEvent_Clone(JSContext* ctx, JSValue
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_MaximizeEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -8683,7 +8683,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_JoystickEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -8704,9 +8704,9 @@ static JSValue callback_method_Ozone_JoystickEvent_GetPosition(JSContext* ctx, J
 
     ::Ozone::Point __ret = instance->GetPosition();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::JoystickEvent::GetZPosition
@@ -9134,9 +9134,9 @@ static JSValue callback_method_Ozone_JoystickEvent_Clone(JSContext* ctx, JSValue
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_JoystickEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -9259,7 +9259,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_UpdateUIEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -9596,9 +9596,9 @@ static JSValue callback_method_Ozone_UpdateUIEvent_Clone(JSContext* ctx, JSValue
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::UpdateUIEvent::SetUpdateInterval
@@ -9814,7 +9814,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_SysColourChangedEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -9835,9 +9835,9 @@ static JSValue callback_method_Ozone_SysColourChangedEvent_Clone(JSContext* ctx,
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_SysColourChangedEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -9952,7 +9952,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_MouseCaptureChangedEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -9973,9 +9973,9 @@ static JSValue callback_method_Ozone_MouseCaptureChangedEvent_Clone(JSContext* c
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::MouseCaptureChangedEvent::GetCapturedWindow
@@ -9991,9 +9991,9 @@ static JSValue callback_method_Ozone_MouseCaptureChangedEvent_GetCapturedWindow(
 
     ::Ozone::Window* __ret = instance->GetCapturedWindow();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_MouseCaptureChangedEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -10100,7 +10100,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_MouseCaptureLostEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -10121,9 +10121,9 @@ static JSValue callback_method_Ozone_MouseCaptureLostEvent_Clone(JSContext* ctx,
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_MouseCaptureLostEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -10212,7 +10212,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_DisplayChangedEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -10233,9 +10233,9 @@ static JSValue callback_method_Ozone_DisplayChangedEvent_Clone(JSContext* ctx, J
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_DisplayChangedEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -10348,7 +10348,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_DPIChangedEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -10369,9 +10369,9 @@ static JSValue callback_method_Ozone_DPIChangedEvent_GetOldDPI(JSContext* ctx, J
 
     ::Ozone::Size __ret = instance->GetOldDPI();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::DPIChangedEvent::GetNewDPI
@@ -10387,9 +10387,9 @@ static JSValue callback_method_Ozone_DPIChangedEvent_GetNewDPI(JSContext* ctx, J
 
     ::Ozone::Size __ret = instance->GetNewDPI();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::DPIChangedEvent::Clone
@@ -10405,9 +10405,9 @@ static JSValue callback_method_Ozone_DPIChangedEvent_Clone(JSContext* ctx, JSVal
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_DPIChangedEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -10515,7 +10515,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_PaletteChangedEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -10567,9 +10567,9 @@ static JSValue callback_method_Ozone_PaletteChangedEvent_GetChangedWindow(JSCont
 
     ::Ozone::Window* __ret = instance->GetChangedWindow();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::PaletteChangedEvent::Clone
@@ -10585,9 +10585,9 @@ static JSValue callback_method_Ozone_PaletteChangedEvent_Clone(JSContext* ctx, J
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_PaletteChangedEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -10695,7 +10695,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_QueryNewPaletteEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -10768,9 +10768,9 @@ static JSValue callback_method_Ozone_QueryNewPaletteEvent_Clone(JSContext* ctx, 
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_QueryNewPaletteEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -10869,7 +10869,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_NavigationKeyEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -11046,9 +11046,9 @@ static JSValue callback_method_Ozone_NavigationKeyEvent_GetCurrentFocus(JSContex
 
     ::Ozone::Window* __ret = instance->GetCurrentFocus();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::NavigationKeyEvent::SetCurrentFocus
@@ -11128,9 +11128,9 @@ static JSValue callback_method_Ozone_NavigationKeyEvent_Clone(JSContext* ctx, JS
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::NavigationKeyEvent::get_m_flags
@@ -11197,9 +11197,9 @@ static JSValue callback_method_Ozone_NavigationKeyEvent_get_m_focus(JSContext* c
 
     ::Ozone::Window* __ret = instance->get_m_focus();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::NavigationKeyEvent::set_m_focus
@@ -11347,7 +11347,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_WindowCreateEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -11368,9 +11368,9 @@ static JSValue callback_method_Ozone_WindowCreateEvent_GetWindow(JSContext* ctx,
 
     ::Ozone::Window* __ret = instance->GetWindow();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::WindowCreateEvent::Clone
@@ -11386,9 +11386,9 @@ static JSValue callback_method_Ozone_WindowCreateEvent_Clone(JSContext* ctx, JSV
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_WindowCreateEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -11493,7 +11493,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_WindowDestroyEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -11514,9 +11514,9 @@ static JSValue callback_method_Ozone_WindowDestroyEvent_GetWindow(JSContext* ctx
 
     ::Ozone::Window* __ret = instance->GetWindow();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::WindowDestroyEvent::Clone
@@ -11532,9 +11532,9 @@ static JSValue callback_method_Ozone_WindowDestroyEvent_Clone(JSContext* ctx, JS
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_WindowDestroyEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -11679,7 +11679,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_HelpEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -11803,9 +11803,9 @@ static JSValue callback_method_Ozone_HelpEvent_Clone(JSContext* ctx, JSValueCons
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::HelpEvent::GetOrigin
@@ -11978,7 +11978,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ClipboardTextEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -11999,9 +11999,9 @@ static JSValue callback_method_Ozone_ClipboardTextEvent_Clone(JSContext* ctx, JS
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_ClipboardTextEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -12127,7 +12127,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_ContextMenuEvent);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -12179,9 +12179,9 @@ static JSValue callback_method_Ozone_ContextMenuEvent_Clone(JSContext* ctx, JSVa
 
     ::Ozone::Event* __ret = instance->Clone();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 static JSValue callback_class_Ozone_ContextMenuEvent_toString(JSContext* ctx, JSValueConst this_val,
@@ -12271,7 +12271,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_EvtHandler);
     JS_FreeValue(ctx, proto);
 
-    JS_SetOpaque(__obj, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -12292,9 +12292,9 @@ static JSValue callback_method_Ozone_EvtHandler_GetNextHandler(JSContext* ctx, J
 
     ::Ozone::EvtHandler* __ret = instance->GetNextHandler();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::EvtHandler::GetPreviousHandler
@@ -12310,9 +12310,9 @@ static JSValue callback_method_Ozone_EvtHandler_GetPreviousHandler(JSContext* ct
 
     ::Ozone::EvtHandler* __ret = instance->GetPreviousHandler();
 
-    JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
 
-    return ____ret_instance;
+    return ____ret;
 }
 
 // Ozone::EvtHandler::SetNextHandler
@@ -13018,9 +13018,9 @@ overload0:
         auto __arg0 = ancestor_instance;
         ::Ozone::Window* __ret = ::Ozone::FindFocusDescendant(__arg0);
 
-        JSValue ____ret_instance = JS_NewObjectClass(ctx, 0);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
-        return ____ret_instance;
+        return ____ret;
     }
 }
 

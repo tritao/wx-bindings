@@ -174,3 +174,5 @@ extern "C" JSValue js_Exit(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv);
 extern "C" JSValue js_WakeUpIdle(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv);
+extern "C" JSValue js_CreateApp(JSContext* ctx, JSValueConst this_val,
+    int argc, JSValueConst* argv);

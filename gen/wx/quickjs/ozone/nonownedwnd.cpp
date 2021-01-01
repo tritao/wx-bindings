@@ -79,7 +79,7 @@ error:
     // bool SetShape(const ::Ozone::GraphicsPath& path)
 overload0:
     {
-        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsPath);
+        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsPath, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *path_instance;
         bool __ret = instance->SetShape(__arg0);

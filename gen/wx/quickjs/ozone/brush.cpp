@@ -156,12 +156,14 @@ overload0:
     // Brush(const ::Ozone::Color& colour, ::Ozone::BrushStyle style)
 overload1:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *colour_instance;
         int style;
-        if (JS_ToInt32(ctx, (int32_t*) &style, argv[1]))
+        int32_t _style;
+        if (JS_ToInt32(ctx, &_style, argv[1]))
             return JS_EXCEPTION;
+        style = (int)_style;
 
         auto __arg1 = (::Ozone::BrushStyle)style;
         instance = new Ozone::Brush(__arg0, __arg1);
@@ -211,7 +213,7 @@ error:
     // bool operator==(const ::Ozone::Brush& brush) const
 overload0:
     {
-        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_GetOpaque(argv[0], classId_Ozone_Brush);
+        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_Interop_GetInstance(argv[0], classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *brush_instance;
         bool __ret = instance->operator==(__arg0);
@@ -244,7 +246,7 @@ error:
     // bool operator!=(const ::Ozone::Brush& brush) const
 overload0:
     {
-        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_GetOpaque(argv[0], classId_Ozone_Brush);
+        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_Interop_GetInstance(argv[0], classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *brush_instance;
         bool __ret = instance->operator!=(__arg0);
@@ -328,7 +330,7 @@ error:
     // void SetColour(const ::Ozone::Color& col)
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *col_instance;
         instance->SetColour(__arg0);
@@ -390,8 +392,10 @@ error:
 overload0:
     {
         int style;
-        if (JS_ToInt32(ctx, (int32_t*) &style, argv[0]))
+        int32_t _style;
+        if (JS_ToInt32(ctx, &_style, argv[0]))
             return JS_EXCEPTION;
+        style = (int)_style;
 
         auto __arg0 = (::Ozone::BrushStyle)style;
         instance->SetStyle(__arg0);
@@ -575,12 +579,14 @@ error:
     // ::Ozone::Brush* FindOrCreateBrush(const ::Ozone::Color& colour, ::Ozone::BrushStyle style)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *colour_instance;
         int style;
-        if (JS_ToInt32(ctx, (int32_t*) &style, argv[1]))
+        int32_t _style;
+        if (JS_ToInt32(ctx, &_style, argv[1]))
             return JS_EXCEPTION;
+        style = (int)_style;
 
         auto __arg1 = (::Ozone::BrushStyle)style;
         ::Ozone::Brush* __ret = instance->FindOrCreateBrush(__arg0, __arg1);

@@ -206,4 +206,5 @@ namespace Ozone
 
     void Exit();
     void WakeUpIdle();
+    ::Ozone::AppConsole* CreateApp();
 }

@@ -29,6 +29,7 @@ namespace Ozone
 {
     enum class FrameFlags : signed char
     {
+        CENTRE = 1,
         FRAME_NO_TASKBAR = 2,
         FRAME_TOOL_WINDOW = 4,
         FRAME_FLOAT_ON_PARENT = 8

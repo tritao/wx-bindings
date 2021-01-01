@@ -41,7 +41,7 @@ error:
     // WindowDC(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         instance = new Ozone::WindowDC(__arg0);
@@ -149,7 +149,7 @@ error:
     // ClientDC(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         instance = new Ozone::ClientDC(__arg0);
@@ -257,7 +257,7 @@ error:
     // PaintDC(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         instance = new Ozone::PaintDC(__arg0);

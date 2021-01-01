@@ -261,17 +261,21 @@ error:
     // explicit PenInfo(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *colour_instance;
         int width;
-        if (JS_ToInt32(ctx, (int32_t*) &width, argv[1]))
+        int32_t _width;
+        if (JS_ToInt32(ctx, &_width, argv[1]))
             return JS_EXCEPTION;
+        width = (int)_width;
 
         auto __arg1 = width;
         int style;
-        if (JS_ToInt32(ctx, (int32_t*) &style, argv[2]))
+        int32_t _style;
+        if (JS_ToInt32(ctx, &_style, argv[2]))
             return JS_EXCEPTION;
+        style = (int)_style;
 
         auto __arg2 = (::Ozone::PenStyle)style;
         instance = new Ozone::PenInfo(__arg0, __arg1, __arg2);
@@ -529,17 +533,21 @@ overload0:
     // Pen(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style)
 overload1:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *colour_instance;
         int width;
-        if (JS_ToInt32(ctx, (int32_t*) &width, argv[1]))
+        int32_t _width;
+        if (JS_ToInt32(ctx, &_width, argv[1]))
             return JS_EXCEPTION;
+        width = (int)_width;
 
         auto __arg1 = width;
         int style;
-        if (JS_ToInt32(ctx, (int32_t*) &style, argv[2]))
+        int32_t _style;
+        if (JS_ToInt32(ctx, &_style, argv[2]))
             return JS_EXCEPTION;
+        style = (int)_style;
 
         auto __arg2 = (::Ozone::PenStyle)style;
         instance = new Ozone::Pen(__arg0, __arg1, __arg2);
@@ -550,7 +558,7 @@ overload1:
     // Pen(const ::Ozone::PenInfo& info)
 overload2:
     {
-        Ozone::PenInfo* info_instance = (Ozone::PenInfo*) JS_GetOpaque(argv[0], classId_Ozone_PenInfo);
+        Ozone::PenInfo* info_instance = (Ozone::PenInfo*) JS_Interop_GetInstance(argv[0], classId_Ozone_PenInfo, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *info_instance;
         instance = new Ozone::Pen(__arg0);
@@ -600,7 +608,7 @@ error:
     // bool operator==(const ::Ozone::Pen& pen) const
 overload0:
     {
-        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_GetOpaque(argv[0], classId_Ozone_Pen);
+        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance(argv[0], classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pen_instance;
         bool __ret = instance->operator==(__arg0);
@@ -633,7 +641,7 @@ error:
     // bool operator!=(const ::Ozone::Pen& pen) const
 overload0:
     {
-        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_GetOpaque(argv[0], classId_Ozone_Pen);
+        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance(argv[0], classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pen_instance;
         bool __ret = instance->operator!=(__arg0);
@@ -681,7 +689,7 @@ error:
     // void SetColour(const ::Ozone::Color& colour)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *colour_instance;
         instance->SetColour(__arg0);
@@ -743,8 +751,10 @@ error:
 overload0:
     {
         int capStyle;
-        if (JS_ToInt32(ctx, (int32_t*) &capStyle, argv[0]))
+        int32_t _capStyle;
+        if (JS_ToInt32(ctx, &_capStyle, argv[0]))
             return JS_EXCEPTION;
+        capStyle = (int)_capStyle;
 
         auto __arg0 = (::Ozone::PenCap)capStyle;
         instance->SetCap(__arg0);
@@ -776,8 +786,10 @@ error:
 overload0:
     {
         int joinStyle;
-        if (JS_ToInt32(ctx, (int32_t*) &joinStyle, argv[0]))
+        int32_t _joinStyle;
+        if (JS_ToInt32(ctx, &_joinStyle, argv[0]))
             return JS_EXCEPTION;
+        joinStyle = (int)_joinStyle;
 
         auto __arg0 = (::Ozone::PenJoin)joinStyle;
         instance->SetJoin(__arg0);
@@ -809,8 +821,10 @@ error:
 overload0:
     {
         int style;
-        if (JS_ToInt32(ctx, (int32_t*) &style, argv[0]))
+        int32_t _style;
+        if (JS_ToInt32(ctx, &_style, argv[0]))
             return JS_EXCEPTION;
+        style = (int)_style;
 
         auto __arg0 = (::Ozone::PenStyle)style;
         instance->SetStyle(__arg0);
@@ -842,8 +856,10 @@ error:
 overload0:
     {
         int width;
-        if (JS_ToInt32(ctx, (int32_t*) &width, argv[0]))
+        int32_t _width;
+        if (JS_ToInt32(ctx, &_width, argv[0]))
             return JS_EXCEPTION;
+        width = (int)_width;
 
         auto __arg0 = width;
         instance->SetWidth(__arg0);
@@ -1129,17 +1145,21 @@ error:
     // ::Ozone::Pen* FindOrCreatePen(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *colour_instance;
         int width;
-        if (JS_ToInt32(ctx, (int32_t*) &width, argv[1]))
+        int32_t _width;
+        if (JS_ToInt32(ctx, &_width, argv[1]))
             return JS_EXCEPTION;
+        width = (int)_width;
 
         auto __arg1 = width;
         int style;
-        if (JS_ToInt32(ctx, (int32_t*) &style, argv[2]))
+        int32_t _style;
+        if (JS_ToInt32(ctx, &_style, argv[2]))
             return JS_EXCEPTION;
+        style = (int)_style;
 
         auto __arg2 = (::Ozone::PenStyle)style;
         ::Ozone::Pen* __ret = instance->FindOrCreatePen(__arg0, __arg1, __arg2);

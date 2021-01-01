@@ -228,7 +228,7 @@ error:
     // void SetRefData(::Ozone::RefCounter* data)
 overload0:
     {
-        Ozone::RefCounter* data_instance = (Ozone::RefCounter*) JS_GetOpaque(argv[0], classId_Ozone_RefCounter);
+        Ozone::RefCounter* data_instance = (Ozone::RefCounter*) JS_Interop_GetInstance(argv[0], classId_Ozone_RefCounter, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = data_instance;
         instance->SetRefData(__arg0);
@@ -259,7 +259,7 @@ error:
     // void Ref(const ::Ozone::Object& clone)
 overload0:
     {
-        Ozone::Object* clone_instance = (Ozone::Object*) JS_GetOpaque(argv[0], classId_Ozone_Object);
+        Ozone::Object* clone_instance = (Ozone::Object*) JS_Interop_GetInstance(argv[0], classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *clone_instance;
         instance->Ref(__arg0);
@@ -322,7 +322,7 @@ error:
     // bool IsSameAs(const ::Ozone::Object& o) const
 overload0:
     {
-        Ozone::Object* o_instance = (Ozone::Object*) JS_GetOpaque(argv[0], classId_Ozone_Object);
+        Ozone::Object* o_instance = (Ozone::Object*) JS_Interop_GetInstance(argv[0], classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *o_instance;
         bool __ret = instance->IsSameAs(__arg0);

@@ -1941,6 +1941,111 @@ static void register_enum_Ozone_SizerFlagBits(JSContext *ctx, JSModuleDef *m, bo
     assert(status != -1);
 }
 
+static void register_enum_Ozone_SizerLayoutFlags(JSContext *ctx, JSModuleDef *m, bool set)
+{
+    if (!set)
+    {
+        int status = JS_AddModuleExport(ctx, m, "SizerLayoutFlags");
+        assert(status != -1);
+        return;
+    }
+
+    JSValue val = JS_NewObject(ctx);
+
+    // wxLEFT
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x10);
+        JS_SetPropertyStr(ctx, val, "wxLEFT", __item);
+    }
+
+    // wxRIGHT
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x20);
+        JS_SetPropertyStr(ctx, val, "wxRIGHT", __item);
+    }
+
+    // wxTOP
+    {
+        JSValue __item = JS_NewInt32(ctx, 64);
+        JS_SetPropertyStr(ctx, val, "wxTOP", __item);
+    }
+
+    // wxBOTTOM
+    {
+        JSValue __item = JS_NewInt32(ctx, 128);
+        JS_SetPropertyStr(ctx, val, "wxBOTTOM", __item);
+    }
+
+    // ALL
+    {
+        JSValue __item = JS_NewInt32(ctx, 240);
+        JS_SetPropertyStr(ctx, val, "ALL", __item);
+    }
+
+    // CENTER_HORIZONTAL
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x100);
+        JS_SetPropertyStr(ctx, val, "CENTER_HORIZONTAL", __item);
+    }
+
+    // LEFT
+    {
+        JSValue __item = JS_NewInt32(ctx, 0);
+        JS_SetPropertyStr(ctx, val, "LEFT", __item);
+    }
+
+    // TOP
+    {
+        JSValue __item = JS_NewInt32(ctx, 0);
+        JS_SetPropertyStr(ctx, val, "TOP", __item);
+    }
+
+    // RIGHT
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x200);
+        JS_SetPropertyStr(ctx, val, "RIGHT", __item);
+    }
+
+    // BOTTOM
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x400);
+        JS_SetPropertyStr(ctx, val, "BOTTOM", __item);
+    }
+
+    // CENTER_VERTICAL
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x800);
+        JS_SetPropertyStr(ctx, val, "CENTER_VERTICAL", __item);
+    }
+
+    // CENTER
+    {
+        JSValue __item = JS_NewInt32(ctx, 2304);
+        JS_SetPropertyStr(ctx, val, "CENTER", __item);
+    }
+
+    // FIXED_MINSIZE
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x8000);
+        JS_SetPropertyStr(ctx, val, "FIXED_MINSIZE", __item);
+    }
+
+    // RESERVE_SPACE_EVEN_IF_HIDDEN
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x2);
+        JS_SetPropertyStr(ctx, val, "RESERVE_SPACE_EVEN_IF_HIDDEN", __item);
+    }
+
+    // EXPAND
+    {
+        JSValue __item = JS_NewInt32(ctx, 8192);
+        JS_SetPropertyStr(ctx, val, "EXPAND", __item);
+    }
+
+    int status = JS_SetModuleExport(ctx, m, "SizerLayoutFlags", val);
+    assert(status != -1);
+}
+
 static void register_enum_Ozone_StandardID(JSContext *ctx, JSModuleDef *m, bool set)
 {
     if (!set)
@@ -2904,6 +3009,93 @@ static void register_enum_Ozone_TOOL(JSContext *ctx, JSModuleDef *m, bool set)
     assert(status != -1);
 }
 
+static void register_enum_Ozone_WindowFlags(JSContext *ctx, JSModuleDef *m, bool set)
+{
+    if (!set)
+    {
+        int status = JS_AddModuleExport(ctx, m, "WindowFlags");
+        assert(status != -1);
+        return;
+    }
+
+    JSValue val = JS_NewObject(ctx);
+
+    // NONE
+    {
+        JSValue __item = JS_NewInt32(ctx, 2097152);
+        JS_SetPropertyStr(ctx, val, "NONE", __item);
+    }
+
+    // FULL_REPAINT_ON_RESIZE
+    {
+        JSValue __item = JS_NewInt32(ctx, 65536);
+        JS_SetPropertyStr(ctx, val, "FULL_REPAINT_ON_RESIZE", __item);
+    }
+
+    // POPUP_WINDOW
+    {
+        JSValue __item = JS_NewInt32(ctx, 131072);
+        JS_SetPropertyStr(ctx, val, "POPUP_WINDOW", __item);
+    }
+
+    // WANTS_CHARS
+    {
+        JSValue __item = JS_NewInt32(ctx, 262144);
+        JS_SetPropertyStr(ctx, val, "WANTS_CHARS", __item);
+    }
+
+    // TAB_TRAVERSAL
+    {
+        JSValue __item = JS_NewInt32(ctx, 524288);
+        JS_SetPropertyStr(ctx, val, "TAB_TRAVERSAL", __item);
+    }
+
+    // TRANSPARENT_WINDOW
+    {
+        JSValue __item = JS_NewInt32(ctx, 1048576);
+        JS_SetPropertyStr(ctx, val, "TRANSPARENT_WINDOW", __item);
+    }
+
+    // CLIP_CHILDREN
+    {
+        JSValue __item = JS_NewInt32(ctx, 4194304);
+        JS_SetPropertyStr(ctx, val, "CLIP_CHILDREN", __item);
+    }
+
+    // ALWAYS_SHOW_SB
+    {
+        JSValue __item = JS_NewInt32(ctx, 8388608);
+        JS_SetPropertyStr(ctx, val, "ALWAYS_SHOW_SB", __item);
+    }
+
+    // CAPTION
+    {
+        JSValue __item = JS_NewInt32(ctx, 536870912);
+        JS_SetPropertyStr(ctx, val, "CAPTION", __item);
+    }
+
+    // CLIP_SIBLINGS
+    {
+        JSValue __item = JS_NewInt32(ctx, 536870912);
+        JS_SetPropertyStr(ctx, val, "CLIP_SIBLINGS", __item);
+    }
+
+    // HSCROLL
+    {
+        JSValue __item = JS_NewInt32(ctx, 1073741824);
+        JS_SetPropertyStr(ctx, val, "HSCROLL", __item);
+    }
+
+    // VSCROLL
+    {
+        JSValue __item = JS_NewInt32(ctx, -2147483648);
+        JS_SetPropertyStr(ctx, val, "VSCROLL", __item);
+    }
+
+    int status = JS_SetModuleExport(ctx, m, "WindowFlags", val);
+    assert(status != -1);
+}
+
 void register_ozone_defs(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (phase == 0)
@@ -2938,11 +3130,15 @@ void register_ozone_defs(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 
         register_enum_Ozone_SizerFlagBits(ctx, m, set);
 
+        register_enum_Ozone_SizerLayoutFlags(ctx, m, set);
+
         register_enum_Ozone_StandardID(ctx, m, set);
 
         register_enum_Ozone_Stretch(ctx, m, set);
 
         register_enum_Ozone_TOOL(ctx, m, set);
+
+        register_enum_Ozone_WindowFlags(ctx, m, set);
     }
 }
 

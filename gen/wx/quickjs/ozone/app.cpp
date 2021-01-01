@@ -615,7 +615,7 @@ error:
     // void RemovePendingEventHandler(::Ozone::EvtHandler* toRemove)
 overload0:
     {
-        Ozone::EvtHandler* toRemove_instance = (Ozone::EvtHandler*) JS_GetOpaque(argv[0], classId_Ozone_EvtHandler);
+        Ozone::EvtHandler* toRemove_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = toRemove_instance;
         instance->RemovePendingEventHandler(__arg0);
@@ -646,7 +646,7 @@ error:
     // void AppendPendingEventHandler(::Ozone::EvtHandler* toAppend)
 overload0:
     {
-        Ozone::EvtHandler* toAppend_instance = (Ozone::EvtHandler*) JS_GetOpaque(argv[0], classId_Ozone_EvtHandler);
+        Ozone::EvtHandler* toAppend_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = toAppend_instance;
         instance->AppendPendingEventHandler(__arg0);
@@ -677,7 +677,7 @@ error:
     // void DelayPendingEventHandler(::Ozone::EvtHandler* toDelay)
 overload0:
     {
-        Ozone::EvtHandler* toDelay_instance = (Ozone::EvtHandler*) JS_GetOpaque(argv[0], classId_Ozone_EvtHandler);
+        Ozone::EvtHandler* toDelay_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = toDelay_instance;
         instance->DelayPendingEventHandler(__arg0);
@@ -724,7 +724,7 @@ error:
     // void ScheduleForDestruction(::Ozone::Object* object)
 overload0:
     {
-        Ozone::Object* object_instance = (Ozone::Object*) JS_GetOpaque(argv[0], classId_Ozone_Object);
+        Ozone::Object* object_instance = (Ozone::Object*) JS_Interop_GetInstance(argv[0], classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = object_instance;
         instance->ScheduleForDestruction(__arg0);
@@ -755,7 +755,7 @@ error:
     // bool IsScheduledForDestruction(::Ozone::Object* object) const
 overload0:
     {
-        Ozone::Object* object_instance = (Ozone::Object*) JS_GetOpaque(argv[0], classId_Ozone_Object);
+        Ozone::Object* object_instance = (Ozone::Object*) JS_Interop_GetInstance(argv[0], classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = object_instance;
         bool __ret = instance->IsScheduledForDestruction(__arg0);
@@ -965,8 +965,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_argc(__arg0);
@@ -1076,7 +1078,7 @@ error:
     // void SetInstance(::Ozone::AppConsole* app)
 overload0:
     {
-        Ozone::AppConsole* app_instance = (Ozone::AppConsole*) JS_GetOpaque(argv[0], classId_Ozone_AppConsole);
+        Ozone::AppConsole* app_instance = (Ozone::AppConsole*) JS_Interop_GetInstance(argv[0], classId_Ozone_AppConsole, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = app_instance;
         ::Ozone::AppConsole::SetInstance(__arg0);
@@ -1609,7 +1611,7 @@ error:
     // bool SafeYield(::Ozone::Window* win, bool onlyIfNeeded)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         bool onlyIfNeeded;
@@ -1655,12 +1657,14 @@ error:
     // bool SafeYieldFor(::Ozone::Window* win, long eventsToProcess)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         long eventsToProcess;
-        if (JS_ToInt32(ctx, (int32_t*) &eventsToProcess, argv[1]))
+        int32_t _eventsToProcess;
+        if (JS_ToInt32(ctx, &_eventsToProcess, argv[1]))
             return JS_EXCEPTION;
+        eventsToProcess = (long)_eventsToProcess;
 
         auto __arg1 = eventsToProcess;
         bool __ret = instance->SafeYieldFor(__arg0, __arg1);
@@ -1751,7 +1755,7 @@ error:
     // void SetTopWindow(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         instance->SetTopWindow(__arg0);
@@ -1923,8 +1927,10 @@ error:
 overload0:
     {
         int _0;
-        if (JS_ToInt32(ctx, (int32_t*) &_0, argv[0]))
+        int32_t __0;
+        if (JS_ToInt32(ctx, &__0, argv[0]))
             return JS_EXCEPTION;
+        _0 = (int)__0;
 
         auto __arg0 = _0;
         instance->SetPrintMode(__arg0);
@@ -1987,7 +1993,7 @@ overload0:
             return JS_EXCEPTION;
 
         auto __arg0 = isActive;
-        Ozone::Window* lastFocus_instance = (Ozone::Window*) JS_GetOpaque(argv[1], classId_Ozone_Window);
+        Ozone::Window* lastFocus_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[1], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg1 = lastFocus_instance;
         instance->SetActive(__arg0, __arg1);
@@ -2137,6 +2143,36 @@ static void register_function_Ozone_WakeUpIdle(JSContext *ctx, JSModuleDef *m, b
     assert(status != -1);
 }
 
+// Ozone::CreateApp
+static JSValue callback_function_Ozone_CreateApp(JSContext* ctx, JSValueConst this_val,
+    int argc, JSValueConst* argv)
+{
+    if (argc > 0)
+    {
+        return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
+    }
+
+    ::Ozone::AppConsole* __ret = ::Ozone::CreateApp();
+
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_AppConsole, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
+
+    return ____ret;
+}
+
+static void register_function_Ozone_CreateApp(JSContext *ctx, JSModuleDef *m, bool set)
+{
+    if (!set)
+    {
+        int status = JS_AddModuleExport(ctx, m, "CreateApp");
+        assert(status != -1);
+        return;
+    }
+
+    JSValue val = JS_NewCFunction(ctx, callback_function_Ozone_CreateApp, "CreateApp", 0);
+    int status = JS_SetModuleExport(ctx, m, "CreateApp", val);
+    assert(status != -1);
+}
+
 void register_ozone_app(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (phase == 0)
@@ -2144,6 +2180,8 @@ void register_ozone_app(JSContext *ctx, JSModuleDef *m, bool set, int phase)
         register_function_Ozone_Exit(ctx, m, set);
 
         register_function_Ozone_WakeUpIdle(ctx, m, set);
+
+        register_function_Ozone_CreateApp(ctx, m, set);
     }
 
     register_class_Ozone_AppConsole(ctx, m, set, phase);

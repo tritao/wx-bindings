@@ -270,7 +270,7 @@ overload0:
     // GraphicsObject(::Ozone::GraphicsRenderer* renderer)
 overload1:
     {
-        Ozone::GraphicsRenderer* renderer_instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsRenderer);
+        Ozone::GraphicsRenderer* renderer_instance = (Ozone::GraphicsRenderer*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsRenderer, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = renderer_instance;
         instance = new Ozone::GraphicsObject(__arg0);
@@ -823,7 +823,7 @@ error:
     // void Concat(const ::Ozone::GraphicsMatrix& t)
 overload0:
     {
-        Ozone::GraphicsMatrix* t_instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsMatrix);
+        Ozone::GraphicsMatrix* t_instance = (Ozone::GraphicsMatrix*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *t_instance;
         instance->Concat(__arg0);
@@ -958,7 +958,7 @@ error:
     // bool IsEqual(const ::Ozone::GraphicsMatrix& t) const
 overload0:
     {
-        Ozone::GraphicsMatrix* t_instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsMatrix);
+        Ozone::GraphicsMatrix* t_instance = (Ozone::GraphicsMatrix*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *t_instance;
         bool __ret = instance->IsEqual(__arg0);
@@ -1202,7 +1202,7 @@ error:
     // GraphicsGradientStop(::Ozone::Color col, float pos)
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = *col_instance;
         float pos;
@@ -1259,7 +1259,7 @@ error:
     // void SetColour(const ::Ozone::Color& col)
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *col_instance;
         instance->SetColour(__arg0);
@@ -1401,10 +1401,10 @@ error:
     // GraphicsGradientStops(::Ozone::Color startCol, ::Ozone::Color endCol)
 overload0:
     {
-        Ozone::Color* startCol_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* startCol_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = *startCol_instance;
-        Ozone::Color* endCol_instance = (Ozone::Color*) JS_GetOpaque(argv[1], classId_Ozone_Color);
+        Ozone::Color* endCol_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[1], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg1 = *endCol_instance;
         instance = new Ozone::GraphicsGradientStops(__arg0, __arg1);
@@ -1463,7 +1463,7 @@ error:
     // void Add(const ::Ozone::GraphicsGradientStop& stop)
 overload0:
     {
-        Ozone::GraphicsGradientStop* stop_instance = (Ozone::GraphicsGradientStop*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsGradientStop);
+        Ozone::GraphicsGradientStop* stop_instance = (Ozone::GraphicsGradientStop*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsGradientStop, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *stop_instance;
         instance->Add(__arg0);
@@ -1475,7 +1475,7 @@ overload0:
     // void Add(::Ozone::Color col, float pos)
 overload1:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = *col_instance;
         float pos;
@@ -1532,8 +1532,10 @@ error:
 overload0:
     {
         unsigned int n;
-        if (JS_ToUint32(ctx, (uint32_t*) &n, argv[0]))
+        uint32_t _n;
+        if (JS_ToUint32(ctx, &_n, argv[0]))
             return JS_EXCEPTION;
+        n = (unsigned int)_n;
 
         auto __arg0 = n;
         ::Ozone::GraphicsGradientStop __ret = instance->Item(__arg0);
@@ -1566,7 +1568,7 @@ error:
     // void SetStartColour(::Ozone::Color col)
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = *col_instance;
         instance->SetStartColour(__arg0);
@@ -1615,7 +1617,7 @@ error:
     // void SetEndColour(::Ozone::Color col)
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = *col_instance;
         instance->SetEndColour(__arg0);
@@ -1732,7 +1734,7 @@ error:
     // explicit GraphicsPenInfo(const ::Ozone::Color& colour, double width, ::Ozone::PenStyle style)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *colour_instance;
         double width;
@@ -1741,8 +1743,10 @@ overload0:
 
         auto __arg1 = width;
         int style;
-        if (JS_ToInt32(ctx, (int32_t*) &style, argv[2]))
+        int32_t _style;
+        if (JS_ToInt32(ctx, &_style, argv[2]))
             return JS_EXCEPTION;
+        style = (int)_style;
 
         auto __arg2 = (::Ozone::PenStyle)style;
         instance = new Ozone::GraphicsPenInfo(__arg0, __arg1, __arg2);
@@ -2375,7 +2379,7 @@ error:
     // void AddPath(const ::Ozone::GraphicsPath& path)
 overload0:
     {
-        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsPath);
+        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsPath, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *path_instance;
         instance->AddPath(__arg0);
@@ -2918,7 +2922,7 @@ error:
     // void Transform(const ::Ozone::GraphicsMatrix& matrix)
 overload0:
     {
-        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsMatrix);
+        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *matrix_instance;
         instance->Transform(__arg0);
@@ -2972,8 +2976,10 @@ overload0:
 
         auto __arg1 = y;
         unsigned int fillStyle;
-        if (JS_ToUint32(ctx, (uint32_t*) &fillStyle, argv[2]))
+        uint32_t _fillStyle;
+        if (JS_ToUint32(ctx, &_fillStyle, argv[2]))
             return JS_EXCEPTION;
+        fillStyle = (unsigned int)_fillStyle;
 
         auto __arg2 = (::Ozone::PolygonFillMode)fillStyle;
         bool __ret = instance->Contains(__arg0, __arg1, __arg2);
@@ -3084,10 +3090,10 @@ error:
     // GraphicsContext(::Ozone::GraphicsRenderer* renderer, ::Ozone::Window* window)
 overload0:
     {
-        Ozone::GraphicsRenderer* renderer_instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsRenderer);
+        Ozone::GraphicsRenderer* renderer_instance = (Ozone::GraphicsRenderer*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsRenderer, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = renderer_instance;
-        Ozone::Window* window_instance = (Ozone::Window*) JS_GetOpaque(argv[1], classId_Ozone_Window);
+        Ozone::Window* window_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[1], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg1 = window_instance;
         instance = new Ozone::GraphicsContext(__arg0, __arg1);
@@ -3306,7 +3312,7 @@ error:
     // ::Ozone::GraphicsPen CreatePen(const ::Ozone::Pen& pen) const
 overload0:
     {
-        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_GetOpaque(argv[0], classId_Ozone_Pen);
+        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance(argv[0], classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pen_instance;
         ::Ozone::GraphicsPen __ret = instance->CreatePen(__arg0);
@@ -3320,7 +3326,7 @@ overload0:
     // ::Ozone::GraphicsPen CreatePen(const ::Ozone::GraphicsPenInfo& info) const
 overload1:
     {
-        Ozone::GraphicsPenInfo* info_instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsPenInfo);
+        Ozone::GraphicsPenInfo* info_instance = (Ozone::GraphicsPenInfo*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsPenInfo, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *info_instance;
         ::Ozone::GraphicsPen __ret = instance->CreatePen(__arg0);
@@ -3353,7 +3359,7 @@ error:
     // ::Ozone::GraphicsBrush CreateBrush(const ::Ozone::Brush& brush) const
 overload0:
     {
-        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_GetOpaque(argv[0], classId_Ozone_Brush);
+        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_Interop_GetInstance(argv[0], classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *brush_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateBrush(__arg0);
@@ -3451,13 +3457,13 @@ overload0:
             return JS_EXCEPTION;
 
         auto __arg3 = y2;
-        Ozone::Color* c1_instance = (Ozone::Color*) JS_GetOpaque(argv[4], classId_Ozone_Color);
+        Ozone::Color* c1_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[4], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg4 = *c1_instance;
-        Ozone::Color* c2_instance = (Ozone::Color*) JS_GetOpaque(argv[5], classId_Ozone_Color);
+        Ozone::Color* c2_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[5], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg5 = *c2_instance;
-        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(argv[6], classId_Ozone_GraphicsMatrix);
+        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_Interop_GetInstance(argv[6], classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg6 = *matrix_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateLinearGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5, __arg6);
@@ -3491,10 +3497,10 @@ overload1:
             return JS_EXCEPTION;
 
         auto __arg3 = y2;
-        Ozone::GraphicsGradientStops* stops_instance = (Ozone::GraphicsGradientStops*) JS_GetOpaque(argv[4], classId_Ozone_GraphicsGradientStops);
+        Ozone::GraphicsGradientStops* stops_instance = (Ozone::GraphicsGradientStops*) JS_Interop_GetInstance(argv[4], classId_Ozone_GraphicsGradientStops, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg4 = *stops_instance;
-        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(argv[5], classId_Ozone_GraphicsMatrix);
+        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_Interop_GetInstance(argv[5], classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg5 = *matrix_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateLinearGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5);
@@ -3603,13 +3609,13 @@ overload0:
             return JS_EXCEPTION;
 
         auto __arg4 = radius;
-        Ozone::Color* oColor_instance = (Ozone::Color*) JS_GetOpaque(argv[5], classId_Ozone_Color);
+        Ozone::Color* oColor_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[5], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg5 = *oColor_instance;
-        Ozone::Color* cColor_instance = (Ozone::Color*) JS_GetOpaque(argv[6], classId_Ozone_Color);
+        Ozone::Color* cColor_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[6], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg6 = *cColor_instance;
-        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(argv[7], classId_Ozone_GraphicsMatrix);
+        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_Interop_GetInstance(argv[7], classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg7 = *matrix_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateRadialGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5, __arg6, __arg7);
@@ -3648,10 +3654,10 @@ overload1:
             return JS_EXCEPTION;
 
         auto __arg4 = radius;
-        Ozone::GraphicsGradientStops* stops_instance = (Ozone::GraphicsGradientStops*) JS_GetOpaque(argv[5], classId_Ozone_GraphicsGradientStops);
+        Ozone::GraphicsGradientStops* stops_instance = (Ozone::GraphicsGradientStops*) JS_Interop_GetInstance(argv[5], classId_Ozone_GraphicsGradientStops, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg5 = *stops_instance;
-        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(argv[6], classId_Ozone_GraphicsMatrix);
+        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_Interop_GetInstance(argv[6], classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg6 = *matrix_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateRadialGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5, __arg6);
@@ -3714,11 +3720,13 @@ overload0:
 
         auto __arg1 = facename;
         int flags;
-        if (JS_ToInt32(ctx, (int32_t*) &flags, argv[2]))
+        int32_t _flags;
+        if (JS_ToInt32(ctx, &_flags, argv[2]))
             return JS_EXCEPTION;
+        flags = (int)_flags;
 
         auto __arg2 = flags;
-        Ozone::Color* col_instance = (Ozone::Color*) JS_GetOpaque(argv[3], classId_Ozone_Color);
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[3], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg3 = *col_instance;
         ::Ozone::GraphicsFont __ret = instance->CreateFont(__arg0, __arg1, __arg2, __arg3);
@@ -3777,7 +3785,7 @@ error:
     // ::Ozone::GraphicsBitmap CreateSubBitmap(const ::Ozone::GraphicsBitmap& bitmap, double x, double y, double w, double h) const
 overload0:
     {
-        Ozone::GraphicsBitmap* bitmap_instance = (Ozone::GraphicsBitmap*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsBitmap);
+        Ozone::GraphicsBitmap* bitmap_instance = (Ozone::GraphicsBitmap*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsBitmap, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *bitmap_instance;
         double x;
@@ -4053,8 +4061,10 @@ error:
 overload0:
     {
         unsigned int antialias;
-        if (JS_ToUint32(ctx, (uint32_t*) &antialias, argv[0]))
+        uint32_t _antialias;
+        if (JS_ToUint32(ctx, &_antialias, argv[0]))
             return JS_EXCEPTION;
+        antialias = (unsigned int)_antialias;
 
         auto __arg0 = (::Ozone::AntialiasMode)antialias;
         bool __ret = instance->SetAntialiasMode(__arg0);
@@ -4106,8 +4116,10 @@ error:
 overload0:
     {
         unsigned int interpolation;
-        if (JS_ToUint32(ctx, (uint32_t*) &interpolation, argv[0]))
+        uint32_t _interpolation;
+        if (JS_ToUint32(ctx, &_interpolation, argv[0]))
             return JS_EXCEPTION;
+        interpolation = (unsigned int)_interpolation;
 
         auto __arg0 = (::Ozone::InterpolationQuality)interpolation;
         bool __ret = instance->SetInterpolationQuality(__arg0);
@@ -4159,8 +4171,10 @@ error:
 overload0:
     {
         int op;
-        if (JS_ToInt32(ctx, (int32_t*) &op, argv[0]))
+        int32_t _op;
+        if (JS_ToInt32(ctx, &_op, argv[0]))
             return JS_EXCEPTION;
+        op = (int)_op;
 
         auto __arg0 = (::Ozone::CompositionMode)op;
         bool __ret = instance->SetCompositionMode(__arg0);
@@ -4363,7 +4377,7 @@ error:
     // void ConcatTransform(const ::Ozone::GraphicsMatrix& matrix)
 overload0:
     {
-        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsMatrix);
+        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *matrix_instance;
         instance->ConcatTransform(__arg0);
@@ -4394,7 +4408,7 @@ error:
     // void SetTransform(const ::Ozone::GraphicsMatrix& matrix)
 overload0:
     {
-        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsMatrix);
+        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *matrix_instance;
         instance->SetTransform(__arg0);
@@ -4446,7 +4460,7 @@ error:
     // void SetPen(const ::Ozone::GraphicsPen& pen)
 overload0:
     {
-        Ozone::GraphicsPen* pen_instance = (Ozone::GraphicsPen*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsPen);
+        Ozone::GraphicsPen* pen_instance = (Ozone::GraphicsPen*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsPen, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pen_instance;
         instance->SetPen(__arg0);
@@ -4458,7 +4472,7 @@ overload0:
     // void SetPen(const ::Ozone::Pen& pen)
 overload1:
     {
-        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_GetOpaque(argv[0], classId_Ozone_Pen);
+        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance(argv[0], classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pen_instance;
         instance->SetPen(__arg0);
@@ -4492,7 +4506,7 @@ error:
     // void SetBrush(const ::Ozone::GraphicsBrush& brush)
 overload0:
     {
-        Ozone::GraphicsBrush* brush_instance = (Ozone::GraphicsBrush*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsBrush);
+        Ozone::GraphicsBrush* brush_instance = (Ozone::GraphicsBrush*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *brush_instance;
         instance->SetBrush(__arg0);
@@ -4504,7 +4518,7 @@ overload0:
     // void SetBrush(const ::Ozone::Brush& brush)
 overload1:
     {
-        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_GetOpaque(argv[0], classId_Ozone_Brush);
+        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_Interop_GetInstance(argv[0], classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *brush_instance;
         instance->SetBrush(__arg0);
@@ -4535,7 +4549,7 @@ error:
     // void SetFont(const ::Ozone::GraphicsFont& font)
 overload0:
     {
-        Ozone::GraphicsFont* font_instance = (Ozone::GraphicsFont*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsFont);
+        Ozone::GraphicsFont* font_instance = (Ozone::GraphicsFont*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsFont, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *font_instance;
         instance->SetFont(__arg0);
@@ -4566,7 +4580,7 @@ error:
     // void StrokePath(const ::Ozone::GraphicsPath& path)
 overload0:
     {
-        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsPath);
+        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsPath, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *path_instance;
         instance->StrokePath(__arg0);
@@ -4603,12 +4617,14 @@ error:
     // void FillPath(const ::Ozone::GraphicsPath& path, ::Ozone::PolygonFillMode fillStyle)
 overload0:
     {
-        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsPath);
+        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsPath, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *path_instance;
         unsigned int fillStyle;
-        if (JS_ToUint32(ctx, (uint32_t*) &fillStyle, argv[1]))
+        uint32_t _fillStyle;
+        if (JS_ToUint32(ctx, &_fillStyle, argv[1]))
             return JS_EXCEPTION;
+        fillStyle = (unsigned int)_fillStyle;
 
         auto __arg1 = (::Ozone::PolygonFillMode)fillStyle;
         instance->FillPath(__arg0, __arg1);
@@ -4645,12 +4661,14 @@ error:
     // void DrawPath(const ::Ozone::GraphicsPath& path, ::Ozone::PolygonFillMode fillStyle)
 overload0:
     {
-        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsPath);
+        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsPath, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *path_instance;
         unsigned int fillStyle;
-        if (JS_ToUint32(ctx, (uint32_t*) &fillStyle, argv[1]))
+        uint32_t _fillStyle;
+        if (JS_ToUint32(ctx, &_fillStyle, argv[1]))
             return JS_EXCEPTION;
+        fillStyle = (unsigned int)_fillStyle;
 
         auto __arg1 = (::Ozone::PolygonFillMode)fillStyle;
         instance->DrawPath(__arg0, __arg1);
@@ -4834,7 +4852,7 @@ overload2:
             return JS_EXCEPTION;
 
         auto __arg2 = y;
-        Ozone::GraphicsBrush* backgroundBrush_instance = (Ozone::GraphicsBrush*) JS_GetOpaque(argv[3], classId_Ozone_GraphicsBrush);
+        Ozone::GraphicsBrush* backgroundBrush_instance = (Ozone::GraphicsBrush*) JS_Interop_GetInstance(argv[3], classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg3 = *backgroundBrush_instance;
         instance->DrawText(__arg0, __arg1, __arg2, __arg3);
@@ -4869,7 +4887,7 @@ overload3:
             return JS_EXCEPTION;
 
         auto __arg3 = angle;
-        Ozone::GraphicsBrush* backgroundBrush_instance = (Ozone::GraphicsBrush*) JS_GetOpaque(argv[4], classId_Ozone_GraphicsBrush);
+        Ozone::GraphicsBrush* backgroundBrush_instance = (Ozone::GraphicsBrush*) JS_Interop_GetInstance(argv[4], classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg4 = *backgroundBrush_instance;
         instance->DrawText(__arg0, __arg1, __arg2, __arg3, __arg4);
@@ -4926,7 +4944,7 @@ error:
     // void DrawBitmap(const ::Ozone::GraphicsBitmap& bmp, double x, double y, double w, double h)
 overload0:
     {
-        Ozone::GraphicsBitmap* bmp_instance = (Ozone::GraphicsBitmap*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsBitmap);
+        Ozone::GraphicsBitmap* bmp_instance = (Ozone::GraphicsBitmap*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsBitmap, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *bmp_instance;
         double x;
@@ -5342,7 +5360,7 @@ error:
     // ::Ozone::GraphicsContext* Create(const ::Ozone::WindowDC& dc)
 overload0:
     {
-        Ozone::WindowDC* dc_instance = (Ozone::WindowDC*) JS_GetOpaque(argv[0], classId_Ozone_WindowDC);
+        Ozone::WindowDC* dc_instance = (Ozone::WindowDC*) JS_Interop_GetInstance(argv[0], classId_Ozone_WindowDC, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *dc_instance;
         ::Ozone::GraphicsContext* __ret = ::Ozone::GraphicsContext::Create(__arg0);
@@ -5356,7 +5374,7 @@ overload0:
     // ::Ozone::GraphicsContext* Create(::Ozone::Window* window)
 overload1:
     {
-        Ozone::Window* window_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* window_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = window_instance;
         ::Ozone::GraphicsContext* __ret = ::Ozone::GraphicsContext::Create(__arg0);
@@ -5398,7 +5416,7 @@ error:
     // ::Ozone::GraphicsContext* CreateFromUnknownDC(const ::Ozone::DC& dc)
 overload0:
     {
-        Ozone::DC* dc_instance = (Ozone::DC*) JS_GetOpaque(argv[0], classId_Ozone_DC);
+        Ozone::DC* dc_instance = (Ozone::DC*) JS_Interop_GetInstance(argv[0], classId_Ozone_DC, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *dc_instance;
         ::Ozone::GraphicsContext* __ret = ::Ozone::GraphicsContext::CreateFromUnknownDC(__arg0);
@@ -5578,7 +5596,7 @@ error:
     // ::Ozone::GraphicsContext* CreateContext(const ::Ozone::WindowDC& dc)
 overload0:
     {
-        Ozone::WindowDC* dc_instance = (Ozone::WindowDC*) JS_GetOpaque(argv[0], classId_Ozone_WindowDC);
+        Ozone::WindowDC* dc_instance = (Ozone::WindowDC*) JS_Interop_GetInstance(argv[0], classId_Ozone_WindowDC, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *dc_instance;
         ::Ozone::GraphicsContext* __ret = instance->CreateContext(__arg0);
@@ -5592,7 +5610,7 @@ overload0:
     // ::Ozone::GraphicsContext* CreateContext(::Ozone::Window* window)
 overload1:
     {
-        Ozone::Window* window_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* window_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = window_instance;
         ::Ozone::GraphicsContext* __ret = instance->CreateContext(__arg0);
@@ -5625,7 +5643,7 @@ error:
     // ::Ozone::GraphicsContext* CreateContextFromUnknownDC(const ::Ozone::DC& dc)
 overload0:
     {
-        Ozone::DC* dc_instance = (Ozone::DC*) JS_GetOpaque(argv[0], classId_Ozone_DC);
+        Ozone::DC* dc_instance = (Ozone::DC*) JS_Interop_GetInstance(argv[0], classId_Ozone_DC, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *dc_instance;
         ::Ozone::GraphicsContext* __ret = instance->CreateContextFromUnknownDC(__arg0);
@@ -5784,7 +5802,7 @@ error:
     // ::Ozone::GraphicsPen CreatePen(const ::Ozone::GraphicsPenInfo& info)
 overload0:
     {
-        Ozone::GraphicsPenInfo* info_instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsPenInfo);
+        Ozone::GraphicsPenInfo* info_instance = (Ozone::GraphicsPenInfo*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsPenInfo, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *info_instance;
         ::Ozone::GraphicsPen __ret = instance->CreatePen(__arg0);
@@ -5817,7 +5835,7 @@ error:
     // ::Ozone::GraphicsBrush CreateBrush(const ::Ozone::Brush& brush)
 overload0:
     {
-        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_GetOpaque(argv[0], classId_Ozone_Brush);
+        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_Interop_GetInstance(argv[0], classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *brush_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateBrush(__arg0);
@@ -5900,10 +5918,10 @@ overload0:
             return JS_EXCEPTION;
 
         auto __arg3 = y2;
-        Ozone::GraphicsGradientStops* stops_instance = (Ozone::GraphicsGradientStops*) JS_GetOpaque(argv[4], classId_Ozone_GraphicsGradientStops);
+        Ozone::GraphicsGradientStops* stops_instance = (Ozone::GraphicsGradientStops*) JS_Interop_GetInstance(argv[4], classId_Ozone_GraphicsGradientStops, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg4 = *stops_instance;
-        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(argv[5], classId_Ozone_GraphicsMatrix);
+        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_Interop_GetInstance(argv[5], classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg5 = *matrix_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateLinearGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5);
@@ -5997,10 +6015,10 @@ overload0:
             return JS_EXCEPTION;
 
         auto __arg4 = radius;
-        Ozone::GraphicsGradientStops* stops_instance = (Ozone::GraphicsGradientStops*) JS_GetOpaque(argv[5], classId_Ozone_GraphicsGradientStops);
+        Ozone::GraphicsGradientStops* stops_instance = (Ozone::GraphicsGradientStops*) JS_Interop_GetInstance(argv[5], classId_Ozone_GraphicsGradientStops, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg5 = *stops_instance;
-        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(argv[6], classId_Ozone_GraphicsMatrix);
+        Ozone::GraphicsMatrix* matrix_instance = (Ozone::GraphicsMatrix*) JS_Interop_GetInstance(argv[6], classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg6 = *matrix_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateRadialGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5, __arg6);
@@ -6063,11 +6081,13 @@ overload0:
 
         auto __arg1 = facename;
         int flags;
-        if (JS_ToInt32(ctx, (int32_t*) &flags, argv[2]))
+        int32_t _flags;
+        if (JS_ToInt32(ctx, &_flags, argv[2]))
             return JS_EXCEPTION;
+        flags = (int)_flags;
 
         auto __arg2 = flags;
-        Ozone::Color* col_instance = (Ozone::Color*) JS_GetOpaque(argv[3], classId_Ozone_Color);
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[3], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg3 = *col_instance;
         ::Ozone::GraphicsFont __ret = instance->CreateFont(__arg0, __arg1, __arg2, __arg3);
@@ -6126,7 +6146,7 @@ error:
     // ::Ozone::GraphicsBitmap CreateSubBitmap(const ::Ozone::GraphicsBitmap& bitmap, double x, double y, double w, double h)
 overload0:
     {
-        Ozone::GraphicsBitmap* bitmap_instance = (Ozone::GraphicsBitmap*) JS_GetOpaque(argv[0], classId_Ozone_GraphicsBitmap);
+        Ozone::GraphicsBitmap* bitmap_instance = (Ozone::GraphicsBitmap*) JS_Interop_GetInstance(argv[0], classId_Ozone_GraphicsBitmap, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *bitmap_instance;
         double x;

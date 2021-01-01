@@ -603,13 +603,17 @@ overload0:
 overload1:
     {
         int xx;
-        if (JS_ToInt32(ctx, (int32_t*) &xx, argv[0]))
+        int32_t _xx;
+        if (JS_ToInt32(ctx, &_xx, argv[0]))
             return JS_EXCEPTION;
+        xx = (int)_xx;
 
         auto __arg0 = xx;
         int yy;
-        if (JS_ToInt32(ctx, (int32_t*) &yy, argv[1]))
+        int32_t _yy;
+        if (JS_ToInt32(ctx, &_yy, argv[1]))
             return JS_EXCEPTION;
+        yy = (int)_yy;
 
         auto __arg1 = yy;
         instance = new Ozone::Size(__arg0, __arg1);
@@ -659,7 +663,7 @@ error:
     // void IncTo(const ::Ozone::Size& sz)
 overload0:
     {
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *sz_instance;
         instance->IncTo(__arg0);
@@ -690,7 +694,7 @@ error:
     // void DecTo(const ::Ozone::Size& sz)
 overload0:
     {
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *sz_instance;
         instance->DecTo(__arg0);
@@ -721,7 +725,7 @@ error:
     // void DecToIfSpecified(const ::Ozone::Size& sz)
 overload0:
     {
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *sz_instance;
         instance->DecToIfSpecified(__arg0);
@@ -759,13 +763,17 @@ error:
 overload0:
     {
         int dx;
-        if (JS_ToInt32(ctx, (int32_t*) &dx, argv[0]))
+        int32_t _dx;
+        if (JS_ToInt32(ctx, &_dx, argv[0]))
             return JS_EXCEPTION;
+        dx = (int)_dx;
 
         auto __arg0 = dx;
         int dy;
-        if (JS_ToInt32(ctx, (int32_t*) &dy, argv[1]))
+        int32_t _dy;
+        if (JS_ToInt32(ctx, &_dy, argv[1]))
             return JS_EXCEPTION;
+        dy = (int)_dy;
 
         auto __arg1 = dy;
         instance->IncBy(__arg0, __arg1);
@@ -777,7 +785,7 @@ overload0:
     // void IncBy(const ::Ozone::Point& pt)
 overload1:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pt_instance;
         instance->IncBy(__arg0);
@@ -789,7 +797,7 @@ overload1:
     // void IncBy(const ::Ozone::Size& sz)
 overload2:
     {
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *sz_instance;
         instance->IncBy(__arg0);
@@ -802,8 +810,10 @@ overload2:
 overload3:
     {
         int d;
-        if (JS_ToInt32(ctx, (int32_t*) &d, argv[0]))
+        int32_t _d;
+        if (JS_ToInt32(ctx, &_d, argv[0]))
             return JS_EXCEPTION;
+        d = (int)_d;
 
         auto __arg0 = d;
         instance->IncBy(__arg0);
@@ -841,13 +851,17 @@ error:
 overload0:
     {
         int dx;
-        if (JS_ToInt32(ctx, (int32_t*) &dx, argv[0]))
+        int32_t _dx;
+        if (JS_ToInt32(ctx, &_dx, argv[0]))
             return JS_EXCEPTION;
+        dx = (int)_dx;
 
         auto __arg0 = dx;
         int dy;
-        if (JS_ToInt32(ctx, (int32_t*) &dy, argv[1]))
+        int32_t _dy;
+        if (JS_ToInt32(ctx, &_dy, argv[1]))
             return JS_EXCEPTION;
+        dy = (int)_dy;
 
         auto __arg1 = dy;
         instance->DecBy(__arg0, __arg1);
@@ -859,7 +873,7 @@ overload0:
     // void DecBy(const ::Ozone::Point& pt)
 overload1:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pt_instance;
         instance->DecBy(__arg0);
@@ -871,7 +885,7 @@ overload1:
     // void DecBy(const ::Ozone::Size& sz)
 overload2:
     {
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *sz_instance;
         instance->DecBy(__arg0);
@@ -884,8 +898,10 @@ overload2:
 overload3:
     {
         int d;
-        if (JS_ToInt32(ctx, (int32_t*) &d, argv[0]))
+        int32_t _d;
+        if (JS_ToInt32(ctx, &_d, argv[0]))
             return JS_EXCEPTION;
+        d = (int)_d;
 
         auto __arg0 = d;
         instance->DecBy(__arg0);
@@ -923,13 +939,17 @@ error:
 overload0:
     {
         int xx;
-        if (JS_ToInt32(ctx, (int32_t*) &xx, argv[0]))
+        int32_t _xx;
+        if (JS_ToInt32(ctx, &_xx, argv[0]))
             return JS_EXCEPTION;
+        xx = (int)_xx;
 
         auto __arg0 = xx;
         int yy;
-        if (JS_ToInt32(ctx, (int32_t*) &yy, argv[1]))
+        int32_t _yy;
+        if (JS_ToInt32(ctx, &_yy, argv[1]))
             return JS_EXCEPTION;
+        yy = (int)_yy;
 
         auto __arg1 = yy;
         instance->Set(__arg0, __arg1);
@@ -961,8 +981,10 @@ error:
 overload0:
     {
         int w;
-        if (JS_ToInt32(ctx, (int32_t*) &w, argv[0]))
+        int32_t _w;
+        if (JS_ToInt32(ctx, &_w, argv[0]))
             return JS_EXCEPTION;
+        w = (int)_w;
 
         auto __arg0 = w;
         instance->SetWidth(__arg0);
@@ -994,8 +1016,10 @@ error:
 overload0:
     {
         int h;
-        if (JS_ToInt32(ctx, (int32_t*) &h, argv[0]))
+        int32_t _h;
+        if (JS_ToInt32(ctx, &_h, argv[0]))
             return JS_EXCEPTION;
+        h = (int)_h;
 
         auto __arg0 = h;
         instance->SetHeight(__arg0);
@@ -1080,7 +1104,7 @@ error:
     // void SetDefaults(const ::Ozone::Size& size)
 overload0:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *size_instance;
         instance->SetDefaults(__arg0);
@@ -1166,8 +1190,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_x(__arg0);
@@ -1217,8 +1243,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_y(__arg0);
@@ -1354,7 +1382,7 @@ overload1:
     // RealPoint(const ::Ozone::Point& pt)
 overload2:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pt_instance;
         instance = new Ozone::RealPoint(__arg0);
@@ -1580,13 +1608,17 @@ overload0:
 overload1:
     {
         int xx;
-        if (JS_ToInt32(ctx, (int32_t*) &xx, argv[0]))
+        int32_t _xx;
+        if (JS_ToInt32(ctx, &_xx, argv[0]))
             return JS_EXCEPTION;
+        xx = (int)_xx;
 
         auto __arg0 = xx;
         int yy;
-        if (JS_ToInt32(ctx, (int32_t*) &yy, argv[1]))
+        int32_t _yy;
+        if (JS_ToInt32(ctx, &_yy, argv[1]))
             return JS_EXCEPTION;
+        yy = (int)_yy;
 
         auto __arg1 = yy;
         instance = new Ozone::Point(__arg0, __arg1);
@@ -1597,7 +1629,7 @@ overload1:
     // Point(const ::Ozone::RealPoint& pt)
 overload2:
     {
-        Ozone::RealPoint* pt_instance = (Ozone::RealPoint*) JS_GetOpaque(argv[0], classId_Ozone_RealPoint);
+        Ozone::RealPoint* pt_instance = (Ozone::RealPoint*) JS_Interop_GetInstance(argv[0], classId_Ozone_RealPoint, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pt_instance;
         instance = new Ozone::Point(__arg0);
@@ -1665,7 +1697,7 @@ error:
     // void SetDefaults(const ::Ozone::Point& pt)
 overload0:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pt_instance;
         instance->SetDefaults(__arg0);
@@ -1715,8 +1747,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_x(__arg0);
@@ -1766,8 +1800,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_y(__arg0);
@@ -1907,7 +1943,7 @@ error:
     // void SetData(::Ozone::Point* data)
 overload0:
     {
-        Ozone::Point* data_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* data_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = data_instance;
         instance->SetData(__arg0);
@@ -2032,23 +2068,31 @@ overload0:
 overload1:
     {
         int xx;
-        if (JS_ToInt32(ctx, (int32_t*) &xx, argv[0]))
+        int32_t _xx;
+        if (JS_ToInt32(ctx, &_xx, argv[0]))
             return JS_EXCEPTION;
+        xx = (int)_xx;
 
         auto __arg0 = xx;
         int yy;
-        if (JS_ToInt32(ctx, (int32_t*) &yy, argv[1]))
+        int32_t _yy;
+        if (JS_ToInt32(ctx, &_yy, argv[1]))
             return JS_EXCEPTION;
+        yy = (int)_yy;
 
         auto __arg1 = yy;
         int ww;
-        if (JS_ToInt32(ctx, (int32_t*) &ww, argv[2]))
+        int32_t _ww;
+        if (JS_ToInt32(ctx, &_ww, argv[2]))
             return JS_EXCEPTION;
+        ww = (int)_ww;
 
         auto __arg2 = ww;
         int hh;
-        if (JS_ToInt32(ctx, (int32_t*) &hh, argv[3]))
+        int32_t _hh;
+        if (JS_ToInt32(ctx, &_hh, argv[3]))
             return JS_EXCEPTION;
+        hh = (int)_hh;
 
         auto __arg3 = hh;
         instance = new Ozone::Rect(__arg0, __arg1, __arg2, __arg3);
@@ -2059,10 +2103,10 @@ overload1:
     // Rect(const ::Ozone::Point& topLeft, const ::Ozone::Point& bottomRight)
 overload2:
     {
-        Ozone::Point* topLeft_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* topLeft_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *topLeft_instance;
-        Ozone::Point* bottomRight_instance = (Ozone::Point*) JS_GetOpaque(argv[1], classId_Ozone_Point);
+        Ozone::Point* bottomRight_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[1], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg1 = *bottomRight_instance;
         instance = new Ozone::Rect(__arg0, __arg1);
@@ -2073,10 +2117,10 @@ overload2:
     // Rect(const ::Ozone::Point& pt, const ::Ozone::Size& size)
 overload3:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pt_instance;
-        Ozone::Size* size_instance = (Ozone::Size*) JS_GetOpaque(argv[1], classId_Ozone_Size);
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[1], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg1 = *size_instance;
         instance = new Ozone::Rect(__arg0, __arg1);
@@ -2087,7 +2131,7 @@ overload3:
     // Rect(const ::Ozone::Size& size)
 overload4:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *size_instance;
         instance = new Ozone::Rect(__arg0);
@@ -2156,8 +2200,10 @@ error:
 overload0:
     {
         int xx;
-        if (JS_ToInt32(ctx, (int32_t*) &xx, argv[0]))
+        int32_t _xx;
+        if (JS_ToInt32(ctx, &_xx, argv[0]))
             return JS_EXCEPTION;
+        xx = (int)_xx;
 
         auto __arg0 = xx;
         instance->SetX(__arg0);
@@ -2207,8 +2253,10 @@ error:
 overload0:
     {
         int yy;
-        if (JS_ToInt32(ctx, (int32_t*) &yy, argv[0]))
+        int32_t _yy;
+        if (JS_ToInt32(ctx, &_yy, argv[0]))
             return JS_EXCEPTION;
+        yy = (int)_yy;
 
         auto __arg0 = yy;
         instance->SetY(__arg0);
@@ -2258,8 +2306,10 @@ error:
 overload0:
     {
         int w;
-        if (JS_ToInt32(ctx, (int32_t*) &w, argv[0]))
+        int32_t _w;
+        if (JS_ToInt32(ctx, &_w, argv[0]))
             return JS_EXCEPTION;
+        w = (int)_w;
 
         auto __arg0 = w;
         instance->SetWidth(__arg0);
@@ -2309,8 +2359,10 @@ error:
 overload0:
     {
         int h;
-        if (JS_ToInt32(ctx, (int32_t*) &h, argv[0]))
+        int32_t _h;
+        if (JS_ToInt32(ctx, &_h, argv[0]))
             return JS_EXCEPTION;
+        h = (int)_h;
 
         auto __arg0 = h;
         instance->SetHeight(__arg0);
@@ -2359,7 +2411,7 @@ error:
     // void SetPosition(const ::Ozone::Point& p)
 overload0:
     {
-        Ozone::Point* p_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* p_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *p_instance;
         instance->SetPosition(__arg0);
@@ -2408,7 +2460,7 @@ error:
     // void SetSize(const ::Ozone::Size& s)
 overload0:
     {
-        Ozone::Size* s_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* s_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *s_instance;
         instance->SetSize(__arg0);
@@ -2530,8 +2582,10 @@ error:
 overload0:
     {
         int left;
-        if (JS_ToInt32(ctx, (int32_t*) &left, argv[0]))
+        int32_t _left;
+        if (JS_ToInt32(ctx, &_left, argv[0]))
             return JS_EXCEPTION;
+        left = (int)_left;
 
         auto __arg0 = left;
         instance->SetLeft(__arg0);
@@ -2563,8 +2617,10 @@ error:
 overload0:
     {
         int right;
-        if (JS_ToInt32(ctx, (int32_t*) &right, argv[0]))
+        int32_t _right;
+        if (JS_ToInt32(ctx, &_right, argv[0]))
             return JS_EXCEPTION;
+        right = (int)_right;
 
         auto __arg0 = right;
         instance->SetRight(__arg0);
@@ -2596,8 +2652,10 @@ error:
 overload0:
     {
         int top;
-        if (JS_ToInt32(ctx, (int32_t*) &top, argv[0]))
+        int32_t _top;
+        if (JS_ToInt32(ctx, &_top, argv[0]))
             return JS_EXCEPTION;
+        top = (int)_top;
 
         auto __arg0 = top;
         instance->SetTop(__arg0);
@@ -2629,8 +2687,10 @@ error:
 overload0:
     {
         int bottom;
-        if (JS_ToInt32(ctx, (int32_t*) &bottom, argv[0]))
+        int32_t _bottom;
+        if (JS_ToInt32(ctx, &_bottom, argv[0]))
             return JS_EXCEPTION;
+        bottom = (int)_bottom;
 
         auto __arg0 = bottom;
         instance->SetBottom(__arg0);
@@ -2697,7 +2757,7 @@ error:
     // void SetTopLeft(const ::Ozone::Point& p)
 overload0:
     {
-        Ozone::Point* p_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* p_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *p_instance;
         instance->SetTopLeft(__arg0);
@@ -2728,7 +2788,7 @@ error:
     // void SetLeftTop(const ::Ozone::Point& p)
 overload0:
     {
-        Ozone::Point* p_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* p_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *p_instance;
         instance->SetLeftTop(__arg0);
@@ -2795,7 +2855,7 @@ error:
     // void SetBottomRight(const ::Ozone::Point& p)
 overload0:
     {
-        Ozone::Point* p_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* p_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *p_instance;
         instance->SetBottomRight(__arg0);
@@ -2826,7 +2886,7 @@ error:
     // void SetRightBottom(const ::Ozone::Point& p)
 overload0:
     {
-        Ozone::Point* p_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* p_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *p_instance;
         instance->SetRightBottom(__arg0);
@@ -2893,7 +2953,7 @@ error:
     // void SetTopRight(const ::Ozone::Point& p)
 overload0:
     {
-        Ozone::Point* p_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* p_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *p_instance;
         instance->SetTopRight(__arg0);
@@ -2924,7 +2984,7 @@ error:
     // void SetRightTop(const ::Ozone::Point& p)
 overload0:
     {
-        Ozone::Point* p_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* p_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *p_instance;
         instance->SetRightTop(__arg0);
@@ -2991,7 +3051,7 @@ error:
     // void SetBottomLeft(const ::Ozone::Point& p)
 overload0:
     {
-        Ozone::Point* p_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* p_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *p_instance;
         instance->SetBottomLeft(__arg0);
@@ -3022,7 +3082,7 @@ error:
     // void SetLeftBottom(const ::Ozone::Point& p)
 overload0:
     {
-        Ozone::Point* p_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* p_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *p_instance;
         instance->SetLeftBottom(__arg0);
@@ -3060,13 +3120,17 @@ error:
 overload0:
     {
         int dx;
-        if (JS_ToInt32(ctx, (int32_t*) &dx, argv[0]))
+        int32_t _dx;
+        if (JS_ToInt32(ctx, &_dx, argv[0]))
             return JS_EXCEPTION;
+        dx = (int)_dx;
 
         auto __arg0 = dx;
         int dy;
-        if (JS_ToInt32(ctx, (int32_t*) &dy, argv[1]))
+        int32_t _dy;
+        if (JS_ToInt32(ctx, &_dy, argv[1]))
             return JS_EXCEPTION;
+        dy = (int)_dy;
 
         auto __arg1 = dy;
         ::Ozone::Rect __ret = instance->Inflate(__arg0, __arg1);
@@ -3106,13 +3170,17 @@ error:
 overload0:
     {
         int dx;
-        if (JS_ToInt32(ctx, (int32_t*) &dx, argv[0]))
+        int32_t _dx;
+        if (JS_ToInt32(ctx, &_dx, argv[0]))
             return JS_EXCEPTION;
+        dx = (int)_dx;
 
         auto __arg0 = dx;
         int dy;
-        if (JS_ToInt32(ctx, (int32_t*) &dy, argv[1]))
+        int32_t _dy;
+        if (JS_ToInt32(ctx, &_dy, argv[1]))
             return JS_EXCEPTION;
+        dy = (int)_dy;
 
         auto __arg1 = dy;
         ::Ozone::Rect __ret = instance->Deflate(__arg0, __arg1);
@@ -3155,13 +3223,17 @@ error:
 overload0:
     {
         int dx;
-        if (JS_ToInt32(ctx, (int32_t*) &dx, argv[0]))
+        int32_t _dx;
+        if (JS_ToInt32(ctx, &_dx, argv[0]))
             return JS_EXCEPTION;
+        dx = (int)_dx;
 
         auto __arg0 = dx;
         int dy;
-        if (JS_ToInt32(ctx, (int32_t*) &dy, argv[1]))
+        int32_t _dy;
+        if (JS_ToInt32(ctx, &_dy, argv[1]))
             return JS_EXCEPTION;
+        dy = (int)_dy;
 
         auto __arg1 = dy;
         instance->Offset(__arg0, __arg1);
@@ -3173,7 +3245,7 @@ overload0:
     // void Offset(const ::Ozone::Point& pt)
 overload1:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pt_instance;
         instance->Offset(__arg0);
@@ -3204,7 +3276,7 @@ error:
     // ::Ozone::Rect Intersect(const ::Ozone::Rect& rect) const
 overload0:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_GetOpaque(argv[0], classId_Ozone_Rect);
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *rect_instance;
         ::Ozone::Rect __ret = instance->Intersect(__arg0);
@@ -3237,7 +3309,7 @@ error:
     // ::Ozone::Rect Union(const ::Ozone::Rect& rect) const
 overload0:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_GetOpaque(argv[0], classId_Ozone_Rect);
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *rect_instance;
         ::Ozone::Rect __ret = instance->Union(__arg0);
@@ -3283,13 +3355,17 @@ error:
 overload0:
     {
         int x;
-        if (JS_ToInt32(ctx, (int32_t*) &x, argv[0]))
+        int32_t _x;
+        if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
+        x = (int)_x;
 
         auto __arg0 = x;
         int y;
-        if (JS_ToInt32(ctx, (int32_t*) &y, argv[1]))
+        int32_t _y;
+        if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
+        y = (int)_y;
 
         auto __arg1 = y;
         bool __ret = instance->Contains(__arg0, __arg1);
@@ -3303,7 +3379,7 @@ overload0:
     // bool Contains(const ::Ozone::Point& pt) const
 overload1:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pt_instance;
         bool __ret = instance->Contains(__arg0);
@@ -3317,7 +3393,7 @@ overload1:
     // bool Contains(const ::Ozone::Rect& rect) const
 overload2:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_GetOpaque(argv[0], classId_Ozone_Rect);
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *rect_instance;
         bool __ret = instance->Contains(__arg0);
@@ -3350,7 +3426,7 @@ error:
     // bool Intersects(const ::Ozone::Rect& rect) const
 overload0:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_GetOpaque(argv[0], classId_Ozone_Rect);
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *rect_instance;
         bool __ret = instance->Intersects(__arg0);
@@ -3389,12 +3465,14 @@ error:
     // ::Ozone::Rect CentreIn(const ::Ozone::Rect& r, int dir) const
 overload0:
     {
-        Ozone::Rect* r_instance = (Ozone::Rect*) JS_GetOpaque(argv[0], classId_Ozone_Rect);
+        Ozone::Rect* r_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *r_instance;
         int dir;
-        if (JS_ToInt32(ctx, (int32_t*) &dir, argv[1]))
+        int32_t _dir;
+        if (JS_ToInt32(ctx, &_dir, argv[1]))
             return JS_EXCEPTION;
+        dir = (int)_dir;
 
         auto __arg1 = dir;
         ::Ozone::Rect __ret = instance->CentreIn(__arg0, __arg1);
@@ -3433,12 +3511,14 @@ error:
     // ::Ozone::Rect CenterIn(const ::Ozone::Rect& r, int dir) const
 overload0:
     {
-        Ozone::Rect* r_instance = (Ozone::Rect*) JS_GetOpaque(argv[0], classId_Ozone_Rect);
+        Ozone::Rect* r_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *r_instance;
         int dir;
-        if (JS_ToInt32(ctx, (int32_t*) &dir, argv[1]))
+        int32_t _dir;
+        if (JS_ToInt32(ctx, &_dir, argv[1]))
             return JS_EXCEPTION;
+        dir = (int)_dir;
 
         auto __arg1 = dir;
         ::Ozone::Rect __ret = instance->CenterIn(__arg0, __arg1);
@@ -3490,8 +3570,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_x(__arg0);
@@ -3541,8 +3623,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_y(__arg0);
@@ -3592,8 +3676,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_width(__arg0);
@@ -3643,8 +3729,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_height(__arg0);
@@ -3935,7 +4023,7 @@ error:
     // char* FindName(const ::Ozone::Color& colour) const
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *colour_instance;
         const char* __ret = instance->FindName(__arg0);
@@ -3980,7 +4068,7 @@ overload0:
             return JS_EXCEPTION;
 
         auto __arg0 = name;
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_GetOpaque(argv[1], classId_Ozone_Color);
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[1], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg1 = *colour_instance;
         instance->AddColour(__arg0, __arg1);
@@ -4077,8 +4165,10 @@ overload0:
 overload1:
     {
         unsigned int keyType;
-        if (JS_ToUint32(ctx, (uint32_t*) &keyType, argv[0]))
+        uint32_t _keyType;
+        if (JS_ToUint32(ctx, &_keyType, argv[0]))
             return JS_EXCEPTION;
+        keyType = (unsigned int)_keyType;
 
         auto __arg0 = keyType;
         instance = new Ozone::ResourceCache(__arg0);
@@ -4268,8 +4358,10 @@ error:
 overload0:
     {
         unsigned int item;
-        if (JS_ToUint32(ctx, (uint32_t*) &item, argv[0]))
+        uint32_t _item;
+        if (JS_ToUint32(ctx, &_item, argv[0]))
             return JS_EXCEPTION;
+        item = (unsigned int)_item;
 
         auto __arg0 = (::Ozone::StockGDI::Item)item;
         const ::Ozone::Brush* __ret = ::Ozone::StockGDI::GetBrush(__arg0);
@@ -4301,8 +4393,10 @@ error:
 overload0:
     {
         unsigned int item;
-        if (JS_ToUint32(ctx, (uint32_t*) &item, argv[0]))
+        uint32_t _item;
+        if (JS_ToUint32(ctx, &_item, argv[0]))
             return JS_EXCEPTION;
+        item = (unsigned int)_item;
 
         auto __arg0 = (::Ozone::StockGDI::Item)item;
         const ::Ozone::Color* __ret = ::Ozone::StockGDI::GetColour(__arg0);
@@ -4334,8 +4428,10 @@ error:
 overload0:
     {
         unsigned int item;
-        if (JS_ToUint32(ctx, (uint32_t*) &item, argv[0]))
+        uint32_t _item;
+        if (JS_ToUint32(ctx, &_item, argv[0]))
             return JS_EXCEPTION;
+        item = (unsigned int)_item;
 
         auto __arg0 = (::Ozone::StockGDI::Item)item;
         const ::Ozone::Pen* __ret = ::Ozone::StockGDI::GetPen(__arg0);

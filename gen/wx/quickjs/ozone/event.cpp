@@ -400,13 +400,17 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         int commandType;
-        if (JS_ToInt32(ctx, (int32_t*) &commandType, argv[1]))
+        int32_t _commandType;
+        if (JS_ToInt32(ctx, &_commandType, argv[1]))
             return JS_EXCEPTION;
+        commandType = (int)_commandType;
 
         auto __arg1 = commandType;
         instance = new Ozone::Event(__arg0, __arg1);
@@ -457,8 +461,10 @@ error:
 overload0:
     {
         int typ;
-        if (JS_ToInt32(ctx, (int32_t*) &typ, argv[0]))
+        int32_t _typ;
+        if (JS_ToInt32(ctx, &_typ, argv[0]))
             return JS_EXCEPTION;
+        typ = (int)_typ;
 
         auto __arg0 = typ;
         instance->SetEventType(__arg0);
@@ -525,7 +531,7 @@ error:
     // void SetEventObject(::Ozone::Object* obj)
 overload0:
     {
-        Ozone::Object* obj_instance = (Ozone::Object*) JS_GetOpaque(argv[0], classId_Ozone_Object);
+        Ozone::Object* obj_instance = (Ozone::Object*) JS_Interop_GetInstance(argv[0], classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = obj_instance;
         instance->SetEventObject(__arg0);
@@ -575,8 +581,10 @@ error:
 overload0:
     {
         long ts;
-        if (JS_ToInt32(ctx, (int32_t*) &ts, argv[0]))
+        int32_t _ts;
+        if (JS_ToInt32(ctx, &_ts, argv[0]))
             return JS_EXCEPTION;
+        ts = (long)_ts;
 
         auto __arg0 = ts;
         instance->SetTimestamp(__arg0);
@@ -626,8 +634,10 @@ error:
 overload0:
     {
         int Id;
-        if (JS_ToInt32(ctx, (int32_t*) &Id, argv[0]))
+        int32_t _Id;
+        if (JS_ToInt32(ctx, &_Id, argv[0]))
             return JS_EXCEPTION;
+        Id = (int)_Id;
 
         auto __arg0 = Id;
         instance->SetId(__arg0);
@@ -819,8 +829,10 @@ error:
 overload0:
     {
         int propagationLevel;
-        if (JS_ToInt32(ctx, (int32_t*) &propagationLevel, argv[0]))
+        int32_t _propagationLevel;
+        if (JS_ToInt32(ctx, &_propagationLevel, argv[0]))
             return JS_EXCEPTION;
+        propagationLevel = (int)_propagationLevel;
 
         auto __arg0 = propagationLevel;
         instance->ResumePropagation(__arg0);
@@ -921,7 +933,7 @@ error:
     // bool ShouldProcessOnlyIn(::Ozone::EvtHandler* h) const
 overload0:
     {
-        Ozone::EvtHandler* h_instance = (Ozone::EvtHandler*) JS_GetOpaque(argv[0], classId_Ozone_EvtHandler);
+        Ozone::EvtHandler* h_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = h_instance;
         bool __ret = instance->ShouldProcessOnlyIn(__arg0);
@@ -988,7 +1000,7 @@ error:
     // void set_m_callbackUserData(::Ozone::Object* value)
 overload0:
     {
-        Ozone::Object* value_instance = (Ozone::Object*) JS_GetOpaque(argv[0], classId_Ozone_Object);
+        Ozone::Object* value_instance = (Ozone::Object*) JS_Interop_GetInstance(argv[0], classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = value_instance;
         instance->set_m_callbackUserData(__arg0);
@@ -1108,10 +1120,10 @@ error:
     // PropagateOnce(::Ozone::Event& event, ::Ozone::EvtHandler* handler)
 overload0:
     {
-        Ozone::Event* event_instance = (Ozone::Event*) JS_GetOpaque(argv[0], classId_Ozone_Event);
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[0], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *event_instance;
-        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_GetOpaque(argv[1], classId_Ozone_EvtHandler);
+        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[1], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg1 = handler_instance;
         instance = new Ozone::PropagateOnce(__arg0, __arg1);
@@ -1314,8 +1326,10 @@ error:
 overload0:
     {
         unsigned int mode;
-        if (JS_ToUint32(ctx, (uint32_t*) &mode, argv[0]))
+        uint32_t _mode;
+        if (JS_ToUint32(ctx, &_mode, argv[0]))
             return JS_EXCEPTION;
+        mode = (unsigned int)_mode;
 
         auto __arg0 = (::Ozone::IdleMode)mode;
         ::Ozone::IdleEvent::SetMode(__arg0);
@@ -1432,13 +1446,17 @@ error:
 overload0:
     {
         int eventType;
-        if (JS_ToInt32(ctx, (int32_t*) &eventType, argv[0]))
+        int32_t _eventType;
+        if (JS_ToInt32(ctx, &_eventType, argv[0]))
             return JS_EXCEPTION;
+        eventType = (int)_eventType;
 
         auto __arg0 = eventType;
         int id;
-        if (JS_ToInt32(ctx, (int32_t*) &id, argv[1]))
+        int32_t _id;
+        if (JS_ToInt32(ctx, &_id, argv[1]))
             return JS_EXCEPTION;
+        id = (int)_id;
 
         auto __arg1 = id;
         instance = new Ozone::ThreadEvent(__arg0, __arg1);
@@ -1584,7 +1602,7 @@ error:
     // AsyncMethodCallEvent(::Ozone::Object* object)
 overload0:
     {
-        Ozone::Object* object_instance = (Ozone::Object*) JS_GetOpaque(argv[0], classId_Ozone_Object);
+        Ozone::Object* object_instance = (Ozone::Object*) JS_Interop_GetInstance(argv[0], classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = object_instance;
         instance = new Ozone::AsyncMethodCallEvent(__arg0);
@@ -1716,13 +1734,17 @@ error:
 overload0:
     {
         int commandType;
-        if (JS_ToInt32(ctx, (int32_t*) &commandType, argv[0]))
+        int32_t _commandType;
+        if (JS_ToInt32(ctx, &_commandType, argv[0]))
             return JS_EXCEPTION;
+        commandType = (int)_commandType;
 
         auto __arg0 = commandType;
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[1]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[1]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg1 = winid;
         instance = new Ozone::CommandEvent(__arg0, __arg1);
@@ -1951,13 +1973,17 @@ error:
 overload0:
     {
         int commandType;
-        if (JS_ToInt32(ctx, (int32_t*) &commandType, argv[0]))
+        int32_t _commandType;
+        if (JS_ToInt32(ctx, &_commandType, argv[0]))
             return JS_EXCEPTION;
+        commandType = (int)_commandType;
 
         auto __arg0 = commandType;
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[1]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[1]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg1 = winid;
         instance = new Ozone::NotifyEvent(__arg0, __arg1);
@@ -2156,23 +2182,31 @@ error:
 overload0:
     {
         int commandType;
-        if (JS_ToInt32(ctx, (int32_t*) &commandType, argv[0]))
+        int32_t _commandType;
+        if (JS_ToInt32(ctx, &_commandType, argv[0]))
             return JS_EXCEPTION;
+        commandType = (int)_commandType;
 
         auto __arg0 = commandType;
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[1]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[1]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg1 = winid;
         int pos;
-        if (JS_ToInt32(ctx, (int32_t*) &pos, argv[2]))
+        int32_t _pos;
+        if (JS_ToInt32(ctx, &_pos, argv[2]))
             return JS_EXCEPTION;
+        pos = (int)_pos;
 
         auto __arg2 = pos;
         int orient;
-        if (JS_ToInt32(ctx, (int32_t*) &orient, argv[3]))
+        int32_t _orient;
+        if (JS_ToInt32(ctx, &_orient, argv[3]))
             return JS_EXCEPTION;
+        orient = (int)_orient;
 
         auto __arg3 = orient;
         instance = new Ozone::ScrollEvent(__arg0, __arg1, __arg2, __arg3);
@@ -2259,8 +2293,10 @@ error:
 overload0:
     {
         int orient;
-        if (JS_ToInt32(ctx, (int32_t*) &orient, argv[0]))
+        int32_t _orient;
+        if (JS_ToInt32(ctx, &_orient, argv[0]))
             return JS_EXCEPTION;
+        orient = (int)_orient;
 
         auto __arg0 = orient;
         instance->SetOrientation(__arg0);
@@ -2292,8 +2328,10 @@ error:
 overload0:
     {
         int pos;
-        if (JS_ToInt32(ctx, (int32_t*) &pos, argv[0]))
+        int32_t _pos;
+        if (JS_ToInt32(ctx, &_pos, argv[0]))
             return JS_EXCEPTION;
+        pos = (int)_pos;
 
         auto __arg0 = pos;
         instance->SetPosition(__arg0);
@@ -2418,18 +2456,24 @@ error:
 overload0:
     {
         int commandType;
-        if (JS_ToInt32(ctx, (int32_t*) &commandType, argv[0]))
+        int32_t _commandType;
+        if (JS_ToInt32(ctx, &_commandType, argv[0]))
             return JS_EXCEPTION;
+        commandType = (int)_commandType;
 
         auto __arg0 = commandType;
         int pos;
-        if (JS_ToInt32(ctx, (int32_t*) &pos, argv[1]))
+        int32_t _pos;
+        if (JS_ToInt32(ctx, &_pos, argv[1]))
             return JS_EXCEPTION;
+        pos = (int)_pos;
 
         auto __arg1 = pos;
         int orient;
-        if (JS_ToInt32(ctx, (int32_t*) &orient, argv[2]))
+        int32_t _orient;
+        if (JS_ToInt32(ctx, &_orient, argv[2]))
             return JS_EXCEPTION;
+        orient = (int)_orient;
 
         auto __arg2 = orient;
         instance = new Ozone::ScrollWinEvent(__arg0, __arg1, __arg2);
@@ -2516,8 +2560,10 @@ error:
 overload0:
     {
         int orient;
-        if (JS_ToInt32(ctx, (int32_t*) &orient, argv[0]))
+        int32_t _orient;
+        if (JS_ToInt32(ctx, &_orient, argv[0]))
             return JS_EXCEPTION;
+        orient = (int)_orient;
 
         auto __arg0 = orient;
         instance->SetOrientation(__arg0);
@@ -2549,8 +2595,10 @@ error:
 overload0:
     {
         int pos;
-        if (JS_ToInt32(ctx, (int32_t*) &pos, argv[0]))
+        int32_t _pos;
+        if (JS_ToInt32(ctx, &_pos, argv[0]))
             return JS_EXCEPTION;
+        pos = (int)_pos;
 
         auto __arg0 = pos;
         instance->SetPosition(__arg0);
@@ -2663,8 +2711,10 @@ error:
 overload0:
     {
         int mouseType;
-        if (JS_ToInt32(ctx, (int32_t*) &mouseType, argv[0]))
+        int32_t _mouseType;
+        if (JS_ToInt32(ctx, &_mouseType, argv[0]))
             return JS_EXCEPTION;
+        mouseType = (int)_mouseType;
 
         auto __arg0 = mouseType;
         instance = new Ozone::MouseEvent(__arg0);
@@ -2733,8 +2783,10 @@ error:
 overload0:
     {
         int but;
-        if (JS_ToInt32(ctx, (int32_t*) &but, argv[0]))
+        int32_t _but;
+        if (JS_ToInt32(ctx, &_but, argv[0]))
             return JS_EXCEPTION;
+        but = (int)_but;
 
         auto __arg0 = but;
         bool __ret = instance->ButtonDown(__arg0);
@@ -2768,8 +2820,10 @@ error:
 overload0:
     {
         int but;
-        if (JS_ToInt32(ctx, (int32_t*) &but, argv[0]))
+        int32_t _but;
+        if (JS_ToInt32(ctx, &_but, argv[0]))
             return JS_EXCEPTION;
+        but = (int)_but;
 
         auto __arg0 = but;
         bool __ret = instance->ButtonDClick(__arg0);
@@ -2803,8 +2857,10 @@ error:
 overload0:
     {
         int but;
-        if (JS_ToInt32(ctx, (int32_t*) &but, argv[0]))
+        int32_t _but;
+        if (JS_ToInt32(ctx, &_but, argv[0]))
             return JS_EXCEPTION;
+        but = (int)_but;
 
         auto __arg0 = but;
         bool __ret = instance->ButtonUp(__arg0);
@@ -2838,8 +2894,10 @@ error:
 overload0:
     {
         int but;
-        if (JS_ToInt32(ctx, (int32_t*) &but, argv[0]))
+        int32_t _but;
+        if (JS_ToInt32(ctx, &_but, argv[0]))
             return JS_EXCEPTION;
+        but = (int)_but;
 
         auto __arg0 = but;
         bool __ret = instance->Button(__arg0);
@@ -3268,7 +3326,7 @@ error:
     // ::Ozone::Point GetLogicalPosition(const ::Ozone::DC& dc) const
 overload0:
     {
-        Ozone::DC* dc_instance = (Ozone::DC*) JS_GetOpaque(argv[0], classId_Ozone_DC);
+        Ozone::DC* dc_instance = (Ozone::DC*) JS_Interop_GetInstance(argv[0], classId_Ozone_DC, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *dc_instance;
         ::Ozone::Point __ret = instance->GetLogicalPosition(__arg0);
@@ -3500,8 +3558,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_m_clickCount(__arg0);
@@ -3551,8 +3611,10 @@ error:
 overload0:
     {
         unsigned int value;
-        if (JS_ToUint32(ctx, (uint32_t*) &value, argv[0]))
+        uint32_t _value;
+        if (JS_ToUint32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (unsigned int)_value;
 
         auto __arg0 = (::Ozone::MouseWheelAxis)value;
         instance->set_m_wheelAxis(__arg0);
@@ -3602,8 +3664,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_m_wheelRotation(__arg0);
@@ -3653,8 +3717,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_m_wheelDelta(__arg0);
@@ -3756,8 +3822,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_m_linesPerAction(__arg0);
@@ -3807,8 +3875,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_m_columnsPerAction(__arg0);
@@ -4011,13 +4081,17 @@ error:
 overload0:
     {
         int x;
-        if (JS_ToInt32(ctx, (int32_t*) &x, argv[0]))
+        int32_t _x;
+        if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
+        x = (int)_x;
 
         auto __arg0 = x;
         int y;
-        if (JS_ToInt32(ctx, (int32_t*) &y, argv[1]))
+        int32_t _y;
+        if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
+        y = (int)_y;
 
         auto __arg1 = y;
         instance = new Ozone::SetCursorEvent(__arg0, __arg1);
@@ -4208,13 +4282,17 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         int type;
-        if (JS_ToInt32(ctx, (int32_t*) &type, argv[1]))
+        int32_t _type;
+        if (JS_ToInt32(ctx, &_type, argv[1]))
             return JS_EXCEPTION;
+        type = (int)_type;
 
         auto __arg1 = type;
         instance = new Ozone::GestureEvent(__arg0, __arg1);
@@ -4264,7 +4342,7 @@ error:
     // void SetPosition(const ::Ozone::Point& pos)
 overload0:
     {
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pos_instance;
         instance->SetPosition(__arg0);
@@ -4482,8 +4560,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         instance = new Ozone::PanGestureEvent(__arg0);
@@ -4551,7 +4631,7 @@ error:
     // void SetDelta(const ::Ozone::Point& delta)
 overload0:
     {
-        Ozone::Point* delta_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* delta_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *delta_instance;
         instance->SetDelta(__arg0);
@@ -4662,8 +4742,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         instance = new Ozone::ZoomGestureEvent(__arg0);
@@ -4844,8 +4926,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         instance = new Ozone::RotateGestureEvent(__arg0);
@@ -5026,8 +5110,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         instance = new Ozone::TwoFingerTapEvent(__arg0);
@@ -5155,8 +5241,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         instance = new Ozone::LongPressEvent(__arg0);
@@ -5284,8 +5372,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         instance = new Ozone::PressAndTapEvent(__arg0);
@@ -5413,8 +5503,10 @@ error:
 overload0:
     {
         int keyType;
-        if (JS_ToInt32(ctx, (int32_t*) &keyType, argv[0]))
+        int32_t _keyType;
+        if (JS_ToInt32(ctx, &_keyType, argv[0]))
             return JS_EXCEPTION;
+        keyType = (int)_keyType;
 
         auto __arg0 = keyType;
         instance = new Ozone::KeyEvent(__arg0);
@@ -5426,11 +5518,13 @@ overload0:
 overload1:
     {
         int eventType;
-        if (JS_ToInt32(ctx, (int32_t*) &eventType, argv[0]))
+        int32_t _eventType;
+        if (JS_ToInt32(ctx, &_eventType, argv[0]))
             return JS_EXCEPTION;
+        eventType = (int)_eventType;
 
         auto __arg0 = eventType;
-        Ozone::KeyEvent* evt_instance = (Ozone::KeyEvent*) JS_GetOpaque(argv[1], classId_Ozone_KeyEvent);
+        Ozone::KeyEvent* evt_instance = (Ozone::KeyEvent*) JS_Interop_GetInstance(argv[1], classId_Ozone_KeyEvent, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg1 = *evt_instance;
         instance = new Ozone::KeyEvent(__arg0, __arg1);
@@ -5499,8 +5593,10 @@ error:
 overload0:
     {
         int category;
-        if (JS_ToInt32(ctx, (int32_t*) &category, argv[0]))
+        int32_t _category;
+        if (JS_ToInt32(ctx, &_category, argv[0]))
             return JS_EXCEPTION;
+        category = (int)_category;
 
         auto __arg0 = category;
         bool __ret = instance->IsKeyInCategory(__arg0);
@@ -5730,8 +5826,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_m_x(__arg0);
@@ -5781,8 +5879,10 @@ error:
 overload0:
     {
         int value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (int)_value;
 
         auto __arg0 = value;
         instance->set_m_y(__arg0);
@@ -5832,8 +5932,10 @@ error:
 overload0:
     {
         long value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (long)_value;
 
         auto __arg0 = value;
         instance->set_m_keyCode(__arg0);
@@ -5936,8 +6038,10 @@ error:
 overload0:
     {
         unsigned int value;
-        if (JS_ToUint32(ctx, (uint32_t*) &value, argv[0]))
+        uint32_t _value;
+        if (JS_ToUint32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (unsigned int)_value;
 
         auto __arg0 = value;
         instance->set_m_rawCode(__arg0);
@@ -5987,8 +6091,10 @@ error:
 overload0:
     {
         unsigned int value;
-        if (JS_ToUint32(ctx, (uint32_t*) &value, argv[0]))
+        uint32_t _value;
+        if (JS_ToUint32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (unsigned int)_value;
 
         auto __arg0 = value;
         instance->set_m_rawFlags(__arg0);
@@ -6127,12 +6233,14 @@ overload0:
     // SizeEvent(const ::Ozone::Size& sz, int winid)
 overload1:
     {
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *sz_instance;
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[1]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[1]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg1 = winid;
         instance = new Ozone::SizeEvent(__arg0, __arg1);
@@ -6143,12 +6251,14 @@ overload1:
     // SizeEvent(const ::Ozone::Rect& rect, int id)
 overload2:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_GetOpaque(argv[0], classId_Ozone_Rect);
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *rect_instance;
         int id;
-        if (JS_ToInt32(ctx, (int32_t*) &id, argv[1]))
+        int32_t _id;
+        if (JS_ToInt32(ctx, &_id, argv[1]))
             return JS_EXCEPTION;
+        id = (int)_id;
 
         auto __arg1 = id;
         instance = new Ozone::SizeEvent(__arg0, __arg1);
@@ -6216,7 +6326,7 @@ error:
     // void SetSize(::Ozone::Size size)
 overload0:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = *size_instance;
         instance->SetSize(__arg0);
@@ -6265,7 +6375,7 @@ error:
     // void SetRect(const ::Ozone::Rect& rect)
 overload0:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_GetOpaque(argv[0], classId_Ozone_Rect);
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *rect_instance;
         instance->SetRect(__arg0);
@@ -6332,7 +6442,7 @@ error:
     // void set_m_size(::Ozone::Size value)
 overload0:
     {
-        Ozone::Size* value_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* value_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = *value_instance;
         instance->set_m_size(__arg0);
@@ -6381,7 +6491,7 @@ error:
     // void set_m_rect(::Ozone::Rect value)
 overload0:
     {
-        Ozone::Rect* value_instance = (Ozone::Rect*) JS_GetOpaque(argv[0], classId_Ozone_Rect);
+        Ozone::Rect* value_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = *value_instance;
         instance->set_m_rect(__arg0);
@@ -6505,12 +6615,14 @@ overload0:
     // MoveEvent(const ::Ozone::Point& pos, int winid)
 overload1:
     {
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pos_instance;
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[1]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[1]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg1 = winid;
         instance = new Ozone::MoveEvent(__arg0, __arg1);
@@ -6521,12 +6633,14 @@ overload1:
     // MoveEvent(const ::Ozone::Rect& rect, int id)
 overload2:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_GetOpaque(argv[0], classId_Ozone_Rect);
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *rect_instance;
         int id;
-        if (JS_ToInt32(ctx, (int32_t*) &id, argv[1]))
+        int32_t _id;
+        if (JS_ToInt32(ctx, &_id, argv[1]))
             return JS_EXCEPTION;
+        id = (int)_id;
 
         auto __arg1 = id;
         instance = new Ozone::MoveEvent(__arg0, __arg1);
@@ -6594,7 +6708,7 @@ error:
     // void SetPosition(const ::Ozone::Point& pos)
 overload0:
     {
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pos_instance;
         instance->SetPosition(__arg0);
@@ -6643,7 +6757,7 @@ error:
     // void SetRect(const ::Ozone::Rect& rect)
 overload0:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_GetOpaque(argv[0], classId_Ozone_Rect);
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *rect_instance;
         instance->SetRect(__arg0);
@@ -6908,11 +7022,13 @@ error:
 overload0:
     {
         int Id;
-        if (JS_ToInt32(ctx, (int32_t*) &Id, argv[0]))
+        int32_t _Id;
+        if (JS_ToInt32(ctx, &_Id, argv[0]))
             return JS_EXCEPTION;
+        Id = (int)_Id;
 
         auto __arg0 = Id;
-        Ozone::DC* dc_instance = (Ozone::DC*) JS_GetOpaque(argv[1], classId_Ozone_DC);
+        Ozone::DC* dc_instance = (Ozone::DC*) JS_Interop_GetInstance(argv[1], classId_Ozone_DC, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg1 = dc_instance;
         instance = new Ozone::EraseEvent(__arg0, __arg1);
@@ -7065,13 +7181,17 @@ error:
 overload0:
     {
         int type;
-        if (JS_ToInt32(ctx, (int32_t*) &type, argv[0]))
+        int32_t _type;
+        if (JS_ToInt32(ctx, &_type, argv[0]))
             return JS_EXCEPTION;
+        type = (int)_type;
 
         auto __arg0 = type;
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[1]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[1]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg1 = winid;
         instance = new Ozone::FocusEvent(__arg0, __arg1);
@@ -7139,7 +7259,7 @@ error:
     // void SetWindow(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         instance->SetWindow(__arg0);
@@ -7249,7 +7369,7 @@ error:
     // ChildFocusEvent(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         instance = new Ozone::ChildFocusEvent(__arg0);
@@ -7420,8 +7540,10 @@ error:
 overload0:
     {
         int type;
-        if (JS_ToInt32(ctx, (int32_t*) &type, argv[0]))
+        int32_t _type;
+        if (JS_ToInt32(ctx, &_type, argv[0]))
             return JS_EXCEPTION;
+        type = (int)_type;
 
         auto __arg0 = type;
         bool active;
@@ -7431,13 +7553,17 @@ overload0:
 
         auto __arg1 = active;
         int Id;
-        if (JS_ToInt32(ctx, (int32_t*) &Id, argv[2]))
+        int32_t _Id;
+        if (JS_ToInt32(ctx, &_Id, argv[2]))
             return JS_EXCEPTION;
+        Id = (int)_Id;
 
         auto __arg2 = Id;
         unsigned int activationReason;
-        if (JS_ToUint32(ctx, (uint32_t*) &activationReason, argv[3]))
+        uint32_t _activationReason;
+        if (JS_ToUint32(ctx, &_activationReason, argv[3]))
             return JS_EXCEPTION;
+        activationReason = (unsigned int)_activationReason;
 
         auto __arg3 = (::Ozone::ActivateEvent::Reason)activationReason;
         instance = new Ozone::ActivateEvent(__arg0, __arg1, __arg2, __arg3);
@@ -7603,8 +7729,10 @@ error:
 overload0:
     {
         int Id;
-        if (JS_ToInt32(ctx, (int32_t*) &Id, argv[0]))
+        int32_t _Id;
+        if (JS_ToInt32(ctx, &_Id, argv[0]))
             return JS_EXCEPTION;
+        Id = (int)_Id;
 
         auto __arg0 = Id;
         instance = new Ozone::InitDialogEvent(__arg0);
@@ -7849,13 +7977,17 @@ error:
 overload0:
     {
         int type;
-        if (JS_ToInt32(ctx, (int32_t*) &type, argv[0]))
+        int32_t _type;
+        if (JS_ToInt32(ctx, &_type, argv[0]))
             return JS_EXCEPTION;
+        type = (int)_type;
 
         auto __arg0 = type;
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[1]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[1]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg1 = winid;
         instance = new Ozone::CloseEvent(__arg0, __arg1);
@@ -8151,8 +8283,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         bool show;
@@ -8346,8 +8480,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         bool iconized;
@@ -8500,8 +8636,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         instance = new Ozone::MaximizeEvent(__arg0);
@@ -8647,23 +8785,31 @@ error:
 overload0:
     {
         int type;
-        if (JS_ToInt32(ctx, (int32_t*) &type, argv[0]))
+        int32_t _type;
+        if (JS_ToInt32(ctx, &_type, argv[0]))
             return JS_EXCEPTION;
+        type = (int)_type;
 
         auto __arg0 = type;
         int state;
-        if (JS_ToInt32(ctx, (int32_t*) &state, argv[1]))
+        int32_t _state;
+        if (JS_ToInt32(ctx, &_state, argv[1]))
             return JS_EXCEPTION;
+        state = (int)_state;
 
         auto __arg1 = state;
         int joystick;
-        if (JS_ToInt32(ctx, (int32_t*) &joystick, argv[2]))
+        int32_t _joystick;
+        if (JS_ToInt32(ctx, &_joystick, argv[2]))
             return JS_EXCEPTION;
+        joystick = (int)_joystick;
 
         auto __arg2 = joystick;
         int change;
-        if (JS_ToInt32(ctx, (int32_t*) &change, argv[3]))
+        int32_t _change;
+        if (JS_ToInt32(ctx, &_change, argv[3]))
             return JS_EXCEPTION;
+        change = (int)_change;
 
         auto __arg3 = change;
         instance = new Ozone::JoystickEvent(__arg0, __arg1, __arg2, __arg3);
@@ -8822,8 +8968,10 @@ error:
 overload0:
     {
         int stick;
-        if (JS_ToInt32(ctx, (int32_t*) &stick, argv[0]))
+        int32_t _stick;
+        if (JS_ToInt32(ctx, &_stick, argv[0]))
             return JS_EXCEPTION;
+        stick = (int)_stick;
 
         auto __arg0 = stick;
         instance->SetJoystick(__arg0);
@@ -8855,8 +9003,10 @@ error:
 overload0:
     {
         int state;
-        if (JS_ToInt32(ctx, (int32_t*) &state, argv[0]))
+        int32_t _state;
+        if (JS_ToInt32(ctx, &_state, argv[0]))
             return JS_EXCEPTION;
+        state = (int)_state;
 
         auto __arg0 = state;
         instance->SetButtonState(__arg0);
@@ -8888,8 +9038,10 @@ error:
 overload0:
     {
         int change;
-        if (JS_ToInt32(ctx, (int32_t*) &change, argv[0]))
+        int32_t _change;
+        if (JS_ToInt32(ctx, &_change, argv[0]))
             return JS_EXCEPTION;
+        change = (int)_change;
 
         auto __arg0 = change;
         instance->SetButtonChange(__arg0);
@@ -8920,7 +9072,7 @@ error:
     // void SetPosition(const ::Ozone::Point& pos)
 overload0:
     {
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pos_instance;
         instance->SetPosition(__arg0);
@@ -8952,8 +9104,10 @@ error:
 overload0:
     {
         int zPos;
-        if (JS_ToInt32(ctx, (int32_t*) &zPos, argv[0]))
+        int32_t _zPos;
+        if (JS_ToInt32(ctx, &_zPos, argv[0]))
             return JS_EXCEPTION;
+        zPos = (int)_zPos;
 
         auto __arg0 = zPos;
         instance->SetZPosition(__arg0);
@@ -9039,8 +9193,10 @@ error:
 overload0:
     {
         int but;
-        if (JS_ToInt32(ctx, (int32_t*) &but, argv[0]))
+        int32_t _but;
+        if (JS_ToInt32(ctx, &_but, argv[0]))
             return JS_EXCEPTION;
+        but = (int)_but;
 
         auto __arg0 = but;
         bool __ret = instance->ButtonDown(__arg0);
@@ -9074,8 +9230,10 @@ error:
 overload0:
     {
         int but;
-        if (JS_ToInt32(ctx, (int32_t*) &but, argv[0]))
+        int32_t _but;
+        if (JS_ToInt32(ctx, &_but, argv[0]))
             return JS_EXCEPTION;
+        but = (int)_but;
 
         auto __arg0 = but;
         bool __ret = instance->ButtonUp(__arg0);
@@ -9109,8 +9267,10 @@ error:
 overload0:
     {
         int but;
-        if (JS_ToInt32(ctx, (int32_t*) &but, argv[0]))
+        int32_t _but;
+        if (JS_ToInt32(ctx, &_but, argv[0]))
             return JS_EXCEPTION;
+        but = (int)_but;
 
         auto __arg0 = but;
         bool __ret = instance->ButtonIsDown(__arg0);
@@ -9238,8 +9398,10 @@ error:
 overload0:
     {
         int commandId;
-        if (JS_ToInt32(ctx, (int32_t*) &commandId, argv[0]))
+        int32_t _commandId;
+        if (JS_ToInt32(ctx, &_commandId, argv[0]))
             return JS_EXCEPTION;
+        commandId = (int)_commandId;
 
         auto __arg0 = commandId;
         instance = new Ozone::UpdateUIEvent(__arg0);
@@ -9622,8 +9784,10 @@ error:
 overload0:
     {
         long updateInterval;
-        if (JS_ToInt32(ctx, (int32_t*) &updateInterval, argv[0]))
+        int32_t _updateInterval;
+        if (JS_ToInt32(ctx, &_updateInterval, argv[0]))
             return JS_EXCEPTION;
+        updateInterval = (long)_updateInterval;
 
         auto __arg0 = updateInterval;
         ::Ozone::UpdateUIEvent::SetUpdateInterval(__arg0);
@@ -9683,8 +9847,10 @@ error:
 overload0:
     {
         unsigned int mode;
-        if (JS_ToUint32(ctx, (uint32_t*) &mode, argv[0]))
+        uint32_t _mode;
+        if (JS_ToUint32(ctx, &_mode, argv[0]))
             return JS_EXCEPTION;
+        mode = (unsigned int)_mode;
 
         auto __arg0 = (::Ozone::UpdateUIMode)mode;
         ::Ozone::UpdateUIEvent::SetMode(__arg0);
@@ -9928,11 +10094,13 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
-        Ozone::Window* gainedCapture_instance = (Ozone::Window*) JS_GetOpaque(argv[1], classId_Ozone_Window);
+        Ozone::Window* gainedCapture_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[1], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg1 = gainedCapture_instance;
         instance = new Ozone::MouseCaptureChangedEvent(__arg0, __arg1);
@@ -10079,8 +10247,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         instance = new Ozone::MouseCaptureLostEvent(__arg0);
@@ -10325,10 +10495,10 @@ error:
     // explicit DPIChangedEvent(const ::Ozone::Size& oldDPI, const ::Ozone::Size& newDPI)
 overload0:
     {
-        Ozone::Size* oldDPI_instance = (Ozone::Size*) JS_GetOpaque(argv[0], classId_Ozone_Size);
+        Ozone::Size* oldDPI_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *oldDPI_instance;
-        Ozone::Size* newDPI_instance = (Ozone::Size*) JS_GetOpaque(argv[1], classId_Ozone_Size);
+        Ozone::Size* newDPI_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[1], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg1 = *newDPI_instance;
         instance = new Ozone::DPIChangedEvent(__arg0, __arg1);
@@ -10494,8 +10664,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         instance = new Ozone::PaletteChangedEvent(__arg0);
@@ -10545,7 +10717,7 @@ error:
     // void SetChangedWindow(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         instance->SetChangedWindow(__arg0);
@@ -10674,8 +10846,10 @@ error:
 overload0:
     {
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[0]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg0 = winid;
         instance = new Ozone::QueryNewPaletteEvent(__arg0);
@@ -11073,7 +11247,7 @@ error:
     // void SetCurrentFocus(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         instance->SetCurrentFocus(__arg0);
@@ -11105,8 +11279,10 @@ error:
 overload0:
     {
         long flags;
-        if (JS_ToInt32(ctx, (int32_t*) &flags, argv[0]))
+        int32_t _flags;
+        if (JS_ToInt32(ctx, &_flags, argv[0]))
             return JS_EXCEPTION;
+        flags = (long)_flags;
 
         auto __arg0 = flags;
         instance->SetFlags(__arg0);
@@ -11174,8 +11350,10 @@ error:
 overload0:
     {
         long value;
-        if (JS_ToInt32(ctx, (int32_t*) &value, argv[0]))
+        int32_t _value;
+        if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
+        value = (long)_value;
 
         auto __arg0 = value;
         instance->set_m_flags(__arg0);
@@ -11224,7 +11402,7 @@ error:
     // void set_m_focus(::Ozone::Window* value)
 overload0:
     {
-        Ozone::Window* value_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* value_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = value_instance;
         instance->set_m_focus(__arg0);
@@ -11327,7 +11505,7 @@ error:
     // WindowCreateEvent(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         instance = new Ozone::WindowCreateEvent(__arg0);
@@ -11473,7 +11651,7 @@ error:
     // WindowDestroyEvent(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = win_instance;
         instance = new Ozone::WindowDestroyEvent(__arg0);
@@ -11645,21 +11823,27 @@ error:
 overload0:
     {
         int type;
-        if (JS_ToInt32(ctx, (int32_t*) &type, argv[0]))
+        int32_t _type;
+        if (JS_ToInt32(ctx, &_type, argv[0]))
             return JS_EXCEPTION;
+        type = (int)_type;
 
         auto __arg0 = type;
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[1]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[1]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg1 = winid;
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_GetOpaque(argv[2], classId_Ozone_Point);
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[2], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg2 = *pt_instance;
         unsigned int origin;
-        if (JS_ToUint32(ctx, (uint32_t*) &origin, argv[3]))
+        uint32_t _origin;
+        if (JS_ToUint32(ctx, &_origin, argv[3]))
             return JS_EXCEPTION;
+        origin = (unsigned int)_origin;
 
         auto __arg3 = (::Ozone::HelpEvent::Source)origin;
         instance = new Ozone::HelpEvent(__arg0, __arg1, __arg2, __arg3);
@@ -11709,7 +11893,7 @@ error:
     // void SetPosition(const ::Ozone::Point& pos)
 overload0:
     {
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pos_instance;
         instance->SetPosition(__arg0);
@@ -11849,8 +12033,10 @@ error:
 overload0:
     {
         unsigned int origin;
-        if (JS_ToUint32(ctx, (uint32_t*) &origin, argv[0]))
+        uint32_t _origin;
+        if (JS_ToUint32(ctx, &_origin, argv[0]))
             return JS_EXCEPTION;
+        origin = (unsigned int)_origin;
 
         auto __arg0 = (::Ozone::HelpEvent::Source)origin;
         instance->SetOrigin(__arg0);
@@ -11952,13 +12138,17 @@ error:
 overload0:
     {
         int type;
-        if (JS_ToInt32(ctx, (int32_t*) &type, argv[0]))
+        int32_t _type;
+        if (JS_ToInt32(ctx, &_type, argv[0]))
             return JS_EXCEPTION;
+        type = (int)_type;
 
         auto __arg0 = type;
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[1]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[1]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg1 = winid;
         instance = new Ozone::ClipboardTextEvent(__arg0, __arg1);
@@ -12098,16 +12288,20 @@ error:
 overload0:
     {
         int type;
-        if (JS_ToInt32(ctx, (int32_t*) &type, argv[0]))
+        int32_t _type;
+        if (JS_ToInt32(ctx, &_type, argv[0]))
             return JS_EXCEPTION;
+        type = (int)_type;
 
         auto __arg0 = type;
         int winid;
-        if (JS_ToInt32(ctx, (int32_t*) &winid, argv[1]))
+        int32_t _winid;
+        if (JS_ToInt32(ctx, &_winid, argv[1]))
             return JS_EXCEPTION;
+        winid = (int)_winid;
 
         auto __arg1 = winid;
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_GetOpaque(argv[2], classId_Ozone_Point);
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[2], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg2 = *pt_instance;
         instance = new Ozone::ContextMenuEvent(__arg0, __arg1, __arg2);
@@ -12157,7 +12351,7 @@ error:
     // void SetPosition(const ::Ozone::Point& pos)
 overload0:
     {
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_GetOpaque(argv[0], classId_Ozone_Point);
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *pos_instance;
         instance->SetPosition(__arg0);
@@ -12337,7 +12531,7 @@ error:
     // void SetNextHandler(::Ozone::EvtHandler* handler)
 overload0:
     {
-        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_GetOpaque(argv[0], classId_Ozone_EvtHandler);
+        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = handler_instance;
         instance->SetNextHandler(__arg0);
@@ -12368,7 +12562,7 @@ error:
     // void SetPreviousHandler(::Ozone::EvtHandler* handler)
 overload0:
     {
-        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_GetOpaque(argv[0], classId_Ozone_EvtHandler);
+        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = handler_instance;
         instance->SetPreviousHandler(__arg0);
@@ -12485,7 +12679,7 @@ error:
     // bool ProcessEvent(::Ozone::Event& event)
 overload0:
     {
-        Ozone::Event* event_instance = (Ozone::Event*) JS_GetOpaque(argv[0], classId_Ozone_Event);
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[0], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *event_instance;
         bool __ret = instance->ProcessEvent(__arg0);
@@ -12518,7 +12712,7 @@ error:
     // bool SafelyProcessEvent(::Ozone::Event& event)
 overload0:
     {
-        Ozone::Event* event_instance = (Ozone::Event*) JS_GetOpaque(argv[0], classId_Ozone_Event);
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[0], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *event_instance;
         bool __ret = instance->SafelyProcessEvent(__arg0);
@@ -12551,7 +12745,7 @@ error:
     // bool ProcessEventLocally(::Ozone::Event& event)
 overload0:
     {
-        Ozone::Event* event_instance = (Ozone::Event*) JS_GetOpaque(argv[0], classId_Ozone_Event);
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[0], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *event_instance;
         bool __ret = instance->ProcessEventLocally(__arg0);
@@ -12584,7 +12778,7 @@ error:
     // void QueueEvent(::Ozone::Event* event)
 overload0:
     {
-        Ozone::Event* event_instance = (Ozone::Event*) JS_GetOpaque(argv[0], classId_Ozone_Event);
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[0], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = event_instance;
         instance->QueueEvent(__arg0);
@@ -12615,7 +12809,7 @@ error:
     // void AddPendingEvent(const ::Ozone::Event& event)
 overload0:
     {
-        Ozone::Event* event_instance = (Ozone::Event*) JS_GetOpaque(argv[0], classId_Ozone_Event);
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[0], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *event_instance;
         instance->AddPendingEvent(__arg0);
@@ -12678,7 +12872,7 @@ error:
     // bool ProcessThreadEvent(const ::Ozone::Event& event)
 overload0:
     {
-        Ozone::Event* event_instance = (Ozone::Event*) JS_GetOpaque(argv[0], classId_Ozone_Event);
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[0], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *event_instance;
         bool __ret = instance->ProcessThreadEvent(__arg0);
@@ -12711,7 +12905,7 @@ error:
     // bool SearchDynamicEventTable(::Ozone::Event& event)
 overload0:
     {
-        Ozone::Event* event_instance = (Ozone::Event*) JS_GetOpaque(argv[0], classId_Ozone_Event);
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[0], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *event_instance;
         bool __ret = instance->SearchDynamicEventTable(__arg0);
@@ -12760,7 +12954,7 @@ error:
     // void OnSinkDestroyed(::Ozone::EvtHandler* sink)
 overload0:
     {
-        Ozone::EvtHandler* sink_instance = (Ozone::EvtHandler*) JS_GetOpaque(argv[0], classId_Ozone_EvtHandler);
+        Ozone::EvtHandler* sink_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = sink_instance;
         instance->OnSinkDestroyed(__arg0);
@@ -12915,10 +13109,10 @@ error:
     // void PostEvent(::Ozone::EvtHandler* dest, const ::Ozone::Event& event)
 overload0:
     {
-        Ozone::EvtHandler* dest_instance = (Ozone::EvtHandler*) JS_GetOpaque(argv[0], classId_Ozone_EvtHandler);
+        Ozone::EvtHandler* dest_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = dest_instance;
-        Ozone::Event* event_instance = (Ozone::Event*) JS_GetOpaque(argv[1], classId_Ozone_Event);
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[1], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg1 = *event_instance;
         ::Ozone::PostEvent(__arg0, __arg1);
@@ -12967,10 +13161,10 @@ error:
     // void QueueEvent(::Ozone::EvtHandler* dest, ::Ozone::Event* event)
 overload0:
     {
-        Ozone::EvtHandler* dest_instance = (Ozone::EvtHandler*) JS_GetOpaque(argv[0], classId_Ozone_EvtHandler);
+        Ozone::EvtHandler* dest_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg0 = dest_instance;
-        Ozone::Event* event_instance = (Ozone::Event*) JS_GetOpaque(argv[1], classId_Ozone_Event);
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[1], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto __arg1 = event_instance;
         ::Ozone::QueueEvent(__arg0, __arg1);
@@ -13013,7 +13207,7 @@ error:
     // ::Ozone::Window* FindFocusDescendant(::Ozone::Window* ancestor)
 overload0:
     {
-        Ozone::Window* ancestor_instance = (Ozone::Window*) JS_GetOpaque(argv[0], classId_Ozone_Window);
+        Ozone::Window* ancestor_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
         auto __arg0 = ancestor_instance;
         ::Ozone::Window* __ret = ::Ozone::FindFocusDescendant(__arg0);

@@ -569,3 +569,9 @@ void (::Ozone::WakeUpIdle)()
 {
     ::wxWakeUpIdle();
 }
+
+::Ozone::AppConsole* (::Ozone::CreateApp)()
+{
+    ::wxAppConsole* __ret = ::wxCreateApp();
+    return (__ret == nullptr) ? nullptr : new Ozone::AppConsole((::wxAppConsole*)__ret);
+}

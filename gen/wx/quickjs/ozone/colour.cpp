@@ -145,8 +145,10 @@ overload1:
 overload2:
     {
         unsigned long colRGB;
-        if (JS_ToUint32(ctx, (uint32_t*) &colRGB, argv[0]))
+        uint32_t _colRGB;
+        if (JS_ToUint32(ctx, &_colRGB, argv[0]))
             return JS_EXCEPTION;
+        colRGB = (unsigned long)_colRGB;
 
         auto __arg0 = colRGB;
         instance = new Ozone::Color(__arg0);
@@ -228,7 +230,7 @@ error:
     // bool operator==(const ::Ozone::Color& col) const
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *col_instance;
         bool __ret = instance->operator==(__arg0);
@@ -261,7 +263,7 @@ error:
     // bool operator!=(const ::Ozone::Color& col) const
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_GetOpaque(argv[0], classId_Ozone_Color);
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
 
         auto &__arg0 = *col_instance;
         bool __ret = instance->operator!=(__arg0);
@@ -447,8 +449,10 @@ overload1:
 overload2:
     {
         unsigned long colRGB;
-        if (JS_ToUint32(ctx, (uint32_t*) &colRGB, argv[0]))
+        uint32_t _colRGB;
+        if (JS_ToUint32(ctx, &_colRGB, argv[0]))
             return JS_EXCEPTION;
+        colRGB = (unsigned long)_colRGB;
 
         auto __arg0 = colRGB;
         instance->Set(__arg0);
@@ -498,8 +502,10 @@ error:
 overload0:
     {
         long flags;
-        if (JS_ToInt32(ctx, (int32_t*) &flags, argv[0]))
+        int32_t _flags;
+        if (JS_ToInt32(ctx, &_flags, argv[0]))
             return JS_EXCEPTION;
+        flags = (long)_flags;
 
         auto __arg0 = flags;
         const char* __ret = instance->GetAsString(__arg0);
@@ -533,8 +539,10 @@ error:
 overload0:
     {
         unsigned int colRGB;
-        if (JS_ToUint32(ctx, (uint32_t*) &colRGB, argv[0]))
+        uint32_t _colRGB;
+        if (JS_ToUint32(ctx, &_colRGB, argv[0]))
             return JS_EXCEPTION;
+        colRGB = (unsigned int)_colRGB;
 
         auto __arg0 = colRGB;
         instance->SetRGB(__arg0);
@@ -566,8 +574,10 @@ error:
 overload0:
     {
         unsigned int colRGBA;
-        if (JS_ToUint32(ctx, (uint32_t*) &colRGBA, argv[0]))
+        uint32_t _colRGBA;
+        if (JS_ToUint32(ctx, &_colRGBA, argv[0]))
             return JS_EXCEPTION;
+        colRGBA = (unsigned int)_colRGBA;
 
         auto __arg0 = colRGBA;
         instance->SetRGBA(__arg0);
@@ -653,8 +663,10 @@ error:
 overload0:
     {
         int ialpha;
-        if (JS_ToInt32(ctx, (int32_t*) &ialpha, argv[0]))
+        int32_t _ialpha;
+        if (JS_ToInt32(ctx, &_ialpha, argv[0]))
             return JS_EXCEPTION;
+        ialpha = (int)_ialpha;
 
         auto __arg0 = ialpha;
         ::Ozone::Color __ret = instance->ChangeLightness(__arg0);

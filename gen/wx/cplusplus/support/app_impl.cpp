@@ -43,7 +43,7 @@ MyApp& wxGetApp() { return *static_cast<MyApp*>(wxApp::GetInstance()); }
 
 wxAppConsole *wxCreateApp()
 {
-    wxAppConsole::CheckBuildOptions(WX_BUILD_OPTIONS_SIGNATURE, "your program");
+    wxAppConsole::CheckBuildOptions(WX_BUILD_OPTIONS_SIGNATURE, "Ozone");
     return new MyApp;
 }
 

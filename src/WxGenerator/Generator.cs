@@ -24,7 +24,7 @@ namespace CppSharp
         public static void Main(string[] args)
         {
             const TargetPlatform targetPlatform = TargetPlatform.Linux;
-            ConsoleDriver.Run(new LowLevelGen(GeneratorKind.CPlusPlus, targetPlatform));
+            //ConsoleDriver.Run(new LowLevelGen(GeneratorKind.CPlusPlus, targetPlatform));
             ConsoleDriver.Run(new HighLevelGen(GeneratorKind.QuickJS, targetPlatform));
             //ConsoleDriver.Run(new HighLevelGen(GeneratorKind.CSharp, targetPlatform));
         }

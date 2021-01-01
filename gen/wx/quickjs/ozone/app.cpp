@@ -1197,11 +1197,9 @@ struct data_Ozone_App : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_CloseEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1212,11 +1210,9 @@ struct data_Ozone_App : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_CloseEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1227,11 +1223,9 @@ struct data_Ozone_App : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ActivateEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1242,11 +1236,9 @@ struct data_Ozone_App : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ActivateEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1257,11 +1249,9 @@ struct data_Ozone_App : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_IdleEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }

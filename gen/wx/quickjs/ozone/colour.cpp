@@ -659,7 +659,7 @@ overload0:
         auto __arg0 = ialpha;
         ::Ozone::Color __ret = instance->ChangeLightness(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }

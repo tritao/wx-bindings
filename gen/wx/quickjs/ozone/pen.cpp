@@ -330,7 +330,7 @@ static JSValue callback_method_Ozone_PenInfo_GetColour(JSContext* ctx, JSValueCo
 
     ::Ozone::Color __ret = instance->GetColour();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -865,7 +865,7 @@ static JSValue callback_method_Ozone_Pen_GetColour(JSContext* ctx, JSValueConst 
 
     ::Ozone::Color __ret = instance->GetColour();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }

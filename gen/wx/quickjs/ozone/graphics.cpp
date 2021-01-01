@@ -1538,7 +1538,7 @@ overload0:
         auto __arg0 = n;
         ::Ozone::GraphicsGradientStop __ret = instance->Item(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsGradientStop, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsGradientStop, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -1588,7 +1588,7 @@ static JSValue callback_method_Ozone_GraphicsGradientStops_GetStartColour(JSCont
 
     ::Ozone::Color __ret = instance->GetStartColour();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -1637,7 +1637,7 @@ static JSValue callback_method_Ozone_GraphicsGradientStops_GetEndColour(JSContex
 
     ::Ozone::Color __ret = instance->GetEndColour();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -1981,7 +1981,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetColour(JSContext* ctx, J
 
     ::Ozone::Color __ret = instance->GetColour();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -3276,7 +3276,7 @@ static JSValue callback_method_Ozone_GraphicsContext_CreatePath(JSContext* ctx, 
 
     ::Ozone::GraphicsPath __ret = instance->CreatePath();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsPath, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsPath, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -3312,7 +3312,7 @@ overload0:
         ::Ozone::GraphicsPen __ret = instance->CreatePen(__arg0);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsPen, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsPen, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -3325,7 +3325,7 @@ overload1:
         auto &__arg0 = *info_instance;
         ::Ozone::GraphicsPen __ret = instance->CreatePen(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsPen, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsPen, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -3358,7 +3358,7 @@ overload0:
         auto &__arg0 = *brush_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateBrush(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -3463,7 +3463,7 @@ overload0:
         ::Ozone::GraphicsBrush __ret = instance->CreateLinearGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5, __arg6);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -3499,7 +3499,7 @@ overload1:
         auto &__arg5 = *matrix_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateLinearGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -3615,7 +3615,7 @@ overload0:
         ::Ozone::GraphicsBrush __ret = instance->CreateRadialGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5, __arg6, __arg7);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -3656,7 +3656,7 @@ overload1:
         auto &__arg6 = *matrix_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateRadialGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5, __arg6);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -3725,7 +3725,7 @@ overload0:
 
         JS_FreeCString(ctx, facename);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsFont, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsFont, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -3802,7 +3802,7 @@ overload0:
         auto __arg4 = h;
         ::Ozone::GraphicsBitmap __ret = instance->CreateSubBitmap(__arg0, __arg1, __arg2, __arg3, __arg4);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBitmap, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBitmap, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -3892,7 +3892,7 @@ overload0:
         auto __arg5 = ty;
         ::Ozone::GraphicsMatrix __ret = instance->CreateMatrix(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -4416,7 +4416,7 @@ static JSValue callback_method_Ozone_GraphicsContext_GetTransform(JSContext* ctx
 
     ::Ozone::GraphicsMatrix __ret = instance->GetTransform();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -5667,7 +5667,7 @@ static JSValue callback_method_Ozone_GraphicsRenderer_CreatePath(JSContext* ctx,
 
     ::Ozone::GraphicsPath __ret = instance->CreatePath();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsPath, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsPath, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -5756,7 +5756,7 @@ overload0:
         auto __arg5 = ty;
         ::Ozone::GraphicsMatrix __ret = instance->CreateMatrix(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsMatrix, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -5789,7 +5789,7 @@ overload0:
         auto &__arg0 = *info_instance;
         ::Ozone::GraphicsPen __ret = instance->CreatePen(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsPen, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsPen, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -5822,7 +5822,7 @@ overload0:
         auto &__arg0 = *brush_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateBrush(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -5908,7 +5908,7 @@ overload0:
         auto &__arg5 = *matrix_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateLinearGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -6005,7 +6005,7 @@ overload0:
         auto &__arg6 = *matrix_instance;
         ::Ozone::GraphicsBrush __ret = instance->CreateRadialGradientBrush(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5, __arg6);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBrush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -6074,7 +6074,7 @@ overload0:
 
         JS_FreeCString(ctx, facename);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsFont, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsFont, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -6151,7 +6151,7 @@ overload0:
         auto __arg4 = h;
         ::Ozone::GraphicsBitmap __ret = instance->CreateSubBitmap(__arg0, __arg1, __arg2, __arg3, __arg4);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBitmap, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_GraphicsBitmap, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }

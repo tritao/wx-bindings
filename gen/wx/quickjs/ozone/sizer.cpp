@@ -786,7 +786,7 @@ static JSValue callback_method_Ozone_SizerItem_GetSize(JSContext* ctx, JSValueCo
 
     ::Ozone::Size __ret = instance->GetSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -804,7 +804,7 @@ static JSValue callback_method_Ozone_SizerItem_CalcMin(JSContext* ctx, JSValueCo
 
     ::Ozone::Size __ret = instance->CalcMin();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -862,7 +862,7 @@ static JSValue callback_method_Ozone_SizerItem_GetMinSize(JSContext* ctx, JSValu
 
     ::Ozone::Size __ret = instance->GetMinSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -880,7 +880,7 @@ static JSValue callback_method_Ozone_SizerItem_GetMinSizeWithBorder(JSContext* c
 
     ::Ozone::Size __ret = instance->GetMinSizeWithBorder();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -898,7 +898,7 @@ static JSValue callback_method_Ozone_SizerItem_GetMaxSize(JSContext* ctx, JSValu
 
     ::Ozone::Size __ret = instance->GetMaxSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -916,7 +916,7 @@ static JSValue callback_method_Ozone_SizerItem_GetMaxSizeWithBorder(JSContext* c
 
     ::Ozone::Size __ret = instance->GetMaxSizeWithBorder();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -1133,7 +1133,7 @@ static JSValue callback_method_Ozone_SizerItem_GetRect(JSContext* ctx, JSValueCo
 
     ::Ozone::Rect __ret = instance->GetRect();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -1445,7 +1445,7 @@ static JSValue callback_method_Ozone_SizerItem_GetSpacer(JSContext* ctx, JSValue
 
     ::Ozone::Size __ret = instance->GetSpacer();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -1564,7 +1564,7 @@ static JSValue callback_method_Ozone_SizerItem_GetPosition(JSContext* ctx, JSVal
 
     ::Ozone::Point __ret = instance->GetPosition();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4258,7 +4258,7 @@ static JSValue callback_method_Ozone_Sizer_GetSize(JSContext* ctx, JSValueConst 
 
     ::Ozone::Size __ret = instance->GetSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4276,7 +4276,7 @@ static JSValue callback_method_Ozone_Sizer_GetPosition(JSContext* ctx, JSValueCo
 
     ::Ozone::Point __ret = instance->GetPosition();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4294,7 +4294,7 @@ static JSValue callback_method_Ozone_Sizer_GetMinSize(JSContext* ctx, JSValueCon
 
     ::Ozone::Size __ret = instance->GetMinSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4312,7 +4312,7 @@ static JSValue callback_method_Ozone_Sizer_CalcMin(JSContext* ctx, JSValueConst 
 
     ::Ozone::Size __ret = instance->CalcMin();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4407,7 +4407,7 @@ overload0:
         auto __arg0 = window_instance;
         ::Ozone::Size __ret = instance->ComputeFittingClientSize(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -4440,7 +4440,7 @@ overload0:
         auto __arg0 = window_instance;
         ::Ozone::Size __ret = instance->ComputeFittingWindowSize(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -4473,7 +4473,7 @@ overload0:
         auto __arg0 = window_instance;
         ::Ozone::Size __ret = instance->Fit(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -5456,7 +5456,7 @@ static JSValue callback_method_Ozone_GridSizer_CalcMin(JSContext* ctx, JSValueCo
 
     ::Ozone::Size __ret = instance->CalcMin();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -6286,7 +6286,7 @@ static JSValue callback_method_Ozone_FlexGridSizer_CalcMin(JSContext* ctx, JSVal
 
     ::Ozone::Size __ret = instance->CalcMin();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -6530,7 +6530,7 @@ static JSValue callback_method_Ozone_BoxSizer_CalcMin(JSContext* ctx, JSValueCon
 
     ::Ozone::Size __ret = instance->CalcMin();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -6776,7 +6776,7 @@ static JSValue callback_method_Ozone_StaticBoxSizer_CalcMin(JSContext* ctx, JSVa
 
     ::Ozone::Size __ret = instance->CalcMin();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }

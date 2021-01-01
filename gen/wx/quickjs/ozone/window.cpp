@@ -308,7 +308,7 @@ static JSValue callback_method_Ozone_VisualAttributes_get_colFg(JSContext* ctx, 
 
     ::Ozone::Color __ret = instance->get_colFg();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -357,7 +357,7 @@ static JSValue callback_method_Ozone_VisualAttributes_get_colBg(JSContext* ctx, 
 
     ::Ozone::Color __ret = instance->get_colBg();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -584,11 +584,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ActivateEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -599,11 +597,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ChildFocusEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -614,11 +610,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ContextMenuEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -629,11 +623,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_HelpEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -644,11 +636,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_HelpEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -659,11 +649,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_EraseEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -674,11 +662,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_FocusEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -689,11 +675,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_FocusEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -704,11 +688,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_IdleEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -719,11 +701,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_JoystickEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -734,11 +714,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_JoystickEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -749,11 +727,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_JoystickEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -764,11 +740,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_JoystickEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -779,11 +753,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_KeyEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -794,11 +766,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_KeyEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -809,11 +779,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_KeyEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -824,11 +792,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_KeyEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -839,11 +805,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_MouseCaptureLostEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -854,11 +818,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_MouseCaptureChangedEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -869,11 +831,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_MouseEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -884,11 +844,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_MouseEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -899,11 +857,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_MouseEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -914,11 +870,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_MouseEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -929,11 +883,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_MouseEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -944,11 +896,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_MouseEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -959,11 +909,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_PaintEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -974,11 +922,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ScrollWinEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -989,11 +935,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ScrollWinEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1004,11 +948,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ScrollWinEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1019,11 +961,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ScrollWinEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1034,11 +974,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ScrollWinEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1049,11 +987,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ScrollWinEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1064,11 +1000,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ScrollWinEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1079,11 +1013,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_ScrollWinEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1094,11 +1026,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_SetCursorEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1109,11 +1039,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_SizeEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -1124,11 +1052,9 @@ struct data_Ozone_Window : public JS_Interop_ClassData
         if (JS_IsUndefined(event))
             return;
 
-        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
-
         JSValue __arg0 = JS_Interop_CreateFromInstance(ctx, classId_Ozone_SysColourChangedEvent, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &arg0);
-
         JSValueConst argv[] = { __arg0 };
+        auto data = (JS_SignalContext*) JS_GetOpaque(event, 0);
         JSValue ret = JS_Call(ctx, data->function, JS_UNDEFINED, 1, argv);
         JS_FreeValue(ctx, ret);
     }
@@ -4127,7 +4053,7 @@ static JSValue callback_method_Ozone_Window_GetPosition(JSContext* ctx, JSValueC
 
     ::Ozone::Point __ret = instance->GetPosition();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4146,7 +4072,7 @@ static JSValue callback_method_Ozone_Window_GetScreenPosition(JSContext* ctx, JS
 
     ::Ozone::Point __ret = instance->GetScreenPosition();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4165,7 +4091,7 @@ static JSValue callback_method_Ozone_Window_GetSize(JSContext* ctx, JSValueConst
 
     ::Ozone::Size __ret = instance->GetSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4184,7 +4110,7 @@ static JSValue callback_method_Ozone_Window_GetClientSize(JSContext* ctx, JSValu
 
     ::Ozone::Size __ret = instance->GetClientSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4203,7 +4129,7 @@ static JSValue callback_method_Ozone_Window_GetRect(JSContext* ctx, JSValueConst
 
     ::Ozone::Rect __ret = instance->GetRect();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4222,7 +4148,7 @@ static JSValue callback_method_Ozone_Window_GetScreenRect(JSContext* ctx, JSValu
 
     ::Ozone::Rect __ret = instance->GetScreenRect();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4241,7 +4167,7 @@ static JSValue callback_method_Ozone_Window_GetClientAreaOrigin(JSContext* ctx, 
 
     ::Ozone::Point __ret = instance->GetClientAreaOrigin();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4260,7 +4186,7 @@ static JSValue callback_method_Ozone_Window_GetClientRect(JSContext* ctx, JSValu
 
     ::Ozone::Rect __ret = instance->GetClientRect();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4293,7 +4219,7 @@ overload0:
         auto &__arg0 = *size_instance;
         ::Ozone::Size __ret = instance->ClientToWindowSize(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -4327,7 +4253,7 @@ overload0:
         auto &__arg0 = *size_instance;
         ::Ozone::Size __ret = instance->WindowToClientSize(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -4347,7 +4273,7 @@ static JSValue callback_method_Ozone_Window_GetBestSize(JSContext* ctx, JSValueC
 
     ::Ozone::Size __ret = instance->GetBestSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4487,7 +4413,7 @@ static JSValue callback_method_Ozone_Window_GetEffectiveMinSize(JSContext* ctx, 
 
     ::Ozone::Size __ret = instance->GetEffectiveMinSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4958,7 +4884,7 @@ static JSValue callback_method_Ozone_Window_GetMinSize(JSContext* ctx, JSValueCo
 
     ::Ozone::Size __ret = instance->GetMinSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4977,7 +4903,7 @@ static JSValue callback_method_Ozone_Window_GetMaxSize(JSContext* ctx, JSValueCo
 
     ::Ozone::Size __ret = instance->GetMaxSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -4996,7 +4922,7 @@ static JSValue callback_method_Ozone_Window_GetMinClientSize(JSContext* ctx, JSV
 
     ::Ozone::Size __ret = instance->GetMinClientSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -5015,7 +4941,7 @@ static JSValue callback_method_Ozone_Window_GetMaxClientSize(JSContext* ctx, JSV
 
     ::Ozone::Size __ret = instance->GetMaxClientSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -5170,7 +5096,7 @@ static JSValue callback_method_Ozone_Window_GetVirtualSize(JSContext* ctx, JSVal
 
     ::Ozone::Size __ret = instance->GetVirtualSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -5234,7 +5160,7 @@ static JSValue callback_method_Ozone_Window_DoGetVirtualSize(JSContext* ctx, JSV
 
     ::Ozone::Size __ret = instance->DoGetVirtualSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -5253,7 +5179,7 @@ static JSValue callback_method_Ozone_Window_GetBestVirtualSize(JSContext* ctx, J
 
     ::Ozone::Size __ret = instance->GetBestVirtualSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -5272,7 +5198,7 @@ static JSValue callback_method_Ozone_Window_GetWindowBorderSize(JSContext* ctx, 
 
     ::Ozone::Size __ret = instance->GetWindowBorderSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -7100,7 +7026,7 @@ static JSValue callback_method_Ozone_Window_GetDPI(JSContext* ctx, JSValueConst 
 
     ::Ozone::Size __ret = instance->GetDPI();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -7140,7 +7066,7 @@ overload0:
         ::Ozone::Size __ret = instance->FromDIP(__arg0);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -7154,7 +7080,7 @@ overload1:
         ::Ozone::Point __ret = instance->FromDIP(__arg0);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -7210,7 +7136,7 @@ overload0:
         ::Ozone::Size __ret = instance->ToDIP(__arg0);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -7224,7 +7150,7 @@ overload1:
         ::Ozone::Point __ret = instance->ToDIP(__arg0);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -7277,7 +7203,7 @@ overload0:
         ::Ozone::Point __ret = instance->ConvertPixelsToDialog(__arg0);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -7290,7 +7216,7 @@ overload1:
         auto &__arg0 = *sz_instance;
         ::Ozone::Size __ret = instance->ConvertPixelsToDialog(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -7328,7 +7254,7 @@ overload0:
         ::Ozone::Point __ret = instance->ConvertDialogToPixels(__arg0);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -7341,7 +7267,7 @@ overload1:
         auto &__arg0 = *sz_instance;
         ::Ozone::Size __ret = instance->ConvertDialogToPixels(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -7543,7 +7469,7 @@ static JSValue callback_method_Ozone_Window_GetUpdateClientRect(JSContext* ctx, 
 
     ::Ozone::Rect __ret = instance->GetUpdateClientRect();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -7680,7 +7606,7 @@ static JSValue callback_method_Ozone_Window_GetDefaultAttributes(JSContext* ctx,
 
     ::Ozone::VisualAttributes __ret = instance->GetDefaultAttributes();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_VisualAttributes, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_VisualAttributes, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -7731,7 +7657,7 @@ static JSValue callback_method_Ozone_Window_GetBackgroundColour(JSContext* ctx, 
 
     ::Ozone::Color __ret = instance->GetBackgroundColour();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -7839,7 +7765,7 @@ static JSValue callback_method_Ozone_Window_GetForegroundColour(JSContext* ctx, 
 
     ::Ozone::Color __ret = instance->GetForegroundColour();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -7948,7 +7874,7 @@ overload0:
         auto &__arg0 = *pt_instance;
         ::Ozone::Point __ret = instance->ClientToScreen(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -7982,7 +7908,7 @@ overload0:
         auto &__arg0 = *pt_instance;
         ::Ozone::Point __ret = instance->ScreenToClient(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -10710,7 +10636,7 @@ overload0:
         auto __arg0 = (::Ozone::WindowVariant)variant;
         ::Ozone::VisualAttributes __ret = ::Ozone::Window::GetClassDefaultAttributes(__arg0);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_VisualAttributes, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_VisualAttributes, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -11151,7 +11077,7 @@ static JSValue callback_function_Ozone_GetMousePosition(JSContext* ctx, JSValueC
 
     ::Ozone::Point __ret = ::Ozone::GetMousePosition();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }

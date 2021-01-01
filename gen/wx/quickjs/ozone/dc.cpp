@@ -793,7 +793,7 @@ static JSValue callback_method_Ozone_DC_GetSize(JSContext* ctx, JSValueConst thi
 
     ::Ozone::Size __ret = instance->GetSize();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -811,7 +811,7 @@ static JSValue callback_method_Ozone_DC_GetSizeMM(JSContext* ctx, JSValueConst t
 
     ::Ozone::Size __ret = instance->GetSizeMM();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -847,7 +847,7 @@ static JSValue callback_method_Ozone_DC_GetPPI(JSContext* ctx, JSValueConst this
 
     ::Ozone::Size __ret = instance->GetPPI();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -1394,7 +1394,7 @@ static JSValue callback_method_Ozone_DC_GetFontMetrics(JSContext* ctx, JSValueCo
 
     ::Ozone::FontMetrics __ret = instance->GetFontMetrics();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_FontMetrics, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_FontMetrics, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -1431,7 +1431,7 @@ overload0:
 
         JS_FreeCString(ctx, string);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -1784,7 +1784,7 @@ overload0:
         ::Ozone::Point __ret = instance->DeviceToLogical(__arg0);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -1804,7 +1804,7 @@ overload1:
         auto __arg1 = y;
         ::Ozone::Point __ret = instance->DeviceToLogical(__arg0, __arg1);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -1847,7 +1847,7 @@ overload0:
         ::Ozone::Size __ret = instance->DeviceToLogicalRel(__arg0);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -1867,7 +1867,7 @@ overload1:
         auto __arg1 = y;
         ::Ozone::Size __ret = instance->DeviceToLogicalRel(__arg0, __arg1);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -2050,7 +2050,7 @@ overload0:
         ::Ozone::Point __ret = instance->LogicalToDevice(__arg0);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -2070,7 +2070,7 @@ overload1:
         auto __arg1 = y;
         ::Ozone::Point __ret = instance->LogicalToDevice(__arg0, __arg1);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -2113,7 +2113,7 @@ overload0:
         ::Ozone::Size __ret = instance->LogicalToDeviceRel(__arg0);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -2133,7 +2133,7 @@ overload1:
         auto __arg1 = y;
         ::Ozone::Size __ret = instance->LogicalToDeviceRel(__arg0, __arg1);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
         return ____ret;
     }
@@ -2335,7 +2335,7 @@ static JSValue callback_method_Ozone_DC_GetLogicalOrigin(JSContext* ctx, JSValue
 
     ::Ozone::Point __ret = instance->GetLogicalOrigin();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }
@@ -2397,7 +2397,7 @@ static JSValue callback_method_Ozone_DC_GetDeviceOrigin(JSContext* ctx, JSValueC
 
     ::Ozone::Point __ret = instance->GetDeviceOrigin();
 
-    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &ctx);
+    JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
 
     return ____ret;
 }

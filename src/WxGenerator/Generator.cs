@@ -173,6 +173,11 @@ namespace CppSharp
 
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "defs.h" });
+
+            var defs = ctx.TranslationUnits.Find(u => u.FilePath.Contains("defs.h"));
+            var tab = defs.PreprocessedEntities.OfType<MacroDefinition>().ToList()
+                .Find(e => e.Name.Contains("TAB_TRAVERSAL"));
+
             passBuilder.RemovePrefix("wxALIGN_");
             passBuilder.RemovePrefix("wxBORDER_");
             passBuilder.RemovePrefix("wxBG_STYLE_");
@@ -206,7 +211,7 @@ namespace CppSharp
             sizerOrientation.Name = "wxSizerOrientation";
 
             // TODO: Rewrite this to actually work.
-            var sizerFlags = ctx.GenerateEnumFromMacros("wxSizerFlags", new string[]
+            var sizerFlags = ctx.GenerateEnumFromMacros("wxSizerLayoutFlags", new string[]
             {
                 "wxTOP",
                 "wxBOTTOM",
@@ -224,6 +229,28 @@ namespace CppSharp
                 "wxALIGN_CENTER_VERTICAL",
                 "wxALIGN_CENTER_HORIZONTAL",
             }).SetFlags();
+
+            var windowFlags = ctx.GenerateEnumFromMacros("wxWindowFlags", new string[]
+            {
+                "wxFULL_REPAINT_ON_RESIZE",
+                "wxPOPUP_WINDOW",
+                "wxWANTS_CHARS",
+                "wxTAB_TRAVERSAL",
+                "wxTRANSPARENT_WINDOW",
+                "wxBORDER_NONE",
+                "wxCLIP_CHILDREN",
+                "wxALWAYS_SHOW_SB",
+                // "wxBORDER_STATIC",
+                // "wxBORDER_SIMPLE",
+                // "wxBORDER_RAISED",
+                // "wxBORDER_SUNKEN",
+                // "wxBORDER_{DOUBLE,THEME}",
+                "wxCAPTION",
+                "wxCLIP_SIBLINGS",
+                "wxHSCROLL",
+                "wxVSCROLL",
+            }).SetFlags();
+            windowFlags.Type = windowFlags.BuiltinType = new BuiltinType(PrimitiveType.Long);
 
             ctx.GetEnumWithMatchingItem("wxJOYSTICK1").Name = "wxJoystickId";
             var wxJoystickButton = ctx.GetEnumWithMatchingItem("wxJOY_BUTTON_ANY");
@@ -321,7 +348,7 @@ namespace CppSharp
             appConsole.FindMethod("GetInitializerFunction").ExplicitlyIgnore();
             appConsole.FindMethod("SetInitializerFunction").ExplicitlyIgnore();
 
-            ctx.IgnoreFunctionWithName("wxCreateApp");
+            //ctx.IgnoreFunctionWithName("wxCreateApp");
 
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "frame.h" });
@@ -517,14 +544,15 @@ namespace CppSharp
                 "wxFRAME_TOOL_WINDOW",
                 "wxFRAME_FLOAT_ON_PARENT",
                 "wxFRAME_SHAPED",
-                "wxDIALOG_NO_PARENT",
+                //"wxDIALOG_NO_PARENT", // Needs dialog.h
                 "wxRESIZE_BORDER",
-                "wxTINY_CAPTION_VERT",
+                "wxTINY_CAPTION",
                 "wxMAXIMIZE_BOX",
                 "wxMINIMIZE_BOX",
                 "wxSYSTEM_MENU",
                 "wxCLOSE_BOX",
                 "wxMAXIMIZE",
+                "wxICONIZE", // Needed because wxMINIMIZE is defined to wxICONIZE
                 "wxMINIMIZE",
                 "wxSTAY_ON_TOP",
                 "wxCAPTION",

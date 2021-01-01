@@ -4,6 +4,7 @@ DIR=$(cd "$(dirname "$0")"; pwd)
 
 oshost=""
 os=""
+configuration=Release
 
 detect_os()
 {
@@ -56,12 +57,12 @@ install_deps()
 
 build()
 {
-  build_dir=$DIR/build/wxwidgets
+  build_dir=$DIR/build/wxwidgets/$configuration
   wx_dir=$DIR/deps/wxWidgets
 
   mkdir -p $build_dir
   cd $build_dir
-  cmake -G "Ninja" $wx_dir
+  cmake -G "Ninja" -DCMAKE_BUILD_TYPE=$configuration $wx_dir
   ninja
 }
 

@@ -51,7 +51,7 @@ namespace CppSharp
             var wxIncludePath = Path.Combine(WxPath, "include");
             module.IncludeDirs.Add(wxIncludePath);
 
-            var wxBuildPath = Path.Combine(WxPath, "../../build/wxwidgets");
+            var wxBuildPath = Path.Combine(WxPath, "../../build/wxwidgets/Debug");
             var wxBuildIncludePath = Path.Combine(wxBuildPath, "lib/wx/include");
             var wxBuildVariantDirName = Directory.EnumerateDirectories(wxBuildIncludePath).FirstOrDefault();
 

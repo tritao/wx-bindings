@@ -52,7 +52,11 @@ workspace "ozone"
   project "ozone"
     --kind "StaticLib"
     kind "SharedLib"
-    files { path.join(wx_get_target_dir("cplusplus"), "**.cpp") }
+    files
+    {
+      path.join(wx_get_target_dir("cplusplus"), "**.cpp"),
+      path.join(wx_get_target_dir("cplusplus"), "..", "support", "**.cpp")
+    }
     removefiles { "**/defs.cpp", "test-**" }
     includedirs
     {

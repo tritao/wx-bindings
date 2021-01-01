@@ -1,6 +1,10 @@
 local wx_path = path.join(rootdir, "deps", "wxWidgets")
 local wx_build_path = path.join(rootdir, "build/wxwidgets")
 
+--
+wx_build_path = path.join(wx_build_path, "Debug")
+--
+
 function wx_get_target_dir(kind)
     if not kind then
       error("Invalid target kind passed to wx_get_target_dir")
@@ -36,7 +40,7 @@ end
 function setup_wx_libs(libs)
   --linkoptions { "`" .. get_wx_config_path() .. " --libs " .. libs .. "`" }
   libdirs { wx_build_path .. "/lib" }
-  linkoptions { "-Wl,-rpath,/home/joao/dev/CppSharp/examples/Ozone/build/wxwidgets/lib" }
+  linkoptions { "-Wl,-rpath," .. path.join(wx_build_path, "lib") }
   links { "pthread", "wx_baseu-3.1", "wx_gtk3u_core-3.1"}
 end
 

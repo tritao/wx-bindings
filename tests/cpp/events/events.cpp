@@ -49,7 +49,6 @@ int main(int argc, char *argv[])
 
     frame->Show(true);
 
-
     app.CallOnInit();
     app.OnRun();
 

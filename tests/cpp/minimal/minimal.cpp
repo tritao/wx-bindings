@@ -31,14 +31,7 @@ int main(int argc, char *argv[])
     frame->Show(true);
 
     app->CallOnInit();
-    //app->OnRun();
-
-    wxAppBase* appBase = (wxAppBase*)app->__Instance;
-    appBase->MainLoop();
-
-    wxEventLoopBase* mainLoop = appBase->GetMainLoop();
-    printf("%p\n", mainLoop);
-    mainLoop->Run();
+    app->OnRun();
 
     // -----------------------------------
     wxUninitialize();

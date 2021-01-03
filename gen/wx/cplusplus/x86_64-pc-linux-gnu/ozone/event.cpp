@@ -320,7 +320,7 @@ void* Ozone::CommandEvent::GetClientData() const
 const char* Ozone::CommandEvent::GetString() const
 {
     ::wxString __ret = ((::wxCommandEvent*)__Instance)->GetString();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 int Ozone::CommandEvent::GetSelection() const
@@ -1978,7 +1978,7 @@ bool Ozone::UpdateUIEvent::GetShown() const
 const char* Ozone::UpdateUIEvent::GetText() const
 {
     ::wxString __ret = ((::wxUpdateUIEvent*)__Instance)->GetText();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 bool Ozone::UpdateUIEvent::GetSetText() const

@@ -156,16 +156,17 @@ overload0:
     // Brush(const ::Ozone::Color& colour, ::Ozone::BrushStyle style)
 overload1:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
+
         int style;
         int32_t _style;
         if (JS_ToInt32(ctx, &_style, argv[1]))
             return JS_EXCEPTION;
         style = (int)_style;
-
         auto __arg1 = (::Ozone::BrushStyle)style;
+
         instance = new Ozone::Brush(__arg0, __arg1);
         goto wrap;
     }
@@ -213,9 +214,10 @@ error:
     // bool operator==(const ::Ozone::Brush& brush) const
 overload0:
     {
-        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_Interop_GetInstance(argv[0], classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *brush_instance;
+
         bool __ret = instance->operator==(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -246,9 +248,10 @@ error:
     // bool operator!=(const ::Ozone::Brush& brush) const
 overload0:
     {
-        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_Interop_GetInstance(argv[0], classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Brush* brush_instance = (Ozone::Brush*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *brush_instance;
+
         bool __ret = instance->operator!=(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -330,9 +333,10 @@ error:
     // void SetColour(const ::Ozone::Color& col)
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *col_instance;
+
         instance->SetColour(__arg0);
 
 
@@ -347,22 +351,22 @@ overload1:
         if (JS_ToInt32(ctx, &_r, argv[0]))
             return JS_EXCEPTION;
         r = (unsigned char)_r;
-
         auto __arg0 = r;
+
         unsigned char g;
         int32_t _g;
         if (JS_ToInt32(ctx, &_g, argv[1]))
             return JS_EXCEPTION;
         g = (unsigned char)_g;
-
         auto __arg1 = g;
+
         unsigned char b;
         int32_t _b;
         if (JS_ToInt32(ctx, &_b, argv[2]))
             return JS_EXCEPTION;
         b = (unsigned char)_b;
-
         auto __arg2 = b;
+
         instance->SetColour(__arg0, __arg1, __arg2);
 
         return JS_UNDEFINED;
@@ -396,8 +400,8 @@ overload0:
         if (JS_ToInt32(ctx, &_style, argv[0]))
             return JS_EXCEPTION;
         style = (int)_style;
-
         auto __arg0 = (::Ozone::BrushStyle)style;
+
         instance->SetStyle(__arg0);
 
         return JS_UNDEFINED;
@@ -579,16 +583,17 @@ error:
     // ::Ozone::Brush* FindOrCreateBrush(const ::Ozone::Color& colour, ::Ozone::BrushStyle style)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
+
         int style;
         int32_t _style;
         if (JS_ToInt32(ctx, &_style, argv[1]))
             return JS_EXCEPTION;
         style = (int)_style;
-
         auto __arg1 = (::Ozone::BrushStyle)style;
+
         ::Ozone::Brush* __ret = instance->FindOrCreateBrush(__arg0, __arg1);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Brush, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);

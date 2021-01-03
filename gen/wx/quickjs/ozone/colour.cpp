@@ -113,29 +113,29 @@ overload1:
         if (JS_ToInt32(ctx, &_red, argv[0]))
             return JS_EXCEPTION;
         red = (unsigned char)_red;
-
         auto __arg0 = red;
+
         unsigned char green;
         int32_t _green;
         if (JS_ToInt32(ctx, &_green, argv[1]))
             return JS_EXCEPTION;
         green = (unsigned char)_green;
-
         auto __arg1 = green;
+
         unsigned char blue;
         int32_t _blue;
         if (JS_ToInt32(ctx, &_blue, argv[2]))
             return JS_EXCEPTION;
         blue = (unsigned char)_blue;
-
         auto __arg2 = blue;
+
         unsigned char alpha;
         int32_t _alpha;
         if (JS_ToInt32(ctx, &_alpha, argv[3]))
             return JS_EXCEPTION;
         alpha = (unsigned char)_alpha;
-
         auto __arg3 = alpha;
+
         instance = new Ozone::Color(__arg0, __arg1, __arg2, __arg3);
 
         goto wrap;
@@ -149,8 +149,8 @@ overload2:
         if (JS_ToUint32(ctx, &_colRGB, argv[0]))
             return JS_EXCEPTION;
         colRGB = (unsigned long)_colRGB;
-
         auto __arg0 = colRGB;
+
         instance = new Ozone::Color(__arg0);
 
         goto wrap;
@@ -163,8 +163,8 @@ overload3:
         colourName = JS_ToCString(ctx, argv[0]);
         if (!colourName)
             return JS_EXCEPTION;
-
         auto __arg0 = colourName;
+
         instance = new Ozone::Color(__arg0);
 
         JS_FreeCString(ctx, colourName);
@@ -179,8 +179,8 @@ overload4:
         colourName = JS_ToCString(ctx, argv[0]);
         if (!colourName)
             return JS_EXCEPTION;
-
         auto __arg0 = colourName;
+
         instance = new Ozone::Color(__arg0);
 
         JS_FreeCString(ctx, colourName);
@@ -230,9 +230,10 @@ error:
     // bool operator==(const ::Ozone::Color& col) const
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *col_instance;
+
         bool __ret = instance->operator==(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -263,9 +264,10 @@ error:
     // bool operator!=(const ::Ozone::Color& col) const
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *col_instance;
+
         bool __ret = instance->operator!=(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -397,29 +399,29 @@ overload0:
         if (JS_ToInt32(ctx, &_red, argv[0]))
             return JS_EXCEPTION;
         red = (unsigned char)_red;
-
         auto __arg0 = red;
+
         unsigned char green;
         int32_t _green;
         if (JS_ToInt32(ctx, &_green, argv[1]))
             return JS_EXCEPTION;
         green = (unsigned char)_green;
-
         auto __arg1 = green;
+
         unsigned char blue;
         int32_t _blue;
         if (JS_ToInt32(ctx, &_blue, argv[2]))
             return JS_EXCEPTION;
         blue = (unsigned char)_blue;
-
         auto __arg2 = blue;
+
         unsigned char alpha;
         int32_t _alpha;
         if (JS_ToInt32(ctx, &_alpha, argv[3]))
             return JS_EXCEPTION;
         alpha = (unsigned char)_alpha;
-
         auto __arg3 = alpha;
+
         instance->Set(__arg0, __arg1, __arg2, __arg3);
 
 
@@ -433,8 +435,8 @@ overload1:
         str = JS_ToCString(ctx, argv[0]);
         if (!str)
             return JS_EXCEPTION;
-
         auto __arg0 = str;
+
         bool __ret = instance->Set(__arg0);
 
         JS_FreeCString(ctx, str);
@@ -453,8 +455,8 @@ overload2:
         if (JS_ToUint32(ctx, &_colRGB, argv[0]))
             return JS_EXCEPTION;
         colRGB = (unsigned long)_colRGB;
-
         auto __arg0 = colRGB;
+
         instance->Set(__arg0);
 
         return JS_UNDEFINED;
@@ -506,8 +508,8 @@ overload0:
         if (JS_ToInt32(ctx, &_flags, argv[0]))
             return JS_EXCEPTION;
         flags = (long)_flags;
-
         auto __arg0 = flags;
+
         const char* __ret = instance->GetAsString(__arg0);
 
         JSValue ____ret = JS_NewString(ctx, __ret);
@@ -543,8 +545,8 @@ overload0:
         if (JS_ToUint32(ctx, &_colRGB, argv[0]))
             return JS_EXCEPTION;
         colRGB = (unsigned int)_colRGB;
-
         auto __arg0 = colRGB;
+
         instance->SetRGB(__arg0);
 
         return JS_UNDEFINED;
@@ -578,8 +580,8 @@ overload0:
         if (JS_ToUint32(ctx, &_colRGBA, argv[0]))
             return JS_EXCEPTION;
         colRGBA = (unsigned int)_colRGBA;
-
         auto __arg0 = colRGBA;
+
         instance->SetRGBA(__arg0);
 
         return JS_UNDEFINED;
@@ -667,8 +669,8 @@ overload0:
         if (JS_ToInt32(ctx, &_ialpha, argv[0]))
             return JS_EXCEPTION;
         ialpha = (int)_ialpha;
-
         auto __arg0 = ialpha;
+
         ::Ozone::Color __ret = instance->ChangeLightness(__arg0);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
@@ -714,20 +716,20 @@ overload0:
         if (JS_ToInt32(ctx, &_fg, argv[0]))
             return JS_EXCEPTION;
         fg = (unsigned char)_fg;
-
         auto __arg0 = fg;
+
         unsigned char bg;
         int32_t _bg;
         if (JS_ToInt32(ctx, &_bg, argv[1]))
             return JS_EXCEPTION;
         bg = (unsigned char)_bg;
-
         auto __arg1 = bg;
+
         double alpha;
         if (JS_ToFloat64(ctx, &alpha, argv[2]))
             return JS_EXCEPTION;
-
         auto __arg2 = alpha;
+
         unsigned char __ret = ::Ozone::Color::AlphaBlend(__arg0, __arg1, __arg2);
 
         JSValue ____ret = JS_NewInt32(ctx, __ret);

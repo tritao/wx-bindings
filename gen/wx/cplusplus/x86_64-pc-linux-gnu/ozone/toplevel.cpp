@@ -153,7 +153,7 @@ void Ozone::TopLevelWindow::SetTitle(const char* title)
 const char* Ozone::TopLevelWindow::GetTitle() const
 {
     ::wxString __ret = ((::wxTopLevelWindow*)__Instance)->GetTitle();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 void Ozone::TopLevelWindow::SetLabel(const char* label)
@@ -165,7 +165,7 @@ void Ozone::TopLevelWindow::SetLabel(const char* label)
 const char* Ozone::TopLevelWindow::GetLabel() const
 {
     ::wxString __ret = ((::wxTopLevelWindow*)__Instance)->GetLabel();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 ::Ozone::VisualAttributes Ozone::TopLevelWindow::GetDefaultAttributes() const

@@ -413,82 +413,82 @@ static void register_enum_Ozone_Alignment(JSContext *ctx, JSModuleDef *m, bool s
 
     JSValue val = JS_NewObject(ctx);
 
-    // INVALID
+    // ALIGN_INVALID
     {
         JSValue __item = JS_NewInt32(ctx, -1);
-        JS_SetPropertyStr(ctx, val, "INVALID", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_INVALID", __item);
     }
 
-    // NOT
+    // ALIGN_NOT
     {
         JSValue __item = JS_NewInt32(ctx, 0);
-        JS_SetPropertyStr(ctx, val, "NOT", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_NOT", __item);
     }
 
-    // CENTER_HORIZONTAL
+    // ALIGN_CENTER_HORIZONTAL
     {
         JSValue __item = JS_NewInt32(ctx, 256);
-        JS_SetPropertyStr(ctx, val, "CENTER_HORIZONTAL", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_CENTER_HORIZONTAL", __item);
     }
 
-    // CENTRE_HORIZONTAL
+    // ALIGN_CENTRE_HORIZONTAL
     {
         JSValue __item = JS_NewInt32(ctx, 256);
-        JS_SetPropertyStr(ctx, val, "CENTRE_HORIZONTAL", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_CENTRE_HORIZONTAL", __item);
     }
 
-    // LEFT
+    // ALIGN_LEFT
     {
         JSValue __item = JS_NewInt32(ctx, 0);
-        JS_SetPropertyStr(ctx, val, "LEFT", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_LEFT", __item);
     }
 
-    // TOP
+    // ALIGN_TOP
     {
         JSValue __item = JS_NewInt32(ctx, 0);
-        JS_SetPropertyStr(ctx, val, "TOP", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_TOP", __item);
     }
 
-    // RIGHT
+    // ALIGN_RIGHT
     {
         JSValue __item = JS_NewInt32(ctx, 512);
-        JS_SetPropertyStr(ctx, val, "RIGHT", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_RIGHT", __item);
     }
 
-    // BOTTOM
+    // ALIGN_BOTTOM
     {
         JSValue __item = JS_NewInt32(ctx, 1024);
-        JS_SetPropertyStr(ctx, val, "BOTTOM", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_BOTTOM", __item);
     }
 
-    // CENTER_VERTICAL
+    // ALIGN_CENTER_VERTICAL
     {
         JSValue __item = JS_NewInt32(ctx, 2048);
-        JS_SetPropertyStr(ctx, val, "CENTER_VERTICAL", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_CENTER_VERTICAL", __item);
     }
 
-    // CENTRE_VERTICAL
+    // ALIGN_CENTRE_VERTICAL
     {
         JSValue __item = JS_NewInt32(ctx, 2048);
-        JS_SetPropertyStr(ctx, val, "CENTRE_VERTICAL", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_CENTRE_VERTICAL", __item);
     }
 
-    // CENTER
+    // ALIGN_CENTER
     {
         JSValue __item = JS_NewInt32(ctx, 2304);
-        JS_SetPropertyStr(ctx, val, "CENTER", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_CENTER", __item);
     }
 
-    // CENTRE
+    // ALIGN_CENTRE
     {
         JSValue __item = JS_NewInt32(ctx, 2304);
-        JS_SetPropertyStr(ctx, val, "CENTRE", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_CENTRE", __item);
     }
 
-    // MASK
+    // ALIGN_MASK
     {
         JSValue __item = JS_NewInt32(ctx, 3840);
-        JS_SetPropertyStr(ctx, val, "MASK", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_MASK", __item);
     }
 
     int status = JS_SetModuleExport(ctx, m, "Alignment", val);
@@ -1952,82 +1952,16 @@ static void register_enum_Ozone_SizerLayoutFlags(JSContext *ctx, JSModuleDef *m,
 
     JSValue val = JS_NewObject(ctx);
 
-    // wxLEFT
-    {
-        JSValue __item = JS_NewInt32(ctx, 0x10);
-        JS_SetPropertyStr(ctx, val, "wxLEFT", __item);
-    }
-
-    // wxRIGHT
-    {
-        JSValue __item = JS_NewInt32(ctx, 0x20);
-        JS_SetPropertyStr(ctx, val, "wxRIGHT", __item);
-    }
-
-    // wxTOP
-    {
-        JSValue __item = JS_NewInt32(ctx, 64);
-        JS_SetPropertyStr(ctx, val, "wxTOP", __item);
-    }
-
-    // wxBOTTOM
-    {
-        JSValue __item = JS_NewInt32(ctx, 128);
-        JS_SetPropertyStr(ctx, val, "wxBOTTOM", __item);
-    }
-
-    // ALL
-    {
-        JSValue __item = JS_NewInt32(ctx, 240);
-        JS_SetPropertyStr(ctx, val, "ALL", __item);
-    }
-
-    // CENTER_HORIZONTAL
-    {
-        JSValue __item = JS_NewInt32(ctx, 0x100);
-        JS_SetPropertyStr(ctx, val, "CENTER_HORIZONTAL", __item);
-    }
-
-    // LEFT
+    // ALIGN_LEFT
     {
         JSValue __item = JS_NewInt32(ctx, 0);
-        JS_SetPropertyStr(ctx, val, "LEFT", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_LEFT", __item);
     }
 
-    // TOP
+    // ALIGN_TOP
     {
         JSValue __item = JS_NewInt32(ctx, 0);
-        JS_SetPropertyStr(ctx, val, "TOP", __item);
-    }
-
-    // RIGHT
-    {
-        JSValue __item = JS_NewInt32(ctx, 0x200);
-        JS_SetPropertyStr(ctx, val, "RIGHT", __item);
-    }
-
-    // BOTTOM
-    {
-        JSValue __item = JS_NewInt32(ctx, 0x400);
-        JS_SetPropertyStr(ctx, val, "BOTTOM", __item);
-    }
-
-    // CENTER_VERTICAL
-    {
-        JSValue __item = JS_NewInt32(ctx, 0x800);
-        JS_SetPropertyStr(ctx, val, "CENTER_VERTICAL", __item);
-    }
-
-    // CENTER
-    {
-        JSValue __item = JS_NewInt32(ctx, 2304);
-        JS_SetPropertyStr(ctx, val, "CENTER", __item);
-    }
-
-    // FIXED_MINSIZE
-    {
-        JSValue __item = JS_NewInt32(ctx, 0x8000);
-        JS_SetPropertyStr(ctx, val, "FIXED_MINSIZE", __item);
+        JS_SetPropertyStr(ctx, val, "ALIGN_TOP", __item);
     }
 
     // RESERVE_SPACE_EVEN_IF_HIDDEN
@@ -2036,10 +1970,76 @@ static void register_enum_Ozone_SizerLayoutFlags(JSContext *ctx, JSModuleDef *m,
         JS_SetPropertyStr(ctx, val, "RESERVE_SPACE_EVEN_IF_HIDDEN", __item);
     }
 
+    // LEFT
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x10);
+        JS_SetPropertyStr(ctx, val, "LEFT", __item);
+    }
+
+    // RIGHT
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x20);
+        JS_SetPropertyStr(ctx, val, "RIGHT", __item);
+    }
+
+    // TOP
+    {
+        JSValue __item = JS_NewInt32(ctx, 64);
+        JS_SetPropertyStr(ctx, val, "TOP", __item);
+    }
+
+    // BOTTOM
+    {
+        JSValue __item = JS_NewInt32(ctx, 128);
+        JS_SetPropertyStr(ctx, val, "BOTTOM", __item);
+    }
+
+    // ALL
+    {
+        JSValue __item = JS_NewInt32(ctx, 240);
+        JS_SetPropertyStr(ctx, val, "ALL", __item);
+    }
+
+    // ALIGN_CENTER_HORIZONTAL
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x100);
+        JS_SetPropertyStr(ctx, val, "ALIGN_CENTER_HORIZONTAL", __item);
+    }
+
+    // ALIGN_RIGHT
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x200);
+        JS_SetPropertyStr(ctx, val, "ALIGN_RIGHT", __item);
+    }
+
+    // ALIGN_BOTTOM
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x400);
+        JS_SetPropertyStr(ctx, val, "ALIGN_BOTTOM", __item);
+    }
+
+    // ALIGN_CENTER_VERTICAL
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x800);
+        JS_SetPropertyStr(ctx, val, "ALIGN_CENTER_VERTICAL", __item);
+    }
+
+    // ALIGN_CENTER
+    {
+        JSValue __item = JS_NewInt32(ctx, 2304);
+        JS_SetPropertyStr(ctx, val, "ALIGN_CENTER", __item);
+    }
+
     // EXPAND
     {
         JSValue __item = JS_NewInt32(ctx, 8192);
         JS_SetPropertyStr(ctx, val, "EXPAND", __item);
+    }
+
+    // FIXED_MINSIZE
+    {
+        JSValue __item = JS_NewInt32(ctx, 0x8000);
+        JS_SetPropertyStr(ctx, val, "FIXED_MINSIZE", __item);
     }
 
     int status = JS_SetModuleExport(ctx, m, "SizerLayoutFlags", val);
@@ -3020,12 +3020,6 @@ static void register_enum_Ozone_WindowFlags(JSContext *ctx, JSModuleDef *m, bool
 
     JSValue val = JS_NewObject(ctx);
 
-    // NONE
-    {
-        JSValue __item = JS_NewInt32(ctx, 2097152);
-        JS_SetPropertyStr(ctx, val, "NONE", __item);
-    }
-
     // FULL_REPAINT_ON_RESIZE
     {
         JSValue __item = JS_NewInt32(ctx, 65536);
@@ -3054,6 +3048,12 @@ static void register_enum_Ozone_WindowFlags(JSContext *ctx, JSModuleDef *m, bool
     {
         JSValue __item = JS_NewInt32(ctx, 1048576);
         JS_SetPropertyStr(ctx, val, "TRANSPARENT_WINDOW", __item);
+    }
+
+    // NONE
+    {
+        JSValue __item = JS_NewInt32(ctx, 2097152);
+        JS_SetPropertyStr(ctx, val, "NONE", __item);
     }
 
     // CLIP_CHILDREN

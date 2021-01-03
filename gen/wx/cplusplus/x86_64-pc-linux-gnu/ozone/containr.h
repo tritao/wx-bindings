@@ -9,6 +9,7 @@
 #include "CppSharp.h"
 #include "FastDelegates.h"
 #include <wx/containr.h>
+#include "ozone/toplevel.h"
 #include "ozone/window.h"
 
 namespace Ozone

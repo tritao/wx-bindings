@@ -519,7 +519,7 @@ void Ozone::Window::SetLabel(const char* label)
 const char* Ozone::Window::GetLabel() const
 {
     ::wxString __ret = ((::wxWindow*)__Instance)->GetLabel();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 void Ozone::Window::OnInternalIdle()
@@ -599,7 +599,7 @@ void Ozone::Window::SetName(const char* name)
 const char* Ozone::Window::GetName() const
 {
     ::wxString __ret = ((::wxWindow*)__Instance)->GetName();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 void Ozone::Window::SetWindowVariant(::Ozone::WindowVariant variant)
@@ -1846,13 +1846,13 @@ const char* Ozone::Window::GetHelpTextAtPoint(const ::Ozone::Point& pt, ::Ozone:
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     auto __arg1 = (::wxHelpEvent::Origin)origin;
     ::wxString __ret = ((::wxWindow*)__Instance)->GetHelpTextAtPoint(__arg0, __arg1);
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 const char* Ozone::Window::GetHelpText() const
 {
     ::wxString __ret = ((::wxWindow*)__Instance)->GetHelpText();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 void Ozone::Window::SetToolTip(const char* tip)
@@ -1869,7 +1869,7 @@ void Ozone::Window::UnsetToolTip()
 const char* Ozone::Window::GetToolTipText() const
 {
     ::wxString __ret = ((::wxWindow*)__Instance)->GetToolTipText();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 void Ozone::Window::DragAcceptFiles(bool accept)
@@ -2536,7 +2536,7 @@ void Ozone::Window::set_m_isGtkPositionValid(bool value)
 const char* Ozone::Window::get_m_gtkLabel()
 {
     ::wxString __ret = ((::wxWindow*)__Instance)->m_gtkLabel;
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 

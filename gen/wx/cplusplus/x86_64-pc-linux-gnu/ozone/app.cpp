@@ -98,7 +98,7 @@ void Ozone::AppConsole::Exit()
 const char* Ozone::AppConsole::GetAppName() const
 {
     ::wxString __ret = ((::wxAppConsole*)__Instance)->GetAppName();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 void Ozone::AppConsole::SetAppName(const char* name)
@@ -110,7 +110,7 @@ void Ozone::AppConsole::SetAppName(const char* name)
 const char* Ozone::AppConsole::GetAppDisplayName() const
 {
     ::wxString __ret = ((::wxAppConsole*)__Instance)->GetAppDisplayName();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 void Ozone::AppConsole::SetAppDisplayName(const char* name)
@@ -122,7 +122,7 @@ void Ozone::AppConsole::SetAppDisplayName(const char* name)
 const char* Ozone::AppConsole::GetClassName() const
 {
     ::wxString __ret = ((::wxAppConsole*)__Instance)->GetClassName();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 void Ozone::AppConsole::SetClassName(const char* name)

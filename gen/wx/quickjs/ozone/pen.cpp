@@ -261,23 +261,24 @@ error:
     // explicit PenInfo(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
+
         int width;
         int32_t _width;
         if (JS_ToInt32(ctx, &_width, argv[1]))
             return JS_EXCEPTION;
         width = (int)_width;
-
         auto __arg1 = width;
+
         int style;
         int32_t _style;
         if (JS_ToInt32(ctx, &_style, argv[2]))
             return JS_EXCEPTION;
         style = (int)_style;
-
         auto __arg2 = (::Ozone::PenStyle)style;
+
         instance = new Ozone::PenInfo(__arg0, __arg1, __arg2);
         goto wrap;
     }
@@ -533,23 +534,24 @@ overload0:
     // Pen(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style)
 overload1:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
+
         int width;
         int32_t _width;
         if (JS_ToInt32(ctx, &_width, argv[1]))
             return JS_EXCEPTION;
         width = (int)_width;
-
         auto __arg1 = width;
+
         int style;
         int32_t _style;
         if (JS_ToInt32(ctx, &_style, argv[2]))
             return JS_EXCEPTION;
         style = (int)_style;
-
         auto __arg2 = (::Ozone::PenStyle)style;
+
         instance = new Ozone::Pen(__arg0, __arg1, __arg2);
 
         goto wrap;
@@ -558,9 +560,10 @@ overload1:
     // Pen(const ::Ozone::PenInfo& info)
 overload2:
     {
-        Ozone::PenInfo* info_instance = (Ozone::PenInfo*) JS_Interop_GetInstance(argv[0], classId_Ozone_PenInfo, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::PenInfo* info_instance = (Ozone::PenInfo*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_PenInfo, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *info_instance;
+
         instance = new Ozone::Pen(__arg0);
         goto wrap;
     }
@@ -608,9 +611,10 @@ error:
     // bool operator==(const ::Ozone::Pen& pen) const
 overload0:
     {
-        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance(argv[0], classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pen_instance;
+
         bool __ret = instance->operator==(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -641,9 +645,10 @@ error:
     // bool operator!=(const ::Ozone::Pen& pen) const
 overload0:
     {
-        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance(argv[0], classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pen_instance;
+
         bool __ret = instance->operator!=(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -689,9 +694,10 @@ error:
     // void SetColour(const ::Ozone::Color& colour)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
+
         instance->SetColour(__arg0);
 
 
@@ -706,22 +712,22 @@ overload1:
         if (JS_ToInt32(ctx, &_red, argv[0]))
             return JS_EXCEPTION;
         red = (unsigned char)_red;
-
         auto __arg0 = red;
+
         unsigned char green;
         int32_t _green;
         if (JS_ToInt32(ctx, &_green, argv[1]))
             return JS_EXCEPTION;
         green = (unsigned char)_green;
-
         auto __arg1 = green;
+
         unsigned char blue;
         int32_t _blue;
         if (JS_ToInt32(ctx, &_blue, argv[2]))
             return JS_EXCEPTION;
         blue = (unsigned char)_blue;
-
         auto __arg2 = blue;
+
         instance->SetColour(__arg0, __arg1, __arg2);
 
         return JS_UNDEFINED;
@@ -755,8 +761,8 @@ overload0:
         if (JS_ToInt32(ctx, &_capStyle, argv[0]))
             return JS_EXCEPTION;
         capStyle = (int)_capStyle;
-
         auto __arg0 = (::Ozone::PenCap)capStyle;
+
         instance->SetCap(__arg0);
 
         return JS_UNDEFINED;
@@ -790,8 +796,8 @@ overload0:
         if (JS_ToInt32(ctx, &_joinStyle, argv[0]))
             return JS_EXCEPTION;
         joinStyle = (int)_joinStyle;
-
         auto __arg0 = (::Ozone::PenJoin)joinStyle;
+
         instance->SetJoin(__arg0);
 
         return JS_UNDEFINED;
@@ -825,8 +831,8 @@ overload0:
         if (JS_ToInt32(ctx, &_style, argv[0]))
             return JS_EXCEPTION;
         style = (int)_style;
-
         auto __arg0 = (::Ozone::PenStyle)style;
+
         instance->SetStyle(__arg0);
 
         return JS_UNDEFINED;
@@ -860,8 +866,8 @@ overload0:
         if (JS_ToInt32(ctx, &_width, argv[0]))
             return JS_EXCEPTION;
         width = (int)_width;
-
         auto __arg0 = width;
+
         instance->SetWidth(__arg0);
 
         return JS_UNDEFINED;
@@ -1145,23 +1151,24 @@ error:
     // ::Ozone::Pen* FindOrCreatePen(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
+
         int width;
         int32_t _width;
         if (JS_ToInt32(ctx, &_width, argv[1]))
             return JS_EXCEPTION;
         width = (int)_width;
-
         auto __arg1 = width;
+
         int style;
         int32_t _style;
         if (JS_ToInt32(ctx, &_style, argv[2]))
             return JS_EXCEPTION;
         style = (int)_style;
-
         auto __arg2 = (::Ozone::PenStyle)style;
+
         ::Ozone::Pen* __ret = instance->FindOrCreatePen(__arg0, __arg1, __arg2);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);

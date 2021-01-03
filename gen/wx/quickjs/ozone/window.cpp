@@ -335,9 +335,10 @@ error:
     // void set_colFg(::Ozone::Color value)
 overload0:
     {
-        Ozone::Color* value_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* value_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg0 = *value_instance;
+
         instance->set_colFg(__arg0);
 
         return JS_UNDEFINED;
@@ -384,9 +385,10 @@ error:
     // void set_colBg(::Ozone::Color value)
 overload0:
     {
-        Ozone::Color* value_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* value_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg0 = *value_instance;
+
         instance->set_colBg(__arg0);
 
         return JS_UNDEFINED;
@@ -518,9 +520,10 @@ error:
     // void SetData(::Ozone::Window* data)
 overload0:
     {
-        Ozone::Window* data_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
-
+        Ozone::Window* data_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = data_instance;
+
         instance->SetData(__arg0);
 
         return JS_UNDEFINED;
@@ -2024,35 +2027,38 @@ overload0:
     // Window(::Ozone::Window* parent, int id, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
 overload1:
     {
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
-
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = parent_instance;
+
         int id;
         int32_t _id;
         if (JS_ToInt32(ctx, &_id, argv[1]))
             return JS_EXCEPTION;
         id = (int)_id;
-
         auto __arg1 = id;
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[2], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[2], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg2 = *pos_instance;
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[3], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[3], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg3 = *size_instance;
+
         long style;
         int32_t _style;
         if (JS_ToInt32(ctx, &_style, argv[4]))
             return JS_EXCEPTION;
         style = (long)_style;
-
         auto __arg4 = style;
+
         const char* name;
         name = JS_ToCString(ctx, argv[5]);
         if (!name)
             return JS_EXCEPTION;
-
         auto __arg5 = name;
+
         instance = new Ozone::Window(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5);
 
         JS_FreeCString(ctx, name);
@@ -2133,35 +2139,38 @@ error:
     // bool Create(::Ozone::Window* parent, int id, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
 overload0:
     {
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
-
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = parent_instance;
+
         int id;
         int32_t _id;
         if (JS_ToInt32(ctx, &_id, argv[1]))
             return JS_EXCEPTION;
         id = (int)_id;
-
         auto __arg1 = id;
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[2], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[2], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg2 = *pos_instance;
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[3], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[3], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg3 = *size_instance;
+
         long style;
         int32_t _style;
         if (JS_ToInt32(ctx, &_style, argv[4]))
             return JS_EXCEPTION;
         style = (long)_style;
-
         auto __arg4 = style;
+
         const char* name;
         name = JS_ToCString(ctx, argv[5]);
         if (!name)
             return JS_EXCEPTION;
-
         auto __arg5 = name;
+
         bool __ret = instance->Create(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5);
 
         JS_FreeCString(ctx, name);
@@ -2233,8 +2242,8 @@ overload0:
         show = JS_ToBool(ctx, argv[0]);
         if (show == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = show;
+
         bool __ret = instance->Show(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -2325,8 +2334,8 @@ overload0:
         canFocus = JS_ToBool(ctx, argv[0]);
         if (canFocus == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = canFocus;
+
         instance->SetCanFocus(__arg0);
 
         return JS_UNDEFINED;
@@ -2367,15 +2376,15 @@ overload0:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         instance->WarpPointer(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -2410,8 +2419,8 @@ overload0:
         if (JS_ToInt32(ctx, &_eventsMask, argv[0]))
             return JS_EXCEPTION;
         eventsMask = (int)_eventsMask;
-
         auto __arg0 = eventsMask;
+
         bool __ret = instance->EnableTouchEvents(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -2453,11 +2462,12 @@ overload0:
         eraseBackground = JS_ToBool(ctx, argv[0]);
         if (eraseBackground == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = eraseBackground;
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[1], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance( argv[1], \
+            classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg1 = rect_instance;
+
         instance->Refresh(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -2521,9 +2531,10 @@ error:
     // bool SetBackgroundColour(const ::Ozone::Color& colour)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
+
         bool __ret = instance->SetBackgroundColour(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -2555,9 +2566,10 @@ error:
     // bool SetForegroundColour(const ::Ozone::Color& colour)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
+
         bool __ret = instance->SetForegroundColour(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -2594,8 +2606,8 @@ overload0:
         if (JS_ToUint32(ctx, &_style, argv[0]))
             return JS_EXCEPTION;
         style = (unsigned int)_style;
-
         auto __arg0 = (::Ozone::BackgroundStyle)style;
+
         bool __ret = instance->SetBackgroundStyle(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -2631,8 +2643,8 @@ overload0:
         reason = JS_ToCString(ctx, argv[0]);
         if (!reason)
             return JS_EXCEPTION;
-
         auto __arg0 = reason;
+
         bool __ret = instance->IsTransparentBackgroundSupported(__arg0);
 
         JS_FreeCString(ctx, reason);
@@ -2771,35 +2783,35 @@ overload0:
         if (JS_ToInt32(ctx, &_orient, argv[0]))
             return JS_EXCEPTION;
         orient = (int)_orient;
-
         auto __arg0 = orient;
+
         int pos;
         int32_t _pos;
         if (JS_ToInt32(ctx, &_pos, argv[1]))
             return JS_EXCEPTION;
         pos = (int)_pos;
-
         auto __arg1 = pos;
+
         int thumbVisible;
         int32_t _thumbVisible;
         if (JS_ToInt32(ctx, &_thumbVisible, argv[2]))
             return JS_EXCEPTION;
         thumbVisible = (int)_thumbVisible;
-
         auto __arg2 = thumbVisible;
+
         int range;
         int32_t _range;
         if (JS_ToInt32(ctx, &_range, argv[3]))
             return JS_EXCEPTION;
         range = (int)_range;
-
         auto __arg3 = range;
+
         bool refresh;
         refresh = JS_ToBool(ctx, argv[4]);
         if (refresh == -1)
             return JS_EXCEPTION;
-
         auto __arg4 = refresh;
+
         instance->SetScrollbar(__arg0, __arg1, __arg2, __arg3, __arg4);
 
         return JS_UNDEFINED;
@@ -2846,21 +2858,21 @@ overload0:
         if (JS_ToInt32(ctx, &_orient, argv[0]))
             return JS_EXCEPTION;
         orient = (int)_orient;
-
         auto __arg0 = orient;
+
         int pos;
         int32_t _pos;
         if (JS_ToInt32(ctx, &_pos, argv[1]))
             return JS_EXCEPTION;
         pos = (int)_pos;
-
         auto __arg1 = pos;
+
         bool refresh;
         refresh = JS_ToBool(ctx, argv[2]);
         if (refresh == -1)
             return JS_EXCEPTION;
-
         auto __arg2 = refresh;
+
         instance->SetScrollPos(__arg0, __arg1, __arg2);
 
         return JS_UNDEFINED;
@@ -2895,8 +2907,8 @@ overload0:
         if (JS_ToInt32(ctx, &_orient, argv[0]))
             return JS_EXCEPTION;
         orient = (int)_orient;
-
         auto __arg0 = orient;
+
         int __ret = instance->GetScrollPos(__arg0);
 
         JSValue ____ret = JS_NewInt32(ctx, __ret);
@@ -2933,8 +2945,8 @@ overload0:
         if (JS_ToInt32(ctx, &_orient, argv[0]))
             return JS_EXCEPTION;
         orient = (int)_orient;
-
         auto __arg0 = orient;
+
         int __ret = instance->GetScrollThumb(__arg0);
 
         JSValue ____ret = JS_NewInt32(ctx, __ret);
@@ -2971,8 +2983,8 @@ overload0:
         if (JS_ToInt32(ctx, &_orient, argv[0]))
             return JS_EXCEPTION;
         orient = (int)_orient;
-
         auto __arg0 = orient;
+
         int __ret = instance->GetScrollRange(__arg0);
 
         JSValue ____ret = JS_NewInt32(ctx, __ret);
@@ -3021,18 +3033,19 @@ overload0:
         if (JS_ToInt32(ctx, &_dx, argv[0]))
             return JS_EXCEPTION;
         dx = (int)_dx;
-
         auto __arg0 = dx;
+
         int dy;
         int32_t _dy;
         if (JS_ToInt32(ctx, &_dy, argv[1]))
             return JS_EXCEPTION;
         dy = (int)_dy;
-
         auto __arg1 = dy;
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[2], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
 
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance( argv[2], \
+            classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg2 = rect_instance;
+
         instance->ScrollWindow(__arg0, __arg1, __arg2);
 
         return JS_UNDEFINED;
@@ -3067,8 +3080,8 @@ overload0:
         if (JS_ToInt32(ctx, &_lines, argv[0]))
             return JS_EXCEPTION;
         lines = (int)_lines;
-
         auto __arg0 = lines;
+
         bool __ret = instance->ScrollLines(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -3105,8 +3118,8 @@ overload0:
         if (JS_ToInt32(ctx, &_pages, argv[0]))
             return JS_EXCEPTION;
         pages = (int)_pages;
-
         auto __arg0 = pages;
+
         bool __ret = instance->ScrollPages(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -3155,22 +3168,22 @@ overload0:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int width;
         int32_t _width;
         if (JS_ToInt32(ctx, &_width, argv[1]))
             return JS_EXCEPTION;
         width = (int)_width;
-
         auto __arg1 = width;
+
         int widthTotal;
         int32_t _widthTotal;
         if (JS_ToInt32(ctx, &_widthTotal, argv[2]))
             return JS_EXCEPTION;
         widthTotal = (int)_widthTotal;
-
         auto __arg2 = widthTotal;
+
         int __ret = instance->AdjustForLayoutDirection(__arg0, __arg1, __arg2);
 
         JSValue ____ret = JS_NewInt32(ctx, __ret);
@@ -3219,15 +3232,15 @@ overload0:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         bool __ret = instance->DoIsExposed(__arg0, __arg1);
 
 
@@ -3244,29 +3257,29 @@ overload1:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         int w;
         int32_t _w;
         if (JS_ToInt32(ctx, &_w, argv[2]))
             return JS_EXCEPTION;
         w = (int)_w;
-
         auto __arg2 = w;
+
         int h;
         int32_t _h;
         if (JS_ToInt32(ctx, &_h, argv[3]))
             return JS_EXCEPTION;
         h = (int)_h;
-
         auto __arg3 = h;
+
         bool __ret = instance->DoIsExposed(__arg0, __arg1, __arg2, __arg3);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -3302,8 +3315,8 @@ overload0:
         on = JS_ToBool(ctx, argv[0]);
         if (on == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = on;
+
         instance->SetDoubleBuffered(__arg0);
 
         return JS_UNDEFINED;
@@ -3356,8 +3369,8 @@ overload0:
         label = JS_ToCString(ctx, argv[0]);
         if (!label)
             return JS_EXCEPTION;
-
         auto __arg0 = label;
+
         instance->SetLabel(__arg0);
 
         JS_FreeCString(ctx, label);
@@ -3437,15 +3450,18 @@ error:
     // bool PreCreation(::Ozone::Window* parent, const ::Ozone::Point& pos, const ::Ozone::Size& size)
 overload0:
     {
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
-
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = parent_instance;
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[1], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
 
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[1], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg1 = *pos_instance;
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[2], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[2], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg2 = *size_instance;
+
         bool __ret = instance->PreCreation(__arg0, __arg1, __arg2);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -3494,9 +3510,10 @@ error:
     // void DoAddChild(::Ozone::Window* child)
 overload0:
     {
-        Ozone::Window* child_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
-
+        Ozone::Window* child_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = child_instance;
+
         instance->DoAddChild(__arg0);
 
         return JS_UNDEFINED;
@@ -3549,8 +3566,8 @@ overload0:
         force = JS_ToBool(ctx, argv[0]);
         if (force == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = force;
+
         bool __ret = instance->Close(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -3643,8 +3660,8 @@ overload0:
         name = JS_ToCString(ctx, argv[0]);
         if (!name)
             return JS_EXCEPTION;
-
         auto __arg0 = name;
+
         instance->SetName(__arg0);
 
         JS_FreeCString(ctx, name);
@@ -3700,8 +3717,8 @@ overload0:
         if (JS_ToUint32(ctx, &_variant, argv[0]))
             return JS_EXCEPTION;
         variant = (unsigned int)_variant;
-
         auto __arg0 = (::Ozone::WindowVariant)variant;
+
         instance->SetWindowVariant(__arg0);
 
         return JS_UNDEFINED;
@@ -3755,8 +3772,8 @@ overload0:
         if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
         winid = (int)_winid;
-
         auto __arg0 = winid;
+
         instance->SetId(__arg0);
 
         return JS_UNDEFINED;
@@ -3840,36 +3857,36 @@ overload0:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         int width;
         int32_t _width;
         if (JS_ToInt32(ctx, &_width, argv[2]))
             return JS_EXCEPTION;
         width = (int)_width;
-
         auto __arg2 = width;
+
         int height;
         int32_t _height;
         if (JS_ToInt32(ctx, &_height, argv[3]))
             return JS_EXCEPTION;
         height = (int)_height;
-
         auto __arg3 = height;
+
         int sizeFlags;
         int32_t _sizeFlags;
         if (JS_ToInt32(ctx, &_sizeFlags, argv[4]))
             return JS_EXCEPTION;
         sizeFlags = (int)_sizeFlags;
-
         auto __arg4 = sizeFlags;
+
         instance->SetSize(__arg0, __arg1, __arg2, __arg3, __arg4);
 
 
@@ -3884,15 +3901,15 @@ overload1:
         if (JS_ToInt32(ctx, &_width, argv[0]))
             return JS_EXCEPTION;
         width = (int)_width;
-
         auto __arg0 = width;
+
         int height;
         int32_t _height;
         if (JS_ToInt32(ctx, &_height, argv[1]))
             return JS_EXCEPTION;
         height = (int)_height;
-
         auto __arg1 = height;
+
         instance->SetSize(__arg0, __arg1);
 
 
@@ -3902,9 +3919,10 @@ overload1:
     // void SetSize(const ::Ozone::Size& size)
 overload2:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *size_instance;
+
         instance->SetSize(__arg0);
 
 
@@ -3914,16 +3932,17 @@ overload2:
     // void SetSize(const ::Ozone::Rect& rect, int sizeFlags)
 overload3:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *rect_instance;
+
         int sizeFlags;
         int32_t _sizeFlags;
         if (JS_ToInt32(ctx, &_sizeFlags, argv[1]))
             return JS_EXCEPTION;
         sizeFlags = (int)_sizeFlags;
-
         auto __arg1 = sizeFlags;
+
         instance->SetSize(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -3979,22 +3998,22 @@ overload0:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         int flags;
         int32_t _flags;
         if (JS_ToInt32(ctx, &_flags, argv[2]))
             return JS_EXCEPTION;
         flags = (int)_flags;
-
         auto __arg2 = flags;
+
         instance->Move(__arg0, __arg1, __arg2);
 
 
@@ -4004,16 +4023,17 @@ overload0:
     // void Move(const ::Ozone::Point& pt, int flags)
 overload1:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         int flags;
         int32_t _flags;
         if (JS_ToInt32(ctx, &_flags, argv[1]))
             return JS_EXCEPTION;
         flags = (int)_flags;
-
         auto __arg1 = flags;
+
         instance->Move(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -4043,9 +4063,10 @@ error:
     // void SetPosition(const ::Ozone::Point& pt)
 overload0:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         instance->SetPosition(__arg0);
 
         return JS_UNDEFINED;
@@ -4092,15 +4113,15 @@ overload0:
         if (JS_ToInt32(ctx, &_width, argv[0]))
             return JS_EXCEPTION;
         width = (int)_width;
-
         auto __arg0 = width;
+
         int height;
         int32_t _height;
         if (JS_ToInt32(ctx, &_height, argv[1]))
             return JS_EXCEPTION;
         height = (int)_height;
-
         auto __arg1 = height;
+
         instance->SetClientSize(__arg0, __arg1);
 
 
@@ -4110,9 +4131,10 @@ overload0:
     // void SetClientSize(const ::Ozone::Size& size)
 overload1:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *size_instance;
+
         instance->SetClientSize(__arg0);
 
 
@@ -4122,9 +4144,10 @@ overload1:
     // void SetClientSize(const ::Ozone::Rect& rect)
 overload2:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *rect_instance;
+
         instance->SetClientSize(__arg0);
 
         return JS_UNDEFINED;
@@ -4306,9 +4329,10 @@ error:
     // ::Ozone::Size ClientToWindowSize(const ::Ozone::Size& size) const
 overload0:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *size_instance;
+
         ::Ozone::Size __ret = instance->ClientToWindowSize(__arg0);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
@@ -4340,9 +4364,10 @@ error:
     // ::Ozone::Size WindowToClientSize(const ::Ozone::Size& size) const
 overload0:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *size_instance;
+
         ::Ozone::Size __ret = instance->WindowToClientSize(__arg0);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
@@ -4398,8 +4423,8 @@ overload0:
         if (JS_ToInt32(ctx, &_width, argv[0]))
             return JS_EXCEPTION;
         width = (int)_width;
-
         auto __arg0 = width;
+
         int __ret = instance->GetBestHeight(__arg0);
 
         JSValue ____ret = JS_NewInt32(ctx, __ret);
@@ -4436,8 +4461,8 @@ overload0:
         if (JS_ToInt32(ctx, &_height, argv[0]))
             return JS_EXCEPTION;
         height = (int)_height;
-
         auto __arg0 = height;
+
         int __ret = instance->GetBestWidth(__arg0);
 
         JSValue ____ret = JS_NewInt32(ctx, __ret);
@@ -4486,9 +4511,10 @@ error:
     // void CacheBestSize(const ::Ozone::Size& size) const
 overload0:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *size_instance;
+
         instance->CacheBestSize(__arg0);
 
         return JS_UNDEFINED;
@@ -4537,9 +4563,10 @@ error:
     // void SetInitialSize(const ::Ozone::Size& size)
 overload0:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *size_instance;
+
         instance->SetInitialSize(__arg0);
 
         return JS_UNDEFINED;
@@ -4574,8 +4601,8 @@ overload0:
         if (JS_ToInt32(ctx, &_dir, argv[0]))
             return JS_EXCEPTION;
         dir = (int)_dir;
-
         auto __arg0 = dir;
+
         instance->Centre(__arg0);
 
         return JS_UNDEFINED;
@@ -4610,8 +4637,8 @@ overload0:
         if (JS_ToInt32(ctx, &_dir, argv[0]))
             return JS_EXCEPTION;
         dir = (int)_dir;
-
         auto __arg0 = dir;
+
         instance->Center(__arg0);
 
         return JS_UNDEFINED;
@@ -4646,8 +4673,8 @@ overload0:
         if (JS_ToInt32(ctx, &_dir, argv[0]))
             return JS_EXCEPTION;
         dir = (int)_dir;
-
         auto __arg0 = dir;
+
         instance->CentreOnParent(__arg0);
 
         return JS_UNDEFINED;
@@ -4682,8 +4709,8 @@ overload0:
         if (JS_ToInt32(ctx, &_dir, argv[0]))
             return JS_EXCEPTION;
         dir = (int)_dir;
-
         auto __arg0 = dir;
+
         instance->CenterOnParent(__arg0);
 
         return JS_UNDEFINED;
@@ -4797,43 +4824,43 @@ overload0:
         if (JS_ToInt32(ctx, &_minW, argv[0]))
             return JS_EXCEPTION;
         minW = (int)_minW;
-
         auto __arg0 = minW;
+
         int minH;
         int32_t _minH;
         if (JS_ToInt32(ctx, &_minH, argv[1]))
             return JS_EXCEPTION;
         minH = (int)_minH;
-
         auto __arg1 = minH;
+
         int maxW;
         int32_t _maxW;
         if (JS_ToInt32(ctx, &_maxW, argv[2]))
             return JS_EXCEPTION;
         maxW = (int)_maxW;
-
         auto __arg2 = maxW;
+
         int maxH;
         int32_t _maxH;
         if (JS_ToInt32(ctx, &_maxH, argv[3]))
             return JS_EXCEPTION;
         maxH = (int)_maxH;
-
         auto __arg3 = maxH;
+
         int incW;
         int32_t _incW;
         if (JS_ToInt32(ctx, &_incW, argv[4]))
             return JS_EXCEPTION;
         incW = (int)_incW;
-
         auto __arg4 = incW;
+
         int incH;
         int32_t _incH;
         if (JS_ToInt32(ctx, &_incH, argv[5]))
             return JS_EXCEPTION;
         incH = (int)_incH;
-
         auto __arg5 = incH;
+
         instance->SetSizeHints(__arg0, __arg1, __arg2, __arg3, __arg4, __arg5);
 
 
@@ -4843,15 +4870,18 @@ overload0:
     // void SetSizeHints(const ::Ozone::Size& minSize, const ::Ozone::Size& maxSize, const ::Ozone::Size& incSize)
 overload1:
     {
-        Ozone::Size* minSize_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* minSize_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *minSize_instance;
-        Ozone::Size* maxSize_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[1], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
+        Ozone::Size* maxSize_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[1], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg1 = *maxSize_instance;
-        Ozone::Size* incSize_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[2], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
 
+        Ozone::Size* incSize_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[2], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg2 = *incSize_instance;
+
         instance->SetSizeHints(__arg0, __arg1, __arg2);
 
         return JS_UNDEFINED;
@@ -4881,9 +4911,10 @@ error:
     // void SetMinSize(const ::Ozone::Size& minSize)
 overload0:
     {
-        Ozone::Size* minSize_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* minSize_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *minSize_instance;
+
         instance->SetMinSize(__arg0);
 
         return JS_UNDEFINED;
@@ -4913,9 +4944,10 @@ error:
     // void SetMaxSize(const ::Ozone::Size& maxSize)
 overload0:
     {
-        Ozone::Size* maxSize_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* maxSize_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *maxSize_instance;
+
         instance->SetMaxSize(__arg0);
 
         return JS_UNDEFINED;
@@ -4945,9 +4977,10 @@ error:
     // void SetMinClientSize(const ::Ozone::Size& size)
 overload0:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *size_instance;
+
         instance->SetMinClientSize(__arg0);
 
         return JS_UNDEFINED;
@@ -4977,9 +5010,10 @@ error:
     // void SetMaxClientSize(const ::Ozone::Size& size)
 overload0:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *size_instance;
+
         instance->SetMaxClientSize(__arg0);
 
         return JS_UNDEFINED;
@@ -5170,9 +5204,10 @@ error:
     // void SetVirtualSize(const ::Ozone::Size& size)
 overload0:
     {
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *size_instance;
+
         instance->SetVirtualSize(__arg0);
 
 
@@ -5187,15 +5222,15 @@ overload1:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         instance->SetVirtualSize(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -5255,15 +5290,15 @@ overload0:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         instance->DoSetVirtualSize(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -5367,22 +5402,22 @@ overload0:
         if (JS_ToInt32(ctx, &_direction, argv[0]))
             return JS_EXCEPTION;
         direction = (int)_direction;
-
         auto __arg0 = direction;
+
         int size;
         int32_t _size;
         if (JS_ToInt32(ctx, &_size, argv[1]))
             return JS_EXCEPTION;
         size = (int)_size;
-
         auto __arg1 = size;
+
         int availableOtherDir;
         int32_t _availableOtherDir;
         if (JS_ToInt32(ctx, &_availableOtherDir, argv[2]))
             return JS_EXCEPTION;
         availableOtherDir = (int)_availableOtherDir;
-
         auto __arg2 = availableOtherDir;
+
         bool __ret = instance->InformFirstDirection(__arg0, __arg1, __arg2);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -5419,8 +5454,8 @@ overload0:
         if (JS_ToInt32(ctx, &_flags, argv[0]))
             return JS_EXCEPTION;
         flags = (int)_flags;
-
         auto __arg0 = flags;
+
         instance->SendSizeEvent(__arg0);
 
         return JS_UNDEFINED;
@@ -5455,8 +5490,8 @@ overload0:
         if (JS_ToInt32(ctx, &_flags, argv[0]))
             return JS_EXCEPTION;
         flags = (int)_flags;
-
         auto __arg0 = flags;
+
         instance->SendSizeEventToParent(__arg0);
 
         return JS_UNDEFINED;
@@ -5586,15 +5621,15 @@ overload0:
         if (JS_ToUint32(ctx, &__0, argv[0]))
             return JS_EXCEPTION;
         _0 = (unsigned int)__0;
-
         auto __arg0 = (::Ozone::ShowEffect)_0;
+
         unsigned int _1;
         uint32_t __1;
         if (JS_ToUint32(ctx, &__1, argv[1]))
             return JS_EXCEPTION;
         _1 = (unsigned int)__1;
-
         auto __arg1 = _1;
+
         bool __ret = instance->ShowWithEffect(__arg0, __arg1);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -5637,15 +5672,15 @@ overload0:
         if (JS_ToUint32(ctx, &__0, argv[0]))
             return JS_EXCEPTION;
         _0 = (unsigned int)__0;
-
         auto __arg0 = (::Ozone::ShowEffect)_0;
+
         unsigned int _1;
         uint32_t __1;
         if (JS_ToUint32(ctx, &__1, argv[1]))
             return JS_EXCEPTION;
         _1 = (unsigned int)__1;
-
         auto __arg1 = _1;
+
         bool __ret = instance->HideWithEffect(__arg0, __arg1);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -5681,8 +5716,8 @@ overload0:
         enable = JS_ToBool(ctx, argv[0]);
         if (enable == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = enable;
+
         bool __ret = instance->Enable(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -5795,8 +5830,8 @@ overload0:
         if (JS_ToInt32(ctx, &_style, argv[0]))
             return JS_EXCEPTION;
         style = (long)_style;
-
         auto __arg0 = style;
+
         instance->SetWindowStyleFlag(__arg0);
 
         return JS_UNDEFINED;
@@ -5850,8 +5885,8 @@ overload0:
         if (JS_ToInt32(ctx, &_style, argv[0]))
             return JS_EXCEPTION;
         style = (long)_style;
-
         auto __arg0 = style;
+
         instance->SetWindowStyle(__arg0);
 
         return JS_UNDEFINED;
@@ -5905,8 +5940,8 @@ overload0:
         if (JS_ToInt32(ctx, &_flag, argv[0]))
             return JS_EXCEPTION;
         flag = (int)_flag;
-
         auto __arg0 = flag;
+
         bool __ret = instance->HasFlag(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -5943,8 +5978,8 @@ overload0:
         if (JS_ToInt32(ctx, &_flag, argv[0]))
             return JS_EXCEPTION;
         flag = (int)_flag;
-
         auto __arg0 = flag;
+
         bool __ret = instance->ToggleWindowStyle(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -5981,8 +6016,8 @@ overload0:
         if (JS_ToInt32(ctx, &_exStyle, argv[0]))
             return JS_EXCEPTION;
         exStyle = (long)_exStyle;
-
         auto __arg0 = exStyle;
+
         instance->SetExtraStyle(__arg0);
 
         return JS_UNDEFINED;
@@ -6036,8 +6071,8 @@ overload0:
         if (JS_ToInt32(ctx, &_exFlag, argv[0]))
             return JS_EXCEPTION;
         exFlag = (int)_exFlag;
-
         auto __arg0 = exFlag;
+
         bool __ret = instance->HasExtraStyle(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -6073,8 +6108,8 @@ overload0:
         enableTheme = JS_ToBool(ctx, argv[0]);
         if (enableTheme == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = enableTheme;
+
         instance->SetThemeEnabled(__arg0);
 
         return JS_UNDEFINED;
@@ -6313,8 +6348,8 @@ overload0:
         _0 = JS_ToBool(ctx, argv[0]);
         if (_0 == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = _0;
+
         instance->EnableVisibleFocus(__arg0);
 
         return JS_UNDEFINED;
@@ -6349,8 +6384,8 @@ overload0:
         if (JS_ToInt32(ctx, &_flags, argv[0]))
             return JS_EXCEPTION;
         flags = (int)_flags;
-
         auto __arg0 = flags;
+
         bool __ret = instance->NavigateIn(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -6387,8 +6422,8 @@ overload0:
         if (JS_ToInt32(ctx, &_flags, argv[0]))
             return JS_EXCEPTION;
         flags = (int)_flags;
-
         auto __arg0 = flags;
+
         bool __ret = instance->Navigate(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -6420,9 +6455,10 @@ error:
     // bool HandleAsNavigationKey(const ::Ozone::KeyEvent& event)
 overload0:
     {
-        Ozone::KeyEvent* event_instance = (Ozone::KeyEvent*) JS_Interop_GetInstance(argv[0], classId_Ozone_KeyEvent, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::KeyEvent* event_instance = (Ozone::KeyEvent*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_KeyEvent, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *event_instance;
+
         bool __ret = instance->HandleAsNavigationKey(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -6454,9 +6490,10 @@ error:
     // void MoveBeforeInTabOrder(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
-
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = win_instance;
+
         instance->MoveBeforeInTabOrder(__arg0);
 
         return JS_UNDEFINED;
@@ -6486,9 +6523,10 @@ error:
     // void MoveAfterInTabOrder(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
-
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = win_instance;
+
         instance->MoveAfterInTabOrder(__arg0);
 
         return JS_UNDEFINED;
@@ -6613,9 +6651,10 @@ error:
     // bool IsClientAreaChild(const ::Ozone::Window* _0) const
 overload0:
     {
-        Ozone::Window* _0_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
-
+        Ozone::Window* _0_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = _0_instance;
+
         bool __ret = instance->IsClientAreaChild(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -6655,8 +6694,8 @@ overload0:
         if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
         winid = (long)_winid;
-
         auto __arg0 = winid;
+
         ::Ozone::Window* __ret = instance->FindWindow(__arg0);
 
 
@@ -6672,8 +6711,8 @@ overload1:
         name = JS_ToCString(ctx, argv[0]);
         if (!name)
             return JS_EXCEPTION;
-
         auto __arg0 = name;
+
         ::Ozone::Window* __ret = instance->FindWindow(__arg0);
 
         JS_FreeCString(ctx, name);
@@ -6726,9 +6765,10 @@ error:
     // void SetEventHandler(::Ozone::EvtHandler* handler)
 overload0:
     {
-        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg0 = handler_instance;
+
         instance->SetEventHandler(__arg0);
 
         return JS_UNDEFINED;
@@ -6758,9 +6798,10 @@ error:
     // void PushEventHandler(::Ozone::EvtHandler* handler)
 overload0:
     {
-        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg0 = handler_instance;
+
         instance->PushEventHandler(__arg0);
 
         return JS_UNDEFINED;
@@ -6794,8 +6835,8 @@ overload0:
         deleteHandler = JS_ToBool(ctx, argv[0]);
         if (deleteHandler == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = deleteHandler;
+
         ::Ozone::EvtHandler* __ret = instance->PopEventHandler(__arg0);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
@@ -6827,9 +6868,10 @@ error:
     // bool RemoveEventHandler(::Ozone::EvtHandler* handler)
 overload0:
     {
-        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg0 = handler_instance;
+
         bool __ret = instance->RemoveEventHandler(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -6861,9 +6903,10 @@ error:
     // bool ProcessWindowEvent(::Ozone::Event& event)
 overload0:
     {
-        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[0], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *event_instance;
+
         bool __ret = instance->ProcessWindowEvent(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -6895,9 +6938,10 @@ error:
     // bool ProcessWindowEventLocally(::Ozone::Event& event)
 overload0:
     {
-        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[0], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *event_instance;
+
         bool __ret = instance->ProcessWindowEventLocally(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -6929,9 +6973,10 @@ error:
     // bool HandleWindowEvent(::Ozone::Event& event) const
 overload0:
     {
-        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance(argv[0], classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Event* event_instance = (Ozone::Event*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Event, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *event_instance;
+
         bool __ret = instance->HandleWindowEvent(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -6963,9 +7008,10 @@ error:
     // void SetNextHandler(::Ozone::EvtHandler* handler) override
 overload0:
     {
-        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg0 = handler_instance;
+
         instance->SetNextHandler(__arg0);
 
         return JS_UNDEFINED;
@@ -6995,9 +7041,10 @@ error:
     // void SetPreviousHandler(::Ozone::EvtHandler* handler) override
 overload0:
     {
-        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance(argv[0], classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::EvtHandler* handler_instance = (Ozone::EvtHandler*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_EvtHandler, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg0 = handler_instance;
+
         instance->SetPreviousHandler(__arg0);
 
         return JS_UNDEFINED;
@@ -7118,22 +7165,22 @@ overload0:
         if (JS_ToInt32(ctx, &_hotkeyId, argv[0]))
             return JS_EXCEPTION;
         hotkeyId = (int)_hotkeyId;
-
         auto __arg0 = hotkeyId;
+
         int modifiers;
         int32_t _modifiers;
         if (JS_ToInt32(ctx, &_modifiers, argv[1]))
             return JS_EXCEPTION;
         modifiers = (int)_modifiers;
-
         auto __arg1 = modifiers;
+
         int keycode;
         int32_t _keycode;
         if (JS_ToInt32(ctx, &_keycode, argv[2]))
             return JS_EXCEPTION;
         keycode = (int)_keycode;
-
         auto __arg2 = keycode;
+
         bool __ret = instance->RegisterHotKey(__arg0, __arg1, __arg2);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -7170,8 +7217,8 @@ overload0:
         if (JS_ToInt32(ctx, &_hotkeyId, argv[0]))
             return JS_EXCEPTION;
         hotkeyId = (int)_hotkeyId;
-
         auto __arg0 = hotkeyId;
+
         bool __ret = instance->UnregisterHotKey(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -7228,9 +7275,10 @@ error:
     // ::Ozone::Size FromDIP(const ::Ozone::Size& sz) const
 overload0:
     {
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *sz_instance;
+
         ::Ozone::Size __ret = instance->FromDIP(__arg0);
 
 
@@ -7242,9 +7290,10 @@ overload0:
     // ::Ozone::Point FromDIP(const ::Ozone::Point& pt) const
 overload1:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         ::Ozone::Point __ret = instance->FromDIP(__arg0);
 
 
@@ -7261,8 +7310,8 @@ overload2:
         if (JS_ToInt32(ctx, &_d, argv[0]))
             return JS_EXCEPTION;
         d = (int)_d;
-
         auto __arg0 = d;
+
         int __ret = instance->FromDIP(__arg0);
 
         JSValue ____ret = JS_NewInt32(ctx, __ret);
@@ -7300,9 +7349,10 @@ error:
     // ::Ozone::Size ToDIP(const ::Ozone::Size& sz) const
 overload0:
     {
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *sz_instance;
+
         ::Ozone::Size __ret = instance->ToDIP(__arg0);
 
 
@@ -7314,9 +7364,10 @@ overload0:
     // ::Ozone::Point ToDIP(const ::Ozone::Point& pt) const
 overload1:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         ::Ozone::Point __ret = instance->ToDIP(__arg0);
 
 
@@ -7333,8 +7384,8 @@ overload2:
         if (JS_ToInt32(ctx, &_d, argv[0]))
             return JS_EXCEPTION;
         d = (int)_d;
-
         auto __arg0 = d;
+
         int __ret = instance->ToDIP(__arg0);
 
         JSValue ____ret = JS_NewInt32(ctx, __ret);
@@ -7369,9 +7420,10 @@ error:
     // ::Ozone::Point ConvertPixelsToDialog(const ::Ozone::Point& pt) const
 overload0:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         ::Ozone::Point __ret = instance->ConvertPixelsToDialog(__arg0);
 
 
@@ -7383,9 +7435,10 @@ overload0:
     // ::Ozone::Size ConvertPixelsToDialog(const ::Ozone::Size& sz) const
 overload1:
     {
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *sz_instance;
+
         ::Ozone::Size __ret = instance->ConvertPixelsToDialog(__arg0);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
@@ -7420,9 +7473,10 @@ error:
     // ::Ozone::Point ConvertDialogToPixels(const ::Ozone::Point& pt) const
 overload0:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         ::Ozone::Point __ret = instance->ConvertDialogToPixels(__arg0);
 
 
@@ -7434,9 +7488,10 @@ overload0:
     // ::Ozone::Size ConvertDialogToPixels(const ::Ozone::Size& sz) const
 overload1:
     {
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[0], classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *sz_instance;
+
         ::Ozone::Size __ret = instance->ConvertDialogToPixels(__arg0);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
@@ -7527,15 +7582,16 @@ error:
     // void RefreshRect(const ::Ozone::Rect& rect, bool eraseBackground)
 overload0:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *rect_instance;
+
         bool eraseBackground;
         eraseBackground = JS_ToBool(ctx, argv[1]);
         if (eraseBackground == -1)
             return JS_EXCEPTION;
-
         auto __arg1 = eraseBackground;
+
         instance->RefreshRect(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -7618,9 +7674,10 @@ error:
     // void PrepareDC(::Ozone::DC& _0)
 overload0:
     {
-        Ozone::DC* _0_instance = (Ozone::DC*) JS_Interop_GetInstance(argv[0], classId_Ozone_DC, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::DC* _0_instance = (Ozone::DC*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_DC, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *_0_instance;
+
         instance->PrepareDC(__arg0);
 
         return JS_UNDEFINED;
@@ -7692,15 +7749,15 @@ overload0:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         bool __ret = instance->IsExposed(__arg0, __arg1);
 
 
@@ -7717,29 +7774,29 @@ overload1:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         int w;
         int32_t _w;
         if (JS_ToInt32(ctx, &_w, argv[2]))
             return JS_EXCEPTION;
         w = (int)_w;
-
         auto __arg2 = w;
+
         int h;
         int32_t _h;
         if (JS_ToInt32(ctx, &_h, argv[3]))
             return JS_EXCEPTION;
         h = (int)_h;
-
         auto __arg3 = h;
+
         bool __ret = instance->IsExposed(__arg0, __arg1, __arg2, __arg3);
 
 
@@ -7751,9 +7808,10 @@ overload1:
     // bool IsExposed(const ::Ozone::Point& pt) const
 overload2:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         bool __ret = instance->IsExposed(__arg0);
 
 
@@ -7765,9 +7823,10 @@ overload2:
     // bool IsExposed(const ::Ozone::Rect& rect) const
 overload3:
     {
-        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance(argv[0], classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Rect* rect_instance = (Ozone::Rect*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Rect, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *rect_instance;
+
         bool __ret = instance->IsExposed(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -7818,9 +7877,10 @@ error:
     // void SetOwnBackgroundColour(const ::Ozone::Color& colour)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
+
         instance->SetOwnBackgroundColour(__arg0);
 
         return JS_UNDEFINED;
@@ -7926,9 +7986,10 @@ error:
     // void SetOwnForegroundColour(const ::Ozone::Color& colour)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
+
         instance->SetOwnForegroundColour(__arg0);
 
         return JS_UNDEFINED;
@@ -8053,9 +8114,10 @@ error:
     // ::Ozone::Point ClientToScreen(const ::Ozone::Point& pt) const
 overload0:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         ::Ozone::Point __ret = instance->ClientToScreen(__arg0);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
@@ -8087,9 +8149,10 @@ error:
     // ::Ozone::Point ScreenToClient(const ::Ozone::Point& pt) const
 overload0:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         ::Ozone::Point __ret = instance->ScreenToClient(__arg0);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
@@ -8135,15 +8198,15 @@ overload0:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         ::Ozone::HitTest __ret = instance->HitTest(__arg0, __arg1);
 
 
@@ -8155,9 +8218,10 @@ overload0:
     // ::Ozone::HitTest HitTest(const ::Ozone::Point& pt) const
 overload1:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         ::Ozone::HitTest __ret = instance->HitTest(__arg0);
 
         JSValue ____ret = JS_NewInt32(ctx, (int32_t) __ret);
@@ -8197,8 +8261,8 @@ overload0:
         if (JS_ToInt32(ctx, &_flags, argv[0]))
             return JS_EXCEPTION;
         flags = (long)_flags;
-
         auto __arg0 = flags;
+
         ::Ozone::Border __ret = instance->GetBorder(__arg0);
 
 
@@ -8246,8 +8310,8 @@ overload0:
         if (JS_ToInt32(ctx, &_flags, argv[0]))
             return JS_EXCEPTION;
         flags = (long)_flags;
-
         auto __arg0 = flags;
+
         instance->UpdateWindowUI(__arg0);
 
         return JS_UNDEFINED;
@@ -8277,9 +8341,10 @@ error:
     // void DoUpdateWindowUI(::Ozone::UpdateUIEvent& event)
 overload0:
     {
-        Ozone::UpdateUIEvent* event_instance = (Ozone::UpdateUIEvent*) JS_Interop_GetInstance(argv[0], classId_Ozone_UpdateUIEvent, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::UpdateUIEvent* event_instance = (Ozone::UpdateUIEvent*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_UpdateUIEvent, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *event_instance;
+
         instance->DoUpdateWindowUI(__arg0);
 
         return JS_UNDEFINED;
@@ -8333,8 +8398,8 @@ overload0:
         if (JS_ToInt32(ctx, &_orient, argv[0]))
             return JS_EXCEPTION;
         orient = (int)_orient;
-
         auto __arg0 = orient;
+
         bool __ret = instance->CanScroll(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -8371,8 +8436,8 @@ overload0:
         if (JS_ToInt32(ctx, &_orient, argv[0]))
             return JS_EXCEPTION;
         orient = (int)_orient;
-
         auto __arg0 = orient;
+
         bool __ret = instance->HasScrollbar(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -8490,14 +8555,14 @@ overload0:
         _0 = JS_ToBool(ctx, argv[0]);
         if (_0 == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = _0;
+
         bool _1;
         _1 = JS_ToBool(ctx, argv[1]);
         if (_1 == -1)
             return JS_EXCEPTION;
-
         auto __arg1 = _1;
+
         instance->AlwaysShowScrollbars(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -8532,8 +8597,8 @@ overload0:
         if (JS_ToInt32(ctx, &__0, argv[0]))
             return JS_EXCEPTION;
         _0 = (int)__0;
-
         auto __arg0 = _0;
+
         bool __ret = instance->IsScrollbarAlwaysShown(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -8569,8 +8634,8 @@ overload0:
         text = JS_ToCString(ctx, argv[0]);
         if (!text)
             return JS_EXCEPTION;
-
         auto __arg0 = text;
+
         instance->SetHelpText(__arg0);
 
         JS_FreeCString(ctx, text);
@@ -8608,16 +8673,17 @@ error:
     // char* GetHelpTextAtPoint(const ::Ozone::Point& pt, ::Ozone::HelpEvent::Source origin) const
 overload0:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         unsigned int origin;
         uint32_t _origin;
         if (JS_ToUint32(ctx, &_origin, argv[1]))
             return JS_EXCEPTION;
         origin = (unsigned int)_origin;
-
         auto __arg1 = (::Ozone::HelpEvent::Source)origin;
+
         const char* __ret = instance->GetHelpTextAtPoint(__arg0, __arg1);
 
         JSValue ____ret = JS_NewString(ctx, __ret);
@@ -8672,8 +8738,8 @@ overload0:
         tip = JS_ToCString(ctx, argv[0]);
         if (!tip)
             return JS_EXCEPTION;
-
         auto __arg0 = tip;
+
         instance->SetToolTip(__arg0);
 
         JS_FreeCString(ctx, tip);
@@ -8745,8 +8811,8 @@ overload0:
         accept = JS_ToBool(ctx, argv[0]);
         if (accept == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = accept;
+
         instance->DragAcceptFiles(__arg0);
 
         return JS_UNDEFINED;
@@ -8814,8 +8880,8 @@ overload0:
         recurse = JS_ToBool(ctx, argv[0]);
         if (recurse == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = recurse;
+
         instance->SetConstraintSizes(__arg0);
 
         return JS_UNDEFINED;
@@ -8850,8 +8916,8 @@ overload0:
         if (JS_ToInt32(ctx, &_phase, argv[0]))
             return JS_EXCEPTION;
         phase = (int)_phase;
-
         auto __arg0 = phase;
+
         bool __ret = instance->DoPhase(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -8906,29 +8972,29 @@ overload0:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         int w;
         int32_t _w;
         if (JS_ToInt32(ctx, &_w, argv[2]))
             return JS_EXCEPTION;
         w = (int)_w;
-
         auto __arg2 = w;
+
         int h;
         int32_t _h;
         if (JS_ToInt32(ctx, &_h, argv[3]))
             return JS_EXCEPTION;
         h = (int)_h;
-
         auto __arg3 = h;
+
         instance->SetSizeConstraint(__arg0, __arg1, __arg2, __arg3);
 
         return JS_UNDEFINED;
@@ -8969,15 +9035,15 @@ overload0:
         if (JS_ToInt32(ctx, &_x, argv[0]))
             return JS_EXCEPTION;
         x = (int)_x;
-
         auto __arg0 = x;
+
         int y;
         int32_t _y;
         if (JS_ToInt32(ctx, &_y, argv[1]))
             return JS_EXCEPTION;
         y = (int)_y;
-
         auto __arg1 = y;
+
         instance->MoveConstraint(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -9011,8 +9077,8 @@ overload0:
         autoLayout = JS_ToBool(ctx, argv[0]);
         if (autoLayout == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = autoLayout;
+
         instance->SetAutoLayout(__arg0);
 
         return JS_UNDEFINED;
@@ -9086,15 +9152,16 @@ error:
     // void SetSizer(::Ozone::Sizer* sizer, bool deleteOld)
 overload0:
     {
-        Ozone::Sizer* sizer_instance = (Ozone::Sizer*) JS_Interop_GetInstance(argv[0], classId_Ozone_Sizer, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Sizer* sizer_instance = (Ozone::Sizer*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Sizer, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg0 = sizer_instance;
+
         bool deleteOld;
         deleteOld = JS_ToBool(ctx, argv[1]);
         if (deleteOld == -1)
             return JS_EXCEPTION;
-
         auto __arg1 = deleteOld;
+
         instance->SetSizer(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -9130,15 +9197,16 @@ error:
     // void SetSizerAndFit(::Ozone::Sizer* sizer, bool deleteOld)
 overload0:
     {
-        Ozone::Sizer* sizer_instance = (Ozone::Sizer*) JS_Interop_GetInstance(argv[0], classId_Ozone_Sizer, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Sizer* sizer_instance = (Ozone::Sizer*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Sizer, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg0 = sizer_instance;
+
         bool deleteOld;
         deleteOld = JS_ToBool(ctx, argv[1]);
         if (deleteOld == -1)
             return JS_EXCEPTION;
-
         auto __arg1 = deleteOld;
+
         instance->SetSizerAndFit(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -9187,9 +9255,10 @@ error:
     // void SetContainingSizer(::Ozone::Sizer* sizer)
 overload0:
     {
-        Ozone::Sizer* sizer_instance = (Ozone::Sizer*) JS_Interop_GetInstance(argv[0], classId_Ozone_Sizer, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Sizer* sizer_instance = (Ozone::Sizer*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Sizer, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg0 = sizer_instance;
+
         instance->SetContainingSizer(__arg0);
 
         return JS_UNDEFINED;
@@ -9243,8 +9312,8 @@ overload0:
         if (JS_ToInt32(ctx, &__0, argv[0]))
             return JS_EXCEPTION;
         _0 = (unsigned char)__0;
-
         auto __arg0 = _0;
+
         bool __ret = instance->SetTransparent(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -9295,9 +9364,10 @@ error:
     // void OnInitDialog(::Ozone::InitDialogEvent& event)
 overload0:
     {
-        Ozone::InitDialogEvent* event_instance = (Ozone::InitDialogEvent*) JS_Interop_GetInstance(argv[0], classId_Ozone_InitDialogEvent, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::InitDialogEvent* event_instance = (Ozone::InitDialogEvent*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_InitDialogEvent, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *event_instance;
+
         instance->OnInitDialog(__arg0);
 
         return JS_UNDEFINED;
@@ -9327,9 +9397,10 @@ error:
     // void OnMiddleClick(::Ozone::MouseEvent& event)
 overload0:
     {
-        Ozone::MouseEvent* event_instance = (Ozone::MouseEvent*) JS_Interop_GetInstance(argv[0], classId_Ozone_MouseEvent, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::MouseEvent* event_instance = (Ozone::MouseEvent*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_MouseEvent, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *event_instance;
+
         instance->OnMiddleClick(__arg0);
 
         return JS_UNDEFINED;
@@ -9359,9 +9430,10 @@ error:
     // bool SendIdleEvents(::Ozone::IdleEvent& event)
 overload0:
     {
-        Ozone::IdleEvent* event_instance = (Ozone::IdleEvent*) JS_Interop_GetInstance(argv[0], classId_Ozone_IdleEvent, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::IdleEvent* event_instance = (Ozone::IdleEvent*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_IdleEvent, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *event_instance;
+
         bool __ret = instance->SendIdleEvents(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -9393,9 +9465,10 @@ error:
     // bool WXSendContextMenuEvent(const ::Ozone::Point& posInScreenCoords)
 overload0:
     {
-        Ozone::Point* posInScreenCoords_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* posInScreenCoords_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *posInScreenCoords_instance;
+
         bool __ret = instance->WXSendContextMenuEvent(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -9580,8 +9653,8 @@ overload0:
         if (JS_ToUint32(ctx, &__0, argv[0]))
             return JS_EXCEPTION;
         _0 = (unsigned int)__0;
-
         auto __arg0 = (::Ozone::Window::NavigationKind)_0;
+
         bool __ret = instance->IsTopNavigationDomain(__arg0);
 
         JSValue ____ret = JS_NewBool(ctx, __ret);
@@ -9637,8 +9710,8 @@ overload0:
         if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
         value = (int)_value;
-
         auto __arg0 = value;
+
         instance->set_m_x(__arg0);
 
         return JS_UNDEFINED;
@@ -9692,8 +9765,8 @@ overload0:
         if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
         value = (int)_value;
-
         auto __arg0 = value;
+
         instance->set_m_y(__arg0);
 
         return JS_UNDEFINED;
@@ -9747,8 +9820,8 @@ overload0:
         if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
         value = (int)_value;
-
         auto __arg0 = value;
+
         instance->set_m_width(__arg0);
 
         return JS_UNDEFINED;
@@ -9802,8 +9875,8 @@ overload0:
         if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
         value = (int)_value;
-
         auto __arg0 = value;
+
         instance->set_m_height(__arg0);
 
         return JS_UNDEFINED;
@@ -9857,8 +9930,8 @@ overload0:
         if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
         value = (int)_value;
-
         auto __arg0 = value;
+
         instance->set_m_clientWidth(__arg0);
 
         return JS_UNDEFINED;
@@ -9912,8 +9985,8 @@ overload0:
         if (JS_ToInt32(ctx, &_value, argv[0]))
             return JS_EXCEPTION;
         value = (int)_value;
-
         auto __arg0 = value;
+
         instance->set_m_clientHeight(__arg0);
 
         return JS_UNDEFINED;
@@ -9966,8 +10039,8 @@ overload0:
         value = JS_ToBool(ctx, argv[0]);
         if (value == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = value;
+
         instance->set_m_useCachedClientSize(__arg0);
 
         return JS_UNDEFINED;
@@ -10020,8 +10093,8 @@ overload0:
         value = JS_ToBool(ctx, argv[0]);
         if (value == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = value;
+
         instance->set_m_isGtkPositionValid(__arg0);
 
         return JS_UNDEFINED;
@@ -10074,8 +10147,8 @@ overload0:
         value = JS_ToCString(ctx, argv[0]);
         if (!value)
             return JS_EXCEPTION;
-
         auto __arg0 = value;
+
         instance->set_m_gtkLabel(__arg0);
 
         JS_FreeCString(ctx, value);
@@ -10130,8 +10203,8 @@ overload0:
         value = JS_ToBool(ctx, argv[0]);
         if (value == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = value;
+
         instance->set_m_noExpose(__arg0);
 
         return JS_UNDEFINED;
@@ -10184,8 +10257,8 @@ overload0:
         value = JS_ToBool(ctx, argv[0]);
         if (value == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = value;
+
         instance->set_m_nativeSizeEvent(__arg0);
 
         return JS_UNDEFINED;
@@ -10238,8 +10311,8 @@ overload0:
         value = JS_ToBool(ctx, argv[0]);
         if (value == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = value;
+
         instance->set_m_isScrolling(__arg0);
 
         return JS_UNDEFINED;
@@ -10292,8 +10365,8 @@ overload0:
         value = JS_ToBool(ctx, argv[0]);
         if (value == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = value;
+
         instance->set_m_clipPaintRegion(__arg0);
 
         return JS_UNDEFINED;
@@ -10346,8 +10419,8 @@ overload0:
         value = JS_ToBool(ctx, argv[0]);
         if (value == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = value;
+
         instance->set_m_dirtyTabOrder(__arg0);
 
         return JS_UNDEFINED;
@@ -10400,8 +10473,8 @@ overload0:
         value = JS_ToBool(ctx, argv[0]);
         if (value == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = value;
+
         instance->set_m_mouseButtonDown(__arg0);
 
         return JS_UNDEFINED;
@@ -10454,8 +10527,8 @@ overload0:
         value = JS_ToBool(ctx, argv[0]);
         if (value == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = value;
+
         instance->set_m_showOnIdle(__arg0);
 
         return JS_UNDEFINED;
@@ -10508,8 +10581,8 @@ overload0:
         value = JS_ToBool(ctx, argv[0]);
         if (value == -1)
             return JS_EXCEPTION;
-
         auto __arg0 = value;
+
         instance->set_m_needCursorReset(__arg0);
 
         return JS_UNDEFINED;
@@ -10541,8 +10614,8 @@ overload0:
         if (JS_ToInt32(ctx, &_orient, argv[0]))
             return JS_EXCEPTION;
         orient = (int)_orient;
-
         auto __arg0 = orient;
+
         ::Ozone::Window::ScrollDir __ret = ::Ozone::Window::ScrollDirFromOrient(__arg0);
 
         JSValue ____ret = JS_NewInt32(ctx, (int32_t) __ret);
@@ -10576,8 +10649,8 @@ overload0:
         if (JS_ToUint32(ctx, &_dir, argv[0]))
             return JS_EXCEPTION;
         dir = (unsigned int)_dir;
-
         auto __arg0 = (::Ozone::Window::ScrollDir)dir;
+
         int __ret = ::Ozone::Window::OrientFromScrollDir(__arg0);
 
         JSValue ____ret = JS_NewInt32(ctx, __ret);
@@ -10611,8 +10684,8 @@ overload0:
         if (JS_ToInt32(ctx, &_count, argv[0]))
             return JS_EXCEPTION;
         count = (int)_count;
-
         auto __arg0 = count;
+
         int __ret = ::Ozone::Window::NewControlId(__arg0);
 
         JSValue ____ret = JS_NewInt32(ctx, __ret);
@@ -10652,15 +10725,15 @@ overload0:
         if (JS_ToInt32(ctx, &_id, argv[0]))
             return JS_EXCEPTION;
         id = (int)_id;
-
         auto __arg0 = id;
+
         int count;
         int32_t _count;
         if (JS_ToInt32(ctx, &_count, argv[1]))
             return JS_EXCEPTION;
         count = (int)_count;
-
         auto __arg1 = count;
+
         ::Ozone::Window::UnreserveControlId(__arg0, __arg1);
 
         return JS_UNDEFINED;
@@ -10730,11 +10803,12 @@ overload0:
         if (JS_ToInt32(ctx, &_winid, argv[0]))
             return JS_EXCEPTION;
         winid = (long)_winid;
-
         auto __arg0 = winid;
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[1], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[1], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg1 = parent_instance;
+
         ::Ozone::Window* __ret = ::Ozone::Window::FindWindowById(__arg0, __arg1);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
@@ -10773,11 +10847,12 @@ overload0:
         name = JS_ToCString(ctx, argv[0]);
         if (!name)
             return JS_EXCEPTION;
-
         auto __arg0 = name;
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[1], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[1], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg1 = parent_instance;
+
         ::Ozone::Window* __ret = ::Ozone::Window::FindWindowByName(__arg0, __arg1);
 
         JS_FreeCString(ctx, name);
@@ -10818,11 +10893,12 @@ overload0:
         label = JS_ToCString(ctx, argv[0]);
         if (!label)
             return JS_EXCEPTION;
-
         auto __arg0 = label;
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[1], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[1], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg1 = parent_instance;
+
         ::Ozone::Window* __ret = ::Ozone::Window::FindWindowByLabel(__arg0, __arg1);
 
         JS_FreeCString(ctx, label);
@@ -10874,8 +10950,8 @@ overload0:
         if (JS_ToUint32(ctx, &_variant, argv[0]))
             return JS_EXCEPTION;
         variant = (unsigned int)_variant;
-
         auto __arg0 = (::Ozone::WindowVariant)variant;
+
         ::Ozone::VisualAttributes __ret = ::Ozone::Window::GetClassDefaultAttributes(__arg0);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_VisualAttributes, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) &__ret);
@@ -11283,9 +11359,10 @@ error:
     // ::Ozone::Window* FindWindowAtPointer(::Ozone::Point& pt)
 overload0:
     {
-        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[0], classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
-
+        Ozone::Point* pt_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pt_instance;
+
         ::Ozone::Window* __ret = ::Ozone::FindWindowAtPointer(__arg0);
 
         JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);

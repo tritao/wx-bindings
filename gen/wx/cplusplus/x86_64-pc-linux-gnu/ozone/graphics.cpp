@@ -1426,7 +1426,7 @@ Ozone::GraphicsRenderer::GraphicsRenderer()
 const char* Ozone::GraphicsRenderer::GetName() const
 {
     ::wxString __ret = ((::wxGraphicsRenderer*)__Instance)->GetName();
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 void Ozone::GraphicsRenderer::GetVersion(int* major, int* minor, int* micro) const

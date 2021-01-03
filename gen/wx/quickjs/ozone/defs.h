@@ -84,19 +84,19 @@ enum class SizerOrientation : unsigned int
 
 enum class Alignment
 {
-    INVALID = -1,
-    NOT = 0,
-    CENTER_HORIZONTAL = 256,
-    CENTRE_HORIZONTAL = 256,
-    LEFT = 0,
-    TOP = 0,
-    RIGHT = 512,
-    BOTTOM = 1024,
-    CENTER_VERTICAL = 2048,
-    CENTRE_VERTICAL = 2048,
-    CENTER = 2304,
-    CENTRE = 2304,
-    MASK = 3840
+    ALIGN_INVALID = -1,
+    ALIGN_NOT = 0,
+    ALIGN_CENTER_HORIZONTAL = 256,
+    ALIGN_CENTRE_HORIZONTAL = 256,
+    ALIGN_LEFT = 0,
+    ALIGN_TOP = 0,
+    ALIGN_RIGHT = 512,
+    ALIGN_BOTTOM = 1024,
+    ALIGN_CENTER_VERTICAL = 2048,
+    ALIGN_CENTRE_VERTICAL = 2048,
+    ALIGN_CENTER = 2304,
+    ALIGN_CENTRE = 2304,
+    ALIGN_MASK = 3840
 };
 
 enum class CheckBoxState : unsigned int
@@ -354,21 +354,21 @@ enum class SizerFlagBits : unsigned int
 
 enum class SizerLayoutFlags : unsigned short
 {
-    wxLEFT = 0x10,
-    wxRIGHT = 0x20,
-    wxTOP = 64,
-    wxBOTTOM = 128,
-    ALL = 240,
-    CENTER_HORIZONTAL = 0x100,
-    LEFT = 0,
-    TOP = 0,
-    RIGHT = 0x200,
-    BOTTOM = 0x400,
-    CENTER_VERTICAL = 0x800,
-    CENTER = 2304,
-    FIXED_MINSIZE = 0x8000,
+    ALIGN_LEFT = 0,
+    ALIGN_TOP = 0,
     RESERVE_SPACE_EVEN_IF_HIDDEN = 0x2,
-    EXPAND = 8192
+    LEFT = 0x10,
+    RIGHT = 0x20,
+    TOP = 64,
+    BOTTOM = 128,
+    ALL = 240,
+    ALIGN_CENTER_HORIZONTAL = 0x100,
+    ALIGN_RIGHT = 0x200,
+    ALIGN_BOTTOM = 0x400,
+    ALIGN_CENTER_VERTICAL = 0x800,
+    ALIGN_CENTER = 2304,
+    EXPAND = 8192,
+    FIXED_MINSIZE = 0x8000
 };
 
 enum class StandardID
@@ -538,12 +538,12 @@ enum class TOOL : unsigned int
 
 enum class WindowFlags : long
 {
-    NONE = 2097152,
     FULL_REPAINT_ON_RESIZE = 65536,
     POPUP_WINDOW = 131072,
     WANTS_CHARS = 262144,
     TAB_TRAVERSAL = 524288,
     TRANSPARENT_WINDOW = 1048576,
+    NONE = 2097152,
     CLIP_CHILDREN = 4194304,
     ALWAYS_SHOW_SB = 8388608,
     CAPTION = 536870912,

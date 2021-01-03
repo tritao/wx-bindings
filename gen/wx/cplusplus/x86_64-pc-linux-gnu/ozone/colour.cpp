@@ -131,7 +131,7 @@ bool Ozone::Color::IsSolid() const
 const char* Ozone::Color::GetAsString(long flags) const
 {
     ::wxString __ret = ((::wxColour*)__Instance)->GetAsString(flags);
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 void Ozone::Color::SetRGB(unsigned int colRGB)

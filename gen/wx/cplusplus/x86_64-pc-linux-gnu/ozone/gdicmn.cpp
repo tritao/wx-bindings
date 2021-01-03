@@ -1031,7 +1031,7 @@ const char* Ozone::ColourDatabase::FindName(const ::Ozone::Color& colour) const
 {
     auto &__arg0 = *(::wxColour*)colour.__Instance;
     ::wxString __ret = ((::wxColourDatabase*)__Instance)->FindName(__arg0);
-    return __ret.c_str();
+    return strdup(__ret.utf8_str().data());
 }
 
 void Ozone::ColourDatabase::AddColour(const char* name, const ::Ozone::Color& colour)

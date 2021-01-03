@@ -74,9 +74,10 @@ error:
     // void SetContainerWindow(::Ozone::Window* winParent)
 overload0:
     {
-        Ozone::Window* winParent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
-
+        Ozone::Window* winParent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+            classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = winParent_instance;
+
         instance->SetContainerWindow(__arg0);
 
         return JS_UNDEFINED;

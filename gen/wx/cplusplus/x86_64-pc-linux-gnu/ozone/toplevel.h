@@ -50,8 +50,6 @@ namespace Ozone
     enum class FrameStyle
     {
         CENTRE = 1,
-        CLIP_CHILDREN = 4194304,
-        CAPTION = 536870912,
         FRAME_NO_TASKBAR = 2,
         FRAME_TOOL_WINDOW = 4,
         FRAME_FLOAT_ON_PARENT = 8,
@@ -66,6 +64,8 @@ namespace Ozone
         ICONIZE = 16384,
         MINIMIZE = 16384,
         STAY_ON_TOP = 32768,
+        CLIP_CHILDREN = 4194304,
+        CAPTION = 536870912,
         DEFAULT_FRAME_STYLE = 541072960
     };
 

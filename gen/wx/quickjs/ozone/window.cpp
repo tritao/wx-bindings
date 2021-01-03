@@ -10969,8 +10969,7 @@ static JSValue callback_class_Ozone_Window_toString(JSContext* ctx, JSValueConst
 void finalizer_Ozone_Window(JSRuntime *rt, JSValue val)
 {
     auto data = (data_Ozone_Window*) JS_GetOpaque(val, 0);
-    Ozone::Window* instance = (Ozone::Window*) data->instance;
-    JS_Interop_FreeEventMap(&data->events, data->ctx);
+    JS_Interop_CleanupObject(data->ctx, val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 }
 
 static JSClassDef classDef_Ozone_Window

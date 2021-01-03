@@ -1161,8 +1161,7 @@ static JSValue callback_class_Ozone_Frame_toString(JSContext* ctx, JSValueConst 
 void finalizer_Ozone_Frame(JSRuntime *rt, JSValue val)
 {
     auto data = (data_Ozone_Frame*) JS_GetOpaque(val, 0);
-    Ozone::Frame* instance = (Ozone::Frame*) data->instance;
-    JS_Interop_FreeEventMap(&data->events, data->ctx);
+    JS_Interop_CleanupObject(data->ctx, val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 }
 
 static JSClassDef classDef_Ozone_Frame

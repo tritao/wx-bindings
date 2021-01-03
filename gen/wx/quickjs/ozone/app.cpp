@@ -2021,8 +2021,7 @@ static JSValue callback_class_Ozone_App_toString(JSContext* ctx, JSValueConst th
 void finalizer_Ozone_App(JSRuntime *rt, JSValue val)
 {
     auto data = (data_Ozone_App*) JS_GetOpaque(val, 0);
-    Ozone::App* instance = (Ozone::App*) data->instance;
-    JS_Interop_FreeEventMap(&data->events, data->ctx);
+    JS_Interop_CleanupObject(data->ctx, val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 }
 
 static JSClassDef classDef_Ozone_App

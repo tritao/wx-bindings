@@ -2411,8 +2411,7 @@ static JSValue callback_class_Ozone_TopLevelWindow_toString(JSContext* ctx, JSVa
 void finalizer_Ozone_TopLevelWindow(JSRuntime *rt, JSValue val)
 {
     auto data = (data_Ozone_TopLevelWindow*) JS_GetOpaque(val, 0);
-    Ozone::TopLevelWindow* instance = (Ozone::TopLevelWindow*) data->instance;
-    JS_Interop_FreeEventMap(&data->events, data->ctx);
+    JS_Interop_CleanupObject(data->ctx, val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 }
 
 static JSClassDef classDef_Ozone_TopLevelWindow

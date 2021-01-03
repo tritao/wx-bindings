@@ -302,8 +302,7 @@ static JSValue callback_class_Ozone_Panel_toString(JSContext* ctx, JSValueConst 
 void finalizer_Ozone_Panel(JSRuntime *rt, JSValue val)
 {
     auto data = (data_Ozone_Panel*) JS_GetOpaque(val, 0);
-    Ozone::Panel* instance = (Ozone::Panel*) data->instance;
-    JS_Interop_FreeEventMap(&data->events, data->ctx);
+    JS_Interop_CleanupObject(data->ctx, val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 }
 
 static JSClassDef classDef_Ozone_Panel

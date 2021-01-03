@@ -217,7 +217,7 @@ static JSValue callback_method_Ozone_Object_SetRefData(JSContext* ctx, JSValueCo
 
     Ozone::Object* instance = (Ozone::Object*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -228,7 +228,7 @@ error:
     // void SetRefData(::Ozone::RefCounter* data)
 overload0:
     {
-        Ozone::RefCounter* data_instance = (Ozone::RefCounter*) JS_Interop_GetInstance( argv[0], \
+        Ozone::RefCounter* data_instance = (Ozone::RefCounter*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_RefCounter, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto __arg0 = data_instance;
 
@@ -249,7 +249,7 @@ static JSValue callback_method_Ozone_Object_Ref(JSContext* ctx, JSValueConst thi
 
     Ozone::Object* instance = (Ozone::Object*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -260,7 +260,7 @@ error:
     // void Ref(const ::Ozone::Object& clone)
 overload0:
     {
-        Ozone::Object* clone_instance = (Ozone::Object*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Object* clone_instance = (Ozone::Object*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *clone_instance;
 
@@ -313,7 +313,7 @@ static JSValue callback_method_Ozone_Object_IsSameAs(JSContext* ctx, JSValueCons
 
     Ozone::Object* instance = (Ozone::Object*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -324,7 +324,7 @@ error:
     // bool IsSameAs(const ::Ozone::Object& o) const
 overload0:
     {
-        Ozone::Object* o_instance = (Ozone::Object*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Object* o_instance = (Ozone::Object*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Object, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *o_instance;
 

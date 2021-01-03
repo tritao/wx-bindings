@@ -68,7 +68,7 @@ static JSValue callback_method_Ozone_NonOwnedWindow_SetShape(JSContext* ctx, JSV
     auto data = (data_Ozone_NonOwnedWindow*) JS_GetOpaque(this_val, 0);
     Ozone::NonOwnedWindow* instance = (Ozone::NonOwnedWindow*) data->instance;
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -79,7 +79,7 @@ error:
     // bool SetShape(const ::Ozone::GraphicsPath& path)
 overload0:
     {
-        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_Interop_GetInstance( argv[0], \
+        Ozone::GraphicsPath* path_instance = (Ozone::GraphicsPath*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_GraphicsPath, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *path_instance;
 

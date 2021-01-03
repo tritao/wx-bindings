@@ -101,31 +101,31 @@ static JSValue callback_method_Ozone_FileDialog_FileDialog(JSContext* ctx, JSVal
     if (argc == 0)
         goto overload0;
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsString(argv[1]))
+    if (JS_IsString(argv[1]) || JS_IsNull(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsString(argv[2]))
+    if (JS_IsString(argv[2]) || JS_IsNull(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsString(argv[3]))
+    if (JS_IsString(argv[3]) || JS_IsNull(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsString(argv[4]))
+    if (JS_IsString(argv[4]) || JS_IsNull(argv[4]))
         goto typecheck5;
 
     goto error;
@@ -137,19 +137,19 @@ typecheck5:
     goto error;
 
 typecheck6:
-    if (JS_IsObject(argv[6]))
+    if (JS_IsObject(argv[6]) || JS_IsNull(argv[6]))
         goto typecheck7;
 
     goto error;
 
 typecheck7:
-    if (JS_IsObject(argv[7]))
+    if (JS_IsObject(argv[7]) || JS_IsNull(argv[7]))
         goto typecheck8;
 
     goto error;
 
 typecheck8:
-    if (JS_IsString(argv[8]))
+    if (JS_IsString(argv[8]) || JS_IsNull(argv[8]))
         goto overload1;
 
     goto error;
@@ -168,7 +168,7 @@ overload0:
     // FileDialog(::Ozone::Window* parent, const char* message, const char* defaultDir, const char* defaultFile, const char* wildCard, long style, const ::Ozone::Point& pos, const ::Ozone::Size& sz, const char* name)
 overload1:
     {
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = parent_instance;
 
@@ -203,11 +203,11 @@ overload1:
         style = (long)_style;
         auto __arg5 = style;
 
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[6], \
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[6], \
             classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg6 = *pos_instance;
 
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[7], \
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[7], \
             classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg7 = *sz_instance;
 
@@ -259,31 +259,31 @@ static JSValue callback_method_Ozone_FileDialog_Create(JSContext* ctx, JSValueCo
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsString(argv[1]))
+    if (JS_IsString(argv[1]) || JS_IsNull(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsString(argv[2]))
+    if (JS_IsString(argv[2]) || JS_IsNull(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsString(argv[3]))
+    if (JS_IsString(argv[3]) || JS_IsNull(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsString(argv[4]))
+    if (JS_IsString(argv[4]) || JS_IsNull(argv[4]))
         goto typecheck5;
 
     goto error;
@@ -295,19 +295,19 @@ typecheck5:
     goto error;
 
 typecheck6:
-    if (JS_IsObject(argv[6]))
+    if (JS_IsObject(argv[6]) || JS_IsNull(argv[6]))
         goto typecheck7;
 
     goto error;
 
 typecheck7:
-    if (JS_IsObject(argv[7]))
+    if (JS_IsObject(argv[7]) || JS_IsNull(argv[7]))
         goto typecheck8;
 
     goto error;
 
 typecheck8:
-    if (JS_IsString(argv[8]))
+    if (JS_IsString(argv[8]) || JS_IsNull(argv[8]))
         goto overload0;
 
     goto error;
@@ -318,7 +318,7 @@ error:
     // bool Create(::Ozone::Window* parent, const char* message, const char* defaultDir, const char* defaultFile, const char* wildCard, long style, const ::Ozone::Point& pos, const ::Ozone::Size& sz, const char* name)
 overload0:
     {
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = parent_instance;
 
@@ -353,11 +353,11 @@ overload0:
         style = (long)_style;
         auto __arg5 = style;
 
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[6], \
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[6], \
             classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg6 = *pos_instance;
 
-        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[7], \
+        Ozone::Size* sz_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[7], \
             classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg7 = *sz_instance;
 
@@ -446,7 +446,7 @@ static JSValue callback_method_Ozone_FileDialog_SetMessage(JSContext* ctx, JSVal
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -482,7 +482,7 @@ static JSValue callback_method_Ozone_FileDialog_SetPath(JSContext* ctx, JSValueC
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -518,7 +518,7 @@ static JSValue callback_method_Ozone_FileDialog_SetDirectory(JSContext* ctx, JSV
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -554,7 +554,7 @@ static JSValue callback_method_Ozone_FileDialog_SetFilename(JSContext* ctx, JSVa
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -590,7 +590,7 @@ static JSValue callback_method_Ozone_FileDialog_SetWildcard(JSContext* ctx, JSVa
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -842,7 +842,7 @@ static JSValue callback_method_Ozone_FileDialog_SetFilterIndexFromExt(JSContext*
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -876,13 +876,13 @@ static JSValue callback_method_Ozone_FileDialog_AppendExtension(JSContext* ctx, 
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
     }
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsString(argv[1]))
+    if (JS_IsString(argv[1]) || JS_IsNull(argv[1]))
         goto overload0;
 
     goto error;
@@ -993,31 +993,31 @@ static JSValue callback_function_Ozone_FileSelector(JSContext* ctx, JSValueConst
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
     }
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsString(argv[1]))
+    if (JS_IsString(argv[1]) || JS_IsNull(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsString(argv[2]))
+    if (JS_IsString(argv[2]) || JS_IsNull(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsString(argv[3]))
+    if (JS_IsString(argv[3]) || JS_IsNull(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsString(argv[4]))
+    if (JS_IsString(argv[4]) || JS_IsNull(argv[4]))
         goto typecheck5;
 
     goto error;
@@ -1029,7 +1029,7 @@ typecheck5:
     goto error;
 
 typecheck6:
-    if (JS_IsObject(argv[6]))
+    if (JS_IsObject(argv[6]) || JS_IsNull(argv[6]))
         goto typecheck7;
 
     goto error;
@@ -1089,7 +1089,7 @@ overload0:
         flags = (int)_flags;
         auto __arg5 = flags;
 
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[6], \
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[6], \
             classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg6 = parent_instance;
 
@@ -1144,25 +1144,25 @@ static JSValue callback_function_Ozone_LoadFileSelector(JSContext* ctx, JSValueC
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
     }
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsString(argv[1]))
+    if (JS_IsString(argv[1]) || JS_IsNull(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsString(argv[2]))
+    if (JS_IsString(argv[2]) || JS_IsNull(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsObject(argv[3]))
+    if (JS_IsObject(argv[3]) || JS_IsNull(argv[3]))
         goto overload0;
 
     goto error;
@@ -1191,7 +1191,7 @@ overload0:
             return JS_EXCEPTION;
         auto __arg2 = default_name;
 
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[3], \
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[3], \
             classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg3 = parent_instance;
 
@@ -1230,25 +1230,25 @@ static JSValue callback_function_Ozone_SaveFileSelector(JSContext* ctx, JSValueC
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
     }
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsString(argv[1]))
+    if (JS_IsString(argv[1]) || JS_IsNull(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsString(argv[2]))
+    if (JS_IsString(argv[2]) || JS_IsNull(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsObject(argv[3]))
+    if (JS_IsObject(argv[3]) || JS_IsNull(argv[3]))
         goto overload0;
 
     goto error;
@@ -1277,7 +1277,7 @@ overload0:
             return JS_EXCEPTION;
         auto __arg2 = default_name;
 
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[3], \
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[3], \
             classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg3 = parent_instance;
 

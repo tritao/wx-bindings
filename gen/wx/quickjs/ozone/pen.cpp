@@ -238,7 +238,7 @@ static JSValue callback_method_Ozone_PenInfo_PenInfo(JSContext* ctx, JSValueCons
 
     Ozone::PenInfo* instance;
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
 
     goto error;
@@ -261,7 +261,7 @@ error:
     // explicit PenInfo(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
 
@@ -500,10 +500,10 @@ static JSValue callback_method_Ozone_Pen_Pen(JSContext* ctx, JSValueConst this_v
     if (argc == 0)
         goto overload0;
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload2;
 
     goto error;
@@ -534,7 +534,7 @@ overload0:
     // Pen(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style)
 overload1:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
 
@@ -560,7 +560,7 @@ overload1:
     // Pen(const ::Ozone::PenInfo& info)
 overload2:
     {
-        Ozone::PenInfo* info_instance = (Ozone::PenInfo*) JS_Interop_GetInstance( argv[0], \
+        Ozone::PenInfo* info_instance = (Ozone::PenInfo*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_PenInfo, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *info_instance;
 
@@ -600,7 +600,7 @@ static JSValue callback_method_Ozone_Pen_operator_EqualEqual(JSContext* ctx, JSV
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -611,7 +611,7 @@ error:
     // bool operator==(const ::Ozone::Pen& pen) const
 overload0:
     {
-        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pen_instance;
 
@@ -634,7 +634,7 @@ static JSValue callback_method_Ozone_Pen_operator_ExclaimEqual(JSContext* ctx, J
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -645,7 +645,7 @@ error:
     // bool operator!=(const ::Ozone::Pen& pen) const
 overload0:
     {
-        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Pen* pen_instance = (Ozone::Pen*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Pen, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *pen_instance;
 
@@ -668,7 +668,7 @@ static JSValue callback_method_Ozone_Pen_SetColour(JSContext* ctx, JSValueConst 
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     if (JS_IsNumber(argv[0]))
@@ -694,7 +694,7 @@ error:
     // void SetColour(const ::Ozone::Color& colour)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
 
@@ -1128,7 +1128,7 @@ static JSValue callback_method_Ozone_PenList_FindOrCreatePen(JSContext* ctx, JSV
 
     Ozone::PenList* instance = (Ozone::PenList*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
 
     goto error;
@@ -1151,7 +1151,7 @@ error:
     // ::Ozone::Pen* FindOrCreatePen(const ::Ozone::Color& colour, int width, ::Ozone::PenStyle style)
 overload0:
     {
-        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Color* colour_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *colour_instance;
 

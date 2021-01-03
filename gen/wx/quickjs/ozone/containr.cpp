@@ -63,7 +63,7 @@ static JSValue callback_method_Ozone_ControlContainer_SetContainerWindow(JSConte
 
     Ozone::ControlContainer* instance = (Ozone::ControlContainer*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -74,7 +74,7 @@ error:
     // void SetContainerWindow(::Ozone::Window* winParent)
 overload0:
     {
-        Ozone::Window* winParent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Window* winParent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = winParent_instance;
 

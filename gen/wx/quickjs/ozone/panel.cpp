@@ -73,7 +73,7 @@ static JSValue callback_method_Ozone_Panel_Panel(JSContext* ctx, JSValueConst th
     if (argc == 0)
         goto overload0;
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
 
     goto error;
@@ -85,13 +85,13 @@ typecheck1:
     goto error;
 
 typecheck2:
-    if (JS_IsObject(argv[2]))
+    if (JS_IsObject(argv[2]) || JS_IsNull(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsObject(argv[3]))
+    if (JS_IsObject(argv[3]) || JS_IsNull(argv[3]))
         goto typecheck4;
 
     goto error;
@@ -103,7 +103,7 @@ typecheck4:
     goto error;
 
 typecheck5:
-    if (JS_IsString(argv[5]))
+    if (JS_IsString(argv[5]) || JS_IsNull(argv[5]))
         goto overload1;
 
     goto error;
@@ -122,7 +122,7 @@ overload0:
     // Panel(::Ozone::Window* parent, int winid, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
 overload1:
     {
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = parent_instance;
 
@@ -133,11 +133,11 @@ overload1:
         winid = (int)_winid;
         auto __arg1 = winid;
 
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[2], \
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[2], \
             classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg2 = *pos_instance;
 
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[3], \
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[3], \
             classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg3 = *size_instance;
 
@@ -193,7 +193,7 @@ static JSValue callback_method_Ozone_Panel_Create(JSContext* ctx, JSValueConst t
     auto data = (data_Ozone_Panel*) JS_GetOpaque(this_val, 0);
     Ozone::Panel* instance = (Ozone::Panel*) data->instance;
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
 
     goto error;
@@ -205,13 +205,13 @@ typecheck1:
     goto error;
 
 typecheck2:
-    if (JS_IsObject(argv[2]))
+    if (JS_IsObject(argv[2]) || JS_IsNull(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsObject(argv[3]))
+    if (JS_IsObject(argv[3]) || JS_IsNull(argv[3]))
         goto typecheck4;
 
     goto error;
@@ -223,7 +223,7 @@ typecheck4:
     goto error;
 
 typecheck5:
-    if (JS_IsString(argv[5]))
+    if (JS_IsString(argv[5]) || JS_IsNull(argv[5]))
         goto overload0;
 
     goto error;
@@ -234,7 +234,7 @@ error:
     // bool Create(::Ozone::Window* parent, int winid, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
 overload0:
     {
-        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Window* parent_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = parent_instance;
 
@@ -245,11 +245,11 @@ overload0:
         winid = (int)_winid;
         auto __arg1 = winid;
 
-        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance( argv[2], \
+        Ozone::Point* pos_instance = (Ozone::Point*) JS_Interop_GetInstance(argv[2], \
             classId_Ozone_Point, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg2 = *pos_instance;
 
-        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance( argv[3], \
+        Ozone::Size* size_instance = (Ozone::Size*) JS_Interop_GetInstance(argv[3], \
             classId_Ozone_Size, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg3 = *size_instance;
 

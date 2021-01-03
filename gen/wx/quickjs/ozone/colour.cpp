@@ -68,10 +68,10 @@ static JSValue callback_method_Ozone_Color_Color(JSContext* ctx, JSValueConst th
     if (JS_IsNumber(argv[0]))
         goto overload2;
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto overload3;
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto overload4;
 
     goto error;
@@ -219,7 +219,7 @@ static JSValue callback_method_Ozone_Color_operator_EqualEqual(JSContext* ctx, J
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -230,7 +230,7 @@ error:
     // bool operator==(const ::Ozone::Color& col) const
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *col_instance;
 
@@ -253,7 +253,7 @@ static JSValue callback_method_Ozone_Color_operator_ExclaimEqual(JSContext* ctx,
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -264,7 +264,7 @@ error:
     // bool operator!=(const ::Ozone::Color& col) const
 overload0:
     {
-        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Color* col_instance = (Ozone::Color*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Color, JS_INTEROP_INSTANCE_RAW_POINTER);
         auto &__arg0 = *col_instance;
 
@@ -362,7 +362,7 @@ static JSValue callback_method_Ozone_Color_Set(JSContext* ctx, JSValueConst this
     if (JS_IsNumber(argv[0]))
         goto typecheck1;
 
-    if (JS_IsString(argv[0]))
+    if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto overload1;
 
     if (JS_IsNumber(argv[0]))

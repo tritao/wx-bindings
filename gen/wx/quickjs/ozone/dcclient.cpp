@@ -30,7 +30,7 @@ static JSValue callback_method_Ozone_WindowDC_WindowDC(JSContext* ctx, JSValueCo
 
     Ozone::WindowDC* instance;
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -41,7 +41,7 @@ error:
     // WindowDC(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = win_instance;
 
@@ -139,7 +139,7 @@ static JSValue callback_method_Ozone_ClientDC_ClientDC(JSContext* ctx, JSValueCo
 
     Ozone::ClientDC* instance;
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -150,7 +150,7 @@ error:
     // ClientDC(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = win_instance;
 
@@ -248,7 +248,7 @@ static JSValue callback_method_Ozone_PaintDC_PaintDC(JSContext* ctx, JSValueCons
 
     Ozone::PaintDC* instance;
 
-    if (JS_IsObject(argv[0]))
+    if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
     goto error;
@@ -259,7 +259,7 @@ error:
     // PaintDC(::Ozone::Window* win)
 overload0:
     {
-        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance( argv[0], \
+        Ozone::Window* win_instance = (Ozone::Window*) JS_Interop_GetInstance(argv[0], \
             classId_Ozone_Window, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
         auto __arg0 = win_instance;
 

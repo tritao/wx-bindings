@@ -1521,7 +1521,7 @@ namespace CppSharp
         public override void CppMarshalToManaged(MarshalContext ctx)
         {
             var deref = (ctx.ReturnType.Type.IsPointer()) ? "->" : ".";
-            ctx.Return.Write($"{ctx.ReturnVarName}{deref}c_str()");
+            ctx.Return.Write($"strdup({ctx.ReturnVarName}{deref}utf8_str().data())");
         }
 
         public override void CppMarshalToNative(MarshalContext ctx)

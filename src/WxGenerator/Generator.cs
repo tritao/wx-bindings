@@ -128,6 +128,7 @@ namespace CppSharp
                 "wx/panel.h",
                 "wx/brush.h",
                 "wx/pen.h",
+                "wx/filedlg.h"
             };
 
             module.Headers.AddRange(headers);
@@ -626,6 +627,17 @@ namespace CppSharp
             // Remove once https://github.com/mono/CppSharp/issues/1367 is fixed.
             colorClass.Constructors.FirstOrDefault(c => c.Parameters.Any(
                 p => p.Name == "colourName" && p.Type.IsPointer())).ExplicitlyIgnore();
+
+            // ----------------------------------------------------------------
+            ctx.GenerateTranslationUnits(new[] { "filedlg.h" });
+
+            if (TargetPlatform == TargetPlatform.Linux)
+                MoveTranslationUnitFromTo(ctx, "wx/gtk/filedlg.h", "wx/filedlg.h");
+
+            MoveDefinitionsFromTo(ctx, "wxFileDialogBase", "wxFileDialog");
+
+            ctx.FindFunction("wxFileSelectorEx").First().ExplicitlyIgnore();
+            passBuilder.RemovePrefix("wxFD_");
 
             // ----------------------------------------------------------------
 

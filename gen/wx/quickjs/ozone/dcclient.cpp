@@ -23,10 +23,8 @@ JSClassID classId_Ozone_WindowDC;
 static JSValue callback_method_Ozone_WindowDC_WindowDC(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::WindowDC* instance;
 
@@ -132,10 +130,8 @@ JSClassID classId_Ozone_ClientDC;
 static JSValue callback_method_Ozone_ClientDC_ClientDC(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::ClientDC* instance;
 
@@ -241,10 +237,8 @@ JSClassID classId_Ozone_PaintDC;
 static JSValue callback_method_Ozone_PaintDC_PaintDC(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::PaintDC* instance;
 

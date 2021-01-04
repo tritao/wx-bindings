@@ -27,9 +27,7 @@ static JSValue callback_method_Ozone_AppConsole_AppConsole(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance;
 
@@ -62,9 +60,7 @@ static JSValue callback_method_Ozone_AppConsole_CheckSignal(JSContext* ctx, JSVa
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -78,9 +74,7 @@ static JSValue callback_method_Ozone_AppConsole_CallOnInit(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -96,9 +90,7 @@ static JSValue callback_method_Ozone_AppConsole_OnInit(JSContext* ctx, JSValueCo
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -114,9 +106,7 @@ static JSValue callback_method_Ozone_AppConsole_OnRun(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -132,9 +122,7 @@ static JSValue callback_method_Ozone_AppConsole_OnLaunched(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -148,9 +136,7 @@ static JSValue callback_method_Ozone_AppConsole_OnExit(JSContext* ctx, JSValueCo
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -166,9 +152,7 @@ static JSValue callback_method_Ozone_AppConsole_CleanUp(JSContext* ctx, JSValueC
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -182,9 +166,7 @@ static JSValue callback_method_Ozone_AppConsole_OnFatalException(JSContext* ctx,
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -198,9 +180,7 @@ static JSValue callback_method_Ozone_AppConsole_Exit(JSContext* ctx, JSValueCons
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -214,9 +194,7 @@ static JSValue callback_method_Ozone_AppConsole_GetAppName(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -231,10 +209,8 @@ static JSValue callback_method_Ozone_AppConsole_GetAppName(JSContext* ctx, JSVal
 static JSValue callback_method_Ozone_AppConsole_SetAppName(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -268,9 +244,7 @@ static JSValue callback_method_Ozone_AppConsole_GetAppDisplayName(JSContext* ctx
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -285,10 +259,8 @@ static JSValue callback_method_Ozone_AppConsole_GetAppDisplayName(JSContext* ctx
 static JSValue callback_method_Ozone_AppConsole_SetAppDisplayName(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -322,9 +294,7 @@ static JSValue callback_method_Ozone_AppConsole_GetClassName(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -339,10 +309,8 @@ static JSValue callback_method_Ozone_AppConsole_GetClassName(JSContext* ctx, JSV
 static JSValue callback_method_Ozone_AppConsole_SetClassName(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -375,10 +343,8 @@ overload0:
 static JSValue callback_method_Ozone_AppConsole_SetVendorName(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -411,10 +377,8 @@ overload0:
 static JSValue callback_method_Ozone_AppConsole_SetVendorDisplayName(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -448,9 +412,7 @@ static JSValue callback_method_Ozone_AppConsole_SetCLocale(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -464,9 +426,7 @@ static JSValue callback_method_Ozone_AppConsole_OnUnhandledException(JSContext* 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -480,9 +440,7 @@ static JSValue callback_method_Ozone_AppConsole_OnExceptionInMainLoop(JSContext*
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -498,9 +456,7 @@ static JSValue callback_method_Ozone_AppConsole_StoreCurrentException(JSContext*
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -516,9 +472,7 @@ static JSValue callback_method_Ozone_AppConsole_RethrowStoredException(JSContext
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -532,9 +486,7 @@ static JSValue callback_method_Ozone_AppConsole_ProcessPendingEvents(JSContext* 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -548,9 +500,7 @@ static JSValue callback_method_Ozone_AppConsole_HasPendingEvents(JSContext* ctx,
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -566,9 +516,7 @@ static JSValue callback_method_Ozone_AppConsole_SuspendProcessingOfPendingEvents
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -582,9 +530,7 @@ static JSValue callback_method_Ozone_AppConsole_ResumeProcessingOfPendingEvents(
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -597,10 +543,8 @@ static JSValue callback_method_Ozone_AppConsole_ResumeProcessingOfPendingEvents(
 static JSValue callback_method_Ozone_AppConsole_RemovePendingEventHandler(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -629,10 +573,8 @@ overload0:
 static JSValue callback_method_Ozone_AppConsole_AppendPendingEventHandler(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -661,10 +603,8 @@ overload0:
 static JSValue callback_method_Ozone_AppConsole_DelayPendingEventHandler(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -694,9 +634,7 @@ static JSValue callback_method_Ozone_AppConsole_DeletePendingEvents(JSContext* c
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -709,10 +647,8 @@ static JSValue callback_method_Ozone_AppConsole_DeletePendingEvents(JSContext* c
 static JSValue callback_method_Ozone_AppConsole_ScheduleForDestruction(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -741,10 +677,8 @@ overload0:
 static JSValue callback_method_Ozone_AppConsole_IsScheduledForDestruction(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -776,9 +710,7 @@ static JSValue callback_method_Ozone_AppConsole_Pending(JSContext* ctx, JSValueC
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -794,9 +726,7 @@ static JSValue callback_method_Ozone_AppConsole_Dispatch(JSContext* ctx, JSValue
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -812,9 +742,7 @@ static JSValue callback_method_Ozone_AppConsole_MainLoop(JSContext* ctx, JSValue
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -830,9 +758,7 @@ static JSValue callback_method_Ozone_AppConsole_ExitMainLoop(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -845,10 +771,8 @@ static JSValue callback_method_Ozone_AppConsole_ExitMainLoop(JSContext* ctx, JSV
 static JSValue callback_method_Ozone_AppConsole_Yield(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -882,9 +806,7 @@ static JSValue callback_method_Ozone_AppConsole_WakeUpIdle(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -898,9 +820,7 @@ static JSValue callback_method_Ozone_AppConsole_ProcessIdle(JSContext* ctx, JSVa
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -916,9 +836,7 @@ static JSValue callback_method_Ozone_AppConsole_UsesEventLoop(JSContext* ctx, JS
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -934,9 +852,7 @@ static JSValue callback_method_Ozone_AppConsole_get_argc(JSContext* ctx, JSValue
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
@@ -951,14 +867,12 @@ static JSValue callback_method_Ozone_AppConsole_get_argc(JSContext* ctx, JSValue
 static JSValue callback_method_Ozone_AppConsole_set_argc(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::AppConsole* instance = (Ozone::AppConsole*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -987,9 +901,7 @@ static JSValue callback_method_Ozone_AppConsole_IsMainLoopRunning(JSContext* ctx
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     bool __ret = ::Ozone::AppConsole::IsMainLoopRunning();
 
@@ -1002,10 +914,8 @@ static JSValue callback_method_Ozone_AppConsole_IsMainLoopRunning(JSContext* ctx
 static JSValue callback_method_Ozone_AppConsole_CheckBuildOptions(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
@@ -1052,9 +962,7 @@ static JSValue callback_method_Ozone_AppConsole_GetInstance(JSContext* ctx, JSVa
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     ::Ozone::AppConsole* __ret = ::Ozone::AppConsole::GetInstance();
 
@@ -1067,10 +975,8 @@ static JSValue callback_method_Ozone_AppConsole_GetInstance(JSContext* ctx, JSVa
 static JSValue callback_method_Ozone_AppConsole_SetInstance(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
@@ -1390,9 +1296,7 @@ static JSValue callback_method_Ozone_App_App(JSContext* ctx, JSValueConst this_v
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::App* instance;
 
@@ -1424,10 +1328,8 @@ wrap:
 static JSValue callback_method_Ozone_App_SetNativeTheme(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1464,9 +1366,7 @@ static JSValue callback_method_Ozone_App_OnInitGui(JSContext* ctx, JSValueConst 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1483,9 +1383,7 @@ static JSValue callback_method_Ozone_App_WakeUpIdle(JSContext* ctx, JSValueConst
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1500,9 +1398,7 @@ static JSValue callback_method_Ozone_App_CleanUp(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1517,9 +1413,7 @@ static JSValue callback_method_Ozone_App_EventsPending(JSContext* ctx, JSValueCo
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1536,9 +1430,7 @@ static JSValue callback_method_Ozone_App_DoIdle(JSContext* ctx, JSValueConst thi
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1555,9 +1447,7 @@ static JSValue callback_method_Ozone_App_OnRun(JSContext* ctx, JSValueConst this
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1574,9 +1464,7 @@ static JSValue callback_method_Ozone_App_OnExit(JSContext* ctx, JSValueConst thi
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1592,10 +1480,8 @@ static JSValue callback_method_Ozone_App_OnExit(JSContext* ctx, JSValueConst thi
 static JSValue callback_method_Ozone_App_SafeYield(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1639,10 +1525,8 @@ overload0:
 static JSValue callback_method_Ozone_App_SafeYieldFor(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1653,7 +1537,7 @@ static JSValue callback_method_Ozone_App_SafeYieldFor(JSContext* ctx, JSValueCon
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload0;
 
     goto error;
@@ -1688,9 +1572,7 @@ static JSValue callback_method_Ozone_App_ProcessIdle(JSContext* ctx, JSValueCons
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1707,9 +1589,7 @@ static JSValue callback_method_Ozone_App_UsesEventLoop(JSContext* ctx, JSValueCo
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1726,9 +1606,7 @@ static JSValue callback_method_Ozone_App_IsActive(JSContext* ctx, JSValueConst t
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1744,10 +1622,8 @@ static JSValue callback_method_Ozone_App_IsActive(JSContext* ctx, JSValueConst t
 static JSValue callback_method_Ozone_App_SetTopWindow(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1778,9 +1654,7 @@ static JSValue callback_method_Ozone_App_GetTopWindow(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1796,10 +1670,8 @@ static JSValue callback_method_Ozone_App_GetTopWindow(JSContext* ctx, JSValueCon
 static JSValue callback_method_Ozone_App_SetExitOnFrameDelete(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1832,9 +1704,7 @@ static JSValue callback_method_Ozone_App_GetExitOnFrameDelete(JSContext* ctx, JS
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1850,10 +1720,8 @@ static JSValue callback_method_Ozone_App_GetExitOnFrameDelete(JSContext* ctx, JS
 static JSValue callback_method_Ozone_App_SetUseBestVisual(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1898,9 +1766,7 @@ static JSValue callback_method_Ozone_App_GetUseBestVisual(JSContext* ctx, JSValu
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1916,15 +1782,13 @@ static JSValue callback_method_Ozone_App_GetUseBestVisual(JSContext* ctx, JSValu
 static JSValue callback_method_Ozone_App_SetPrintMode(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -1953,9 +1817,7 @@ static JSValue callback_method_Ozone_App_GetPrintMode(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -1971,10 +1833,8 @@ static JSValue callback_method_Ozone_App_GetPrintMode(JSContext* ctx, JSValueCon
 static JSValue callback_method_Ozone_App_SetActive(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     Ozone::App* instance = (Ozone::App*) data->instance;
@@ -2020,8 +1880,7 @@ static JSValue callback_class_Ozone_App_toString(JSContext* ctx, JSValueConst th
 
 void finalizer_Ozone_App(JSRuntime *rt, JSValue val)
 {
-    auto data = (data_Ozone_App*) JS_GetOpaque(val, 0);
-    JS_Interop_CleanupObject(data->ctx, val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
+    JS_Interop_CleanupObject(val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 }
 
 static JSClassDef classDef_Ozone_App
@@ -2101,9 +1960,7 @@ static JSValue callback_function_Ozone_Exit(JSContext* ctx, JSValueConst this_va
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     ::Ozone::Exit();
 
@@ -2129,9 +1986,7 @@ static JSValue callback_function_Ozone_WakeUpIdle(JSContext* ctx, JSValueConst t
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     ::Ozone::WakeUpIdle();
 
@@ -2157,9 +2012,7 @@ static JSValue callback_function_Ozone_CreateApp(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     ::Ozone::AppConsole* __ret = ::Ozone::CreateApp();
 

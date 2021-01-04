@@ -242,9 +242,7 @@ static JSValue callback_method_Ozone_GraphicsObject_GraphicsObject(JSContext* ct
     int argc, JSValueConst* argv)
 {
     if (argc > 1)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsObject* instance;
 
@@ -304,9 +302,7 @@ static JSValue callback_method_Ozone_GraphicsObject_IsNull(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsObject* instance = (Ozone::GraphicsObject*) JS_GetOpaque(this_val, 0);
 
@@ -322,9 +318,7 @@ static JSValue callback_method_Ozone_GraphicsObject_GetRenderer(JSContext* ctx, 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsObject* instance = (Ozone::GraphicsObject*) JS_GetOpaque(this_val, 0);
 
@@ -400,9 +394,7 @@ static JSValue callback_method_Ozone_GraphicsPen_GraphicsPen(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPen* instance;
 
@@ -493,9 +485,7 @@ static JSValue callback_method_Ozone_GraphicsBrush_GraphicsBrush(JSContext* ctx,
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsBrush* instance;
 
@@ -586,9 +576,7 @@ static JSValue callback_method_Ozone_GraphicsFont_GraphicsFont(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsFont* instance;
 
@@ -679,9 +667,7 @@ static JSValue callback_method_Ozone_GraphicsBitmap_GraphicsBitmap(JSContext* ct
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsBitmap* instance;
 
@@ -772,9 +758,7 @@ static JSValue callback_method_Ozone_GraphicsMatrix_GraphicsMatrix(JSContext* ct
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsMatrix* instance;
 
@@ -806,10 +790,8 @@ wrap:
 static JSValue callback_method_Ozone_GraphicsMatrix_Concat(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsMatrix* instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(this_val, 0);
 
@@ -838,44 +820,42 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsMatrix_Set(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 6 || argc > 6)
-    {
+    if (argc != 6)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsMatrix* instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto typecheck5;
 
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsFloat(argv[5]))
         goto overload0;
 
     goto error;
@@ -927,9 +907,7 @@ static JSValue callback_method_Ozone_GraphicsMatrix_Invert(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsMatrix* instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(this_val, 0);
 
@@ -942,10 +920,8 @@ static JSValue callback_method_Ozone_GraphicsMatrix_Invert(JSContext* ctx, JSVal
 static JSValue callback_method_Ozone_GraphicsMatrix_IsEqual(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsMatrix* instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(this_val, 0);
 
@@ -977,9 +953,7 @@ static JSValue callback_method_Ozone_GraphicsMatrix_IsIdentity(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsMatrix* instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(this_val, 0);
 
@@ -994,20 +968,18 @@ static JSValue callback_method_Ozone_GraphicsMatrix_IsIdentity(JSContext* ctx, J
 static JSValue callback_method_Ozone_GraphicsMatrix_Translate(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsMatrix* instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload0;
 
     goto error;
@@ -1038,20 +1010,18 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsMatrix_Scale(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsMatrix* instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload0;
 
     goto error;
@@ -1082,14 +1052,12 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsMatrix_Rotate(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsMatrix* instance = (Ozone::GraphicsMatrix*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto overload0;
 
     goto error;
@@ -1181,10 +1149,8 @@ JSClassID classId_Ozone_GraphicsGradientStop;
 static JSValue callback_method_Ozone_GraphicsGradientStop_GraphicsGradientStop(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStop* instance;
 
@@ -1194,7 +1160,7 @@ static JSValue callback_method_Ozone_GraphicsGradientStop_GraphicsGradientStop(J
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload0;
 
     goto error;
@@ -1245,10 +1211,8 @@ wrap:
 static JSValue callback_method_Ozone_GraphicsGradientStop_SetColour(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStop* instance = (Ozone::GraphicsGradientStop*) JS_GetOpaque(this_val, 0);
 
@@ -1278,9 +1242,7 @@ static JSValue callback_method_Ozone_GraphicsGradientStop_GetPosition(JSContext*
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStop* instance = (Ozone::GraphicsGradientStop*) JS_GetOpaque(this_val, 0);
 
@@ -1295,14 +1257,12 @@ static JSValue callback_method_Ozone_GraphicsGradientStop_GetPosition(JSContext*
 static JSValue callback_method_Ozone_GraphicsGradientStop_SetPosition(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStop* instance = (Ozone::GraphicsGradientStop*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto overload0;
 
     goto error;
@@ -1382,10 +1342,8 @@ JSClassID classId_Ozone_GraphicsGradientStops;
 static JSValue callback_method_Ozone_GraphicsGradientStops_GraphicsGradientStops(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStops* instance;
 
@@ -1444,9 +1402,7 @@ static JSValue callback_method_Ozone_GraphicsGradientStops_Add(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 2)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStops* instance = (Ozone::GraphicsGradientStops*) JS_GetOpaque(this_val, 0);
 
@@ -1459,7 +1415,7 @@ static JSValue callback_method_Ozone_GraphicsGradientStops_Add(JSContext* ctx, J
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload1;
 
     goto error;
@@ -1505,9 +1461,7 @@ static JSValue callback_method_Ozone_GraphicsGradientStops_GetCount(JSContext* c
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStops* instance = (Ozone::GraphicsGradientStops*) JS_GetOpaque(this_val, 0);
 
@@ -1522,14 +1476,12 @@ static JSValue callback_method_Ozone_GraphicsGradientStops_GetCount(JSContext* c
 static JSValue callback_method_Ozone_GraphicsGradientStops_Item(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStops* instance = (Ozone::GraphicsGradientStops*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsUInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -1559,10 +1511,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsGradientStops_SetStartColour(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStops* instance = (Ozone::GraphicsGradientStops*) JS_GetOpaque(this_val, 0);
 
@@ -1592,9 +1542,7 @@ static JSValue callback_method_Ozone_GraphicsGradientStops_GetStartColour(JSCont
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStops* instance = (Ozone::GraphicsGradientStops*) JS_GetOpaque(this_val, 0);
 
@@ -1609,10 +1557,8 @@ static JSValue callback_method_Ozone_GraphicsGradientStops_GetStartColour(JSCont
 static JSValue callback_method_Ozone_GraphicsGradientStops_SetEndColour(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStops* instance = (Ozone::GraphicsGradientStops*) JS_GetOpaque(this_val, 0);
 
@@ -1642,9 +1588,7 @@ static JSValue callback_method_Ozone_GraphicsGradientStops_GetEndColour(JSContex
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsGradientStops* instance = (Ozone::GraphicsGradientStops*) JS_GetOpaque(this_val, 0);
 
@@ -1715,10 +1659,8 @@ JSClassID classId_Ozone_GraphicsPenInfo;
 static JSValue callback_method_Ozone_GraphicsPenInfo_GraphicsPenInfo(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 3 || argc > 3)
-    {
+    if (argc != 3)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance;
 
@@ -1728,13 +1670,13 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GraphicsPenInfo(JSContext* 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto overload0;
 
     goto error;
@@ -1791,9 +1733,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetWidth(JSContext* ctx, JS
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -1809,9 +1749,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetGradientType(JSContext* 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -1827,9 +1765,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetX1(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -1845,9 +1781,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetY1(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -1863,9 +1797,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetX2(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -1881,9 +1813,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetY2(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -1899,9 +1829,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetStartX(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -1917,9 +1845,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetStartY(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -1935,9 +1861,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetEndX(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -1953,9 +1877,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetEndY(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -1971,9 +1893,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetRadius(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -1989,9 +1909,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetColour(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -2007,9 +1925,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetStyle(JSContext* ctx, JS
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -2025,9 +1941,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetJoin(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -2043,9 +1957,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetCap(JSContext* ctx, JSVa
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -2061,9 +1973,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_GetDashCount(JSContext* ctx
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -2079,9 +1989,7 @@ static JSValue callback_method_Ozone_GraphicsPenInfo_IsTransparent(JSContext* ct
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPenInfo* instance = (Ozone::GraphicsPenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -2163,9 +2071,7 @@ static JSValue callback_method_Ozone_GraphicsPath_GraphicsPath(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance;
 
@@ -2197,20 +2103,18 @@ wrap:
 static JSValue callback_method_Ozone_GraphicsPath_MoveToPoint(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload0;
 
     goto error;
@@ -2241,20 +2145,18 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsPath_AddLineToPoint(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload0;
 
     goto error;
@@ -2285,44 +2187,42 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsPath_AddCurveToPoint(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 6 || argc > 6)
-    {
+    if (argc != 6)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto typecheck5;
 
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsFloat(argv[5]))
         goto overload0;
 
     goto error;
@@ -2373,10 +2273,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsPath_AddPath(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
@@ -2406,9 +2304,7 @@ static JSValue callback_method_Ozone_GraphicsPath_CloseSubpath(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
@@ -2421,38 +2317,36 @@ static JSValue callback_method_Ozone_GraphicsPath_CloseSubpath(JSContext* ctx, J
 static JSValue callback_method_Ozone_GraphicsPath_AddArc(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 6 || argc > 6)
-    {
+    if (argc != 6)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto typecheck5;
 
     goto error;
@@ -2510,32 +2404,30 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsPath_AddQuadCurveToPoint(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto overload0;
 
     goto error;
@@ -2576,32 +2468,30 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsPath_AddRectangle(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto overload0;
 
     goto error;
@@ -2642,26 +2532,24 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsPath_AddCircle(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 3 || argc > 3)
-    {
+    if (argc != 3)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto overload0;
 
     goto error;
@@ -2697,38 +2585,36 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsPath_AddArcToPoint(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 5 || argc > 5)
-    {
+    if (argc != 5)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto overload0;
 
     goto error;
@@ -2774,32 +2660,30 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsPath_AddEllipse(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto overload0;
 
     goto error;
@@ -2840,38 +2724,36 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsPath_AddRoundedRectangle(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 5 || argc > 5)
-    {
+    if (argc != 5)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto overload0;
 
     goto error;
@@ -2917,10 +2799,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsPath_Transform(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
@@ -2949,26 +2829,24 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsPath_Contains(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 3 || argc > 3)
-    {
+    if (argc != 3)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsPath* instance = (Ozone::GraphicsPath*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto overload0;
 
     goto error;
@@ -3080,10 +2958,8 @@ JSClassID classId_Ozone_GraphicsContext;
 static JSValue callback_method_Ozone_GraphicsContext_GraphicsContext(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance;
 
@@ -3142,9 +3018,7 @@ static JSValue callback_method_Ozone_GraphicsContext_GetWindow(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -3159,10 +3033,8 @@ static JSValue callback_method_Ozone_GraphicsContext_GetWindow(JSContext* ctx, J
 static JSValue callback_method_Ozone_GraphicsContext_StartDoc(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -3198,9 +3070,7 @@ static JSValue callback_method_Ozone_GraphicsContext_EndDoc(JSContext* ctx, JSVa
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -3213,20 +3083,18 @@ static JSValue callback_method_Ozone_GraphicsContext_EndDoc(JSContext* ctx, JSVa
 static JSValue callback_method_Ozone_GraphicsContext_StartPage(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload0;
 
     goto error;
@@ -3258,9 +3126,7 @@ static JSValue callback_method_Ozone_GraphicsContext_EndPage(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -3274,9 +3140,7 @@ static JSValue callback_method_Ozone_GraphicsContext_Flush(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -3290,9 +3154,7 @@ static JSValue callback_method_Ozone_GraphicsContext_CreatePath(JSContext* ctx, 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -3307,10 +3169,8 @@ static JSValue callback_method_Ozone_GraphicsContext_CreatePath(JSContext* ctx, 
 static JSValue callback_method_Ozone_GraphicsContext_CreatePen(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -3359,10 +3219,8 @@ overload1:
 static JSValue callback_method_Ozone_GraphicsContext_CreateBrush(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -3394,31 +3252,29 @@ static JSValue callback_method_Ozone_GraphicsContext_CreateLinearGradientBrush(J
     int argc, JSValueConst* argv)
 {
     if (argc < 6 || argc > 7)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
@@ -3540,37 +3396,35 @@ static JSValue callback_method_Ozone_GraphicsContext_CreateRadialGradientBrush(J
     int argc, JSValueConst* argv)
 {
     if (argc < 7 || argc > 8)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto typecheck5;
 
     goto error;
@@ -3701,14 +3555,12 @@ overload1:
 static JSValue callback_method_Ozone_GraphicsContext_CreateFont(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
@@ -3720,7 +3572,7 @@ typecheck1:
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck3;
 
     goto error;
@@ -3773,10 +3625,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_CreateSubBitmap(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 5 || argc > 5)
-    {
+    if (argc != 5)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -3786,25 +3636,25 @@ static JSValue callback_method_Ozone_GraphicsContext_CreateSubBitmap(JSContext* 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto overload0;
 
     goto error;
@@ -3851,44 +3701,42 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_CreateMatrix(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 6 || argc > 6)
-    {
+    if (argc != 6)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto typecheck5;
 
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsFloat(argv[5]))
         goto overload0;
 
     goto error;
@@ -3942,9 +3790,7 @@ static JSValue callback_method_Ozone_GraphicsContext_PushState(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -3958,9 +3804,7 @@ static JSValue callback_method_Ozone_GraphicsContext_PopState(JSContext* ctx, JS
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -3973,32 +3817,30 @@ static JSValue callback_method_Ozone_GraphicsContext_PopState(JSContext* ctx, JS
 static JSValue callback_method_Ozone_GraphicsContext_Clip(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto overload0;
 
     goto error;
@@ -4040,9 +3882,7 @@ static JSValue callback_method_Ozone_GraphicsContext_ResetClip(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4056,9 +3896,7 @@ static JSValue callback_method_Ozone_GraphicsContext_GetAntialiasMode(JSContext*
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4073,14 +3911,12 @@ static JSValue callback_method_Ozone_GraphicsContext_GetAntialiasMode(JSContext*
 static JSValue callback_method_Ozone_GraphicsContext_SetAntialiasMode(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -4111,9 +3947,7 @@ static JSValue callback_method_Ozone_GraphicsContext_GetInterpolationQuality(JSC
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4128,14 +3962,12 @@ static JSValue callback_method_Ozone_GraphicsContext_GetInterpolationQuality(JSC
 static JSValue callback_method_Ozone_GraphicsContext_SetInterpolationQuality(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -4166,9 +3998,7 @@ static JSValue callback_method_Ozone_GraphicsContext_GetCompositionMode(JSContex
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4183,14 +4013,12 @@ static JSValue callback_method_Ozone_GraphicsContext_GetCompositionMode(JSContex
 static JSValue callback_method_Ozone_GraphicsContext_SetCompositionMode(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -4220,14 +4048,12 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_BeginLayer(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto overload0;
 
     goto error;
@@ -4254,9 +4080,7 @@ static JSValue callback_method_Ozone_GraphicsContext_EndLayer(JSContext* ctx, JS
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4269,20 +4093,18 @@ static JSValue callback_method_Ozone_GraphicsContext_EndLayer(JSContext* ctx, JS
 static JSValue callback_method_Ozone_GraphicsContext_Translate(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload0;
 
     goto error;
@@ -4313,20 +4135,18 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_Scale(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload0;
 
     goto error;
@@ -4357,14 +4177,12 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_Rotate(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto overload0;
 
     goto error;
@@ -4390,10 +4208,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_ConcatTransform(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4422,10 +4238,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_SetTransform(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4455,9 +4269,7 @@ static JSValue callback_method_Ozone_GraphicsContext_GetTransform(JSContext* ctx
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4472,10 +4284,8 @@ static JSValue callback_method_Ozone_GraphicsContext_GetTransform(JSContext* ctx
 static JSValue callback_method_Ozone_GraphicsContext_SetPen(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4520,10 +4330,8 @@ overload1:
 static JSValue callback_method_Ozone_GraphicsContext_SetBrush(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4568,10 +4376,8 @@ overload1:
 static JSValue callback_method_Ozone_GraphicsContext_SetFont(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4600,10 +4406,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_StrokePath(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4632,10 +4436,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_FillPath(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4645,7 +4447,7 @@ static JSValue callback_method_Ozone_GraphicsContext_FillPath(JSContext* ctx, JS
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload0;
 
     goto error;
@@ -4677,10 +4479,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_DrawPath(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4690,7 +4490,7 @@ static JSValue callback_method_Ozone_GraphicsContext_DrawPath(JSContext* ctx, JS
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload0;
 
     goto error;
@@ -4722,32 +4522,30 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_ClearRectangle(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto overload0;
 
     goto error;
@@ -4789,9 +4587,7 @@ static JSValue callback_method_Ozone_GraphicsContext_DrawText(JSContext* ctx, JS
     int argc, JSValueConst* argv)
 {
     if (argc < 3 || argc > 5)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4801,13 +4597,13 @@ static JSValue callback_method_Ozone_GraphicsContext_DrawText(JSContext* ctx, JS
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto overload0;
 
     goto error;
@@ -4945,10 +4741,8 @@ overload3:
 static JSValue callback_method_Ozone_GraphicsContext_DrawBitmap(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 5 || argc > 5)
-    {
+    if (argc != 5)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -4958,25 +4752,25 @@ static JSValue callback_method_Ozone_GraphicsContext_DrawBitmap(JSContext* ctx, 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto overload0;
 
     goto error;
@@ -5021,32 +4815,30 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_StrokeLine(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto overload0;
 
     goto error;
@@ -5087,32 +4879,30 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_DrawRectangle(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto overload0;
 
     goto error;
@@ -5153,32 +4943,30 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_DrawEllipse(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto overload0;
 
     goto error;
@@ -5219,38 +5007,36 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsContext_DrawRoundedRectangle(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 5 || argc > 5)
-    {
+    if (argc != 5)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto overload0;
 
     goto error;
@@ -5297,9 +5083,7 @@ static JSValue callback_method_Ozone_GraphicsContext_ShouldOffset(JSContext* ctx
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -5314,10 +5098,8 @@ static JSValue callback_method_Ozone_GraphicsContext_ShouldOffset(JSContext* ctx
 static JSValue callback_method_Ozone_GraphicsContext_EnableOffset(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -5349,9 +5131,7 @@ static JSValue callback_method_Ozone_GraphicsContext_DisableOffset(JSContext* ct
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -5365,9 +5145,7 @@ static JSValue callback_method_Ozone_GraphicsContext_OffsetEnabled(JSContext* ct
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsContext* instance = (Ozone::GraphicsContext*) JS_GetOpaque(this_val, 0);
 
@@ -5383,9 +5161,7 @@ static JSValue callback_method_Ozone_GraphicsContext_Create(JSContext* ctx, JSVa
     int argc, JSValueConst* argv)
 {
     if (argc > 1)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     if (argc == 0)
         goto overload2;
@@ -5446,10 +5222,8 @@ overload2:
 static JSValue callback_method_Ozone_GraphicsContext_CreateFromUnknownDC(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
@@ -5588,9 +5362,7 @@ static JSValue callback_method_Ozone_GraphicsRenderer_GraphicsRenderer(JSContext
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance;
 
@@ -5622,10 +5394,8 @@ wrap:
 static JSValue callback_method_Ozone_GraphicsRenderer_CreateContext(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
@@ -5674,10 +5444,8 @@ overload1:
 static JSValue callback_method_Ozone_GraphicsRenderer_CreateContextFromUnknownDC(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
@@ -5709,9 +5477,7 @@ static JSValue callback_method_Ozone_GraphicsRenderer_CreateMeasuringContext(JSC
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
@@ -5727,9 +5493,7 @@ static JSValue callback_method_Ozone_GraphicsRenderer_CreatePath(JSContext* ctx,
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
@@ -5744,44 +5508,42 @@ static JSValue callback_method_Ozone_GraphicsRenderer_CreatePath(JSContext* ctx,
 static JSValue callback_method_Ozone_GraphicsRenderer_CreateMatrix(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 6 || argc > 6)
-    {
+    if (argc != 6)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto typecheck5;
 
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsFloat(argv[5]))
         goto overload0;
 
     goto error;
@@ -5834,10 +5596,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsRenderer_CreatePen(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
@@ -5868,10 +5628,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsRenderer_CreateBrush(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
@@ -5902,32 +5660,30 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsRenderer_CreateLinearGradientBrush(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 6 || argc > 6)
-    {
+    if (argc != 6)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
@@ -5990,38 +5746,36 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsRenderer_CreateRadialGradientBrush(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 7 || argc > 7)
-    {
+    if (argc != 7)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto typecheck5;
 
     goto error;
@@ -6089,14 +5843,12 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsRenderer_CreateFont(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
@@ -6108,7 +5860,7 @@ typecheck1:
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck3;
 
     goto error;
@@ -6161,10 +5913,8 @@ overload0:
 static JSValue callback_method_Ozone_GraphicsRenderer_CreateSubBitmap(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 5 || argc > 5)
-    {
+    if (argc != 5)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
@@ -6174,25 +5924,25 @@ static JSValue callback_method_Ozone_GraphicsRenderer_CreateSubBitmap(JSContext*
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto overload0;
 
     goto error;
@@ -6240,9 +5990,7 @@ static JSValue callback_method_Ozone_GraphicsRenderer_GetName(JSContext* ctx, JS
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::GraphicsRenderer* instance = (Ozone::GraphicsRenderer*) JS_GetOpaque(this_val, 0);
 
@@ -6258,9 +6006,7 @@ static JSValue callback_method_Ozone_GraphicsRenderer_GetDefaultRenderer(JSConte
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     ::Ozone::GraphicsRenderer* __ret = ::Ozone::GraphicsRenderer::GetDefaultRenderer();
 
@@ -6274,9 +6020,7 @@ static JSValue callback_method_Ozone_GraphicsRenderer_GetCairoRenderer(JSContext
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     ::Ozone::GraphicsRenderer* __ret = ::Ozone::GraphicsRenderer::GetCairoRenderer();
 

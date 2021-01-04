@@ -53,19 +53,17 @@ static JSValue callback_method_Ozone_Color_Color(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc > 4)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance;
 
     if (argc == 0)
         goto overload0;
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsUInt8(argv[0]))
         goto typecheck1;
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsUInt32(argv[0]))
         goto overload2;
 
     if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
@@ -77,19 +75,19 @@ static JSValue callback_method_Ozone_Color_Color(JSContext* ctx, JSValueConst th
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsUInt8(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsUInt8(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsUInt8(argv[3]))
         goto overload1;
 
     goto error;
@@ -212,10 +210,8 @@ wrap:
 static JSValue callback_method_Ozone_Color_operator_EqualEqual(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
@@ -246,10 +242,8 @@ overload0:
 static JSValue callback_method_Ozone_Color_operator_ExclaimEqual(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
@@ -281,9 +275,7 @@ static JSValue callback_method_Ozone_Color_Red(JSContext* ctx, JSValueConst this
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
@@ -299,9 +291,7 @@ static JSValue callback_method_Ozone_Color_Green(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
@@ -317,9 +307,7 @@ static JSValue callback_method_Ozone_Color_Blue(JSContext* ctx, JSValueConst thi
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
@@ -335,9 +323,7 @@ static JSValue callback_method_Ozone_Color_Alpha(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
@@ -353,37 +339,35 @@ static JSValue callback_method_Ozone_Color_Set(JSContext* ctx, JSValueConst this
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 4)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsUInt8(argv[0]))
         goto typecheck1;
 
     if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto overload1;
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsUInt32(argv[0]))
         goto overload2;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsUInt8(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsUInt8(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsUInt8(argv[3]))
         goto overload0;
 
     goto error;
@@ -468,9 +452,7 @@ static JSValue callback_method_Ozone_Color_IsSolid(JSContext* ctx, JSValueConst 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
@@ -485,14 +467,12 @@ static JSValue callback_method_Ozone_Color_IsSolid(JSContext* ctx, JSValueConst 
 static JSValue callback_method_Ozone_Color_GetAsString(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -522,14 +502,12 @@ overload0:
 static JSValue callback_method_Ozone_Color_SetRGB(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsUInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -557,14 +535,12 @@ overload0:
 static JSValue callback_method_Ozone_Color_SetRGBA(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsUInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -593,9 +569,7 @@ static JSValue callback_method_Ozone_Color_GetRGB(JSContext* ctx, JSValueConst t
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
@@ -611,9 +585,7 @@ static JSValue callback_method_Ozone_Color_GetRGBA(JSContext* ctx, JSValueConst 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
@@ -629,9 +601,7 @@ static JSValue callback_method_Ozone_Color_GetLuminance(JSContext* ctx, JSValueC
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
@@ -646,14 +616,12 @@ static JSValue callback_method_Ozone_Color_GetLuminance(JSContext* ctx, JSValueC
 static JSValue callback_method_Ozone_Color_ChangeLightness(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Color* instance = (Ozone::Color*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -683,24 +651,22 @@ overload0:
 static JSValue callback_method_Ozone_Color_AlphaBlend(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 3 || argc > 3)
-    {
+    if (argc != 3)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsUInt8(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsUInt8(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto overload0;
 
     goto error;

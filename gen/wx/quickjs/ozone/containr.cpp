@@ -22,9 +22,7 @@ static JSValue callback_method_Ozone_ControlContainer_ControlContainer(JSContext
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::ControlContainer* instance;
 
@@ -56,10 +54,8 @@ wrap:
 static JSValue callback_method_Ozone_ControlContainer_SetContainerWindow(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::ControlContainer* instance = (Ozone::ControlContainer*) JS_GetOpaque(this_val, 0);
 
@@ -89,9 +85,7 @@ static JSValue callback_method_Ozone_ControlContainer_DisableSelfFocus(JSContext
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::ControlContainer* instance = (Ozone::ControlContainer*) JS_GetOpaque(this_val, 0);
 
@@ -105,9 +99,7 @@ static JSValue callback_method_Ozone_ControlContainer_EnableSelfFocus(JSContext*
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::ControlContainer* instance = (Ozone::ControlContainer*) JS_GetOpaque(this_val, 0);
 
@@ -121,9 +113,7 @@ static JSValue callback_method_Ozone_ControlContainer_DoSetFocus(JSContext* ctx,
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::ControlContainer* instance = (Ozone::ControlContainer*) JS_GetOpaque(this_val, 0);
 
@@ -139,9 +129,7 @@ static JSValue callback_method_Ozone_ControlContainer_AcceptsFocus(JSContext* ct
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::ControlContainer* instance = (Ozone::ControlContainer*) JS_GetOpaque(this_val, 0);
 
@@ -157,9 +145,7 @@ static JSValue callback_method_Ozone_ControlContainer_AcceptsFocusRecursively(JS
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::ControlContainer* instance = (Ozone::ControlContainer*) JS_GetOpaque(this_val, 0);
 
@@ -175,9 +161,7 @@ static JSValue callback_method_Ozone_ControlContainer_AcceptsFocusFromKeyboard(J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::ControlContainer* instance = (Ozone::ControlContainer*) JS_GetOpaque(this_val, 0);
 
@@ -193,9 +177,7 @@ static JSValue callback_method_Ozone_ControlContainer_UpdateCanFocusChildren(JSC
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::ControlContainer* instance = (Ozone::ControlContainer*) JS_GetOpaque(this_val, 0);
 

@@ -213,9 +213,7 @@ static JSValue callback_method_Ozone_FontMetrics_FontMetrics(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance;
 
@@ -248,9 +246,7 @@ static JSValue callback_method_Ozone_FontMetrics_get_height(JSContext* ctx, JSVa
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
@@ -265,14 +261,12 @@ static JSValue callback_method_Ozone_FontMetrics_get_height(JSContext* ctx, JSVa
 static JSValue callback_method_Ozone_FontMetrics_set_height(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -301,9 +295,7 @@ static JSValue callback_method_Ozone_FontMetrics_get_ascent(JSContext* ctx, JSVa
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
@@ -318,14 +310,12 @@ static JSValue callback_method_Ozone_FontMetrics_get_ascent(JSContext* ctx, JSVa
 static JSValue callback_method_Ozone_FontMetrics_set_ascent(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -354,9 +344,7 @@ static JSValue callback_method_Ozone_FontMetrics_get_descent(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
@@ -371,14 +359,12 @@ static JSValue callback_method_Ozone_FontMetrics_get_descent(JSContext* ctx, JSV
 static JSValue callback_method_Ozone_FontMetrics_set_descent(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -407,9 +393,7 @@ static JSValue callback_method_Ozone_FontMetrics_get_internalLeading(JSContext* 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
@@ -424,14 +408,12 @@ static JSValue callback_method_Ozone_FontMetrics_get_internalLeading(JSContext* 
 static JSValue callback_method_Ozone_FontMetrics_set_internalLeading(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -460,9 +442,7 @@ static JSValue callback_method_Ozone_FontMetrics_get_externalLeading(JSContext* 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
@@ -477,14 +457,12 @@ static JSValue callback_method_Ozone_FontMetrics_get_externalLeading(JSContext* 
 static JSValue callback_method_Ozone_FontMetrics_set_externalLeading(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -513,9 +491,7 @@ static JSValue callback_method_Ozone_FontMetrics_get_averageWidth(JSContext* ctx
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
@@ -530,14 +506,12 @@ static JSValue callback_method_Ozone_FontMetrics_get_averageWidth(JSContext* ctx
 static JSValue callback_method_Ozone_FontMetrics_set_averageWidth(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FontMetrics* instance = (Ozone::FontMetrics*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -627,9 +601,7 @@ static JSValue callback_method_Ozone_DC_GetResolution(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -645,9 +617,7 @@ static JSValue callback_method_Ozone_DC_GetGraphicsContext(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -662,10 +632,8 @@ static JSValue callback_method_Ozone_DC_GetGraphicsContext(JSContext* ctx, JSVal
 static JSValue callback_method_Ozone_DC_SetGraphicsContext(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -694,10 +662,8 @@ overload0:
 static JSValue callback_method_Ozone_DC_CopyAttributes(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -727,9 +693,7 @@ static JSValue callback_method_Ozone_DC_GetWindow(JSContext* ctx, JSValueConst t
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -745,9 +709,7 @@ static JSValue callback_method_Ozone_DC_IsOk(JSContext* ctx, JSValueConst this_v
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -763,9 +725,7 @@ static JSValue callback_method_Ozone_DC_CanDrawBitmap(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -781,9 +741,7 @@ static JSValue callback_method_Ozone_DC_CanGetTextExtent(JSContext* ctx, JSValue
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -799,9 +757,7 @@ static JSValue callback_method_Ozone_DC_GetSize(JSContext* ctx, JSValueConst thi
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -817,9 +773,7 @@ static JSValue callback_method_Ozone_DC_GetSizeMM(JSContext* ctx, JSValueConst t
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -835,9 +789,7 @@ static JSValue callback_method_Ozone_DC_GetDepth(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -853,9 +805,7 @@ static JSValue callback_method_Ozone_DC_GetPPI(JSContext* ctx, JSValueConst this
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -871,9 +821,7 @@ static JSValue callback_method_Ozone_DC_GetContentScaleFactor(JSContext* ctx, JS
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -888,10 +836,8 @@ static JSValue callback_method_Ozone_DC_GetContentScaleFactor(JSContext* ctx, JS
 static JSValue callback_method_Ozone_DC_StartDoc(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -927,9 +873,7 @@ static JSValue callback_method_Ozone_DC_EndDoc(JSContext* ctx, JSValueConst this
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -943,9 +887,7 @@ static JSValue callback_method_Ozone_DC_StartPage(JSContext* ctx, JSValueConst t
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -959,9 +901,7 @@ static JSValue callback_method_Ozone_DC_EndPage(JSContext* ctx, JSValueConst thi
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -974,20 +914,18 @@ static JSValue callback_method_Ozone_DC_EndPage(JSContext* ctx, JSValueConst thi
 static JSValue callback_method_Ozone_DC_CalcBoundingBox(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload0;
 
     goto error;
@@ -1023,9 +961,7 @@ static JSValue callback_method_Ozone_DC_ResetBoundingBox(JSContext* ctx, JSValue
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1039,9 +975,7 @@ static JSValue callback_method_Ozone_DC_MinX(JSContext* ctx, JSValueConst this_v
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1057,9 +991,7 @@ static JSValue callback_method_Ozone_DC_MaxX(JSContext* ctx, JSValueConst this_v
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1075,9 +1007,7 @@ static JSValue callback_method_Ozone_DC_MinY(JSContext* ctx, JSValueConst this_v
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1093,9 +1023,7 @@ static JSValue callback_method_Ozone_DC_MaxY(JSContext* ctx, JSValueConst this_v
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1110,10 +1038,8 @@ static JSValue callback_method_Ozone_DC_MaxY(JSContext* ctx, JSValueConst this_v
 static JSValue callback_method_Ozone_DC_SetPen(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1142,10 +1068,8 @@ overload0:
 static JSValue callback_method_Ozone_DC_SetBrush(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1174,10 +1098,8 @@ overload0:
 static JSValue callback_method_Ozone_DC_SetBackground(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1206,14 +1128,12 @@ overload0:
 static JSValue callback_method_Ozone_DC_SetBackgroundMode(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -1242,9 +1162,7 @@ static JSValue callback_method_Ozone_DC_GetBackgroundMode(JSContext* ctx, JSValu
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1259,10 +1177,8 @@ static JSValue callback_method_Ozone_DC_GetBackgroundMode(JSContext* ctx, JSValu
 static JSValue callback_method_Ozone_DC_SetTextForeground(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1291,10 +1207,8 @@ overload0:
 static JSValue callback_method_Ozone_DC_SetTextBackground(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1323,14 +1237,12 @@ overload0:
 static JSValue callback_method_Ozone_DC_SetLogicalFunction(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -1359,9 +1271,7 @@ static JSValue callback_method_Ozone_DC_GetLogicalFunction(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1377,9 +1287,7 @@ static JSValue callback_method_Ozone_DC_GetCharHeight(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1395,9 +1303,7 @@ static JSValue callback_method_Ozone_DC_GetCharWidth(JSContext* ctx, JSValueCons
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1413,9 +1319,7 @@ static JSValue callback_method_Ozone_DC_GetFontMetrics(JSContext* ctx, JSValueCo
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1430,10 +1334,8 @@ static JSValue callback_method_Ozone_DC_GetFontMetrics(JSContext* ctx, JSValueCo
 static JSValue callback_method_Ozone_DC_GetMultiLineTextExtent(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1469,9 +1371,7 @@ static JSValue callback_method_Ozone_DC_Clear(JSContext* ctx, JSValueConst this_
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1485,13 +1385,11 @@ static JSValue callback_method_Ozone_DC_SetClippingRegion(JSContext* ctx, JSValu
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 4)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -1503,7 +1401,7 @@ static JSValue callback_method_Ozone_DC_SetClippingRegion(JSContext* ctx, JSValu
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck3;
 
     goto error;
@@ -1515,13 +1413,13 @@ typecheck2:
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto overload0;
 
     goto error;
@@ -1601,9 +1499,7 @@ static JSValue callback_method_Ozone_DC_DestroyClippingRegion(JSContext* ctx, JS
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1616,10 +1512,8 @@ static JSValue callback_method_Ozone_DC_DestroyClippingRegion(JSContext* ctx, JS
 static JSValue callback_method_Ozone_DC_GetClippingBox(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -1650,14 +1544,12 @@ overload0:
 static JSValue callback_method_Ozone_DC_DeviceToLogicalX(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -1687,14 +1579,12 @@ overload0:
 static JSValue callback_method_Ozone_DC_DeviceToLogicalY(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -1724,14 +1614,12 @@ overload0:
 static JSValue callback_method_Ozone_DC_DeviceToLogicalXRel(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -1761,14 +1649,12 @@ overload0:
 static JSValue callback_method_Ozone_DC_DeviceToLogicalYRel(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -1799,22 +1685,20 @@ static JSValue callback_method_Ozone_DC_DeviceToLogical(JSContext* ctx, JSValueC
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 2)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload1;
 
     goto error;
@@ -1867,22 +1751,20 @@ static JSValue callback_method_Ozone_DC_DeviceToLogicalRel(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 2)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload1;
 
     goto error;
@@ -1934,14 +1816,12 @@ overload1:
 static JSValue callback_method_Ozone_DC_LogicalToDeviceX(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -1971,14 +1851,12 @@ overload0:
 static JSValue callback_method_Ozone_DC_LogicalToDeviceY(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -2008,14 +1886,12 @@ overload0:
 static JSValue callback_method_Ozone_DC_LogicalToDeviceXRel(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -2045,14 +1921,12 @@ overload0:
 static JSValue callback_method_Ozone_DC_LogicalToDeviceYRel(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -2083,22 +1957,20 @@ static JSValue callback_method_Ozone_DC_LogicalToDevice(JSContext* ctx, JSValueC
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 2)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload1;
 
     goto error;
@@ -2151,22 +2023,20 @@ static JSValue callback_method_Ozone_DC_LogicalToDeviceRel(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 2)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload1;
 
     goto error;
@@ -2218,14 +2088,12 @@ overload1:
 static JSValue callback_method_Ozone_DC_SetMapMode(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -2254,9 +2122,7 @@ static JSValue callback_method_Ozone_DC_GetMapMode(JSContext* ctx, JSValueConst 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -2271,20 +2137,18 @@ static JSValue callback_method_Ozone_DC_GetMapMode(JSContext* ctx, JSValueConst 
 static JSValue callback_method_Ozone_DC_SetUserScale(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload0;
 
     goto error;
@@ -2315,20 +2179,18 @@ overload0:
 static JSValue callback_method_Ozone_DC_SetLogicalScale(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsFloat(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload0;
 
     goto error;
@@ -2359,20 +2221,18 @@ overload0:
 static JSValue callback_method_Ozone_DC_SetLogicalOrigin(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload0;
 
     goto error;
@@ -2408,9 +2268,7 @@ static JSValue callback_method_Ozone_DC_GetLogicalOrigin(JSContext* ctx, JSValue
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -2425,20 +2283,18 @@ static JSValue callback_method_Ozone_DC_GetLogicalOrigin(JSContext* ctx, JSValue
 static JSValue callback_method_Ozone_DC_SetDeviceOrigin(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload0;
 
     goto error;
@@ -2474,9 +2330,7 @@ static JSValue callback_method_Ozone_DC_GetDeviceOrigin(JSContext* ctx, JSValueC
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -2491,10 +2345,8 @@ static JSValue callback_method_Ozone_DC_GetDeviceOrigin(JSContext* ctx, JSValueC
 static JSValue callback_method_Ozone_DC_SetAxisOrientation(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -2538,9 +2390,7 @@ static JSValue callback_method_Ozone_DC_CanUseTransformMatrix(JSContext* ctx, JS
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -2556,9 +2406,7 @@ static JSValue callback_method_Ozone_DC_ResetTransformMatrix(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -2571,20 +2419,18 @@ static JSValue callback_method_Ozone_DC_ResetTransformMatrix(JSContext* ctx, JSV
 static JSValue callback_method_Ozone_DC_SetDeviceLocalOrigin(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload0;
 
     goto error;
@@ -2620,13 +2466,11 @@ static JSValue callback_method_Ozone_DC_FloodFill(JSContext* ctx, JSValueConst t
     int argc, JSValueConst* argv)
 {
     if (argc < 3 || argc > 4)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -2635,7 +2479,7 @@ static JSValue callback_method_Ozone_DC_FloodFill(JSContext* ctx, JSValueConst t
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck3;
 
     goto error;
@@ -2653,13 +2497,13 @@ typecheck3:
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto overload1;
 
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto overload0;
 
     goto error;
@@ -2734,9 +2578,7 @@ static JSValue callback_method_Ozone_DC_GradientFillConcentric(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc < 3 || argc > 4)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -2810,10 +2652,8 @@ overload1:
 static JSValue callback_method_Ozone_DC_GradientFillLinear(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -2835,7 +2675,7 @@ typecheck2:
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto overload0;
 
     goto error;
@@ -2876,13 +2716,11 @@ static JSValue callback_method_Ozone_DC_GetPixel(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc < 2 || argc > 3)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -2891,7 +2729,7 @@ static JSValue callback_method_Ozone_DC_GetPixel(JSContext* ctx, JSValueConst th
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck3;
 
     goto error;
@@ -2964,13 +2802,11 @@ static JSValue callback_method_Ozone_DC_DrawLine(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc < 2 || argc > 4)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -2979,7 +2815,7 @@ static JSValue callback_method_Ozone_DC_DrawLine(JSContext* ctx, JSValueConst th
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck3;
 
     goto error;
@@ -2991,13 +2827,13 @@ typecheck2:
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto overload0;
 
     goto error;
@@ -3064,13 +2900,11 @@ static JSValue callback_method_Ozone_DC_CrossHair(JSContext* ctx, JSValueConst t
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 2)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -3079,7 +2913,7 @@ static JSValue callback_method_Ozone_DC_CrossHair(JSContext* ctx, JSValueConst t
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload0;
 
     goto error;
@@ -3128,13 +2962,11 @@ static JSValue callback_method_Ozone_DC_DrawArc(JSContext* ctx, JSValueConst thi
     int argc, JSValueConst* argv)
 {
     if (argc < 3 || argc > 6)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -3143,7 +2975,7 @@ static JSValue callback_method_Ozone_DC_DrawArc(JSContext* ctx, JSValueConst thi
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck3;
 
     goto error;
@@ -3155,7 +2987,7 @@ typecheck2:
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck5;
 
     goto error;
@@ -3167,19 +2999,19 @@ typecheck4:
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto typecheck6;
 
     goto error;
 
 typecheck6:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsInt32(argv[4]))
         goto typecheck7;
 
     goto error;
 
 typecheck7:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsInt32(argv[5]))
         goto overload0;
 
     goto error;
@@ -3264,13 +3096,11 @@ static JSValue callback_method_Ozone_DC_DrawCheckMark(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 4)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -3279,19 +3109,19 @@ static JSValue callback_method_Ozone_DC_DrawCheckMark(JSContext* ctx, JSValueCon
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto overload0;
 
     goto error;
@@ -3354,13 +3184,11 @@ static JSValue callback_method_Ozone_DC_DrawEllipticArc(JSContext* ctx, JSValueC
     int argc, JSValueConst* argv)
 {
     if (argc < 4 || argc > 6)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -3369,7 +3197,7 @@ static JSValue callback_method_Ozone_DC_DrawEllipticArc(JSContext* ctx, JSValueC
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck3;
 
     goto error;
@@ -3381,37 +3209,37 @@ typecheck2:
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck5;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto typecheck6;
 
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto typecheck7;
 
     goto error;
 
 typecheck6:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto overload1;
 
     goto error;
 
 typecheck7:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto typecheck8;
 
     goto error;
 
 typecheck8:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsFloat(argv[5]))
         goto overload0;
 
     goto error;
@@ -3498,13 +3326,11 @@ static JSValue callback_method_Ozone_DC_DrawPoint(JSContext* ctx, JSValueConst t
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 2)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -3513,7 +3339,7 @@ static JSValue callback_method_Ozone_DC_DrawPoint(JSContext* ctx, JSValueConst t
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload0;
 
     goto error;
@@ -3561,14 +3387,12 @@ overload1:
 static JSValue callback_method_Ozone_DC_DrawLines(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
@@ -3580,13 +3404,13 @@ typecheck1:
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto overload0;
 
     goto error;
@@ -3630,14 +3454,12 @@ overload0:
 static JSValue callback_method_Ozone_DC_DrawPolygon(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 5 || argc > 5)
-    {
+    if (argc != 5)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
@@ -3649,19 +3471,19 @@ typecheck1:
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsInt32(argv[4]))
         goto overload0;
 
     goto error;
@@ -3712,14 +3534,12 @@ overload0:
 static JSValue callback_method_Ozone_DC_DrawPolyPolygon(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 6 || argc > 6)
-    {
+    if (argc != 6)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
@@ -3737,19 +3557,19 @@ typecheck2:
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsInt32(argv[4]))
         goto typecheck5;
 
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsInt32(argv[5]))
         goto overload0;
 
     goto error;
@@ -3803,13 +3623,11 @@ static JSValue callback_method_Ozone_DC_DrawRectangle(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 4)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -3821,7 +3639,7 @@ static JSValue callback_method_Ozone_DC_DrawRectangle(JSContext* ctx, JSValueCon
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck3;
 
     goto error;
@@ -3833,13 +3651,13 @@ typecheck2:
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto overload0;
 
     goto error;
@@ -3919,13 +3737,11 @@ static JSValue callback_method_Ozone_DC_DrawRoundedRectangle(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc < 2 || argc > 5)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -3937,7 +3753,7 @@ static JSValue callback_method_Ozone_DC_DrawRoundedRectangle(JSContext* ctx, JSV
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck4;
 
     goto error;
@@ -3949,31 +3765,31 @@ typecheck2:
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsFloat(argv[1]))
         goto overload2;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck6;
 
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto overload1;
 
     goto error;
 
 typecheck6:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto typecheck7;
 
     goto error;
 
 typecheck7:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsFloat(argv[4]))
         goto overload0;
 
     goto error;
@@ -4068,13 +3884,11 @@ static JSValue callback_method_Ozone_DC_DrawCircle(JSContext* ctx, JSValueConst 
     int argc, JSValueConst* argv)
 {
     if (argc < 2 || argc > 3)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -4083,19 +3897,19 @@ static JSValue callback_method_Ozone_DC_DrawCircle(JSContext* ctx, JSValueConst 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck3;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload1;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto overload0;
 
     goto error;
@@ -4158,13 +3972,11 @@ static JSValue callback_method_Ozone_DC_DrawEllipse(JSContext* ctx, JSValueConst
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 4)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -4176,7 +3988,7 @@ static JSValue callback_method_Ozone_DC_DrawEllipse(JSContext* ctx, JSValueConst
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck3;
 
     goto error;
@@ -4188,13 +4000,13 @@ typecheck2:
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto overload0;
 
     goto error;
@@ -4274,9 +4086,7 @@ static JSValue callback_method_Ozone_DC_DrawText(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc < 2 || argc > 3)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -4286,7 +4096,7 @@ static JSValue callback_method_Ozone_DC_DrawText(JSContext* ctx, JSValueConst th
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck2;
 
     if (JS_IsObject(argv[1]) || JS_IsNull(argv[1]))
@@ -4295,7 +4105,7 @@ typecheck1:
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto overload0;
 
     goto error;
@@ -4360,9 +4170,7 @@ static JSValue callback_method_Ozone_DC_DrawRotatedText(JSContext* ctx, JSValueC
     int argc, JSValueConst* argv)
 {
     if (argc < 3 || argc > 4)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -4372,7 +4180,7 @@ static JSValue callback_method_Ozone_DC_DrawRotatedText(JSContext* ctx, JSValueC
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck2;
 
     if (JS_IsObject(argv[1]) || JS_IsNull(argv[1]))
@@ -4381,19 +4189,19 @@ typecheck1:
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck4;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsFloat(argv[2]))
         goto overload1;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsFloat(argv[3]))
         goto overload0;
 
     goto error;
@@ -4467,10 +4275,8 @@ overload1:
 static JSValue callback_method_Ozone_DC_DrawLabel(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
@@ -4486,13 +4292,13 @@ typecheck1:
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto overload0;
 
     goto error;
@@ -4540,13 +4346,11 @@ static JSValue callback_method_Ozone_DC_Blit(JSContext* ctx, JSValueConst this_v
     int argc, JSValueConst* argv)
 {
     if (argc < 7 || argc > 11)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -4555,7 +4359,7 @@ static JSValue callback_method_Ozone_DC_Blit(JSContext* ctx, JSValueConst this_v
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck3;
 
     goto error;
@@ -4567,7 +4371,7 @@ typecheck2:
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck5;
 
     goto error;
@@ -4579,7 +4383,7 @@ typecheck4:
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto typecheck7;
 
     goto error;
@@ -4597,13 +4401,13 @@ typecheck7:
     goto error;
 
 typecheck8:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsInt32(argv[4]))
         goto typecheck10;
 
     goto error;
 
 typecheck9:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsInt32(argv[5]))
         goto typecheck11;
 
     goto error;
@@ -4615,7 +4419,7 @@ typecheck10:
     goto error;
 
 typecheck11:
-    if (JS_IsNumber(argv[6]))
+    if (JS_IsInt32(argv[6]))
         goto typecheck13;
 
     goto error;
@@ -4627,7 +4431,7 @@ typecheck12:
     goto error;
 
 typecheck13:
-    if (JS_IsNumber(argv[7]))
+    if (JS_IsInt32(argv[7]))
         goto typecheck14;
 
     goto error;
@@ -4639,13 +4443,13 @@ typecheck14:
     goto error;
 
 typecheck15:
-    if (JS_IsNumber(argv[9]))
+    if (JS_IsInt32(argv[9]))
         goto typecheck16;
 
     goto error;
 
 typecheck16:
-    if (JS_IsNumber(argv[10]))
+    if (JS_IsInt32(argv[10]))
         goto overload0;
 
     goto error;
@@ -4786,13 +4590,11 @@ static JSValue callback_method_Ozone_DC_StretchBlit(JSContext* ctx, JSValueConst
     int argc, JSValueConst* argv)
 {
     if (argc < 8 || argc > 13)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
@@ -4801,7 +4603,7 @@ static JSValue callback_method_Ozone_DC_StretchBlit(JSContext* ctx, JSValueConst
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck3;
 
     goto error;
@@ -4813,7 +4615,7 @@ typecheck2:
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck5;
 
     goto error;
@@ -4825,7 +4627,7 @@ typecheck4:
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto typecheck7;
 
     goto error;
@@ -4849,19 +4651,19 @@ typecheck8:
     goto error;
 
 typecheck9:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsInt32(argv[5]))
         goto typecheck11;
 
     goto error;
 
 typecheck10:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsInt32(argv[5]))
         goto typecheck12;
 
     goto error;
 
 typecheck11:
-    if (JS_IsNumber(argv[6]))
+    if (JS_IsInt32(argv[6]))
         goto typecheck13;
 
     goto error;
@@ -4873,7 +4675,7 @@ typecheck12:
     goto error;
 
 typecheck13:
-    if (JS_IsNumber(argv[7]))
+    if (JS_IsInt32(argv[7]))
         goto typecheck15;
 
     goto error;
@@ -4885,13 +4687,13 @@ typecheck14:
     goto error;
 
 typecheck15:
-    if (JS_IsNumber(argv[8]))
+    if (JS_IsInt32(argv[8]))
         goto typecheck16;
 
     goto error;
 
 typecheck16:
-    if (JS_IsNumber(argv[9]))
+    if (JS_IsInt32(argv[9]))
         goto typecheck17;
 
     goto error;
@@ -4903,13 +4705,13 @@ typecheck17:
     goto error;
 
 typecheck18:
-    if (JS_IsNumber(argv[11]))
+    if (JS_IsInt32(argv[11]))
         goto typecheck19;
 
     goto error;
 
 typecheck19:
-    if (JS_IsNumber(argv[12]))
+    if (JS_IsInt32(argv[12]))
         goto overload0;
 
     goto error;
@@ -5068,19 +4870,17 @@ static JSValue callback_method_Ozone_DC_DrawSpline(JSContext* ctx, JSValueConst 
     int argc, JSValueConst* argv)
 {
     if (argc < 2 || argc > 6)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::DC* instance = (Ozone::DC*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck2;
 
     if (JS_IsArray(ctx, argv[1]))
@@ -5089,25 +4889,25 @@ typecheck1:
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto typecheck3;
 
     goto error;
 
 typecheck3:
-    if (JS_IsNumber(argv[3]))
+    if (JS_IsInt32(argv[3]))
         goto typecheck4;
 
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsInt32(argv[4]))
         goto typecheck5;
 
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsInt32(argv[5]))
         goto overload0;
 
     goto error;

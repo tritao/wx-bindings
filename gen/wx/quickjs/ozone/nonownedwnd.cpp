@@ -26,9 +26,7 @@ static JSValue callback_method_Ozone_NonOwnedWindow_NonOwnedWindow(JSContext* ct
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::NonOwnedWindow* instance;
 
@@ -60,10 +58,8 @@ wrap:
 static JSValue callback_method_Ozone_NonOwnedWindow_SetShape(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_NonOwnedWindow*) JS_GetOpaque(this_val, 0);
     Ozone::NonOwnedWindow* instance = (Ozone::NonOwnedWindow*) data->instance;
@@ -96,9 +92,7 @@ static JSValue callback_method_Ozone_NonOwnedWindow_InheritAttributes(JSContext*
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_NonOwnedWindow*) JS_GetOpaque(this_val, 0);
     Ozone::NonOwnedWindow* instance = (Ozone::NonOwnedWindow*) data->instance;
@@ -116,8 +110,7 @@ static JSValue callback_class_Ozone_NonOwnedWindow_toString(JSContext* ctx, JSVa
 
 void finalizer_Ozone_NonOwnedWindow(JSRuntime *rt, JSValue val)
 {
-    auto data = (data_Ozone_NonOwnedWindow*) JS_GetOpaque(val, 0);
-    JS_Interop_CleanupObject(data->ctx, val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
+    JS_Interop_CleanupObject(val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 }
 
 static JSClassDef classDef_Ozone_NonOwnedWindow

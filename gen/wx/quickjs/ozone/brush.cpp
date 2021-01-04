@@ -122,9 +122,7 @@ static JSValue callback_method_Ozone_Brush_Brush(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc > 2)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Brush* instance;
 
@@ -137,7 +135,7 @@ static JSValue callback_method_Ozone_Brush_Brush(JSContext* ctx, JSValueConst th
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload1;
 
     goto error;
@@ -196,10 +194,8 @@ wrap:
 static JSValue callback_method_Ozone_Brush_operator_EqualEqual(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Brush* instance = (Ozone::Brush*) JS_GetOpaque(this_val, 0);
 
@@ -230,10 +226,8 @@ overload0:
 static JSValue callback_method_Ozone_Brush_operator_ExclaimEqual(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Brush* instance = (Ozone::Brush*) JS_GetOpaque(this_val, 0);
 
@@ -265,9 +259,7 @@ static JSValue callback_method_Ozone_Brush_GetStyle(JSContext* ctx, JSValueConst
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Brush* instance = (Ozone::Brush*) JS_GetOpaque(this_val, 0);
 
@@ -283,9 +275,7 @@ static JSValue callback_method_Ozone_Brush_GetColour(JSContext* ctx, JSValueCons
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Brush* instance = (Ozone::Brush*) JS_GetOpaque(this_val, 0);
 
@@ -301,28 +291,26 @@ static JSValue callback_method_Ozone_Brush_SetColour(JSContext* ctx, JSValueCons
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 3)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Brush* instance = (Ozone::Brush*) JS_GetOpaque(this_val, 0);
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsUInt8(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsUInt8(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsUInt8(argv[2]))
         goto overload1;
 
     goto error;
@@ -377,14 +365,12 @@ overload1:
 static JSValue callback_method_Ozone_Brush_SetStyle(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Brush* instance = (Ozone::Brush*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -413,9 +399,7 @@ static JSValue callback_method_Ozone_Brush_IsHatch(JSContext* ctx, JSValueConst 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Brush* instance = (Ozone::Brush*) JS_GetOpaque(this_val, 0);
 
@@ -431,9 +415,7 @@ static JSValue callback_method_Ozone_Brush_IsTransparent(JSContext* ctx, JSValue
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Brush* instance = (Ozone::Brush*) JS_GetOpaque(this_val, 0);
 
@@ -449,9 +431,7 @@ static JSValue callback_method_Ozone_Brush_IsNonTransparent(JSContext* ctx, JSVa
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Brush* instance = (Ozone::Brush*) JS_GetOpaque(this_val, 0);
 
@@ -525,9 +505,7 @@ static JSValue callback_method_Ozone_BrushList_BrushList(JSContext* ctx, JSValue
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::BrushList* instance;
 
@@ -559,10 +537,8 @@ wrap:
 static JSValue callback_method_Ozone_BrushList_FindOrCreateBrush(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::BrushList* instance = (Ozone::BrushList*) JS_GetOpaque(this_val, 0);
 
@@ -572,7 +548,7 @@ static JSValue callback_method_Ozone_BrushList_FindOrCreateBrush(JSContext* ctx,
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto overload0;
 
     goto error;

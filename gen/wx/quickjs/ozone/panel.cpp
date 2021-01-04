@@ -64,9 +64,7 @@ static JSValue callback_method_Ozone_Panel_Panel(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc > 6)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Panel* instance;
 
@@ -79,7 +77,7 @@ static JSValue callback_method_Ozone_Panel_Panel(JSContext* ctx, JSValueConst th
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck2;
 
     goto error;
@@ -97,7 +95,7 @@ typecheck3:
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsInt32(argv[4]))
         goto typecheck5;
 
     goto error;
@@ -185,10 +183,8 @@ wrap:
 static JSValue callback_method_Ozone_Panel_Create(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 6 || argc > 6)
-    {
+    if (argc != 6)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_Panel*) JS_GetOpaque(this_val, 0);
     Ozone::Panel* instance = (Ozone::Panel*) data->instance;
@@ -199,7 +195,7 @@ static JSValue callback_method_Ozone_Panel_Create(JSContext* ctx, JSValueConst t
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck2;
 
     goto error;
@@ -217,7 +213,7 @@ typecheck3:
     goto error;
 
 typecheck4:
-    if (JS_IsNumber(argv[4]))
+    if (JS_IsInt32(argv[4]))
         goto typecheck5;
 
     goto error;
@@ -281,9 +277,7 @@ static JSValue callback_method_Ozone_Panel_InitDialog(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     auto data = (data_Ozone_Panel*) JS_GetOpaque(this_val, 0);
     Ozone::Panel* instance = (Ozone::Panel*) data->instance;
@@ -301,8 +295,7 @@ static JSValue callback_class_Ozone_Panel_toString(JSContext* ctx, JSValueConst 
 
 void finalizer_Ozone_Panel(JSRuntime *rt, JSValue val)
 {
-    auto data = (data_Ozone_Panel*) JS_GetOpaque(val, 0);
-    JS_Interop_CleanupObject(data->ctx, val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
+    JS_Interop_CleanupObject(val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 }
 
 static JSClassDef classDef_Ozone_Panel

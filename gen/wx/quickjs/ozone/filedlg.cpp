@@ -92,9 +92,7 @@ static JSValue callback_method_Ozone_FileDialog_FileDialog(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 9)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance;
 
@@ -131,7 +129,7 @@ typecheck4:
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsInt32(argv[5]))
         goto typecheck6;
 
     goto error;
@@ -252,10 +250,8 @@ wrap:
 static JSValue callback_method_Ozone_FileDialog_Create(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 9 || argc > 9)
-    {
+    if (argc != 9)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -289,7 +285,7 @@ typecheck4:
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsInt32(argv[5]))
         goto typecheck6;
 
     goto error;
@@ -386,9 +382,7 @@ static JSValue callback_method_Ozone_FileDialog_GetPath(JSContext* ctx, JSValueC
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -404,9 +398,7 @@ static JSValue callback_method_Ozone_FileDialog_GetFilename(JSContext* ctx, JSVa
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -422,9 +414,7 @@ static JSValue callback_method_Ozone_FileDialog_GetFilterIndex(JSContext* ctx, J
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -439,10 +429,8 @@ static JSValue callback_method_Ozone_FileDialog_GetFilterIndex(JSContext* ctx, J
 static JSValue callback_method_Ozone_FileDialog_SetMessage(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -475,10 +463,8 @@ overload0:
 static JSValue callback_method_Ozone_FileDialog_SetPath(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -511,10 +497,8 @@ overload0:
 static JSValue callback_method_Ozone_FileDialog_SetDirectory(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -547,10 +531,8 @@ overload0:
 static JSValue callback_method_Ozone_FileDialog_SetFilename(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -583,10 +565,8 @@ overload0:
 static JSValue callback_method_Ozone_FileDialog_SetWildcard(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -619,14 +599,12 @@ overload0:
 static JSValue callback_method_Ozone_FileDialog_SetFilterIndex(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -655,9 +633,7 @@ static JSValue callback_method_Ozone_FileDialog_ShowModal(JSContext* ctx, JSValu
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -673,9 +649,7 @@ static JSValue callback_method_Ozone_FileDialog_SupportsExtraControl(JSContext* 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -690,14 +664,12 @@ static JSValue callback_method_Ozone_FileDialog_SupportsExtraControl(JSContext* 
 static JSValue callback_method_Ozone_FileDialog_HasFdFlag(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -728,9 +700,7 @@ static JSValue callback_method_Ozone_FileDialog_GetMessage(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -746,9 +716,7 @@ static JSValue callback_method_Ozone_FileDialog_GetDirectory(JSContext* ctx, JSV
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -764,9 +732,7 @@ static JSValue callback_method_Ozone_FileDialog_GetWildcard(JSContext* ctx, JSVa
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -782,9 +748,7 @@ static JSValue callback_method_Ozone_FileDialog_GetCurrentlySelectedFilename(JSC
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -800,9 +764,7 @@ static JSValue callback_method_Ozone_FileDialog_GetCurrentlySelectedFilterIndex(
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -818,9 +780,7 @@ static JSValue callback_method_Ozone_FileDialog_GetExtraControl(JSContext* ctx, 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -835,10 +795,8 @@ static JSValue callback_method_Ozone_FileDialog_GetExtraControl(JSContext* ctx, 
 static JSValue callback_method_Ozone_FileDialog_SetFilterIndexFromExt(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::FileDialog* instance = (Ozone::FileDialog*) JS_GetOpaque(this_val, 0);
 
@@ -871,10 +829,8 @@ overload0:
 static JSValue callback_method_Ozone_FileDialog_AppendExtension(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 2 || argc > 2)
-    {
+    if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
@@ -988,10 +944,8 @@ static void register_class_Ozone_FileDialog(JSContext *ctx, JSModuleDef *m, bool
 static JSValue callback_function_Ozone_FileSelector(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 9 || argc > 9)
-    {
+    if (argc != 9)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
@@ -1023,7 +977,7 @@ typecheck4:
     goto error;
 
 typecheck5:
-    if (JS_IsNumber(argv[5]))
+    if (JS_IsInt32(argv[5]))
         goto typecheck6;
 
     goto error;
@@ -1035,13 +989,13 @@ typecheck6:
     goto error;
 
 typecheck7:
-    if (JS_IsNumber(argv[7]))
+    if (JS_IsInt32(argv[7]))
         goto typecheck8;
 
     goto error;
 
 typecheck8:
-    if (JS_IsNumber(argv[8]))
+    if (JS_IsInt32(argv[8]))
         goto overload0;
 
     goto error;
@@ -1139,10 +1093,8 @@ static void register_function_Ozone_FileSelector(JSContext *ctx, JSModuleDef *m,
 static JSValue callback_function_Ozone_LoadFileSelector(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
@@ -1225,10 +1177,8 @@ static void register_function_Ozone_LoadFileSelector(JSContext *ctx, JSModuleDef
 static JSValue callback_function_Ozone_SaveFileSelector(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 4 || argc > 4)
-    {
+    if (argc != 4)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;

@@ -231,10 +231,8 @@ JSClassID classId_Ozone_PenInfo;
 static JSValue callback_method_Ozone_PenInfo_PenInfo(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 3 || argc > 3)
-    {
+    if (argc != 3)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::PenInfo* instance;
 
@@ -244,13 +242,13 @@ static JSValue callback_method_Ozone_PenInfo_PenInfo(JSContext* ctx, JSValueCons
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto overload0;
 
     goto error;
@@ -309,9 +307,7 @@ static JSValue callback_method_Ozone_PenInfo_GetWidth(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::PenInfo* instance = (Ozone::PenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -327,9 +323,7 @@ static JSValue callback_method_Ozone_PenInfo_GetColour(JSContext* ctx, JSValueCo
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::PenInfo* instance = (Ozone::PenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -345,9 +339,7 @@ static JSValue callback_method_Ozone_PenInfo_GetStyle(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::PenInfo* instance = (Ozone::PenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -363,9 +355,7 @@ static JSValue callback_method_Ozone_PenInfo_GetJoin(JSContext* ctx, JSValueCons
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::PenInfo* instance = (Ozone::PenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -381,9 +371,7 @@ static JSValue callback_method_Ozone_PenInfo_GetCap(JSContext* ctx, JSValueConst
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::PenInfo* instance = (Ozone::PenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -399,9 +387,7 @@ static JSValue callback_method_Ozone_PenInfo_GetDashCount(JSContext* ctx, JSValu
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::PenInfo* instance = (Ozone::PenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -417,9 +403,7 @@ static JSValue callback_method_Ozone_PenInfo_IsTransparent(JSContext* ctx, JSVal
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::PenInfo* instance = (Ozone::PenInfo*) JS_GetOpaque(this_val, 0);
 
@@ -491,9 +475,7 @@ static JSValue callback_method_Ozone_Pen_Pen(JSContext* ctx, JSValueConst this_v
     int argc, JSValueConst* argv)
 {
     if (argc > 3)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance;
 
@@ -509,13 +491,13 @@ static JSValue callback_method_Ozone_Pen_Pen(JSContext* ctx, JSValueConst this_v
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto overload1;
 
     goto error;
@@ -593,10 +575,8 @@ wrap:
 static JSValue callback_method_Ozone_Pen_operator_EqualEqual(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
@@ -627,10 +607,8 @@ overload0:
 static JSValue callback_method_Ozone_Pen_operator_ExclaimEqual(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
@@ -662,28 +640,26 @@ static JSValue callback_method_Ozone_Pen_SetColour(JSContext* ctx, JSValueConst 
     int argc, JSValueConst* argv)
 {
     if (argc < 1 || argc > 3)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsUInt8(argv[0]))
         goto typecheck1;
 
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsUInt8(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsUInt8(argv[2]))
         goto overload1;
 
     goto error;
@@ -738,14 +714,12 @@ overload1:
 static JSValue callback_method_Ozone_Pen_SetCap(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -773,14 +747,12 @@ overload0:
 static JSValue callback_method_Ozone_Pen_SetJoin(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -808,14 +780,12 @@ overload0:
 static JSValue callback_method_Ozone_Pen_SetStyle(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -843,14 +813,12 @@ overload0:
 static JSValue callback_method_Ozone_Pen_SetWidth(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 1 || argc > 1)
-    {
+    if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
-    if (JS_IsNumber(argv[0]))
+    if (JS_IsInt32(argv[0]))
         goto overload0;
 
     goto error;
@@ -879,9 +847,7 @@ static JSValue callback_method_Ozone_Pen_GetColour(JSContext* ctx, JSValueConst 
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
@@ -897,9 +863,7 @@ static JSValue callback_method_Ozone_Pen_GetCap(JSContext* ctx, JSValueConst thi
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
@@ -915,9 +879,7 @@ static JSValue callback_method_Ozone_Pen_GetJoin(JSContext* ctx, JSValueConst th
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
@@ -933,9 +895,7 @@ static JSValue callback_method_Ozone_Pen_GetStyle(JSContext* ctx, JSValueConst t
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
@@ -951,9 +911,7 @@ static JSValue callback_method_Ozone_Pen_GetWidth(JSContext* ctx, JSValueConst t
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
@@ -969,9 +927,7 @@ static JSValue callback_method_Ozone_Pen_GetDashCount(JSContext* ctx, JSValueCon
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
@@ -987,9 +943,7 @@ static JSValue callback_method_Ozone_Pen_IsTransparent(JSContext* ctx, JSValueCo
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
@@ -1005,9 +959,7 @@ static JSValue callback_method_Ozone_Pen_IsNonTransparent(JSContext* ctx, JSValu
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::Pen* instance = (Ozone::Pen*) JS_GetOpaque(this_val, 0);
 
@@ -1087,9 +1039,7 @@ static JSValue callback_method_Ozone_PenList_PenList(JSContext* ctx, JSValueCons
     int argc, JSValueConst* argv)
 {
     if (argc > 0)
-    {
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::PenList* instance;
 
@@ -1121,10 +1071,8 @@ wrap:
 static JSValue callback_method_Ozone_PenList_FindOrCreatePen(JSContext* ctx, JSValueConst this_val,
     int argc, JSValueConst* argv)
 {
-    if (argc < 3 || argc > 3)
-    {
+    if (argc != 3)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
-    }
 
     Ozone::PenList* instance = (Ozone::PenList*) JS_GetOpaque(this_val, 0);
 
@@ -1134,13 +1082,13 @@ static JSValue callback_method_Ozone_PenList_FindOrCreatePen(JSContext* ctx, JSV
     goto error;
 
 typecheck1:
-    if (JS_IsNumber(argv[1]))
+    if (JS_IsInt32(argv[1]))
         goto typecheck2;
 
     goto error;
 
 typecheck2:
-    if (JS_IsNumber(argv[2]))
+    if (JS_IsInt32(argv[2]))
         goto overload0;
 
     goto error;

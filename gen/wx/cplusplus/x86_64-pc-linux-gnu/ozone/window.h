@@ -203,7 +203,7 @@ namespace Ozone
         bool __OwnsNativeInstance;
     };
 
-    class Window : public Ozone::EvtHandler
+    class Window : public ::Ozone::EvtHandler
     {
     public:
 

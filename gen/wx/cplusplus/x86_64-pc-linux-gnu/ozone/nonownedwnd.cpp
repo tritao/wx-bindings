@@ -10,8 +10,8 @@
 
 #include <wx/eventfilter.h>
 
-Ozone::NonOwnedWindow::NonOwnedWindow(::wxNonOwnedWindow* instance, bool ownNativeInstance)
-    : Ozone::Window((::wxWindow*)instance, ownNativeInstance)
+::Ozone::NonOwnedWindow::NonOwnedWindow(::wxNonOwnedWindow* instance, bool ownNativeInstance)
+    : ::Ozone::Window((::wxWindow*)instance, ownNativeInstance)
 {
     __Instance = instance;
 
@@ -20,12 +20,12 @@ Ozone::NonOwnedWindow::NonOwnedWindow(::wxNonOwnedWindow* instance, bool ownNati
         __instance->SetClientData(this);
 }
 
-Ozone::NonOwnedWindow::~NonOwnedWindow()
+::Ozone::NonOwnedWindow::~NonOwnedWindow()
 {
 }
 
-Ozone::NonOwnedWindow::NonOwnedWindow()
-    : Ozone::Window((::wxWindow*)nullptr)
+::Ozone::NonOwnedWindow::NonOwnedWindow()
+    : ::Ozone::Window((::wxWindow*)nullptr)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxNonOwnedWindow();
@@ -35,14 +35,14 @@ Ozone::NonOwnedWindow::NonOwnedWindow()
         __instance->SetClientData(this);
 }
 
-bool Ozone::NonOwnedWindow::SetShape(const ::Ozone::GraphicsPath& path)
+bool ::Ozone::NonOwnedWindow::SetShape(const ::Ozone::GraphicsPath& path)
 {
     auto &__arg0 = *(::wxGraphicsPath*)path.__Instance;
     bool __ret = ((::wxNonOwnedWindow*)__Instance)->SetShape(__arg0);
     return __ret;
 }
 
-void Ozone::NonOwnedWindow::InheritAttributes()
+void ::Ozone::NonOwnedWindow::InheritAttributes()
 {
     ((::wxNonOwnedWindow*)__Instance)->InheritAttributes();
 }

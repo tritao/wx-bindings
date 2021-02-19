@@ -14,8 +14,8 @@
 
 #include <wx/eventfilter.h>
 
-Ozone::Frame::Frame(::wxFrame* instance, bool ownNativeInstance)
-    : Ozone::TopLevelWindow((::wxTopLevelWindow*)instance, ownNativeInstance)
+::Ozone::Frame::Frame(::wxFrame* instance, bool ownNativeInstance)
+    : ::Ozone::TopLevelWindow((::wxTopLevelWindow*)instance, ownNativeInstance)
 {
     __Instance = instance;
 
@@ -24,12 +24,12 @@ Ozone::Frame::Frame(::wxFrame* instance, bool ownNativeInstance)
         __instance->SetClientData(this);
 }
 
-Ozone::Frame::~Frame()
+::Ozone::Frame::~Frame()
 {
 }
 
-Ozone::Frame::Frame()
-    : Ozone::TopLevelWindow((::wxTopLevelWindow*)nullptr)
+::Ozone::Frame::Frame()
+    : ::Ozone::TopLevelWindow((::wxTopLevelWindow*)nullptr)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxFrame();
@@ -39,8 +39,8 @@ Ozone::Frame::Frame()
         __instance->SetClientData(this);
 }
 
-Ozone::Frame::Frame(::Ozone::Window* parent, int id, const char* title, const ::Ozone::Point& pos, const ::Ozone::Size& size, ::Ozone::FrameStyle style, const char* name)
-    : Ozone::TopLevelWindow((::wxTopLevelWindow*)nullptr)
+::Ozone::Frame::Frame(::Ozone::Window* parent, int id, const char* title, const ::Ozone::Point& pos, const ::Ozone::Size& size, ::Ozone::FrameStyle style, const char* name)
+    : ::Ozone::TopLevelWindow((::wxTopLevelWindow*)nullptr)
 {
     __OwnsNativeInstance = true;
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
@@ -57,7 +57,7 @@ Ozone::Frame::Frame(::Ozone::Window* parent, int id, const char* title, const ::
         __instance->SetClientData(this);
 }
 
-bool Ozone::Frame::Create(::Ozone::Window* parent, int id, const char* title, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
+bool ::Ozone::Frame::Create(::Ozone::Window* parent, int id, const char* title, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
 {
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
     auto __arg1 = (::wxWindowID)id;
@@ -69,27 +69,27 @@ bool Ozone::Frame::Create(::Ozone::Window* parent, int id, const char* title, co
     return __ret;
 }
 
-bool Ozone::Frame::ShowFullScreen(bool show, long style)
+bool ::Ozone::Frame::ShowFullScreen(bool show, long style)
 {
     bool __ret = ((::wxFrame*)__Instance)->ShowFullScreen(show, style);
     return __ret;
 }
 
-::Ozone::Point Ozone::Frame::GetClientAreaOrigin() const
+::Ozone::Point ::Ozone::Frame::GetClientAreaOrigin() const
 {
     ::wxPoint __ret = ((::wxFrame*)__Instance)->GetClientAreaOrigin();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-bool Ozone::Frame::SendIdleEvents(::Ozone::IdleEvent& event)
+bool ::Ozone::Frame::SendIdleEvents(::Ozone::IdleEvent& event)
 {
     auto &__arg0 = *(::wxIdleEvent*)event.__Instance;
     bool __ret = ((::wxFrame*)__Instance)->SendIdleEvents(__arg0);
     return __ret;
 }
 
-::Ozone::Frame* Ozone::Frame::New(::Ozone::Window* parent, int winid, const char* title, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
+::Ozone::Frame* ::Ozone::Frame::New(::Ozone::Window* parent, int winid, const char* title, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
 {
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
     auto __arg1 = (::wxWindowID)winid;
@@ -101,70 +101,70 @@ bool Ozone::Frame::SendIdleEvents(::Ozone::IdleEvent& event)
     return (__ret == nullptr) ? nullptr : new Ozone::Frame((::wxFrame*)__ret);
 }
 
-bool Ozone::Frame::ProcessCommand(int winid)
+bool ::Ozone::Frame::ProcessCommand(int winid)
 {
     bool __ret = ((::wxFrame*)__Instance)->ProcessCommand(winid);
     return __ret;
 }
 
-void Ozone::Frame::SetStatusText(const char* text, int number)
+void ::Ozone::Frame::SetStatusText(const char* text, int number)
 {
     auto __arg0 = text;
     ((::wxFrame*)__Instance)->SetStatusText(__arg0, number);
 }
 
-void Ozone::Frame::SetStatusWidths(int n, int widths_field[])
+void ::Ozone::Frame::SetStatusWidths(int n, int widths_field[])
 {
     auto __arg1 = nullptr;
     ((::wxFrame*)__Instance)->SetStatusWidths(n, __arg1);
 }
 
-void Ozone::Frame::PushStatusText(const char* text, int number)
+void ::Ozone::Frame::PushStatusText(const char* text, int number)
 {
     auto __arg0 = text;
     ((::wxFrame*)__Instance)->PushStatusText(__arg0, number);
 }
 
-void Ozone::Frame::PopStatusText(int number)
+void ::Ozone::Frame::PopStatusText(int number)
 {
     ((::wxFrame*)__Instance)->PopStatusText(number);
 }
 
-void Ozone::Frame::SetStatusBarPane(int n)
+void ::Ozone::Frame::SetStatusBarPane(int n)
 {
     ((::wxFrame*)__Instance)->SetStatusBarPane(n);
 }
 
-int Ozone::Frame::GetStatusBarPane() const
+int ::Ozone::Frame::GetStatusBarPane() const
 {
     int __ret = ((::wxFrame*)__Instance)->GetStatusBarPane();
     return __ret;
 }
 
-void Ozone::Frame::UpdateWindowUI(long flags)
+void ::Ozone::Frame::UpdateWindowUI(long flags)
 {
     ((::wxFrame*)__Instance)->UpdateWindowUI(flags);
 }
 
-void Ozone::Frame::OnInternalIdle()
+void ::Ozone::Frame::OnInternalIdle()
 {
     ((::wxFrame*)__Instance)->OnInternalIdle();
 }
 
-void Ozone::Frame::DoGiveHelp(const char* text, bool show)
+void ::Ozone::Frame::DoGiveHelp(const char* text, bool show)
 {
     auto __arg0 = text;
     ((::wxFrame*)__Instance)->DoGiveHelp(__arg0, show);
 }
 
-bool Ozone::Frame::IsClientAreaChild(const ::Ozone::Window* child) const
+bool ::Ozone::Frame::IsClientAreaChild(const ::Ozone::Window* child) const
 {
     auto __arg0 = child ? (::wxWindow*)child->__Instance : nullptr;
     bool __ret = ((::wxFrame*)__Instance)->IsClientAreaChild(__arg0);
     return __ret;
 }
 
-int Ozone::Frame::HandleEvent(::wxEvent& event)
+int ::Ozone::Frame::HandleEvent(::wxEvent& event)
 {
     wxEventType eventType = event.GetEventType();
 

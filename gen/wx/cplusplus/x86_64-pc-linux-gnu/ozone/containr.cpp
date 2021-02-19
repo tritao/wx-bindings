@@ -9,70 +9,70 @@
 
 #include <wx/eventfilter.h>
 
-Ozone::ControlContainer::ControlContainer(::wxControlContainer* instance, bool ownNativeInstance)
+::Ozone::ControlContainer::ControlContainer(::wxControlContainer* instance, bool ownNativeInstance)
     : __OwnsNativeInstance(ownNativeInstance)
 {
     __Instance = instance;
 }
 
-Ozone::ControlContainer::~ControlContainer()
+::Ozone::ControlContainer::~ControlContainer()
 {
 }
 
-Ozone::ControlContainer::ControlContainer(const ::Ozone::ControlContainer& _0)
+::Ozone::ControlContainer::ControlContainer(const ::Ozone::ControlContainer& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxControlContainer*)_0.__Instance;
     __Instance = new ::wxControlContainer(__arg0);
 }
 
-Ozone::ControlContainer::ControlContainer()
+::Ozone::ControlContainer::ControlContainer()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxControlContainer();
 }
 
-void Ozone::ControlContainer::SetContainerWindow(::Ozone::Window* winParent)
+void ::Ozone::ControlContainer::SetContainerWindow(::Ozone::Window* winParent)
 {
     auto __arg0 = winParent ? (::wxWindow*)winParent->__Instance : nullptr;
     ((::wxControlContainer*)__Instance)->SetContainerWindow(__arg0);
 }
 
-void Ozone::ControlContainer::DisableSelfFocus()
+void ::Ozone::ControlContainer::DisableSelfFocus()
 {
     ((::wxControlContainer*)__Instance)->DisableSelfFocus();
 }
 
-void Ozone::ControlContainer::EnableSelfFocus()
+void ::Ozone::ControlContainer::EnableSelfFocus()
 {
     ((::wxControlContainer*)__Instance)->EnableSelfFocus();
 }
 
-bool Ozone::ControlContainer::DoSetFocus()
+bool ::Ozone::ControlContainer::DoSetFocus()
 {
     bool __ret = ((::wxControlContainer*)__Instance)->DoSetFocus();
     return __ret;
 }
 
-bool Ozone::ControlContainer::AcceptsFocus() const
+bool ::Ozone::ControlContainer::AcceptsFocus() const
 {
     bool __ret = ((::wxControlContainer*)__Instance)->AcceptsFocus();
     return __ret;
 }
 
-bool Ozone::ControlContainer::AcceptsFocusRecursively() const
+bool ::Ozone::ControlContainer::AcceptsFocusRecursively() const
 {
     bool __ret = ((::wxControlContainer*)__Instance)->AcceptsFocusRecursively();
     return __ret;
 }
 
-bool Ozone::ControlContainer::AcceptsFocusFromKeyboard() const
+bool ::Ozone::ControlContainer::AcceptsFocusFromKeyboard() const
 {
     bool __ret = ((::wxControlContainer*)__Instance)->AcceptsFocusFromKeyboard();
     return __ret;
 }
 
-bool Ozone::ControlContainer::UpdateCanFocusChildren()
+bool ::Ozone::ControlContainer::UpdateCanFocusChildren()
 {
     bool __ret = ((::wxControlContainer*)__Instance)->UpdateCanFocusChildren();
     return __ret;

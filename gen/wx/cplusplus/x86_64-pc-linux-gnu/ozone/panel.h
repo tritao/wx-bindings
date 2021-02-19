@@ -23,7 +23,7 @@ namespace Ozone
 
 namespace Ozone
 {
-    class Panel : public Ozone::Window
+    class Panel : public ::Ozone::Window
     {
     public:
 

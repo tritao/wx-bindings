@@ -21,7 +21,7 @@ namespace Ozone
 
 namespace Ozone
 {
-    class WindowDC : public Ozone::DC
+    class WindowDC : public ::Ozone::DC
     {
     public:
 
@@ -32,7 +32,7 @@ namespace Ozone
         ~WindowDC();
     };
 
-    class ClientDC : public Ozone::WindowDC
+    class ClientDC : public ::Ozone::WindowDC
     {
     public:
 
@@ -43,7 +43,7 @@ namespace Ozone
         ~ClientDC();
     };
 
-    class PaintDC : public Ozone::ClientDC
+    class PaintDC : public ::Ozone::ClientDC
     {
     public:
 

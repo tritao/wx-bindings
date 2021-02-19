@@ -85,7 +85,7 @@ namespace Ozone
         BEST = 4
     };
 
-    class GraphicsObject : public Ozone::Object
+    class GraphicsObject : public ::Ozone::Object
     {
     public:
 
@@ -104,7 +104,7 @@ namespace Ozone
         ::Ozone::GraphicsRenderer* GetRenderer() const;
     };
 
-    class GraphicsPen : public Ozone::GraphicsObject
+    class GraphicsPen : public ::Ozone::GraphicsObject
     {
     public:
 
@@ -117,7 +117,7 @@ namespace Ozone
         ~GraphicsPen();
     };
 
-    class GraphicsBrush : public Ozone::GraphicsObject
+    class GraphicsBrush : public ::Ozone::GraphicsObject
     {
     public:
 
@@ -130,7 +130,7 @@ namespace Ozone
         ~GraphicsBrush();
     };
 
-    class GraphicsFont : public Ozone::GraphicsObject
+    class GraphicsFont : public ::Ozone::GraphicsObject
     {
     public:
 
@@ -143,7 +143,7 @@ namespace Ozone
         ~GraphicsFont();
     };
 
-    class GraphicsBitmap : public Ozone::GraphicsObject
+    class GraphicsBitmap : public ::Ozone::GraphicsObject
     {
     public:
 
@@ -158,7 +158,7 @@ namespace Ozone
         void* GetNativeBitmap() const;
     };
 
-    class GraphicsMatrix : public Ozone::GraphicsObject
+    class GraphicsMatrix : public ::Ozone::GraphicsObject
     {
     public:
 
@@ -318,7 +318,7 @@ namespace Ozone
         bool __OwnsNativeInstance;
     };
 
-    class GraphicsPath : public Ozone::GraphicsObject
+    class GraphicsPath : public ::Ozone::GraphicsObject
     {
     public:
 
@@ -367,7 +367,7 @@ namespace Ozone
         virtual bool Contains(double x, double y, ::Ozone::PolygonFillMode fillStyle) const;
     };
 
-    class GraphicsContext : public Ozone::GraphicsObject
+    class GraphicsContext : public ::Ozone::GraphicsObject
     {
     public:
 
@@ -514,7 +514,7 @@ namespace Ozone
         static ::Ozone::GraphicsContext* Create();
     };
 
-    class GraphicsRenderer : public Ozone::Object
+    class GraphicsRenderer : public ::Ozone::Object
     {
     public:
 

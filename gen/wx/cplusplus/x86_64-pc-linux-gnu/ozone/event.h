@@ -144,7 +144,7 @@ namespace Ozone
         CATEGORY_NAVIGATION = 7
     };
 
-    class Event : public Ozone::Object
+    class Event : public ::Ozone::Object
     {
     public:
 
@@ -224,7 +224,7 @@ namespace Ozone
         bool __OwnsNativeInstance;
     };
 
-    class IdleEvent : public Ozone::Event
+    class IdleEvent : public ::Ozone::Event
     {
     public:
 
@@ -245,7 +245,7 @@ namespace Ozone
         static ::Ozone::IdleMode GetMode();
     };
 
-    class ThreadEvent : public Ozone::Event
+    class ThreadEvent : public ::Ozone::Event
     {
     public:
 
@@ -260,7 +260,7 @@ namespace Ozone
         virtual ::Ozone::EventCategory GetEventCategory() const override;
     };
 
-    class AsyncMethodCallEvent : public Ozone::Event
+    class AsyncMethodCallEvent : public ::Ozone::Event
     {
     public:
 
@@ -273,7 +273,7 @@ namespace Ozone
         virtual void Execute();
     };
 
-    class CommandEvent : public Ozone::Event
+    class CommandEvent : public ::Ozone::Event
     {
     public:
 
@@ -300,7 +300,7 @@ namespace Ozone
         virtual ::Ozone::EventCategory GetEventCategory() const override;
     };
 
-    class NotifyEvent : public Ozone::CommandEvent
+    class NotifyEvent : public ::Ozone::CommandEvent
     {
     public:
 
@@ -319,7 +319,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class ScrollEvent : public Ozone::CommandEvent
+    class ScrollEvent : public ::Ozone::CommandEvent
     {
     public:
 
@@ -340,7 +340,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class ScrollWinEvent : public Ozone::Event
+    class ScrollWinEvent : public ::Ozone::Event
     {
     public:
 
@@ -361,7 +361,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class MouseEvent : public Ozone::Event
+    class MouseEvent : public ::Ozone::Event
     {
     public:
 
@@ -480,7 +480,7 @@ namespace Ozone
         void set_m_magnification(float value);
     };
 
-    class SetCursorEvent : public Ozone::Event
+    class SetCursorEvent : public ::Ozone::Event
     {
     public:
 
@@ -499,7 +499,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class GestureEvent : public Ozone::Event
+    class GestureEvent : public ::Ozone::Event
     {
     public:
 
@@ -522,7 +522,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class PanGestureEvent : public Ozone::GestureEvent
+    class PanGestureEvent : public ::Ozone::GestureEvent
     {
     public:
 
@@ -539,7 +539,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class ZoomGestureEvent : public Ozone::GestureEvent
+    class ZoomGestureEvent : public ::Ozone::GestureEvent
     {
     public:
 
@@ -556,7 +556,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class RotateGestureEvent : public Ozone::GestureEvent
+    class RotateGestureEvent : public ::Ozone::GestureEvent
     {
     public:
 
@@ -573,7 +573,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class TwoFingerTapEvent : public Ozone::GestureEvent
+    class TwoFingerTapEvent : public ::Ozone::GestureEvent
     {
     public:
 
@@ -586,7 +586,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class LongPressEvent : public Ozone::GestureEvent
+    class LongPressEvent : public ::Ozone::GestureEvent
     {
     public:
 
@@ -599,7 +599,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class PressAndTapEvent : public Ozone::GestureEvent
+    class PressAndTapEvent : public ::Ozone::GestureEvent
     {
     public:
 
@@ -612,7 +612,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class KeyEvent : public Ozone::Event
+    class KeyEvent : public ::Ozone::Event
     {
     public:
 
@@ -677,7 +677,7 @@ namespace Ozone
         void set_m_rawFlags(unsigned int value);
     };
 
-    class SizeEvent : public Ozone::Event
+    class SizeEvent : public ::Ozone::Event
     {
     public:
 
@@ -710,7 +710,7 @@ namespace Ozone
         void set_m_rect(::Ozone::Rect value);
     };
 
-    class MoveEvent : public Ozone::Event
+    class MoveEvent : public ::Ozone::Event
     {
     public:
 
@@ -735,7 +735,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class PaintEvent : public Ozone::Event
+    class PaintEvent : public ::Ozone::Event
     {
     public:
 
@@ -746,7 +746,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class NcPaintEvent : public Ozone::Event
+    class NcPaintEvent : public ::Ozone::Event
     {
     public:
 
@@ -757,7 +757,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class EraseEvent : public Ozone::Event
+    class EraseEvent : public ::Ozone::Event
     {
     public:
 
@@ -772,7 +772,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class FocusEvent : public Ozone::Event
+    class FocusEvent : public ::Ozone::Event
     {
     public:
 
@@ -789,7 +789,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class ChildFocusEvent : public Ozone::CommandEvent
+    class ChildFocusEvent : public ::Ozone::CommandEvent
     {
     public:
 
@@ -804,7 +804,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class ActivateEvent : public Ozone::Event
+    class ActivateEvent : public ::Ozone::Event
     {
     public:
 
@@ -827,7 +827,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class InitDialogEvent : public Ozone::Event
+    class InitDialogEvent : public ::Ozone::Event
     {
     public:
 
@@ -840,7 +840,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class MenuEvent : public Ozone::Event
+    class MenuEvent : public ::Ozone::Event
     {
     public:
 
@@ -855,7 +855,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class CloseEvent : public Ozone::Event
+    class CloseEvent : public ::Ozone::Event
     {
     public:
 
@@ -880,7 +880,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class ShowEvent : public Ozone::Event
+    class ShowEvent : public ::Ozone::Event
     {
     public:
 
@@ -897,7 +897,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class IconizeEvent : public Ozone::Event
+    class IconizeEvent : public ::Ozone::Event
     {
     public:
 
@@ -912,7 +912,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class MaximizeEvent : public Ozone::Event
+    class MaximizeEvent : public ::Ozone::Event
     {
     public:
 
@@ -925,7 +925,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class JoystickEvent : public Ozone::Event
+    class JoystickEvent : public ::Ozone::Event
     {
     public:
 
@@ -972,7 +972,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class UpdateUIEvent : public Ozone::CommandEvent
+    class UpdateUIEvent : public ::Ozone::CommandEvent
     {
     public:
 
@@ -1023,7 +1023,7 @@ namespace Ozone
         static ::Ozone::UpdateUIMode GetMode();
     };
 
-    class SysColourChangedEvent : public Ozone::Event
+    class SysColourChangedEvent : public ::Ozone::Event
     {
     public:
 
@@ -1036,7 +1036,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class MouseCaptureChangedEvent : public Ozone::Event
+    class MouseCaptureChangedEvent : public ::Ozone::Event
     {
     public:
 
@@ -1051,7 +1051,7 @@ namespace Ozone
         ::Ozone::Window* GetCapturedWindow() const;
     };
 
-    class MouseCaptureLostEvent : public Ozone::Event
+    class MouseCaptureLostEvent : public ::Ozone::Event
     {
     public:
 
@@ -1064,7 +1064,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class DisplayChangedEvent : public Ozone::Event
+    class DisplayChangedEvent : public ::Ozone::Event
     {
     public:
 
@@ -1077,7 +1077,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class DPIChangedEvent : public Ozone::Event
+    class DPIChangedEvent : public ::Ozone::Event
     {
     public:
 
@@ -1094,7 +1094,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class PaletteChangedEvent : public Ozone::Event
+    class PaletteChangedEvent : public ::Ozone::Event
     {
     public:
 
@@ -1111,7 +1111,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class QueryNewPaletteEvent : public Ozone::Event
+    class QueryNewPaletteEvent : public ::Ozone::Event
     {
     public:
 
@@ -1128,7 +1128,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class NavigationKeyEvent : public Ozone::Event
+    class NavigationKeyEvent : public ::Ozone::Event
     {
     public:
 
@@ -1175,7 +1175,7 @@ namespace Ozone
         void set_m_focus(::Ozone::Window* value);
     };
 
-    class WindowCreateEvent : public Ozone::CommandEvent
+    class WindowCreateEvent : public ::Ozone::CommandEvent
     {
     public:
 
@@ -1190,7 +1190,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class WindowDestroyEvent : public Ozone::CommandEvent
+    class WindowDestroyEvent : public ::Ozone::CommandEvent
     {
     public:
 
@@ -1205,7 +1205,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class HelpEvent : public Ozone::CommandEvent
+    class HelpEvent : public ::Ozone::CommandEvent
     {
     public:
 
@@ -1235,7 +1235,7 @@ namespace Ozone
         void SetOrigin(::Ozone::HelpEvent::Source origin);
     };
 
-    class ClipboardTextEvent : public Ozone::CommandEvent
+    class ClipboardTextEvent : public ::Ozone::CommandEvent
     {
     public:
 
@@ -1248,7 +1248,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class ContextMenuEvent : public Ozone::CommandEvent
+    class ContextMenuEvent : public ::Ozone::CommandEvent
     {
     public:
 
@@ -1263,7 +1263,7 @@ namespace Ozone
         virtual ::Ozone::Event* Clone() const override;
     };
 
-    class EvtHandler : public Ozone::Object
+    class EvtHandler : public ::Ozone::Object
     {
     public:
 

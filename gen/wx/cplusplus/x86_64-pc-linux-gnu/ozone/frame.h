@@ -35,7 +35,7 @@ namespace Ozone
         FRAME_FLOAT_ON_PARENT = 8
     };
 
-    class Frame : public Ozone::TopLevelWindow
+    class Frame : public ::Ozone::TopLevelWindow
     {
     public:
 

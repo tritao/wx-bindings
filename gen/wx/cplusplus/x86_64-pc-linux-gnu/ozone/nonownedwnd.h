@@ -19,7 +19,7 @@ namespace Ozone
 
 namespace Ozone
 {
-    class NonOwnedWindow : public Ozone::Window
+    class NonOwnedWindow : public ::Ozone::Window
     {
     public:
 

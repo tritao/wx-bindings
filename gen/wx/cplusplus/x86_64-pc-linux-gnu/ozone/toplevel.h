@@ -69,7 +69,7 @@ namespace Ozone
         DEFAULT_FRAME_STYLE = 541072960
     };
 
-    class TopLevelWindow : public Ozone::NonOwnedWindow
+    class TopLevelWindow : public ::Ozone::NonOwnedWindow
     {
     public:
 

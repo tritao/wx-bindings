@@ -22,7 +22,7 @@ namespace Ozone
 
 namespace Ozone
 {
-    class AppConsole : public Ozone::EvtHandler
+    class AppConsole : public ::Ozone::EvtHandler
     {
     public:
 
@@ -131,7 +131,7 @@ namespace Ozone
         static void SetInstance(::Ozone::AppConsole* app);
     };
 
-    class App : public Ozone::AppConsole
+    class App : public ::Ozone::AppConsole
     {
     public:
 

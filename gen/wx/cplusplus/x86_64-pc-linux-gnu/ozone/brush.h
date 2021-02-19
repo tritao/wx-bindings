@@ -83,7 +83,7 @@ namespace Ozone
         bool __OwnsNativeInstance;
     };
 
-    class BrushList : public Ozone::GDIObjListBase
+    class BrushList : public ::Ozone::GDIObjListBase
     {
     public:
 

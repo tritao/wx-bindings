@@ -167,7 +167,7 @@ namespace Ozone
         bool __OwnsNativeInstance;
     };
 
-    class PenList : public Ozone::GDIObjListBase
+    class PenList : public ::Ozone::GDIObjListBase
     {
     public:
 

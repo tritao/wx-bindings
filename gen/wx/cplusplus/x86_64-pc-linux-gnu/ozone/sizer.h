@@ -97,7 +97,7 @@ namespace Ozone
         bool __OwnsNativeInstance;
     };
 
-    class SizerItem : public Ozone::Object
+    class SizerItem : public ::Ozone::Object
     {
     public:
 
@@ -259,7 +259,7 @@ namespace Ozone
         bool __OwnsNativeInstance;
     };
 
-    class Sizer : public Ozone::Object
+    class Sizer : public ::Ozone::Object
     {
     public:
 
@@ -432,7 +432,7 @@ namespace Ozone
         virtual bool AreAnyItemsShown() const;
     };
 
-    class GridSizer : public Ozone::Sizer
+    class GridSizer : public ::Ozone::Sizer
     {
     public:
 
@@ -477,7 +477,7 @@ namespace Ozone
         int CalcRowsCols(int& rows, int& cols) const;
     };
 
-    class FlexGridSizer : public Ozone::GridSizer
+    class FlexGridSizer : public ::Ozone::GridSizer
     {
     public:
 
@@ -518,7 +518,7 @@ namespace Ozone
         virtual ::Ozone::Size CalcMin() override;
     };
 
-    class BoxSizer : public Ozone::Sizer
+    class BoxSizer : public ::Ozone::Sizer
     {
     public:
 
@@ -545,7 +545,7 @@ namespace Ozone
         virtual bool InformFirstDirection(int direction, int size, int availableOtherDir) override;
     };
 
-    class StaticBoxSizer : public Ozone::BoxSizer
+    class StaticBoxSizer : public ::Ozone::BoxSizer
     {
     public:
 
@@ -570,7 +570,7 @@ namespace Ozone
         virtual bool Detach(int index) override;
     };
 
-    class StdDialogButtonSizer : public Ozone::BoxSizer
+    class StdDialogButtonSizer : public ::Ozone::BoxSizer
     {
     public:
 

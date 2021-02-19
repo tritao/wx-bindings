@@ -114,7 +114,7 @@ namespace Ozone
         bool __OwnsNativeInstance;
     };
 
-    class DC : public Ozone::Object
+    class DC : public ::Ozone::Object
     {
     public:
 

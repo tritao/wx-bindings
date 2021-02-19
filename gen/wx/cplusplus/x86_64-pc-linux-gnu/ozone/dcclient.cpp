@@ -10,54 +10,54 @@
 
 #include <wx/eventfilter.h>
 
-Ozone::WindowDC::WindowDC(::wxWindowDC* instance, bool ownNativeInstance)
-    : Ozone::DC((::wxDC*)instance, ownNativeInstance)
+::Ozone::WindowDC::WindowDC(::wxWindowDC* instance, bool ownNativeInstance)
+    : ::Ozone::DC((::wxDC*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
 
-Ozone::WindowDC::~WindowDC()
+::Ozone::WindowDC::~WindowDC()
 {
 }
 
-Ozone::WindowDC::WindowDC(::Ozone::Window* win)
-    : Ozone::DC((::wxDC*)nullptr)
+::Ozone::WindowDC::WindowDC(::Ozone::Window* win)
+    : ::Ozone::DC((::wxDC*)nullptr)
 {
     __OwnsNativeInstance = true;
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     __Instance = new ::wxWindowDC(__arg0);
 }
 
-Ozone::ClientDC::ClientDC(::wxClientDC* instance, bool ownNativeInstance)
-    : Ozone::WindowDC((::wxWindowDC*)instance, ownNativeInstance)
+::Ozone::ClientDC::ClientDC(::wxClientDC* instance, bool ownNativeInstance)
+    : ::Ozone::WindowDC((::wxWindowDC*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
 
-Ozone::ClientDC::~ClientDC()
+::Ozone::ClientDC::~ClientDC()
 {
 }
 
-Ozone::ClientDC::ClientDC(::Ozone::Window* win)
-    : Ozone::WindowDC((::wxWindowDC*)nullptr)
+::Ozone::ClientDC::ClientDC(::Ozone::Window* win)
+    : ::Ozone::WindowDC((::wxWindowDC*)nullptr)
 {
     __OwnsNativeInstance = true;
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     __Instance = new ::wxClientDC(__arg0);
 }
 
-Ozone::PaintDC::PaintDC(::wxPaintDC* instance, bool ownNativeInstance)
-    : Ozone::ClientDC((::wxClientDC*)instance, ownNativeInstance)
+::Ozone::PaintDC::PaintDC(::wxPaintDC* instance, bool ownNativeInstance)
+    : ::Ozone::ClientDC((::wxClientDC*)instance, ownNativeInstance)
 {
     __Instance = instance;
 }
 
-Ozone::PaintDC::~PaintDC()
+::Ozone::PaintDC::~PaintDC()
 {
 }
 
-Ozone::PaintDC::PaintDC(::Ozone::Window* win)
-    : Ozone::ClientDC((::wxClientDC*)nullptr)
+::Ozone::PaintDC::PaintDC(::Ozone::Window* win)
+    : ::Ozone::ClientDC((::wxClientDC*)nullptr)
 {
     __OwnsNativeInstance = true;
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;

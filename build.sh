@@ -127,7 +127,9 @@ build()
   fi
 
   if [ $oshost = "linux" ] || [ $oshost = "macosx" ]; then
-    config=$(tr '[:upper:]' '[:lower:]' <<< ${configuration}) make -C $DIR/build
+    NUMCPUS=`grep -c '^processor' /proc/cpuinfo`
+    NUMCPUS=1
+    config=$(tr '[:upper:]' '[:lower:]' <<< ${configuration}) make -C $DIR/build -j$NUMCPUS
   fi
 
   if [ $build_managed = true ]; then

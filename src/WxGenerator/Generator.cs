@@ -20,12 +20,14 @@ namespace CppSharp
     static class Program
     {
         public static string WxPath => Path.Combine(GetExamplesDirectory("Ozone"), "deps", "wxWidgets");
+        public static string WxBuildMode => "Release";
 
         public static void Main(string[] args)
         {
             const TargetPlatform targetPlatform = TargetPlatform.Linux;
-            //ConsoleDriver.Run(new LowLevelGen(GeneratorKind.CPlusPlus, targetPlatform));
+            ConsoleDriver.Run(new LowLevelGen(GeneratorKind.CPlusPlus, targetPlatform));
             ConsoleDriver.Run(new HighLevelGen(GeneratorKind.QuickJS, targetPlatform));
+            ConsoleDriver.Run(new HighLevelGen(GeneratorKind.TypeScript, targetPlatform));
             //ConsoleDriver.Run(new HighLevelGen(GeneratorKind.CSharp, targetPlatform));
         }
 
@@ -51,7 +53,7 @@ namespace CppSharp
             var wxIncludePath = Path.Combine(WxPath, "include");
             module.IncludeDirs.Add(wxIncludePath);
 
-            var wxBuildPath = Path.Combine(WxPath, "../../build/wxwidgets/Debug");
+            var wxBuildPath = Path.Combine(WxPath, $"../../build/wxwidgets/{WxBuildMode}");
             var wxBuildIncludePath = Path.Combine(wxBuildPath, "lib/wx/include");
             var wxBuildVariantDirName = Directory.EnumerateDirectories(wxBuildIncludePath).FirstOrDefault();
 
@@ -142,6 +144,7 @@ namespace CppSharp
 
             options.OutputDir = Path.Combine(GetExamplesDirectory("Ozone/gen"),
                 "wx", GeneratorKind.ToString().ToLowerInvariant(), parserOptions.TargetTriple);
+            //options.GenerateDefaultValuesForArguments = true;
             options.GenerateDeprecatedDeclarations = false;
             options.GenerationOutputMode = GenerationOutputMode.FilePerUnit;
             options.CompileCode = false;
@@ -180,7 +183,7 @@ namespace CppSharp
             var tab = defs.PreprocessedEntities.OfType<MacroDefinition>().ToList()
                 .Find(e => e.Name.Contains("TAB_TRAVERSAL"));
 
-            passBuilder.RemovePrefix("wxALIGN_");
+            //passBuilder.RemovePrefix("wxALIGN_");
             passBuilder.RemovePrefix("wxBORDER_");
             passBuilder.RemovePrefix("wxBG_STYLE_");
             passBuilder.RemovePrefix("wxKEY_");
@@ -431,7 +434,6 @@ namespace CppSharp
             ctx.IgnoreClassWithName("wxStringToColourHashMap_wxImplementation_KeyEx");
             ctx.IgnoreClassWithName("wxStringToColourHashMap_wxImplementation_HashTable");
             ctx.IgnoreClassWithName("wxStringToColourHashMap");
-            ctx.IgnoreClassWithName("StringToColourHashMap_wxImplementation_KeyEx");
             ctx.IgnoreClassWithName("StringToColourHashMap_wxImplementation_KeyEx");
 
             // ----------------------------------------------------------------
@@ -843,7 +845,7 @@ namespace CppSharp
                 });
 
                 // If a method with the same signature already exists, then bail.
-                if (existing != null && existing.Any(m => m.HasSameSignature(method)))
+                if (existing.Any(m => m.HasSameSignature(method)))
                     continue;
 
                 /*if (existing != null && method.HasSameSignature(existing))
@@ -1017,14 +1019,15 @@ namespace CppSharp
         public override Declaration GetDeclaration()
         {
             return Context.ASTContext.FindCompleteClass("wxEvtHandler")
-                .FindMethod("TryBefore");
+                ?.FindMethod("TryBefore");
         }
 
         public override void Generate(CCodeGenerator gen)
         {
             var method = Declaration as Method;
             var events = DeclarationContext.Events.Cast<WxEvent>();
-            if (!events.Any())
+            var wxEvents = events as WxEvent[] ?? events.ToArray();
+            if (!wxEvents.Any())
             {
                 gen.WriteLine("return wxEventFilter::Event_Skip;");
                 return;
@@ -1033,7 +1036,7 @@ namespace CppSharp
             gen.WriteLine($"wxEventType eventType = event.GetEventType();");
             gen.NewLine();
 
-            foreach (var @event in events)
+            foreach (var @event in wxEvents)
             {
                 var condition = gen.NeedsNewLine ? "else if" : "if";
                 gen.WriteLine($"{condition}(eventType == wx{@event.WxEventTypeId})");
@@ -1173,7 +1176,7 @@ namespace CppSharp
 
         private void ProcessExportedEvent(string text)
         {
-            text = text.Substring(text.IndexOf("("));
+            text = text.Substring(text.IndexOf("(", StringComparison.Ordinal));
             text = text.Substring(0, text.Length - 1);
 
             var @params = text.Split(',');

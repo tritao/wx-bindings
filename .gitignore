@@ -3,3 +3,5 @@ bin
 build
 nuget
 *.user
+deps
+Makefile

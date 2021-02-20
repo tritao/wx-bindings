@@ -41,7 +41,7 @@ function setup_wx_libs(libs)
   --linkoptions { "`" .. get_wx_config_path() .. " --libs " .. libs .. "`" }
   libdirs { wx_build_path .. "/lib" }
   linkoptions { "-Wl,-rpath," .. path.join(wx_build_path, "lib") }
-  links { "pthread", "wx_baseu-3.1", "wx_gtk3u_core-3.1"}
+  links { "pthread", "wx_baseu-3.1", "wx_gtk3u_core-3.1", "wx_gtk3u_webview-3.1" }
 end
 
 function setup_common()

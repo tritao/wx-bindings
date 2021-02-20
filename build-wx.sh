@@ -51,7 +51,8 @@ install_deps()
   fi
 
   if [ "$os" = "linux" ]; then
-      sudo apt install libcairo2-dev libgtk2.0-dev libgtk-3-dev libfontconfig1-dev
+      sudo apt install libcairo2-dev libgtk2.0-dev libgtk-3-dev libfontconfig1-dev \
+        libcurl4-openssl-dev libsoup2.4-dev libwebkit2gtk-4.0-dev
   fi
 }
 
@@ -62,7 +63,7 @@ build()
 
   mkdir -p $build_dir
   cd $build_dir
-  cmake -G "Ninja" -DCMAKE_BUILD_TYPE=$configuration $wx_dir
+  cmake -G "Ninja" -DCMAKE_BUILD_TYPE=$configuration -DwxUSE_WEBVIEW=ON $wx_dir
   ninja
 }
 

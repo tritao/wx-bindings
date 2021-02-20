@@ -128,7 +128,8 @@ namespace CppSharp
                 "wx/panel.h",
                 "wx/brush.h",
                 "wx/pen.h",
-                "wx/filedlg.h"
+                "wx/filedlg.h",
+                "wx/webview.h"
             };
 
             module.Headers.AddRange(headers);
@@ -638,6 +639,16 @@ namespace CppSharp
 
             ctx.FindFunction("wxFileSelectorEx").First().ExplicitlyIgnore();
             passBuilder.RemovePrefix("wxFD_");
+
+            // ----------------------------------------------------------------
+
+            ctx.GenerateTranslationUnits(new[] { "webview.h" });
+
+            ctx.IgnoreClassWithName("wxWebViewFactory");
+            ctx.IgnoreClassWithName("wxStringWebViewFactoryMap_wxImplementation_Pair");
+            ctx.IgnoreClassWithName("wxStringWebViewFactoryMap_wxImplementation_KeyEx");
+            ctx.IgnoreClassWithName("wxStringWebViewFactoryMap_wxImplementation_HashTable");
+            ctx.IgnoreClassWithName("wxStringWebViewFactoryMap");
 
             // ----------------------------------------------------------------
 

@@ -127,7 +127,8 @@ declare module "Ozone"
             LOCALE = 16,
             PRIVATE = 20,
             HTML = 30,
-            MAX = 31
+            PNG = 31,
+            MAX = 32
         }
 
         enum GeometryCentre

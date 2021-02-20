@@ -20,7 +20,7 @@
 {
 }
 
-::Ozone::WindowDC::WindowDC(::Ozone::Window* win)
+Ozone::WindowDC::WindowDC(::Ozone::Window* win)
     : ::Ozone::DC((::wxDC*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -38,7 +38,7 @@
 {
 }
 
-::Ozone::ClientDC::ClientDC(::Ozone::Window* win)
+Ozone::ClientDC::ClientDC(::Ozone::Window* win)
     : ::Ozone::WindowDC((::wxWindowDC*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -56,7 +56,7 @@
 {
 }
 
-::Ozone::PaintDC::PaintDC(::Ozone::Window* win)
+Ozone::PaintDC::PaintDC(::Ozone::Window* win)
     : ::Ozone::ClientDC((::wxClientDC*)nullptr)
 {
     __OwnsNativeInstance = true;

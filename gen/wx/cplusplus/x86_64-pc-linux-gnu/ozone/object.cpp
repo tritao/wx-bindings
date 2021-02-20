@@ -15,24 +15,24 @@
     __Instance = instance;
 }
 
-::Ozone::RefCounter::RefCounter()
+Ozone::RefCounter::RefCounter()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxRefCounter();
 }
 
-int ::Ozone::RefCounter::GetRefCount() const
+int Ozone::RefCounter::GetRefCount() const
 {
     int __ret = ((::wxRefCounter*)__Instance)->GetRefCount();
     return __ret;
 }
 
-void ::Ozone::RefCounter::IncRef()
+void Ozone::RefCounter::IncRef()
 {
     ((::wxRefCounter*)__Instance)->IncRef();
 }
 
-void ::Ozone::RefCounter::DecRef()
+void Ozone::RefCounter::DecRef()
 {
     ((::wxRefCounter*)__Instance)->DecRef();
 }
@@ -47,48 +47,48 @@ void ::Ozone::RefCounter::DecRef()
 {
 }
 
-::Ozone::Object::Object()
+Ozone::Object::Object()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxObject();
 }
 
-::Ozone::Object::Object(const ::Ozone::Object& other)
+Ozone::Object::Object(const ::Ozone::Object& other)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxObject*)other.__Instance;
     __Instance = new ::wxObject(__arg0);
 }
 
-::Ozone::RefCounter* ::Ozone::Object::GetRefData() const
+::Ozone::RefCounter* Ozone::Object::GetRefData() const
 {
     ::wxObjectRefData* __ret = ((::wxObject*)__Instance)->GetRefData();
     return (__ret == nullptr) ? nullptr : new Ozone::RefCounter((::wxRefCounter*)__ret);
 }
 
-void ::Ozone::Object::SetRefData(::Ozone::RefCounter* data)
+void Ozone::Object::SetRefData(::Ozone::RefCounter* data)
 {
     auto __arg0 = data ? (::wxRefCounter*)data->__Instance : nullptr;
     ((::wxObject*)__Instance)->SetRefData(__arg0);
 }
 
-void ::Ozone::Object::Ref(const ::Ozone::Object& clone)
+void Ozone::Object::Ref(const ::Ozone::Object& clone)
 {
     auto &__arg0 = *(::wxObject*)clone.__Instance;
     ((::wxObject*)__Instance)->Ref(__arg0);
 }
 
-void ::Ozone::Object::UnRef()
+void Ozone::Object::UnRef()
 {
     ((::wxObject*)__Instance)->UnRef();
 }
 
-void ::Ozone::Object::UnShare()
+void Ozone::Object::UnShare()
 {
     ((::wxObject*)__Instance)->UnShare();
 }
 
-bool ::Ozone::Object::IsSameAs(const ::Ozone::Object& o) const
+bool Ozone::Object::IsSameAs(const ::Ozone::Object& o) const
 {
     auto &__arg0 = *(::wxObject*)o.__Instance;
     bool __ret = ((::wxObject*)__Instance)->IsSameAs(__arg0);

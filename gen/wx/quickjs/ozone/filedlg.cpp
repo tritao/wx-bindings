@@ -27,58 +27,58 @@ static void register_enum_Ozone_FD(JSContext *ctx, JSModuleDef *m, bool set)
 
     JSValue val = JS_NewObject(ctx);
 
-    // FD_OPEN
+    // OPEN
     {
         JSValue __item = JS_NewUint32(ctx, 0x1);
-        JS_SetPropertyStr(ctx, val, "FD_OPEN", __item);
+        JS_SetPropertyStr(ctx, val, "OPEN", __item);
     }
 
-    // FD_SAVE
+    // SAVE
     {
         JSValue __item = JS_NewUint32(ctx, 0x2);
-        JS_SetPropertyStr(ctx, val, "FD_SAVE", __item);
+        JS_SetPropertyStr(ctx, val, "SAVE", __item);
     }
 
-    // FD_OVERWRITE_PROMPT
+    // OVERWRITE_PROMPT
     {
         JSValue __item = JS_NewUint32(ctx, 0x4);
-        JS_SetPropertyStr(ctx, val, "FD_OVERWRITE_PROMPT", __item);
+        JS_SetPropertyStr(ctx, val, "OVERWRITE_PROMPT", __item);
     }
 
-    // FD_NO_FOLLOW
+    // NO_FOLLOW
     {
         JSValue __item = JS_NewUint32(ctx, 0x8);
-        JS_SetPropertyStr(ctx, val, "FD_NO_FOLLOW", __item);
+        JS_SetPropertyStr(ctx, val, "NO_FOLLOW", __item);
     }
 
-    // FD_FILE_MUST_EXIST
+    // FILE_MUST_EXIST
     {
         JSValue __item = JS_NewUint32(ctx, 0x10);
-        JS_SetPropertyStr(ctx, val, "FD_FILE_MUST_EXIST", __item);
+        JS_SetPropertyStr(ctx, val, "FILE_MUST_EXIST", __item);
     }
 
-    // FD_CHANGE_DIR
+    // CHANGE_DIR
     {
         JSValue __item = JS_NewUint32(ctx, 0x80);
-        JS_SetPropertyStr(ctx, val, "FD_CHANGE_DIR", __item);
+        JS_SetPropertyStr(ctx, val, "CHANGE_DIR", __item);
     }
 
-    // FD_PREVIEW
+    // PREVIEW
     {
         JSValue __item = JS_NewUint32(ctx, 0x100);
-        JS_SetPropertyStr(ctx, val, "FD_PREVIEW", __item);
+        JS_SetPropertyStr(ctx, val, "PREVIEW", __item);
     }
 
-    // FD_MULTIPLE
+    // MULTIPLE
     {
         JSValue __item = JS_NewUint32(ctx, 0x200);
-        JS_SetPropertyStr(ctx, val, "FD_MULTIPLE", __item);
+        JS_SetPropertyStr(ctx, val, "MULTIPLE", __item);
     }
 
-    // FD_SHOW_HIDDEN
+    // SHOW_HIDDEN
     {
         JSValue __item = JS_NewUint32(ctx, 0x400);
-        JS_SetPropertyStr(ctx, val, "FD_SHOW_HIDDEN", __item);
+        JS_SetPropertyStr(ctx, val, "SHOW_HIDDEN", __item);
     }
 
     int status = JS_SetModuleExport(ctx, m, "FD", val);

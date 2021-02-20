@@ -8,7 +8,7 @@
 
 #include <quickjs.h>
 
-class NonOwnedWindow : public Ozone::Ozone::Window
+class NonOwnedWindow : public ::Ozone::Ozone::Window
 {
 public:
 

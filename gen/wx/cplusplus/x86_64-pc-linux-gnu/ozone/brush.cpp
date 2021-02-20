@@ -20,13 +20,13 @@
 {
 }
 
-::Ozone::Brush::Brush()
+Ozone::Brush::Brush()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxBrush();
 }
 
-::Ozone::Brush::Brush(const ::Ozone::Color& colour, ::Ozone::BrushStyle style)
+Ozone::Brush::Brush(const ::Ozone::Color& colour, ::Ozone::BrushStyle style)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxColour*)colour.__Instance;
@@ -34,70 +34,70 @@
     __Instance = new ::wxBrush(__arg0, __arg1);
 }
 
-bool ::Ozone::Brush::operator==(const ::Ozone::Brush& brush) const
+bool Ozone::Brush::operator==(const ::Ozone::Brush& brush) const
 {
     auto &__arg0 = *(::wxBrush*)brush.__Instance;
     bool __ret = ((::wxBrush*)__Instance)->operator==(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Brush::operator!=(const ::Ozone::Brush& brush) const
+bool Ozone::Brush::operator!=(const ::Ozone::Brush& brush) const
 {
     auto &__arg0 = *(::wxBrush*)brush.__Instance;
     bool __ret = ((::wxBrush*)__Instance)->operator!=(__arg0);
     return __ret;
 }
 
-::Ozone::BrushStyle ::Ozone::Brush::GetStyle() const
+::Ozone::BrushStyle Ozone::Brush::GetStyle() const
 {
     ::wxBrushStyle __ret = ((::wxBrush*)__Instance)->GetStyle();
     return (::Ozone::BrushStyle)__ret;
 }
 
-::Ozone::Color ::Ozone::Brush::GetColour() const
+::Ozone::Color Ozone::Brush::GetColour() const
 {
     ::wxColour __ret = ((::wxBrush*)__Instance)->GetColour();
     auto ____ret = new ::wxColour(__ret);
     return ____ret;
 }
 
-void ::Ozone::Brush::SetColour(const ::Ozone::Color& col)
+void Ozone::Brush::SetColour(const ::Ozone::Color& col)
 {
     auto &__arg0 = *(::wxColour*)col.__Instance;
     ((::wxBrush*)__Instance)->SetColour(__arg0);
 }
 
-void ::Ozone::Brush::SetColour(unsigned char r, unsigned char g, unsigned char b)
+void Ozone::Brush::SetColour(unsigned char r, unsigned char g, unsigned char b)
 {
     ((::wxBrush*)__Instance)->SetColour(r, g, b);
 }
 
-void ::Ozone::Brush::SetStyle(::Ozone::BrushStyle style)
+void Ozone::Brush::SetStyle(::Ozone::BrushStyle style)
 {
     auto __arg0 = (::wxBrushStyle)style;
     ((::wxBrush*)__Instance)->SetStyle(__arg0);
 }
 
-::Ozone::Brush::Brush(const ::Ozone::Brush& _0)
+Ozone::Brush::Brush(const ::Ozone::Brush& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxBrush*)_0.__Instance;
     __Instance = new ::wxBrush(__arg0);
 }
 
-bool ::Ozone::Brush::IsHatch() const
+bool Ozone::Brush::IsHatch() const
 {
     bool __ret = ((::wxBrush*)__Instance)->IsHatch();
     return __ret;
 }
 
-bool ::Ozone::Brush::IsTransparent() const
+bool Ozone::Brush::IsTransparent() const
 {
     bool __ret = ((::wxBrush*)__Instance)->IsTransparent();
     return __ret;
 }
 
-bool ::Ozone::Brush::IsNonTransparent() const
+bool Ozone::Brush::IsNonTransparent() const
 {
     bool __ret = ((::wxBrush*)__Instance)->IsNonTransparent();
     return __ret;
@@ -113,7 +113,7 @@ bool ::Ozone::Brush::IsNonTransparent() const
 {
 }
 
-::Ozone::Brush* ::Ozone::BrushList::FindOrCreateBrush(const ::Ozone::Color& colour, ::Ozone::BrushStyle style)
+::Ozone::Brush* Ozone::BrushList::FindOrCreateBrush(const ::Ozone::Color& colour, ::Ozone::BrushStyle style)
 {
     auto &__arg0 = *(::wxColour*)colour.__Instance;
     auto __arg1 = (::wxBrushStyle)style;
@@ -121,7 +121,7 @@ bool ::Ozone::Brush::IsNonTransparent() const
     return (__ret == nullptr) ? nullptr : new Ozone::Brush((::wxBrush*)__ret);
 }
 
-::Ozone::BrushList::BrushList(const ::Ozone::BrushList& _0)
+Ozone::BrushList::BrushList(const ::Ozone::BrushList& _0)
     : ::Ozone::GDIObjListBase((::wxGDIObjListBase*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -129,7 +129,7 @@ bool ::Ozone::Brush::IsNonTransparent() const
     __Instance = new ::wxBrushList(__arg0);
 }
 
-::Ozone::BrushList::BrushList()
+Ozone::BrushList::BrushList()
     : ::Ozone::GDIObjListBase((::wxGDIObjListBase*)nullptr)
 {
     __OwnsNativeInstance = true;

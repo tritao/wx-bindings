@@ -23,158 +23,158 @@
 {
 }
 
-::Ozone::Size::Size()
+Ozone::Size::Size()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxSize();
 }
 
-::Ozone::Size::Size(int xx, int yy)
+Ozone::Size::Size(int xx, int yy)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxSize(xx, yy);
 }
 
-void ::Ozone::Size::IncTo(const ::Ozone::Size& sz)
+void Ozone::Size::IncTo(const ::Ozone::Size& sz)
 {
     auto &__arg0 = *(::wxSize*)sz.__Instance;
     ((::wxSize*)__Instance)->IncTo(__arg0);
 }
 
-void ::Ozone::Size::DecTo(const ::Ozone::Size& sz)
+void Ozone::Size::DecTo(const ::Ozone::Size& sz)
 {
     auto &__arg0 = *(::wxSize*)sz.__Instance;
     ((::wxSize*)__Instance)->DecTo(__arg0);
 }
 
-void ::Ozone::Size::DecToIfSpecified(const ::Ozone::Size& sz)
+void Ozone::Size::DecToIfSpecified(const ::Ozone::Size& sz)
 {
     auto &__arg0 = *(::wxSize*)sz.__Instance;
     ((::wxSize*)__Instance)->DecToIfSpecified(__arg0);
 }
 
-void ::Ozone::Size::IncBy(int dx, int dy)
+void Ozone::Size::IncBy(int dx, int dy)
 {
     ((::wxSize*)__Instance)->IncBy(dx, dy);
 }
 
-void ::Ozone::Size::IncBy(const ::Ozone::Point& pt)
+void Ozone::Size::IncBy(const ::Ozone::Point& pt)
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ((::wxSize*)__Instance)->IncBy(__arg0);
 }
 
-void ::Ozone::Size::IncBy(const ::Ozone::Size& sz)
+void Ozone::Size::IncBy(const ::Ozone::Size& sz)
 {
     auto &__arg0 = *(::wxSize*)sz.__Instance;
     ((::wxSize*)__Instance)->IncBy(__arg0);
 }
 
-void ::Ozone::Size::IncBy(int d)
+void Ozone::Size::IncBy(int d)
 {
     ((::wxSize*)__Instance)->IncBy(d);
 }
 
-void ::Ozone::Size::DecBy(int dx, int dy)
+void Ozone::Size::DecBy(int dx, int dy)
 {
     ((::wxSize*)__Instance)->DecBy(dx, dy);
 }
 
-void ::Ozone::Size::DecBy(const ::Ozone::Point& pt)
+void Ozone::Size::DecBy(const ::Ozone::Point& pt)
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ((::wxSize*)__Instance)->DecBy(__arg0);
 }
 
-void ::Ozone::Size::DecBy(const ::Ozone::Size& sz)
+void Ozone::Size::DecBy(const ::Ozone::Size& sz)
 {
     auto &__arg0 = *(::wxSize*)sz.__Instance;
     ((::wxSize*)__Instance)->DecBy(__arg0);
 }
 
-void ::Ozone::Size::DecBy(int d)
+void Ozone::Size::DecBy(int d)
 {
     ((::wxSize*)__Instance)->DecBy(d);
 }
 
-void ::Ozone::Size::Set(int xx, int yy)
+void Ozone::Size::Set(int xx, int yy)
 {
     ((::wxSize*)__Instance)->Set(xx, yy);
 }
 
-void ::Ozone::Size::SetWidth(int w)
+void Ozone::Size::SetWidth(int w)
 {
     ((::wxSize*)__Instance)->SetWidth(w);
 }
 
-void ::Ozone::Size::SetHeight(int h)
+void Ozone::Size::SetHeight(int h)
 {
     ((::wxSize*)__Instance)->SetHeight(h);
 }
 
-int ::Ozone::Size::GetWidth() const
+int Ozone::Size::GetWidth() const
 {
     int __ret = ((::wxSize*)__Instance)->GetWidth();
     return __ret;
 }
 
-int ::Ozone::Size::GetHeight() const
+int Ozone::Size::GetHeight() const
 {
     int __ret = ((::wxSize*)__Instance)->GetHeight();
     return __ret;
 }
 
-bool ::Ozone::Size::IsFullySpecified() const
+bool Ozone::Size::IsFullySpecified() const
 {
     bool __ret = ((::wxSize*)__Instance)->IsFullySpecified();
     return __ret;
 }
 
-void ::Ozone::Size::SetDefaults(const ::Ozone::Size& size)
+void Ozone::Size::SetDefaults(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxSize*)__Instance)->SetDefaults(__arg0);
 }
 
-int ::Ozone::Size::GetX() const
+int Ozone::Size::GetX() const
 {
     int __ret = ((::wxSize*)__Instance)->GetX();
     return __ret;
 }
 
-int ::Ozone::Size::GetY() const
+int Ozone::Size::GetY() const
 {
     int __ret = ((::wxSize*)__Instance)->GetY();
     return __ret;
 }
 
-::Ozone::Size::Size(const ::Ozone::Size& _0)
+Ozone::Size::Size(const ::Ozone::Size& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSize*)_0.__Instance;
     __Instance = new ::wxSize(__arg0);
 }
 
-int ::Ozone::Size::get_x()
+int Ozone::Size::get_x()
 {
     int __ret = ((::wxSize*)__Instance)->x;
     return __ret;
 }
 
 
-void ::Ozone::Size::set_x(int value)
+void Ozone::Size::set_x(int value)
 {
     ((::wxSize*)__Instance)->x = value;
 }
 
-int ::Ozone::Size::get_y()
+int Ozone::Size::get_y()
 {
     int __ret = ((::wxSize*)__Instance)->y;
     return __ret;
 }
 
 
-void ::Ozone::Size::set_y(int value)
+void Ozone::Size::set_y(int value)
 {
     ((::wxSize*)__Instance)->y = value;
 }
@@ -189,52 +189,52 @@ void ::Ozone::Size::set_y(int value)
 {
 }
 
-::Ozone::RealPoint::RealPoint()
+Ozone::RealPoint::RealPoint()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxRealPoint();
 }
 
-::Ozone::RealPoint::RealPoint(double xx, double yy)
+Ozone::RealPoint::RealPoint(double xx, double yy)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxRealPoint(xx, yy);
 }
 
-::Ozone::RealPoint::RealPoint(const ::Ozone::Point& pt)
+Ozone::RealPoint::RealPoint(const ::Ozone::Point& pt)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     __Instance = new ::wxRealPoint(__arg0);
 }
 
-::Ozone::RealPoint::RealPoint(const ::Ozone::RealPoint& _0)
+Ozone::RealPoint::RealPoint(const ::Ozone::RealPoint& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxRealPoint*)_0.__Instance;
     __Instance = new ::wxRealPoint(__arg0);
 }
 
-double ::Ozone::RealPoint::get_x()
+double Ozone::RealPoint::get_x()
 {
     double __ret = ((::wxRealPoint*)__Instance)->x;
     return __ret;
 }
 
 
-void ::Ozone::RealPoint::set_x(double value)
+void Ozone::RealPoint::set_x(double value)
 {
     ((::wxRealPoint*)__Instance)->x = value;
 }
 
-double ::Ozone::RealPoint::get_y()
+double Ozone::RealPoint::get_y()
 {
     double __ret = ((::wxRealPoint*)__Instance)->y;
     return __ret;
 }
 
 
-void ::Ozone::RealPoint::set_y(double value)
+void Ozone::RealPoint::set_y(double value)
 {
     ((::wxRealPoint*)__Instance)->y = value;
 }
@@ -249,64 +249,64 @@ void ::Ozone::RealPoint::set_y(double value)
 {
 }
 
-::Ozone::Point::Point()
+Ozone::Point::Point()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxPoint();
 }
 
-::Ozone::Point::Point(int xx, int yy)
+Ozone::Point::Point(int xx, int yy)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxPoint(xx, yy);
 }
 
-::Ozone::Point::Point(const ::Ozone::RealPoint& pt)
+Ozone::Point::Point(const ::Ozone::RealPoint& pt)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxRealPoint*)pt.__Instance;
     __Instance = new ::wxPoint(__arg0);
 }
 
-bool ::Ozone::Point::IsFullySpecified() const
+bool Ozone::Point::IsFullySpecified() const
 {
     bool __ret = ((::wxPoint*)__Instance)->IsFullySpecified();
     return __ret;
 }
 
-void ::Ozone::Point::SetDefaults(const ::Ozone::Point& pt)
+void Ozone::Point::SetDefaults(const ::Ozone::Point& pt)
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ((::wxPoint*)__Instance)->SetDefaults(__arg0);
 }
 
-::Ozone::Point::Point(const ::Ozone::Point& _0)
+Ozone::Point::Point(const ::Ozone::Point& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPoint*)_0.__Instance;
     __Instance = new ::wxPoint(__arg0);
 }
 
-int ::Ozone::Point::get_x()
+int Ozone::Point::get_x()
 {
     int __ret = ((::wxPoint*)__Instance)->x;
     return __ret;
 }
 
 
-void ::Ozone::Point::set_x(int value)
+void Ozone::Point::set_x(int value)
 {
     ((::wxPoint*)__Instance)->x = value;
 }
 
-int ::Ozone::Point::get_y()
+int Ozone::Point::get_y()
 {
     int __ret = ((::wxPoint*)__Instance)->y;
     return __ret;
 }
 
 
-void ::Ozone::Point::set_y(int value)
+void Ozone::Point::set_y(int value)
 {
     ((::wxPoint*)__Instance)->y = value;
 }
@@ -321,25 +321,25 @@ void ::Ozone::Point::set_y(int value)
 {
 }
 
-::Ozone::wxPointListNode* ::Ozone::wxPointListNode::GetNext() const
+::Ozone::wxPointListNode* Ozone::wxPointListNode::GetNext() const
 {
     ::wxwxPointListNode* __ret = ((::wxwxPointListNode*)__Instance)->GetNext();
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-::Ozone::wxPointListNode* ::Ozone::wxPointListNode::GetPrevious() const
+::Ozone::wxPointListNode* Ozone::wxPointListNode::GetPrevious() const
 {
     ::wxwxPointListNode* __ret = ((::wxwxPointListNode*)__Instance)->GetPrevious();
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-::Ozone::Point* ::Ozone::wxPointListNode::GetData() const
+::Ozone::Point* Ozone::wxPointListNode::GetData() const
 {
     ::wxPoint* __ret = ((::wxwxPointListNode*)__Instance)->GetData();
     return (__ret == nullptr) ? nullptr : new Ozone::Point((::wxPoint*)__ret);
 }
 
-void ::Ozone::wxPointListNode::SetData(::Ozone::Point* data)
+void Ozone::wxPointListNode::SetData(::Ozone::Point* data)
 {
     auto __arg0 = data ? (::wxPoint*)data->__Instance : nullptr;
     ((::wxwxPointListNode*)__Instance)->SetData(__arg0);
@@ -355,61 +355,61 @@ void ::Ozone::wxPointListNode::SetData(::Ozone::Point* data)
 {
 }
 
-::Ozone::PointList::PointList(::Ozone::KeyType keyType)
+Ozone::PointList::PointList(::Ozone::KeyType keyType)
 {
     __OwnsNativeInstance = true;
     auto __arg0 = (::wxKeyType)keyType;
     __Instance = new ::wxPointList(__arg0);
 }
 
-::Ozone::PointList::PointList(const ::Ozone::PointList& list)
+Ozone::PointList::PointList(const ::Ozone::PointList& list)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPointList*)list.__Instance;
     __Instance = new ::wxPointList(__arg0);
 }
 
-::Ozone::wxPointListNode* ::Ozone::PointList::GetFirst() const
+::Ozone::wxPointListNode* Ozone::PointList::GetFirst() const
 {
     ::wxwxPointListNode* __ret = ((::wxPointList*)__Instance)->GetFirst();
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-::Ozone::wxPointListNode* ::Ozone::PointList::GetLast() const
+::Ozone::wxPointListNode* Ozone::PointList::GetLast() const
 {
     ::wxwxPointListNode* __ret = ((::wxPointList*)__Instance)->GetLast();
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-::Ozone::wxPointListNode* ::Ozone::PointList::Item(unsigned long index) const
+::Ozone::wxPointListNode* Ozone::PointList::Item(unsigned long index) const
 {
     auto __arg0 = (::size_t)index;
     ::wxwxPointListNode* __ret = ((::wxPointList*)__Instance)->Item(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-::Ozone::Point* ::Ozone::PointList::operator[](unsigned long index) const
+::Ozone::Point* Ozone::PointList::operator[](unsigned long index) const
 {
     auto __arg0 = (::size_t)index;
     ::wxPoint* __ret = ((::wxPointList*)__Instance)->operator[](__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::Point((::wxPoint*)__ret);
 }
 
-::Ozone::wxPointListNode* ::Ozone::PointList::Append(::Ozone::Point* object)
+::Ozone::wxPointListNode* Ozone::PointList::Append(::Ozone::Point* object)
 {
     auto __arg0 = object ? (::wxPoint*)object->__Instance : nullptr;
     ::wxwxPointListNode* __ret = ((::wxPointList*)__Instance)->Append(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-::Ozone::wxPointListNode* ::Ozone::PointList::Insert(::Ozone::Point* object)
+::Ozone::wxPointListNode* Ozone::PointList::Insert(::Ozone::Point* object)
 {
     auto __arg0 = object ? (::wxPoint*)object->__Instance : nullptr;
     ::wxwxPointListNode* __ret = ((::wxPointList*)__Instance)->Insert(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-::Ozone::wxPointListNode* ::Ozone::PointList::Insert(unsigned long pos, ::Ozone::Point* object)
+::Ozone::wxPointListNode* Ozone::PointList::Insert(unsigned long pos, ::Ozone::Point* object)
 {
     auto __arg0 = (::size_t)pos;
     auto __arg1 = object ? (::wxPoint*)object->__Instance : nullptr;
@@ -417,7 +417,7 @@ void ::Ozone::wxPointListNode::SetData(::Ozone::Point* data)
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-::Ozone::wxPointListNode* ::Ozone::PointList::Insert(::Ozone::wxPointListNode* prev, ::Ozone::Point* object)
+::Ozone::wxPointListNode* Ozone::PointList::Insert(::Ozone::wxPointListNode* prev, ::Ozone::Point* object)
 {
     auto __arg0 = prev ? (::wxwxPointListNode*)prev->__Instance : nullptr;
     auto __arg1 = object ? (::wxPoint*)object->__Instance : nullptr;
@@ -425,14 +425,14 @@ void ::Ozone::wxPointListNode::SetData(::Ozone::Point* data)
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-::Ozone::wxPointListNode* ::Ozone::PointList::Append(long key, void* object)
+::Ozone::wxPointListNode* Ozone::PointList::Append(long key, void* object)
 {
     auto __arg1 = (void*)object;
     ::wxwxPointListNode* __ret = ((::wxPointList*)__Instance)->Append(key, __arg1);
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-::Ozone::wxPointListNode* ::Ozone::PointList::Append(wchar_t* key, void* object)
+::Ozone::wxPointListNode* Ozone::PointList::Append(wchar_t* key, void* object)
 {
     auto __arg0 = (::wxChar*)key;
     auto __arg1 = (void*)object;
@@ -440,55 +440,55 @@ void ::Ozone::wxPointListNode::SetData(::Ozone::Point* data)
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-::Ozone::wxPointListNode* ::Ozone::PointList::DetachNode(::Ozone::wxPointListNode* node)
+::Ozone::wxPointListNode* Ozone::PointList::DetachNode(::Ozone::wxPointListNode* node)
 {
     auto __arg0 = node ? (::wxwxPointListNode*)node->__Instance : nullptr;
     ::wxwxPointListNode* __ret = ((::wxPointList*)__Instance)->DetachNode(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-bool ::Ozone::PointList::DeleteNode(::Ozone::wxPointListNode* node)
+bool Ozone::PointList::DeleteNode(::Ozone::wxPointListNode* node)
 {
     auto __arg0 = node ? (::wxwxPointListNode*)node->__Instance : nullptr;
     bool __ret = ((::wxPointList*)__Instance)->DeleteNode(__arg0);
     return __ret;
 }
 
-bool ::Ozone::PointList::DeleteObject(::Ozone::Point* object)
+bool Ozone::PointList::DeleteObject(::Ozone::Point* object)
 {
     auto __arg0 = object ? (::wxPoint*)object->__Instance : nullptr;
     bool __ret = ((::wxPointList*)__Instance)->DeleteObject(__arg0);
     return __ret;
 }
 
-void ::Ozone::PointList::Erase(::Ozone::wxPointListNode* it)
+void Ozone::PointList::Erase(::Ozone::wxPointListNode* it)
 {
     auto __arg0 = it ? (::wxwxPointListNode*)it->__Instance : nullptr;
     ((::wxPointList*)__Instance)->Erase(__arg0);
 }
 
-::Ozone::wxPointListNode* ::Ozone::PointList::Find(const ::Ozone::Point* object) const
+::Ozone::wxPointListNode* Ozone::PointList::Find(const ::Ozone::Point* object) const
 {
     auto __arg0 = object ? (::wxPoint*)object->__Instance : nullptr;
     ::wxwxPointListNode* __ret = ((::wxPointList*)__Instance)->Find(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::wxPointListNode((::wxwxPointListNode*)__ret);
 }
 
-bool ::Ozone::PointList::Member(const ::Ozone::Point* object) const
+bool Ozone::PointList::Member(const ::Ozone::Point* object) const
 {
     auto __arg0 = object ? (::wxPoint*)object->__Instance : nullptr;
     bool __ret = ((::wxPointList*)__Instance)->Member(__arg0);
     return __ret;
 }
 
-int ::Ozone::PointList::IndexOf(::Ozone::Point* object) const
+int Ozone::PointList::IndexOf(::Ozone::Point* object) const
 {
     auto __arg0 = object ? (::wxPoint*)object->__Instance : nullptr;
     int __ret = ((::wxPointList*)__Instance)->IndexOf(__arg0);
     return __ret;
 }
 
-::Ozone::PointList::PointList(unsigned long n, ::Ozone::Point*const & v)
+Ozone::PointList::PointList(unsigned long n, ::Ozone::Point*const & v)
 {
     __OwnsNativeInstance = true;
     auto __arg0 = (::wxPointList::size_type)(::size_t)n;
@@ -496,72 +496,72 @@ int ::Ozone::PointList::IndexOf(::Ozone::Point* object) const
     __Instance = new ::wxPointList(__arg0, __arg1);
 }
 
-void ::Ozone::PointList::resize(unsigned long n, ::Ozone::Point* v)
+void Ozone::PointList::resize(unsigned long n, ::Ozone::Point* v)
 {
     auto __arg0 = (::wxPointList::size_type)(::size_t)n;
     auto __arg1 = v ? (::wxPoint*)v->__Instance : nullptr;
     ((::wxPointList*)__Instance)->resize(__arg0, __arg1);
 }
 
-unsigned long ::Ozone::PointList::size() const
+unsigned long Ozone::PointList::size() const
 {
     ::wxPointList::size_type __ret = ((::wxPointList*)__Instance)->size();
     return __ret;
 }
 
-unsigned long ::Ozone::PointList::max_size() const
+unsigned long Ozone::PointList::max_size() const
 {
     ::wxPointList::size_type __ret = ((::wxPointList*)__Instance)->max_size();
     return __ret;
 }
 
-bool ::Ozone::PointList::empty() const
+bool Ozone::PointList::empty() const
 {
     bool __ret = ((::wxPointList*)__Instance)->empty();
     return __ret;
 }
 
-void ::Ozone::PointList::push_front(::Ozone::Point*const & v)
+void Ozone::PointList::push_front(::Ozone::Point*const & v)
 {
     auto __arg0 = v ? (::wxPoint*)v->__Instance : nullptr;
     ((::wxPointList*)__Instance)->push_front(__arg0);
 }
 
-void ::Ozone::PointList::pop_front()
+void Ozone::PointList::pop_front()
 {
     ((::wxPointList*)__Instance)->pop_front();
 }
 
-void ::Ozone::PointList::push_back(::Ozone::Point*const & v)
+void Ozone::PointList::push_back(::Ozone::Point*const & v)
 {
     auto __arg0 = v ? (::wxPoint*)v->__Instance : nullptr;
     ((::wxPointList*)__Instance)->push_back(__arg0);
 }
 
-void ::Ozone::PointList::pop_back()
+void Ozone::PointList::pop_back()
 {
     ((::wxPointList*)__Instance)->pop_back();
 }
 
-void ::Ozone::PointList::assign(unsigned long n, ::Ozone::Point*const & v)
+void Ozone::PointList::assign(unsigned long n, ::Ozone::Point*const & v)
 {
     auto __arg0 = (::wxPointList::size_type)(::size_t)n;
     auto __arg1 = v ? (::wxPoint*)v->__Instance : nullptr;
     ((::wxPointList*)__Instance)->assign(__arg0, __arg1);
 }
 
-void ::Ozone::PointList::clear()
+void Ozone::PointList::clear()
 {
     ((::wxPointList*)__Instance)->clear();
 }
 
-void ::Ozone::PointList::remove(::Ozone::Point*const & v)
+void Ozone::PointList::remove(::Ozone::Point*const & v)
 {
     auto __arg0 = v ? (::wxPoint*)v->__Instance : nullptr;
     ((::wxPointList*)__Instance)->remove(__arg0);
 }
 
-void ::Ozone::PointList::reverse()
+void Ozone::PointList::reverse()
 {
     ((::wxPointList*)__Instance)->reverse();
 }
@@ -576,19 +576,19 @@ void ::Ozone::PointList::reverse()
 {
 }
 
-::Ozone::Rect::Rect()
+Ozone::Rect::Rect()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxRect();
 }
 
-::Ozone::Rect::Rect(int xx, int yy, int ww, int hh)
+Ozone::Rect::Rect(int xx, int yy, int ww, int hh)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxRect(xx, yy, ww, hh);
 }
 
-::Ozone::Rect::Rect(const ::Ozone::Point& topLeft, const ::Ozone::Point& bottomRight)
+Ozone::Rect::Rect(const ::Ozone::Point& topLeft, const ::Ozone::Point& bottomRight)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPoint*)topLeft.__Instance;
@@ -596,7 +596,7 @@ void ::Ozone::PointList::reverse()
     __Instance = new ::wxRect(__arg0, __arg1);
 }
 
-::Ozone::Rect::Rect(const ::Ozone::Point& pt, const ::Ozone::Size& size)
+Ozone::Rect::Rect(const ::Ozone::Point& pt, const ::Ozone::Size& size)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
@@ -604,238 +604,238 @@ void ::Ozone::PointList::reverse()
     __Instance = new ::wxRect(__arg0, __arg1);
 }
 
-::Ozone::Rect::Rect(const ::Ozone::Size& size)
+Ozone::Rect::Rect(const ::Ozone::Size& size)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSize*)size.__Instance;
     __Instance = new ::wxRect(__arg0);
 }
 
-int ::Ozone::Rect::GetX() const
+int Ozone::Rect::GetX() const
 {
     int __ret = ((::wxRect*)__Instance)->GetX();
     return __ret;
 }
 
-void ::Ozone::Rect::SetX(int xx)
+void Ozone::Rect::SetX(int xx)
 {
     ((::wxRect*)__Instance)->SetX(xx);
 }
 
-int ::Ozone::Rect::GetY() const
+int Ozone::Rect::GetY() const
 {
     int __ret = ((::wxRect*)__Instance)->GetY();
     return __ret;
 }
 
-void ::Ozone::Rect::SetY(int yy)
+void Ozone::Rect::SetY(int yy)
 {
     ((::wxRect*)__Instance)->SetY(yy);
 }
 
-int ::Ozone::Rect::GetWidth() const
+int Ozone::Rect::GetWidth() const
 {
     int __ret = ((::wxRect*)__Instance)->GetWidth();
     return __ret;
 }
 
-void ::Ozone::Rect::SetWidth(int w)
+void Ozone::Rect::SetWidth(int w)
 {
     ((::wxRect*)__Instance)->SetWidth(w);
 }
 
-int ::Ozone::Rect::GetHeight() const
+int Ozone::Rect::GetHeight() const
 {
     int __ret = ((::wxRect*)__Instance)->GetHeight();
     return __ret;
 }
 
-void ::Ozone::Rect::SetHeight(int h)
+void Ozone::Rect::SetHeight(int h)
 {
     ((::wxRect*)__Instance)->SetHeight(h);
 }
 
-::Ozone::Point ::Ozone::Rect::GetPosition() const
+::Ozone::Point Ozone::Rect::GetPosition() const
 {
     ::wxPoint __ret = ((::wxRect*)__Instance)->GetPosition();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-void ::Ozone::Rect::SetPosition(const ::Ozone::Point& p)
+void Ozone::Rect::SetPosition(const ::Ozone::Point& p)
 {
     auto &__arg0 = *(::wxPoint*)p.__Instance;
     ((::wxRect*)__Instance)->SetPosition(__arg0);
 }
 
-::Ozone::Size ::Ozone::Rect::GetSize() const
+::Ozone::Size Ozone::Rect::GetSize() const
 {
     ::wxSize __ret = ((::wxRect*)__Instance)->GetSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-void ::Ozone::Rect::SetSize(const ::Ozone::Size& s)
+void Ozone::Rect::SetSize(const ::Ozone::Size& s)
 {
     auto &__arg0 = *(::wxSize*)s.__Instance;
     ((::wxRect*)__Instance)->SetSize(__arg0);
 }
 
-bool ::Ozone::Rect::IsEmpty() const
+bool Ozone::Rect::IsEmpty() const
 {
     bool __ret = ((::wxRect*)__Instance)->IsEmpty();
     return __ret;
 }
 
-int ::Ozone::Rect::GetLeft() const
+int Ozone::Rect::GetLeft() const
 {
     int __ret = ((::wxRect*)__Instance)->GetLeft();
     return __ret;
 }
 
-int ::Ozone::Rect::GetTop() const
+int Ozone::Rect::GetTop() const
 {
     int __ret = ((::wxRect*)__Instance)->GetTop();
     return __ret;
 }
 
-int ::Ozone::Rect::GetBottom() const
+int Ozone::Rect::GetBottom() const
 {
     int __ret = ((::wxRect*)__Instance)->GetBottom();
     return __ret;
 }
 
-int ::Ozone::Rect::GetRight() const
+int Ozone::Rect::GetRight() const
 {
     int __ret = ((::wxRect*)__Instance)->GetRight();
     return __ret;
 }
 
-void ::Ozone::Rect::SetLeft(int left)
+void Ozone::Rect::SetLeft(int left)
 {
     ((::wxRect*)__Instance)->SetLeft(left);
 }
 
-void ::Ozone::Rect::SetRight(int right)
+void Ozone::Rect::SetRight(int right)
 {
     ((::wxRect*)__Instance)->SetRight(right);
 }
 
-void ::Ozone::Rect::SetTop(int top)
+void Ozone::Rect::SetTop(int top)
 {
     ((::wxRect*)__Instance)->SetTop(top);
 }
 
-void ::Ozone::Rect::SetBottom(int bottom)
+void Ozone::Rect::SetBottom(int bottom)
 {
     ((::wxRect*)__Instance)->SetBottom(bottom);
 }
 
-::Ozone::Point ::Ozone::Rect::GetTopLeft() const
+::Ozone::Point Ozone::Rect::GetTopLeft() const
 {
     ::wxPoint __ret = ((::wxRect*)__Instance)->GetTopLeft();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-::Ozone::Point ::Ozone::Rect::GetLeftTop() const
+::Ozone::Point Ozone::Rect::GetLeftTop() const
 {
     ::wxPoint __ret = ((::wxRect*)__Instance)->GetLeftTop();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-void ::Ozone::Rect::SetTopLeft(const ::Ozone::Point& p)
+void Ozone::Rect::SetTopLeft(const ::Ozone::Point& p)
 {
     auto &__arg0 = *(::wxPoint*)p.__Instance;
     ((::wxRect*)__Instance)->SetTopLeft(__arg0);
 }
 
-void ::Ozone::Rect::SetLeftTop(const ::Ozone::Point& p)
+void Ozone::Rect::SetLeftTop(const ::Ozone::Point& p)
 {
     auto &__arg0 = *(::wxPoint*)p.__Instance;
     ((::wxRect*)__Instance)->SetLeftTop(__arg0);
 }
 
-::Ozone::Point ::Ozone::Rect::GetBottomRight() const
+::Ozone::Point Ozone::Rect::GetBottomRight() const
 {
     ::wxPoint __ret = ((::wxRect*)__Instance)->GetBottomRight();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-::Ozone::Point ::Ozone::Rect::GetRightBottom() const
+::Ozone::Point Ozone::Rect::GetRightBottom() const
 {
     ::wxPoint __ret = ((::wxRect*)__Instance)->GetRightBottom();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-void ::Ozone::Rect::SetBottomRight(const ::Ozone::Point& p)
+void Ozone::Rect::SetBottomRight(const ::Ozone::Point& p)
 {
     auto &__arg0 = *(::wxPoint*)p.__Instance;
     ((::wxRect*)__Instance)->SetBottomRight(__arg0);
 }
 
-void ::Ozone::Rect::SetRightBottom(const ::Ozone::Point& p)
+void Ozone::Rect::SetRightBottom(const ::Ozone::Point& p)
 {
     auto &__arg0 = *(::wxPoint*)p.__Instance;
     ((::wxRect*)__Instance)->SetRightBottom(__arg0);
 }
 
-::Ozone::Point ::Ozone::Rect::GetTopRight() const
+::Ozone::Point Ozone::Rect::GetTopRight() const
 {
     ::wxPoint __ret = ((::wxRect*)__Instance)->GetTopRight();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-::Ozone::Point ::Ozone::Rect::GetRightTop() const
+::Ozone::Point Ozone::Rect::GetRightTop() const
 {
     ::wxPoint __ret = ((::wxRect*)__Instance)->GetRightTop();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-void ::Ozone::Rect::SetTopRight(const ::Ozone::Point& p)
+void Ozone::Rect::SetTopRight(const ::Ozone::Point& p)
 {
     auto &__arg0 = *(::wxPoint*)p.__Instance;
     ((::wxRect*)__Instance)->SetTopRight(__arg0);
 }
 
-void ::Ozone::Rect::SetRightTop(const ::Ozone::Point& p)
+void Ozone::Rect::SetRightTop(const ::Ozone::Point& p)
 {
     auto &__arg0 = *(::wxPoint*)p.__Instance;
     ((::wxRect*)__Instance)->SetRightTop(__arg0);
 }
 
-::Ozone::Point ::Ozone::Rect::GetBottomLeft() const
+::Ozone::Point Ozone::Rect::GetBottomLeft() const
 {
     ::wxPoint __ret = ((::wxRect*)__Instance)->GetBottomLeft();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-::Ozone::Point ::Ozone::Rect::GetLeftBottom() const
+::Ozone::Point Ozone::Rect::GetLeftBottom() const
 {
     ::wxPoint __ret = ((::wxRect*)__Instance)->GetLeftBottom();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-void ::Ozone::Rect::SetBottomLeft(const ::Ozone::Point& p)
+void Ozone::Rect::SetBottomLeft(const ::Ozone::Point& p)
 {
     auto &__arg0 = *(::wxPoint*)p.__Instance;
     ((::wxRect*)__Instance)->SetBottomLeft(__arg0);
 }
 
-void ::Ozone::Rect::SetLeftBottom(const ::Ozone::Point& p)
+void Ozone::Rect::SetLeftBottom(const ::Ozone::Point& p)
 {
     auto &__arg0 = *(::wxPoint*)p.__Instance;
     ((::wxRect*)__Instance)->SetLeftBottom(__arg0);
 }
 
-::Ozone::Rect ::Ozone::Rect::Inflate(int dx, int dy) const
+::Ozone::Rect Ozone::Rect::Inflate(int dx, int dy) const
 {
     auto __arg0 = (::wxCoord)dx;
     auto __arg1 = (::wxCoord)dy;
@@ -844,7 +844,7 @@ void ::Ozone::Rect::SetLeftBottom(const ::Ozone::Point& p)
     return ____ret;
 }
 
-::Ozone::Rect ::Ozone::Rect::Deflate(int dx, int dy) const
+::Ozone::Rect Ozone::Rect::Deflate(int dx, int dy) const
 {
     auto __arg0 = (::wxCoord)dx;
     auto __arg1 = (::wxCoord)dy;
@@ -853,20 +853,20 @@ void ::Ozone::Rect::SetLeftBottom(const ::Ozone::Point& p)
     return ____ret;
 }
 
-void ::Ozone::Rect::Offset(int dx, int dy)
+void Ozone::Rect::Offset(int dx, int dy)
 {
     auto __arg0 = (::wxCoord)dx;
     auto __arg1 = (::wxCoord)dy;
     ((::wxRect*)__Instance)->Offset(__arg0, __arg1);
 }
 
-void ::Ozone::Rect::Offset(const ::Ozone::Point& pt)
+void Ozone::Rect::Offset(const ::Ozone::Point& pt)
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ((::wxRect*)__Instance)->Offset(__arg0);
 }
 
-::Ozone::Rect ::Ozone::Rect::Intersect(const ::Ozone::Rect& rect) const
+::Ozone::Rect Ozone::Rect::Intersect(const ::Ozone::Rect& rect) const
 {
     auto &__arg0 = *(::wxRect*)rect.__Instance;
     ::wxRect __ret = ((::wxRect*)__Instance)->Intersect(__arg0);
@@ -874,7 +874,7 @@ void ::Ozone::Rect::Offset(const ::Ozone::Point& pt)
     return ____ret;
 }
 
-::Ozone::Rect ::Ozone::Rect::Union(const ::Ozone::Rect& rect) const
+::Ozone::Rect Ozone::Rect::Union(const ::Ozone::Rect& rect) const
 {
     auto &__arg0 = *(::wxRect*)rect.__Instance;
     ::wxRect __ret = ((::wxRect*)__Instance)->Union(__arg0);
@@ -882,34 +882,34 @@ void ::Ozone::Rect::Offset(const ::Ozone::Point& pt)
     return ____ret;
 }
 
-bool ::Ozone::Rect::Contains(int x, int y) const
+bool Ozone::Rect::Contains(int x, int y) const
 {
     bool __ret = ((::wxRect*)__Instance)->Contains(x, y);
     return __ret;
 }
 
-bool ::Ozone::Rect::Contains(const ::Ozone::Point& pt) const
+bool Ozone::Rect::Contains(const ::Ozone::Point& pt) const
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     bool __ret = ((::wxRect*)__Instance)->Contains(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Rect::Contains(const ::Ozone::Rect& rect) const
+bool Ozone::Rect::Contains(const ::Ozone::Rect& rect) const
 {
     auto &__arg0 = *(::wxRect*)rect.__Instance;
     bool __ret = ((::wxRect*)__Instance)->Contains(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Rect::Intersects(const ::Ozone::Rect& rect) const
+bool Ozone::Rect::Intersects(const ::Ozone::Rect& rect) const
 {
     auto &__arg0 = *(::wxRect*)rect.__Instance;
     bool __ret = ((::wxRect*)__Instance)->Intersects(__arg0);
     return __ret;
 }
 
-::Ozone::Rect ::Ozone::Rect::CentreIn(const ::Ozone::Rect& r, int dir) const
+::Ozone::Rect Ozone::Rect::CentreIn(const ::Ozone::Rect& r, int dir) const
 {
     auto &__arg0 = *(::wxRect*)r.__Instance;
     ::wxRect __ret = ((::wxRect*)__Instance)->CentreIn(__arg0, dir);
@@ -917,7 +917,7 @@ bool ::Ozone::Rect::Intersects(const ::Ozone::Rect& rect) const
     return ____ret;
 }
 
-::Ozone::Rect ::Ozone::Rect::CenterIn(const ::Ozone::Rect& r, int dir) const
+::Ozone::Rect Ozone::Rect::CenterIn(const ::Ozone::Rect& r, int dir) const
 {
     auto &__arg0 = *(::wxRect*)r.__Instance;
     ::wxRect __ret = ((::wxRect*)__Instance)->CenterIn(__arg0, dir);
@@ -925,57 +925,57 @@ bool ::Ozone::Rect::Intersects(const ::Ozone::Rect& rect) const
     return ____ret;
 }
 
-::Ozone::Rect::Rect(const ::Ozone::Rect& _0)
+Ozone::Rect::Rect(const ::Ozone::Rect& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxRect*)_0.__Instance;
     __Instance = new ::wxRect(__arg0);
 }
 
-int ::Ozone::Rect::get_x()
+int Ozone::Rect::get_x()
 {
     int __ret = ((::wxRect*)__Instance)->x;
     return __ret;
 }
 
 
-void ::Ozone::Rect::set_x(int value)
+void Ozone::Rect::set_x(int value)
 {
     ((::wxRect*)__Instance)->x = value;
 }
 
-int ::Ozone::Rect::get_y()
+int Ozone::Rect::get_y()
 {
     int __ret = ((::wxRect*)__Instance)->y;
     return __ret;
 }
 
 
-void ::Ozone::Rect::set_y(int value)
+void Ozone::Rect::set_y(int value)
 {
     ((::wxRect*)__Instance)->y = value;
 }
 
-int ::Ozone::Rect::get_width()
+int Ozone::Rect::get_width()
 {
     int __ret = ((::wxRect*)__Instance)->width;
     return __ret;
 }
 
 
-void ::Ozone::Rect::set_width(int value)
+void Ozone::Rect::set_width(int value)
 {
     ((::wxRect*)__Instance)->width = value;
 }
 
-int ::Ozone::Rect::get_height()
+int Ozone::Rect::get_height()
 {
     int __ret = ((::wxRect*)__Instance)->height;
     return __ret;
 }
 
 
-void ::Ozone::Rect::set_height(int value)
+void Ozone::Rect::set_height(int value)
 {
     ((::wxRect*)__Instance)->height = value;
 }
@@ -990,13 +990,13 @@ void ::Ozone::Rect::set_height(int value)
 {
 }
 
-::Ozone::GDIObjListBase::GDIObjListBase()
+Ozone::GDIObjListBase::GDIObjListBase()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxGDIObjListBase();
 }
 
-::Ozone::GDIObjListBase::GDIObjListBase(const ::Ozone::GDIObjListBase& _0)
+Ozone::GDIObjListBase::GDIObjListBase(const ::Ozone::GDIObjListBase& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxGDIObjListBase*)_0.__Instance;
@@ -1013,13 +1013,13 @@ void ::Ozone::Rect::set_height(int value)
 {
 }
 
-::Ozone::ColourDatabase::ColourDatabase()
+Ozone::ColourDatabase::ColourDatabase()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxColourDatabase();
 }
 
-::Ozone::Color ::Ozone::ColourDatabase::Find(const char* name) const
+::Ozone::Color Ozone::ColourDatabase::Find(const char* name) const
 {
     auto __arg0 = name;
     ::wxColour __ret = ((::wxColourDatabase*)__Instance)->Find(__arg0);
@@ -1027,21 +1027,21 @@ void ::Ozone::Rect::set_height(int value)
     return ____ret;
 }
 
-const char* ::Ozone::ColourDatabase::FindName(const ::Ozone::Color& colour) const
+const char* Ozone::ColourDatabase::FindName(const ::Ozone::Color& colour) const
 {
     auto &__arg0 = *(::wxColour*)colour.__Instance;
     ::wxString __ret = ((::wxColourDatabase*)__Instance)->FindName(__arg0);
     return strdup(__ret.utf8_str().data());
 }
 
-void ::Ozone::ColourDatabase::AddColour(const char* name, const ::Ozone::Color& colour)
+void Ozone::ColourDatabase::AddColour(const char* name, const ::Ozone::Color& colour)
 {
     auto __arg0 = name;
     auto &__arg1 = *(::wxColour*)colour.__Instance;
     ((::wxColourDatabase*)__Instance)->AddColour(__arg0, __arg1);
 }
 
-::Ozone::ColourDatabase::ColourDatabase(const ::Ozone::ColourDatabase& _0)
+Ozone::ColourDatabase::ColourDatabase(const ::Ozone::ColourDatabase& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxColourDatabase*)_0.__Instance;
@@ -1058,19 +1058,19 @@ void ::Ozone::ColourDatabase::AddColour(const char* name, const ::Ozone::Color& 
 {
 }
 
-::Ozone::ResourceCache::ResourceCache()
+Ozone::ResourceCache::ResourceCache()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxResourceCache();
 }
 
-::Ozone::ResourceCache::ResourceCache(unsigned int keyType)
+Ozone::ResourceCache::ResourceCache(unsigned int keyType)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxResourceCache(keyType);
 }
 
-::Ozone::ResourceCache::ResourceCache(const ::Ozone::ResourceCache& _0)
+Ozone::ResourceCache::ResourceCache(const ::Ozone::ResourceCache& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxResourceCache*)_0.__Instance;
@@ -1087,32 +1087,32 @@ void ::Ozone::ColourDatabase::AddColour(const char* name, const ::Ozone::Color& 
 {
 }
 
-::Ozone::StockGDI::StockGDI()
+Ozone::StockGDI::StockGDI()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxStockGDI();
 }
 
-void ::Ozone::StockGDI::DeleteAll()
+void Ozone::StockGDI::DeleteAll()
 {
     ::wxStockGDI::DeleteAll();
 }
 
-const ::Ozone::Brush* ::Ozone::StockGDI::GetBrush(::Ozone::StockGDI::Item item)
+const ::Ozone::Brush* Ozone::StockGDI::GetBrush(::Ozone::StockGDI::Item item)
 {
     auto __arg0 = (::wxStockGDI::Item)item;
     const ::wxBrush* __ret = ::wxStockGDI::GetBrush(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::Brush((::wxBrush*)__ret);
 }
 
-const ::Ozone::Color* ::Ozone::StockGDI::GetColour(::Ozone::StockGDI::Item item)
+const ::Ozone::Color* Ozone::StockGDI::GetColour(::Ozone::StockGDI::Item item)
 {
     auto __arg0 = (::wxStockGDI::Item)item;
     const ::wxColour* __ret = ::wxStockGDI::GetColour(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::Color((::wxColour*)__ret);
 }
 
-const ::Ozone::Pen* ::Ozone::StockGDI::GetPen(::Ozone::StockGDI::Item item)
+const ::Ozone::Pen* Ozone::StockGDI::GetPen(::Ozone::StockGDI::Item item)
 {
     auto __arg0 = (::wxStockGDI::Item)item;
     const ::wxPen* __ret = ::wxStockGDI::GetPen(__arg0);

@@ -653,9 +653,15 @@ static void register_enum_Ozone_DataFormatId(JSContext *ctx, JSModuleDef *m, boo
         JS_SetPropertyStr(ctx, val, "HTML", __item);
     }
 
-    // MAX
+    // PNG
     {
         JSValue __item = JS_NewUint32(ctx, 31);
+        JS_SetPropertyStr(ctx, val, "PNG", __item);
+    }
+
+    // MAX
+    {
+        JSValue __item = JS_NewUint32(ctx, 32);
         JS_SetPropertyStr(ctx, val, "MAX", __item);
     }
 

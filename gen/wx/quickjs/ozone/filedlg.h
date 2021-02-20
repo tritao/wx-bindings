@@ -10,15 +10,15 @@
 
 enum class FD : unsigned int
 {
-    FD_OPEN = 0x1,
-    FD_SAVE = 0x2,
-    FD_OVERWRITE_PROMPT = 0x4,
-    FD_NO_FOLLOW = 0x8,
-    FD_FILE_MUST_EXIST = 0x10,
-    FD_CHANGE_DIR = 0x80,
-    FD_PREVIEW = 0x100,
-    FD_MULTIPLE = 0x200,
-    FD_SHOW_HIDDEN = 0x400
+    OPEN = 0x1,
+    SAVE = 0x2,
+    OVERWRITE_PROMPT = 0x4,
+    NO_FOLLOW = 0x8,
+    FILE_MUST_EXIST = 0x10,
+    CHANGE_DIR = 0x80,
+    PREVIEW = 0x100,
+    MULTIPLE = 0x200,
+    SHOW_HIDDEN = 0x400
 };
 
 class FileDialog

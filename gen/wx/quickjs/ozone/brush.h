@@ -65,7 +65,7 @@ protected:
     bool __OwnsNativeInstance;
 };
 
-class BrushList : public Ozone::Ozone::GDIObjListBase
+class BrushList : public ::Ozone::Ozone::GDIObjListBase
 {
 public:
 

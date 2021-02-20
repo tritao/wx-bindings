@@ -98,7 +98,7 @@ protected:
     bool __OwnsNativeInstance;
 };
 
-class Window : public Ozone::Ozone::EvtHandler
+class Window : public ::Ozone::Ozone::EvtHandler
 {
 public:
 

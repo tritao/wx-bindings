@@ -24,20 +24,20 @@
 {
 }
 
-::Ozone::VisualAttributes::VisualAttributes(const ::Ozone::VisualAttributes& _0)
+Ozone::VisualAttributes::VisualAttributes(const ::Ozone::VisualAttributes& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxVisualAttributes*)_0.__Instance;
     __Instance = new ::wxVisualAttributes(__arg0);
 }
 
-::Ozone::VisualAttributes::VisualAttributes()
+Ozone::VisualAttributes::VisualAttributes()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxVisualAttributes();
 }
 
-::Ozone::Color ::Ozone::VisualAttributes::get_colFg()
+::Ozone::Color Ozone::VisualAttributes::get_colFg()
 {
     ::wxColour __ret = ((::wxVisualAttributes*)__Instance)->colFg;
     auto ____ret = new ::wxColour(__ret);
@@ -45,13 +45,13 @@
 }
 
 
-void ::Ozone::VisualAttributes::set_colFg(::Ozone::Color value)
+void Ozone::VisualAttributes::set_colFg(::Ozone::Color value)
 {
     auto __arg0 = *(::wxColour*)value.__Instance;
     ((::wxVisualAttributes*)__Instance)->colFg = __arg0;
 }
 
-::Ozone::Color ::Ozone::VisualAttributes::get_colBg()
+::Ozone::Color Ozone::VisualAttributes::get_colBg()
 {
     ::wxColour __ret = ((::wxVisualAttributes*)__Instance)->colBg;
     auto ____ret = new ::wxColour(__ret);
@@ -59,7 +59,7 @@ void ::Ozone::VisualAttributes::set_colFg(::Ozone::Color value)
 }
 
 
-void ::Ozone::VisualAttributes::set_colBg(::Ozone::Color value)
+void Ozone::VisualAttributes::set_colBg(::Ozone::Color value)
 {
     auto __arg0 = *(::wxColour*)value.__Instance;
     ((::wxVisualAttributes*)__Instance)->colBg = __arg0;
@@ -75,25 +75,25 @@ void ::Ozone::VisualAttributes::set_colBg(::Ozone::Color value)
 {
 }
 
-::Ozone::WindowListNode* ::Ozone::WindowListNode::GetNext() const
+::Ozone::WindowListNode* Ozone::WindowListNode::GetNext() const
 {
     ::wxWindowListNode* __ret = ((::wxWindowListNode*)__Instance)->GetNext();
     return (__ret == nullptr) ? nullptr : new Ozone::WindowListNode((::wxWindowListNode*)__ret);
 }
 
-::Ozone::WindowListNode* ::Ozone::WindowListNode::GetPrevious() const
+::Ozone::WindowListNode* Ozone::WindowListNode::GetPrevious() const
 {
     ::wxWindowListNode* __ret = ((::wxWindowListNode*)__Instance)->GetPrevious();
     return (__ret == nullptr) ? nullptr : new Ozone::WindowListNode((::wxWindowListNode*)__ret);
 }
 
-::Ozone::Window* ::Ozone::WindowListNode::GetData() const
+::Ozone::Window* Ozone::WindowListNode::GetData() const
 {
     ::wxWindow* __ret = ((::wxWindowListNode*)__Instance)->GetData();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-void ::Ozone::WindowListNode::SetData(::Ozone::Window* data)
+void Ozone::WindowListNode::SetData(::Ozone::Window* data)
 {
     auto __arg0 = data ? (::wxWindow*)data->__Instance : nullptr;
     ((::wxWindowListNode*)__Instance)->SetData(__arg0);
@@ -109,54 +109,54 @@ void ::Ozone::WindowListNode::SetData(::Ozone::Window* data)
 {
 }
 
-::Ozone::WindowList::WindowList(::Ozone::KeyType keyType)
+Ozone::WindowList::WindowList(::Ozone::KeyType keyType)
 {
     __OwnsNativeInstance = true;
     auto __arg0 = (::wxKeyType)keyType;
     __Instance = new ::wxWindowList(__arg0);
 }
 
-::Ozone::WindowList::WindowList(const ::Ozone::WindowList& list)
+Ozone::WindowList::WindowList(const ::Ozone::WindowList& list)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxWindowList*)list.__Instance;
     __Instance = new ::wxWindowList(__arg0);
 }
 
-::Ozone::WindowListNode* ::Ozone::WindowList::GetFirst() const
+::Ozone::WindowListNode* Ozone::WindowList::GetFirst() const
 {
     ::wxWindowListNode* __ret = ((::wxWindowList*)__Instance)->GetFirst();
     return (__ret == nullptr) ? nullptr : new Ozone::WindowListNode((::wxWindowListNode*)__ret);
 }
 
-::Ozone::WindowListNode* ::Ozone::WindowList::GetLast() const
+::Ozone::WindowListNode* Ozone::WindowList::GetLast() const
 {
     ::wxWindowListNode* __ret = ((::wxWindowList*)__Instance)->GetLast();
     return (__ret == nullptr) ? nullptr : new Ozone::WindowListNode((::wxWindowListNode*)__ret);
 }
 
-::Ozone::WindowListNode* ::Ozone::WindowList::Item(unsigned long index) const
+::Ozone::WindowListNode* Ozone::WindowList::Item(unsigned long index) const
 {
     auto __arg0 = (::size_t)index;
     ::wxWindowListNode* __ret = ((::wxWindowList*)__Instance)->Item(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::WindowListNode((::wxWindowListNode*)__ret);
 }
 
-::Ozone::Window* ::Ozone::WindowList::operator[](unsigned long index) const
+::Ozone::Window* Ozone::WindowList::operator[](unsigned long index) const
 {
     auto __arg0 = (::size_t)index;
     ::wxWindow* __ret = ((::wxWindowList*)__Instance)->operator[](__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-::Ozone::WindowListNode* ::Ozone::WindowList::Append(long key, void* object)
+::Ozone::WindowListNode* Ozone::WindowList::Append(long key, void* object)
 {
     auto __arg1 = (void*)object;
     ::wxWindowListNode* __ret = ((::wxWindowList*)__Instance)->Append(key, __arg1);
     return (__ret == nullptr) ? nullptr : new Ozone::WindowListNode((::wxWindowListNode*)__ret);
 }
 
-::Ozone::WindowListNode* ::Ozone::WindowList::Append(wchar_t* key, void* object)
+::Ozone::WindowListNode* Ozone::WindowList::Append(wchar_t* key, void* object)
 {
     auto __arg0 = (::wxChar*)key;
     auto __arg1 = (void*)object;
@@ -164,27 +164,27 @@ void ::Ozone::WindowListNode::SetData(::Ozone::Window* data)
     return (__ret == nullptr) ? nullptr : new Ozone::WindowListNode((::wxWindowListNode*)__ret);
 }
 
-::Ozone::WindowListNode* ::Ozone::WindowList::DetachNode(::Ozone::WindowListNode* node)
+::Ozone::WindowListNode* Ozone::WindowList::DetachNode(::Ozone::WindowListNode* node)
 {
     auto __arg0 = node ? (::wxWindowListNode*)node->__Instance : nullptr;
     ::wxWindowListNode* __ret = ((::wxWindowList*)__Instance)->DetachNode(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::WindowListNode((::wxWindowListNode*)__ret);
 }
 
-bool ::Ozone::WindowList::DeleteNode(::Ozone::WindowListNode* node)
+bool Ozone::WindowList::DeleteNode(::Ozone::WindowListNode* node)
 {
     auto __arg0 = node ? (::wxWindowListNode*)node->__Instance : nullptr;
     bool __ret = ((::wxWindowList*)__Instance)->DeleteNode(__arg0);
     return __ret;
 }
 
-void ::Ozone::WindowList::Erase(::Ozone::WindowListNode* it)
+void Ozone::WindowList::Erase(::Ozone::WindowListNode* it)
 {
     auto __arg0 = it ? (::wxWindowListNode*)it->__Instance : nullptr;
     ((::wxWindowList*)__Instance)->Erase(__arg0);
 }
 
-::Ozone::WindowList::WindowList(unsigned long n, ::Ozone::Window*const & v)
+Ozone::WindowList::WindowList(unsigned long n, ::Ozone::Window*const & v)
 {
     __OwnsNativeInstance = true;
     auto __arg0 = (::wxWindowList::size_type)(::size_t)n;
@@ -192,72 +192,72 @@ void ::Ozone::WindowList::Erase(::Ozone::WindowListNode* it)
     __Instance = new ::wxWindowList(__arg0, __arg1);
 }
 
-void ::Ozone::WindowList::resize(unsigned long n, ::Ozone::Window* v)
+void Ozone::WindowList::resize(unsigned long n, ::Ozone::Window* v)
 {
     auto __arg0 = (::wxWindowList::size_type)(::size_t)n;
     auto __arg1 = v ? (::wxWindow*)v->__Instance : nullptr;
     ((::wxWindowList*)__Instance)->resize(__arg0, __arg1);
 }
 
-unsigned long ::Ozone::WindowList::size() const
+unsigned long Ozone::WindowList::size() const
 {
     ::wxWindowList::size_type __ret = ((::wxWindowList*)__Instance)->size();
     return __ret;
 }
 
-unsigned long ::Ozone::WindowList::max_size() const
+unsigned long Ozone::WindowList::max_size() const
 {
     ::wxWindowList::size_type __ret = ((::wxWindowList*)__Instance)->max_size();
     return __ret;
 }
 
-bool ::Ozone::WindowList::empty() const
+bool Ozone::WindowList::empty() const
 {
     bool __ret = ((::wxWindowList*)__Instance)->empty();
     return __ret;
 }
 
-void ::Ozone::WindowList::push_front(::Ozone::Window*const & v)
+void Ozone::WindowList::push_front(::Ozone::Window*const & v)
 {
     auto __arg0 = v ? (::wxWindow*)v->__Instance : nullptr;
     ((::wxWindowList*)__Instance)->push_front(__arg0);
 }
 
-void ::Ozone::WindowList::pop_front()
+void Ozone::WindowList::pop_front()
 {
     ((::wxWindowList*)__Instance)->pop_front();
 }
 
-void ::Ozone::WindowList::push_back(::Ozone::Window*const & v)
+void Ozone::WindowList::push_back(::Ozone::Window*const & v)
 {
     auto __arg0 = v ? (::wxWindow*)v->__Instance : nullptr;
     ((::wxWindowList*)__Instance)->push_back(__arg0);
 }
 
-void ::Ozone::WindowList::pop_back()
+void Ozone::WindowList::pop_back()
 {
     ((::wxWindowList*)__Instance)->pop_back();
 }
 
-void ::Ozone::WindowList::assign(unsigned long n, ::Ozone::Window*const & v)
+void Ozone::WindowList::assign(unsigned long n, ::Ozone::Window*const & v)
 {
     auto __arg0 = (::wxWindowList::size_type)(::size_t)n;
     auto __arg1 = v ? (::wxWindow*)v->__Instance : nullptr;
     ((::wxWindowList*)__Instance)->assign(__arg0, __arg1);
 }
 
-void ::Ozone::WindowList::clear()
+void Ozone::WindowList::clear()
 {
     ((::wxWindowList*)__Instance)->clear();
 }
 
-void ::Ozone::WindowList::remove(::Ozone::Window*const & v)
+void Ozone::WindowList::remove(::Ozone::Window*const & v)
 {
     auto __arg0 = v ? (::wxWindow*)v->__Instance : nullptr;
     ((::wxWindowList*)__Instance)->remove(__arg0);
 }
 
-void ::Ozone::WindowList::reverse()
+void Ozone::WindowList::reverse()
 {
     ((::wxWindowList*)__Instance)->reverse();
 }
@@ -276,7 +276,7 @@ void ::Ozone::WindowList::reverse()
 {
 }
 
-::Ozone::Window::Window()
+Ozone::Window::Window()
     : ::Ozone::EvtHandler((::wxEvtHandler*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -287,7 +287,7 @@ void ::Ozone::WindowList::reverse()
         __instance->SetClientData(this);
 }
 
-::Ozone::Window::Window(::Ozone::Window* parent, int id, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
+Ozone::Window::Window(::Ozone::Window* parent, int id, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
     : ::Ozone::EvtHandler((::wxEvtHandler*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -303,7 +303,7 @@ void ::Ozone::WindowList::reverse()
         __instance->SetClientData(this);
 }
 
-bool ::Ozone::Window::Create(::Ozone::Window* parent, int id, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
+bool Ozone::Window::Create(::Ozone::Window* parent, int id, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
 {
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
     auto __arg1 = (::wxWindowID)id;
@@ -314,93 +314,93 @@ bool ::Ozone::Window::Create(::Ozone::Window* parent, int id, const ::Ozone::Poi
     return __ret;
 }
 
-void ::Ozone::Window::Raise()
+void Ozone::Window::Raise()
 {
     ((::wxWindow*)__Instance)->Raise();
 }
 
-void ::Ozone::Window::Lower()
+void Ozone::Window::Lower()
 {
     ((::wxWindow*)__Instance)->Lower();
 }
 
-bool ::Ozone::Window::Show(bool show)
+bool Ozone::Window::Show(bool show)
 {
     bool __ret = ((::wxWindow*)__Instance)->Show(show);
     return __ret;
 }
 
-bool ::Ozone::Window::IsShown() const
+bool Ozone::Window::IsShown() const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsShown();
     return __ret;
 }
 
-bool ::Ozone::Window::IsRetained() const
+bool Ozone::Window::IsRetained() const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsRetained();
     return __ret;
 }
 
-void ::Ozone::Window::SetFocus()
+void Ozone::Window::SetFocus()
 {
     ((::wxWindow*)__Instance)->SetFocus();
 }
 
-void ::Ozone::Window::SetCanFocus(bool canFocus)
+void Ozone::Window::SetCanFocus(bool canFocus)
 {
     ((::wxWindow*)__Instance)->SetCanFocus(canFocus);
 }
 
-void ::Ozone::Window::WarpPointer(int x, int y)
+void Ozone::Window::WarpPointer(int x, int y)
 {
     ((::wxWindow*)__Instance)->WarpPointer(x, y);
 }
 
-bool ::Ozone::Window::EnableTouchEvents(int eventsMask)
+bool Ozone::Window::EnableTouchEvents(int eventsMask)
 {
     bool __ret = ((::wxWindow*)__Instance)->EnableTouchEvents(eventsMask);
     return __ret;
 }
 
-void ::Ozone::Window::Refresh(bool eraseBackground, const ::Ozone::Rect* rect)
+void Ozone::Window::Refresh(bool eraseBackground, const ::Ozone::Rect* rect)
 {
     auto __arg1 = rect ? (::wxRect*)rect->__Instance : nullptr;
     ((::wxWindow*)__Instance)->Refresh(eraseBackground, __arg1);
 }
 
-void ::Ozone::Window::Update()
+void Ozone::Window::Update()
 {
     ((::wxWindow*)__Instance)->Update();
 }
 
-void ::Ozone::Window::ClearBackground()
+void Ozone::Window::ClearBackground()
 {
     ((::wxWindow*)__Instance)->ClearBackground();
 }
 
-bool ::Ozone::Window::SetBackgroundColour(const ::Ozone::Color& colour)
+bool Ozone::Window::SetBackgroundColour(const ::Ozone::Color& colour)
 {
     auto &__arg0 = *(::wxColour*)colour.__Instance;
     bool __ret = ((::wxWindow*)__Instance)->SetBackgroundColour(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Window::SetForegroundColour(const ::Ozone::Color& colour)
+bool Ozone::Window::SetForegroundColour(const ::Ozone::Color& colour)
 {
     auto &__arg0 = *(::wxColour*)colour.__Instance;
     bool __ret = ((::wxWindow*)__Instance)->SetForegroundColour(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Window::SetBackgroundStyle(::Ozone::BackgroundStyle style)
+bool Ozone::Window::SetBackgroundStyle(::Ozone::BackgroundStyle style)
 {
     auto __arg0 = (::wxBackgroundStyle)style;
     bool __ret = ((::wxWindow*)__Instance)->SetBackgroundStyle(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Window::IsTransparentBackgroundSupported(const char* reason) const
+bool Ozone::Window::IsTransparentBackgroundSupported(const char* reason) const
 {
     auto __arg0_str = new wxString(reason);
     auto __arg0 = __arg0_str;
@@ -408,77 +408,77 @@ bool ::Ozone::Window::IsTransparentBackgroundSupported(const char* reason) const
     return __ret;
 }
 
-int ::Ozone::Window::GetCharHeight() const
+int Ozone::Window::GetCharHeight() const
 {
     int __ret = ((::wxWindow*)__Instance)->GetCharHeight();
     return __ret;
 }
 
-int ::Ozone::Window::GetCharWidth() const
+int Ozone::Window::GetCharWidth() const
 {
     int __ret = ((::wxWindow*)__Instance)->GetCharWidth();
     return __ret;
 }
 
-double ::Ozone::Window::GetContentScaleFactor() const
+double Ozone::Window::GetContentScaleFactor() const
 {
     double __ret = ((::wxWindow*)__Instance)->GetContentScaleFactor();
     return __ret;
 }
 
-double ::Ozone::Window::GetDPIScaleFactor() const
+double Ozone::Window::GetDPIScaleFactor() const
 {
     double __ret = ((::wxWindow*)__Instance)->GetDPIScaleFactor();
     return __ret;
 }
 
-void ::Ozone::Window::SetScrollbar(int orient, int pos, int thumbVisible, int range, bool refresh)
+void Ozone::Window::SetScrollbar(int orient, int pos, int thumbVisible, int range, bool refresh)
 {
     ((::wxWindow*)__Instance)->SetScrollbar(orient, pos, thumbVisible, range, refresh);
 }
 
-void ::Ozone::Window::SetScrollPos(int orient, int pos, bool refresh)
+void Ozone::Window::SetScrollPos(int orient, int pos, bool refresh)
 {
     ((::wxWindow*)__Instance)->SetScrollPos(orient, pos, refresh);
 }
 
-int ::Ozone::Window::GetScrollPos(int orient) const
+int Ozone::Window::GetScrollPos(int orient) const
 {
     int __ret = ((::wxWindow*)__Instance)->GetScrollPos(orient);
     return __ret;
 }
 
-int ::Ozone::Window::GetScrollThumb(int orient) const
+int Ozone::Window::GetScrollThumb(int orient) const
 {
     int __ret = ((::wxWindow*)__Instance)->GetScrollThumb(orient);
     return __ret;
 }
 
-int ::Ozone::Window::GetScrollRange(int orient) const
+int Ozone::Window::GetScrollRange(int orient) const
 {
     int __ret = ((::wxWindow*)__Instance)->GetScrollRange(orient);
     return __ret;
 }
 
-void ::Ozone::Window::ScrollWindow(int dx, int dy, const ::Ozone::Rect* rect)
+void Ozone::Window::ScrollWindow(int dx, int dy, const ::Ozone::Rect* rect)
 {
     auto __arg2 = rect ? (::wxRect*)rect->__Instance : nullptr;
     ((::wxWindow*)__Instance)->ScrollWindow(dx, dy, __arg2);
 }
 
-bool ::Ozone::Window::ScrollLines(int lines)
+bool Ozone::Window::ScrollLines(int lines)
 {
     bool __ret = ((::wxWindow*)__Instance)->ScrollLines(lines);
     return __ret;
 }
 
-bool ::Ozone::Window::ScrollPages(int pages)
+bool Ozone::Window::ScrollPages(int pages)
 {
     bool __ret = ((::wxWindow*)__Instance)->ScrollPages(pages);
     return __ret;
 }
 
-int ::Ozone::Window::AdjustForLayoutDirection(int x, int width, int widthTotal) const
+int Ozone::Window::AdjustForLayoutDirection(int x, int width, int widthTotal) const
 {
     auto __arg0 = (::wxCoord)x;
     auto __arg1 = (::wxCoord)width;
@@ -487,47 +487,47 @@ int ::Ozone::Window::AdjustForLayoutDirection(int x, int width, int widthTotal) 
     return __ret;
 }
 
-bool ::Ozone::Window::DoIsExposed(int x, int y) const
+bool Ozone::Window::DoIsExposed(int x, int y) const
 {
     bool __ret = ((::wxWindow*)__Instance)->DoIsExposed(x, y);
     return __ret;
 }
 
-bool ::Ozone::Window::DoIsExposed(int x, int y, int w, int h) const
+bool Ozone::Window::DoIsExposed(int x, int y, int w, int h) const
 {
     bool __ret = ((::wxWindow*)__Instance)->DoIsExposed(x, y, w, h);
     return __ret;
 }
 
-void ::Ozone::Window::SetDoubleBuffered(bool on)
+void Ozone::Window::SetDoubleBuffered(bool on)
 {
     ((::wxWindow*)__Instance)->SetDoubleBuffered(on);
 }
 
-bool ::Ozone::Window::IsDoubleBuffered() const
+bool Ozone::Window::IsDoubleBuffered() const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsDoubleBuffered();
     return __ret;
 }
 
-void ::Ozone::Window::SetLabel(const char* label)
+void Ozone::Window::SetLabel(const char* label)
 {
     auto __arg0 = label;
     ((::wxWindow*)__Instance)->SetLabel(__arg0);
 }
 
-const char* ::Ozone::Window::GetLabel() const
+const char* Ozone::Window::GetLabel() const
 {
     ::wxString __ret = ((::wxWindow*)__Instance)->GetLabel();
     return strdup(__ret.utf8_str().data());
 }
 
-void ::Ozone::Window::OnInternalIdle()
+void Ozone::Window::OnInternalIdle()
 {
     ((::wxWindow*)__Instance)->OnInternalIdle();
 }
 
-bool ::Ozone::Window::PreCreation(::Ozone::Window* parent, const ::Ozone::Point& pos, const ::Ozone::Size& size)
+bool Ozone::Window::PreCreation(::Ozone::Window* parent, const ::Ozone::Point& pos, const ::Ozone::Size& size)
 {
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
     auto &__arg1 = *(::wxPoint*)pos.__Instance;
@@ -536,165 +536,165 @@ bool ::Ozone::Window::PreCreation(::Ozone::Window* parent, const ::Ozone::Point&
     return __ret;
 }
 
-void ::Ozone::Window::PostCreation()
+void Ozone::Window::PostCreation()
 {
     ((::wxWindow*)__Instance)->PostCreation();
 }
 
-void ::Ozone::Window::DoAddChild(::Ozone::Window* child)
+void Ozone::Window::DoAddChild(::Ozone::Window* child)
 {
     auto __arg0 = child ? (::wxWindow*)child->__Instance : nullptr;
     ((::wxWindow*)__Instance)->DoAddChild(__arg0);
 }
 
-bool ::Ozone::Window::IsOfStandardClass() const
+bool Ozone::Window::IsOfStandardClass() const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsOfStandardClass();
     return __ret;
 }
 
-::Ozone::Window::ScrollDir ::Ozone::Window::ScrollDirFromOrient(int orient)
+::Ozone::Window::ScrollDir Ozone::Window::ScrollDirFromOrient(int orient)
 {
     ::wxWindow::ScrollDir __ret = ::wxWindow::ScrollDirFromOrient(orient);
     return (::Ozone::Window::ScrollDir)__ret;
 }
 
-int ::Ozone::Window::OrientFromScrollDir(::Ozone::Window::ScrollDir dir)
+int Ozone::Window::OrientFromScrollDir(::Ozone::Window::ScrollDir dir)
 {
     auto __arg0 = (::wxWindow::ScrollDir)dir;
     int __ret = ::wxWindow::OrientFromScrollDir(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Window::Close(bool force)
+bool Ozone::Window::Close(bool force)
 {
     bool __ret = ((::wxWindow*)__Instance)->Close(force);
     return __ret;
 }
 
-bool ::Ozone::Window::Destroy()
+bool Ozone::Window::Destroy()
 {
     bool __ret = ((::wxWindow*)__Instance)->Destroy();
     return __ret;
 }
 
-bool ::Ozone::Window::DestroyChildren()
+bool Ozone::Window::DestroyChildren()
 {
     bool __ret = ((::wxWindow*)__Instance)->DestroyChildren();
     return __ret;
 }
 
-bool ::Ozone::Window::IsBeingDeleted() const
+bool Ozone::Window::IsBeingDeleted() const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsBeingDeleted();
     return __ret;
 }
 
-void ::Ozone::Window::SetName(const char* name)
+void Ozone::Window::SetName(const char* name)
 {
     auto __arg0 = name;
     ((::wxWindow*)__Instance)->SetName(__arg0);
 }
 
-const char* ::Ozone::Window::GetName() const
+const char* Ozone::Window::GetName() const
 {
     ::wxString __ret = ((::wxWindow*)__Instance)->GetName();
     return strdup(__ret.utf8_str().data());
 }
 
-void ::Ozone::Window::SetWindowVariant(::Ozone::WindowVariant variant)
+void Ozone::Window::SetWindowVariant(::Ozone::WindowVariant variant)
 {
     auto __arg0 = (::wxWindowVariant)variant;
     ((::wxWindow*)__Instance)->SetWindowVariant(__arg0);
 }
 
-::Ozone::WindowVariant ::Ozone::Window::GetWindowVariant() const
+::Ozone::WindowVariant Ozone::Window::GetWindowVariant() const
 {
     ::wxWindowVariant __ret = ((::wxWindow*)__Instance)->GetWindowVariant();
     return (::Ozone::WindowVariant)__ret;
 }
 
-void ::Ozone::Window::SetId(int winid)
+void Ozone::Window::SetId(int winid)
 {
     auto __arg0 = (::wxWindowID)winid;
     ((::wxWindow*)__Instance)->SetId(__arg0);
 }
 
-int ::Ozone::Window::GetId() const
+int Ozone::Window::GetId() const
 {
     ::wxWindowID __ret = ((::wxWindow*)__Instance)->GetId();
     return __ret;
 }
 
-int ::Ozone::Window::NewControlId(int count)
+int Ozone::Window::NewControlId(int count)
 {
     ::wxWindowID __ret = ::wxWindowBase::NewControlId(count);
     return __ret;
 }
 
-void ::Ozone::Window::UnreserveControlId(int id, int count)
+void Ozone::Window::UnreserveControlId(int id, int count)
 {
     auto __arg0 = (::wxWindowID)id;
     ::wxWindowBase::UnreserveControlId(__arg0, count);
 }
 
-void ::Ozone::Window::SetSize(int x, int y, int width, int height, int sizeFlags)
+void Ozone::Window::SetSize(int x, int y, int width, int height, int sizeFlags)
 {
     ((::wxWindow*)__Instance)->SetSize(x, y, width, height, sizeFlags);
 }
 
-void ::Ozone::Window::SetSize(int width, int height)
+void Ozone::Window::SetSize(int width, int height)
 {
     ((::wxWindow*)__Instance)->SetSize(width, height);
 }
 
-void ::Ozone::Window::SetSize(const ::Ozone::Size& size)
+void Ozone::Window::SetSize(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxWindow*)__Instance)->SetSize(__arg0);
 }
 
-void ::Ozone::Window::SetSize(const ::Ozone::Rect& rect, int sizeFlags)
+void Ozone::Window::SetSize(const ::Ozone::Rect& rect, int sizeFlags)
 {
     auto &__arg0 = *(::wxRect*)rect.__Instance;
     ((::wxWindow*)__Instance)->SetSize(__arg0, sizeFlags);
 }
 
-void ::Ozone::Window::Move(int x, int y, int flags)
+void Ozone::Window::Move(int x, int y, int flags)
 {
     ((::wxWindow*)__Instance)->Move(x, y, flags);
 }
 
-void ::Ozone::Window::Move(const ::Ozone::Point& pt, int flags)
+void Ozone::Window::Move(const ::Ozone::Point& pt, int flags)
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ((::wxWindow*)__Instance)->Move(__arg0, flags);
 }
 
-void ::Ozone::Window::SetPosition(const ::Ozone::Point& pt)
+void Ozone::Window::SetPosition(const ::Ozone::Point& pt)
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ((::wxWindow*)__Instance)->SetPosition(__arg0);
 }
 
-void ::Ozone::Window::SetClientSize(int width, int height)
+void Ozone::Window::SetClientSize(int width, int height)
 {
     ((::wxWindow*)__Instance)->SetClientSize(width, height);
 }
 
-void ::Ozone::Window::SetClientSize(const ::Ozone::Size& size)
+void Ozone::Window::SetClientSize(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxWindow*)__Instance)->SetClientSize(__arg0);
 }
 
-void ::Ozone::Window::SetClientSize(const ::Ozone::Rect& rect)
+void Ozone::Window::SetClientSize(const ::Ozone::Rect& rect)
 {
     auto &__arg0 = *(::wxRect*)rect.__Instance;
     ((::wxWindow*)__Instance)->SetClientSize(__arg0);
 }
 
-void ::Ozone::Window::GetPosition(int* x, int* y) const
+void Ozone::Window::GetPosition(int* x, int* y) const
 {
     int* __arg0 = (int*)x;
     int* __arg1 = (int*)y;
@@ -703,14 +703,14 @@ void ::Ozone::Window::GetPosition(int* x, int* y) const
     y = __arg1;
 }
 
-::Ozone::Point ::Ozone::Window::GetPosition() const
+::Ozone::Point Ozone::Window::GetPosition() const
 {
     ::wxPoint __ret = ((::wxWindow*)__Instance)->GetPosition();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-void ::Ozone::Window::GetScreenPosition(int* x, int* y) const
+void Ozone::Window::GetScreenPosition(int* x, int* y) const
 {
     int* __arg0 = (int*)x;
     int* __arg1 = (int*)y;
@@ -719,14 +719,14 @@ void ::Ozone::Window::GetScreenPosition(int* x, int* y) const
     y = __arg1;
 }
 
-::Ozone::Point ::Ozone::Window::GetScreenPosition() const
+::Ozone::Point Ozone::Window::GetScreenPosition() const
 {
     ::wxPoint __ret = ((::wxWindow*)__Instance)->GetScreenPosition();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-void ::Ozone::Window::GetSize(int* w, int* h) const
+void Ozone::Window::GetSize(int* w, int* h) const
 {
     int* __arg0 = (int*)w;
     int* __arg1 = (int*)h;
@@ -735,14 +735,14 @@ void ::Ozone::Window::GetSize(int* w, int* h) const
     h = __arg1;
 }
 
-::Ozone::Size ::Ozone::Window::GetSize() const
+::Ozone::Size Ozone::Window::GetSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-void ::Ozone::Window::GetClientSize(int* w, int* h) const
+void Ozone::Window::GetClientSize(int* w, int* h) const
 {
     int* __arg0 = (int*)w;
     int* __arg1 = (int*)h;
@@ -751,42 +751,42 @@ void ::Ozone::Window::GetClientSize(int* w, int* h) const
     h = __arg1;
 }
 
-::Ozone::Size ::Ozone::Window::GetClientSize() const
+::Ozone::Size Ozone::Window::GetClientSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetClientSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Rect ::Ozone::Window::GetRect() const
+::Ozone::Rect Ozone::Window::GetRect() const
 {
     ::wxRect __ret = ((::wxWindow*)__Instance)->GetRect();
     auto ____ret = new ::wxRect(__ret);
     return ____ret;
 }
 
-::Ozone::Rect ::Ozone::Window::GetScreenRect() const
+::Ozone::Rect Ozone::Window::GetScreenRect() const
 {
     ::wxRect __ret = ((::wxWindow*)__Instance)->GetScreenRect();
     auto ____ret = new ::wxRect(__ret);
     return ____ret;
 }
 
-::Ozone::Point ::Ozone::Window::GetClientAreaOrigin() const
+::Ozone::Point Ozone::Window::GetClientAreaOrigin() const
 {
     ::wxPoint __ret = ((::wxWindow*)__Instance)->GetClientAreaOrigin();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-::Ozone::Rect ::Ozone::Window::GetClientRect() const
+::Ozone::Rect Ozone::Window::GetClientRect() const
 {
     ::wxRect __ret = ((::wxWindow*)__Instance)->GetClientRect();
     auto ____ret = new ::wxRect(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Window::ClientToWindowSize(const ::Ozone::Size& size) const
+::Ozone::Size Ozone::Window::ClientToWindowSize(const ::Ozone::Size& size) const
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ::wxSize __ret = ((::wxWindow*)__Instance)->ClientToWindowSize(__arg0);
@@ -794,7 +794,7 @@ void ::Ozone::Window::GetClientSize(int* w, int* h) const
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Window::WindowToClientSize(const ::Ozone::Size& size) const
+::Ozone::Size Ozone::Window::WindowToClientSize(const ::Ozone::Size& size) const
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ::wxSize __ret = ((::wxWindow*)__Instance)->WindowToClientSize(__arg0);
@@ -802,14 +802,14 @@ void ::Ozone::Window::GetClientSize(int* w, int* h) const
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Window::GetBestSize() const
+::Ozone::Size Ozone::Window::GetBestSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetBestSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-void ::Ozone::Window::GetBestSize(int* w, int* h) const
+void Ozone::Window::GetBestSize(int* w, int* h) const
 {
     int* __arg0 = (int*)w;
     int* __arg1 = (int*)h;
@@ -818,78 +818,78 @@ void ::Ozone::Window::GetBestSize(int* w, int* h) const
     h = __arg1;
 }
 
-int ::Ozone::Window::GetBestHeight(int width) const
+int Ozone::Window::GetBestHeight(int width) const
 {
     int __ret = ((::wxWindow*)__Instance)->GetBestHeight(width);
     return __ret;
 }
 
-int ::Ozone::Window::GetBestWidth(int height) const
+int Ozone::Window::GetBestWidth(int height) const
 {
     int __ret = ((::wxWindow*)__Instance)->GetBestWidth(height);
     return __ret;
 }
 
-void ::Ozone::Window::InvalidateBestSize()
+void Ozone::Window::InvalidateBestSize()
 {
     ((::wxWindow*)__Instance)->InvalidateBestSize();
 }
 
-void ::Ozone::Window::CacheBestSize(const ::Ozone::Size& size) const
+void Ozone::Window::CacheBestSize(const ::Ozone::Size& size) const
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxWindow*)__Instance)->CacheBestSize(__arg0);
 }
 
-::Ozone::Size ::Ozone::Window::GetEffectiveMinSize() const
+::Ozone::Size Ozone::Window::GetEffectiveMinSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetEffectiveMinSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-void ::Ozone::Window::SetInitialSize(const ::Ozone::Size& size)
+void Ozone::Window::SetInitialSize(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxWindow*)__Instance)->SetInitialSize(__arg0);
 }
 
-void ::Ozone::Window::Centre(int dir)
+void Ozone::Window::Centre(int dir)
 {
     ((::wxWindow*)__Instance)->Centre(dir);
 }
 
-void ::Ozone::Window::Center(int dir)
+void Ozone::Window::Center(int dir)
 {
     ((::wxWindow*)__Instance)->Center(dir);
 }
 
-void ::Ozone::Window::CentreOnParent(int dir)
+void Ozone::Window::CentreOnParent(int dir)
 {
     ((::wxWindow*)__Instance)->CentreOnParent(dir);
 }
 
-void ::Ozone::Window::CenterOnParent(int dir)
+void Ozone::Window::CenterOnParent(int dir)
 {
     ((::wxWindow*)__Instance)->CenterOnParent(dir);
 }
 
-void ::Ozone::Window::Fit()
+void Ozone::Window::Fit()
 {
     ((::wxWindow*)__Instance)->Fit();
 }
 
-void ::Ozone::Window::FitInside()
+void Ozone::Window::FitInside()
 {
     ((::wxWindow*)__Instance)->FitInside();
 }
 
-void ::Ozone::Window::SetSizeHints(int minW, int minH, int maxW, int maxH, int incW, int incH)
+void Ozone::Window::SetSizeHints(int minW, int minH, int maxW, int maxH, int incW, int incH)
 {
     ((::wxWindow*)__Instance)->SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 }
 
-void ::Ozone::Window::SetSizeHints(const ::Ozone::Size& minSize, const ::Ozone::Size& maxSize, const ::Ozone::Size& incSize)
+void Ozone::Window::SetSizeHints(const ::Ozone::Size& minSize, const ::Ozone::Size& maxSize, const ::Ozone::Size& incSize)
 {
     auto &__arg0 = *(::wxSize*)minSize.__Instance;
     auto &__arg1 = *(::wxSize*)maxSize.__Instance;
@@ -897,101 +897,101 @@ void ::Ozone::Window::SetSizeHints(const ::Ozone::Size& minSize, const ::Ozone::
     ((::wxWindow*)__Instance)->SetSizeHints(__arg0, __arg1, __arg2);
 }
 
-void ::Ozone::Window::SetMinSize(const ::Ozone::Size& minSize)
+void Ozone::Window::SetMinSize(const ::Ozone::Size& minSize)
 {
     auto &__arg0 = *(::wxSize*)minSize.__Instance;
     ((::wxWindow*)__Instance)->SetMinSize(__arg0);
 }
 
-void ::Ozone::Window::SetMaxSize(const ::Ozone::Size& maxSize)
+void Ozone::Window::SetMaxSize(const ::Ozone::Size& maxSize)
 {
     auto &__arg0 = *(::wxSize*)maxSize.__Instance;
     ((::wxWindow*)__Instance)->SetMaxSize(__arg0);
 }
 
-void ::Ozone::Window::SetMinClientSize(const ::Ozone::Size& size)
+void Ozone::Window::SetMinClientSize(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxWindow*)__Instance)->SetMinClientSize(__arg0);
 }
 
-void ::Ozone::Window::SetMaxClientSize(const ::Ozone::Size& size)
+void Ozone::Window::SetMaxClientSize(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxWindow*)__Instance)->SetMaxClientSize(__arg0);
 }
 
-::Ozone::Size ::Ozone::Window::GetMinSize() const
+::Ozone::Size Ozone::Window::GetMinSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetMinSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Window::GetMaxSize() const
+::Ozone::Size Ozone::Window::GetMaxSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetMaxSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Window::GetMinClientSize() const
+::Ozone::Size Ozone::Window::GetMinClientSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetMinClientSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Window::GetMaxClientSize() const
+::Ozone::Size Ozone::Window::GetMaxClientSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetMaxClientSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-int ::Ozone::Window::GetMinWidth() const
+int Ozone::Window::GetMinWidth() const
 {
     int __ret = ((::wxWindow*)__Instance)->GetMinWidth();
     return __ret;
 }
 
-int ::Ozone::Window::GetMinHeight() const
+int Ozone::Window::GetMinHeight() const
 {
     int __ret = ((::wxWindow*)__Instance)->GetMinHeight();
     return __ret;
 }
 
-int ::Ozone::Window::GetMaxWidth() const
+int Ozone::Window::GetMaxWidth() const
 {
     int __ret = ((::wxWindow*)__Instance)->GetMaxWidth();
     return __ret;
 }
 
-int ::Ozone::Window::GetMaxHeight() const
+int Ozone::Window::GetMaxHeight() const
 {
     int __ret = ((::wxWindow*)__Instance)->GetMaxHeight();
     return __ret;
 }
 
-void ::Ozone::Window::SetVirtualSize(const ::Ozone::Size& size)
+void Ozone::Window::SetVirtualSize(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxWindow*)__Instance)->SetVirtualSize(__arg0);
 }
 
-void ::Ozone::Window::SetVirtualSize(int x, int y)
+void Ozone::Window::SetVirtualSize(int x, int y)
 {
     ((::wxWindow*)__Instance)->SetVirtualSize(x, y);
 }
 
-::Ozone::Size ::Ozone::Window::GetVirtualSize() const
+::Ozone::Size Ozone::Window::GetVirtualSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetVirtualSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-void ::Ozone::Window::GetVirtualSize(int* x, int* y) const
+void Ozone::Window::GetVirtualSize(int* x, int* y) const
 {
     int* __arg0 = (int*)x;
     int* __arg1 = (int*)y;
@@ -1000,345 +1000,345 @@ void ::Ozone::Window::GetVirtualSize(int* x, int* y) const
     y = __arg1;
 }
 
-void ::Ozone::Window::DoSetVirtualSize(int x, int y)
+void Ozone::Window::DoSetVirtualSize(int x, int y)
 {
     ((::wxWindow*)__Instance)->DoSetVirtualSize(x, y);
 }
 
-::Ozone::Size ::Ozone::Window::DoGetVirtualSize() const
+::Ozone::Size Ozone::Window::DoGetVirtualSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->DoGetVirtualSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Window::GetBestVirtualSize() const
+::Ozone::Size Ozone::Window::GetBestVirtualSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetBestVirtualSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Window::GetWindowBorderSize() const
+::Ozone::Size Ozone::Window::GetWindowBorderSize() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetWindowBorderSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-bool ::Ozone::Window::InformFirstDirection(int direction, int size, int availableOtherDir)
+bool Ozone::Window::InformFirstDirection(int direction, int size, int availableOtherDir)
 {
     bool __ret = ((::wxWindow*)__Instance)->InformFirstDirection(direction, size, availableOtherDir);
     return __ret;
 }
 
-void ::Ozone::Window::SendSizeEvent(int flags)
+void Ozone::Window::SendSizeEvent(int flags)
 {
     ((::wxWindow*)__Instance)->SendSizeEvent(flags);
 }
 
-void ::Ozone::Window::SendSizeEventToParent(int flags)
+void Ozone::Window::SendSizeEventToParent(int flags)
 {
     ((::wxWindow*)__Instance)->SendSizeEventToParent(flags);
 }
 
-void ::Ozone::Window::PostSizeEvent()
+void Ozone::Window::PostSizeEvent()
 {
     ((::wxWindow*)__Instance)->PostSizeEvent();
 }
 
-void ::Ozone::Window::PostSizeEventToParent()
+void Ozone::Window::PostSizeEventToParent()
 {
     ((::wxWindow*)__Instance)->PostSizeEventToParent();
 }
 
-bool ::Ozone::Window::BeginRepositioningChildren()
+bool Ozone::Window::BeginRepositioningChildren()
 {
     bool __ret = ((::wxWindow*)__Instance)->BeginRepositioningChildren();
     return __ret;
 }
 
-void ::Ozone::Window::EndRepositioningChildren()
+void Ozone::Window::EndRepositioningChildren()
 {
     ((::wxWindow*)__Instance)->EndRepositioningChildren();
 }
 
-bool ::Ozone::Window::Hide()
+bool Ozone::Window::Hide()
 {
     bool __ret = ((::wxWindow*)__Instance)->Hide();
     return __ret;
 }
 
-bool ::Ozone::Window::ShowWithEffect(::Ozone::ShowEffect _0, unsigned int _1)
+bool Ozone::Window::ShowWithEffect(::Ozone::ShowEffect _0, unsigned int _1)
 {
     auto __arg0 = (::wxShowEffect)_0;
     bool __ret = ((::wxWindow*)__Instance)->ShowWithEffect(__arg0, _1);
     return __ret;
 }
 
-bool ::Ozone::Window::HideWithEffect(::Ozone::ShowEffect _0, unsigned int _1)
+bool Ozone::Window::HideWithEffect(::Ozone::ShowEffect _0, unsigned int _1)
 {
     auto __arg0 = (::wxShowEffect)_0;
     bool __ret = ((::wxWindow*)__Instance)->HideWithEffect(__arg0, _1);
     return __ret;
 }
 
-bool ::Ozone::Window::Enable(bool enable)
+bool Ozone::Window::Enable(bool enable)
 {
     bool __ret = ((::wxWindow*)__Instance)->Enable(enable);
     return __ret;
 }
 
-bool ::Ozone::Window::Disable()
+bool Ozone::Window::Disable()
 {
     bool __ret = ((::wxWindow*)__Instance)->Disable();
     return __ret;
 }
 
-bool ::Ozone::Window::IsEnabled() const
+bool Ozone::Window::IsEnabled() const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsEnabled();
     return __ret;
 }
 
-bool ::Ozone::Window::IsThisEnabled() const
+bool Ozone::Window::IsThisEnabled() const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsThisEnabled();
     return __ret;
 }
 
-bool ::Ozone::Window::IsShownOnScreen() const
+bool Ozone::Window::IsShownOnScreen() const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsShownOnScreen();
     return __ret;
 }
 
-void ::Ozone::Window::SetWindowStyleFlag(long style)
+void Ozone::Window::SetWindowStyleFlag(long style)
 {
     ((::wxWindow*)__Instance)->SetWindowStyleFlag(style);
 }
 
-long ::Ozone::Window::GetWindowStyleFlag() const
+long Ozone::Window::GetWindowStyleFlag() const
 {
     long __ret = ((::wxWindow*)__Instance)->GetWindowStyleFlag();
     return __ret;
 }
 
-void ::Ozone::Window::SetWindowStyle(long style)
+void Ozone::Window::SetWindowStyle(long style)
 {
     ((::wxWindow*)__Instance)->SetWindowStyle(style);
 }
 
-long ::Ozone::Window::GetWindowStyle() const
+long Ozone::Window::GetWindowStyle() const
 {
     long __ret = ((::wxWindow*)__Instance)->GetWindowStyle();
     return __ret;
 }
 
-bool ::Ozone::Window::HasFlag(int flag) const
+bool Ozone::Window::HasFlag(int flag) const
 {
     bool __ret = ((::wxWindow*)__Instance)->HasFlag(flag);
     return __ret;
 }
 
-bool ::Ozone::Window::ToggleWindowStyle(int flag)
+bool Ozone::Window::ToggleWindowStyle(int flag)
 {
     bool __ret = ((::wxWindow*)__Instance)->ToggleWindowStyle(flag);
     return __ret;
 }
 
-void ::Ozone::Window::SetExtraStyle(long exStyle)
+void Ozone::Window::SetExtraStyle(long exStyle)
 {
     ((::wxWindow*)__Instance)->SetExtraStyle(exStyle);
 }
 
-long ::Ozone::Window::GetExtraStyle() const
+long Ozone::Window::GetExtraStyle() const
 {
     long __ret = ((::wxWindow*)__Instance)->GetExtraStyle();
     return __ret;
 }
 
-bool ::Ozone::Window::HasExtraStyle(int exFlag) const
+bool Ozone::Window::HasExtraStyle(int exFlag) const
 {
     bool __ret = ((::wxWindow*)__Instance)->HasExtraStyle(exFlag);
     return __ret;
 }
 
-void ::Ozone::Window::SetThemeEnabled(bool enableTheme)
+void Ozone::Window::SetThemeEnabled(bool enableTheme)
 {
     ((::wxWindow*)__Instance)->SetThemeEnabled(enableTheme);
 }
 
-bool ::Ozone::Window::GetThemeEnabled() const
+bool Ozone::Window::GetThemeEnabled() const
 {
     bool __ret = ((::wxWindow*)__Instance)->GetThemeEnabled();
     return __ret;
 }
 
-void ::Ozone::Window::SetFocusFromKbd()
+void Ozone::Window::SetFocusFromKbd()
 {
     ((::wxWindow*)__Instance)->SetFocusFromKbd();
 }
 
-::Ozone::Window* ::Ozone::Window::FindFocus()
+::Ozone::Window* Ozone::Window::FindFocus()
 {
     ::wxWindow* __ret = ::wxWindowBase::FindFocus();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-::Ozone::Window* ::Ozone::Window::DoFindFocus()
+::Ozone::Window* Ozone::Window::DoFindFocus()
 {
     ::wxWindow* __ret = ::wxWindowBase::DoFindFocus();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-bool ::Ozone::Window::HasFocus() const
+bool Ozone::Window::HasFocus() const
 {
     bool __ret = ((::wxWindow*)__Instance)->HasFocus();
     return __ret;
 }
 
-bool ::Ozone::Window::AcceptsFocus() const
+bool Ozone::Window::AcceptsFocus() const
 {
     bool __ret = ((::wxWindow*)__Instance)->AcceptsFocus();
     return __ret;
 }
 
-bool ::Ozone::Window::AcceptsFocusRecursively() const
+bool Ozone::Window::AcceptsFocusRecursively() const
 {
     bool __ret = ((::wxWindow*)__Instance)->AcceptsFocusRecursively();
     return __ret;
 }
 
-bool ::Ozone::Window::AcceptsFocusFromKeyboard() const
+bool Ozone::Window::AcceptsFocusFromKeyboard() const
 {
     bool __ret = ((::wxWindow*)__Instance)->AcceptsFocusFromKeyboard();
     return __ret;
 }
 
-void ::Ozone::Window::DisableFocusFromKeyboard()
+void Ozone::Window::DisableFocusFromKeyboard()
 {
     ((::wxWindow*)__Instance)->DisableFocusFromKeyboard();
 }
 
-bool ::Ozone::Window::CanBeFocused() const
+bool Ozone::Window::CanBeFocused() const
 {
     bool __ret = ((::wxWindow*)__Instance)->CanBeFocused();
     return __ret;
 }
 
-bool ::Ozone::Window::IsFocusable() const
+bool Ozone::Window::IsFocusable() const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsFocusable();
     return __ret;
 }
 
-bool ::Ozone::Window::CanAcceptFocus() const
+bool Ozone::Window::CanAcceptFocus() const
 {
     bool __ret = ((::wxWindow*)__Instance)->CanAcceptFocus();
     return __ret;
 }
 
-bool ::Ozone::Window::CanAcceptFocusFromKeyboard() const
+bool Ozone::Window::CanAcceptFocusFromKeyboard() const
 {
     bool __ret = ((::wxWindow*)__Instance)->CanAcceptFocusFromKeyboard();
     return __ret;
 }
 
-void ::Ozone::Window::EnableVisibleFocus(bool _0)
+void Ozone::Window::EnableVisibleFocus(bool _0)
 {
     ((::wxWindow*)__Instance)->EnableVisibleFocus(_0);
 }
 
-bool ::Ozone::Window::NavigateIn(int flags)
+bool Ozone::Window::NavigateIn(int flags)
 {
     bool __ret = ((::wxWindow*)__Instance)->NavigateIn(flags);
     return __ret;
 }
 
-bool ::Ozone::Window::Navigate(int flags)
+bool Ozone::Window::Navigate(int flags)
 {
     bool __ret = ((::wxWindow*)__Instance)->Navigate(flags);
     return __ret;
 }
 
-bool ::Ozone::Window::HandleAsNavigationKey(const ::Ozone::KeyEvent& event)
+bool Ozone::Window::HandleAsNavigationKey(const ::Ozone::KeyEvent& event)
 {
     auto &__arg0 = *(::wxKeyEvent*)event.__Instance;
     bool __ret = ((::wxWindow*)__Instance)->HandleAsNavigationKey(__arg0);
     return __ret;
 }
 
-void ::Ozone::Window::MoveBeforeInTabOrder(::Ozone::Window* win)
+void Ozone::Window::MoveBeforeInTabOrder(::Ozone::Window* win)
 {
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     ((::wxWindow*)__Instance)->MoveBeforeInTabOrder(__arg0);
 }
 
-void ::Ozone::Window::MoveAfterInTabOrder(::Ozone::Window* win)
+void Ozone::Window::MoveAfterInTabOrder(::Ozone::Window* win)
 {
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     ((::wxWindow*)__Instance)->MoveAfterInTabOrder(__arg0);
 }
 
-::Ozone::Window* ::Ozone::Window::GetPrevSibling() const
+::Ozone::Window* Ozone::Window::GetPrevSibling() const
 {
     ::wxWindow* __ret = ((::wxWindow*)__Instance)->GetPrevSibling();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-::Ozone::Window* ::Ozone::Window::GetNextSibling() const
+::Ozone::Window* Ozone::Window::GetNextSibling() const
 {
     ::wxWindow* __ret = ((::wxWindow*)__Instance)->GetNextSibling();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-::Ozone::Window* ::Ozone::Window::GetParent() const
+::Ozone::Window* Ozone::Window::GetParent() const
 {
     ::wxWindow* __ret = ((::wxWindow*)__Instance)->GetParent();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-::Ozone::Window* ::Ozone::Window::GetGrandParent() const
+::Ozone::Window* Ozone::Window::GetGrandParent() const
 {
     ::wxWindow* __ret = ((::wxWindow*)__Instance)->GetGrandParent();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-bool ::Ozone::Window::IsTopLevel() const
+bool Ozone::Window::IsTopLevel() const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsTopLevel();
     return __ret;
 }
 
-bool ::Ozone::Window::IsClientAreaChild(const ::Ozone::Window* _0) const
+bool Ozone::Window::IsClientAreaChild(const ::Ozone::Window* _0) const
 {
     auto __arg0 = _0 ? (::wxWindow*)_0->__Instance : nullptr;
     bool __ret = ((::wxWindow*)__Instance)->IsClientAreaChild(__arg0);
     return __ret;
 }
 
-::Ozone::Window* ::Ozone::Window::FindWindow(long winid) const
+::Ozone::Window* Ozone::Window::FindWindow(long winid) const
 {
     ::wxWindow* __ret = ((::wxWindow*)__Instance)->FindWindow(winid);
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-::Ozone::Window* ::Ozone::Window::FindWindow(const char* name) const
+::Ozone::Window* Ozone::Window::FindWindow(const char* name) const
 {
     auto __arg0 = name;
     ::wxWindow* __ret = ((::wxWindow*)__Instance)->FindWindow(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-::Ozone::Window* ::Ozone::Window::FindWindowById(long winid, const ::Ozone::Window* parent)
+::Ozone::Window* Ozone::Window::FindWindowById(long winid, const ::Ozone::Window* parent)
 {
     auto __arg1 = parent ? (::wxWindow*)parent->__Instance : nullptr;
     ::wxWindow* __ret = ::wxWindowBase::FindWindowById(winid, __arg1);
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-::Ozone::Window* ::Ozone::Window::FindWindowByName(const char* name, const ::Ozone::Window* parent)
+::Ozone::Window* Ozone::Window::FindWindowByName(const char* name, const ::Ozone::Window* parent)
 {
     auto __arg0 = name;
     auto __arg1 = parent ? (::wxWindow*)parent->__Instance : nullptr;
@@ -1346,7 +1346,7 @@ bool ::Ozone::Window::IsClientAreaChild(const ::Ozone::Window* _0) const
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-::Ozone::Window* ::Ozone::Window::FindWindowByLabel(const char* label, const ::Ozone::Window* parent)
+::Ozone::Window* Ozone::Window::FindWindowByLabel(const char* label, const ::Ozone::Window* parent)
 {
     auto __arg0 = label;
     auto __arg1 = parent ? (::wxWindow*)parent->__Instance : nullptr;
@@ -1354,113 +1354,113 @@ bool ::Ozone::Window::IsClientAreaChild(const ::Ozone::Window* _0) const
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-::Ozone::EvtHandler* ::Ozone::Window::GetEventHandler() const
+::Ozone::EvtHandler* Ozone::Window::GetEventHandler() const
 {
     ::wxEvtHandler* __ret = ((::wxWindow*)__Instance)->GetEventHandler();
     return (__ret == nullptr) ? nullptr : new Ozone::EvtHandler((::wxEvtHandler*)__ret);
 }
 
-void ::Ozone::Window::SetEventHandler(::Ozone::EvtHandler* handler)
+void Ozone::Window::SetEventHandler(::Ozone::EvtHandler* handler)
 {
     auto __arg0 = handler ? (::wxEvtHandler*)handler->__Instance : nullptr;
     ((::wxWindow*)__Instance)->SetEventHandler(__arg0);
 }
 
-void ::Ozone::Window::PushEventHandler(::Ozone::EvtHandler* handler)
+void Ozone::Window::PushEventHandler(::Ozone::EvtHandler* handler)
 {
     auto __arg0 = handler ? (::wxEvtHandler*)handler->__Instance : nullptr;
     ((::wxWindow*)__Instance)->PushEventHandler(__arg0);
 }
 
-::Ozone::EvtHandler* ::Ozone::Window::PopEventHandler(bool deleteHandler)
+::Ozone::EvtHandler* Ozone::Window::PopEventHandler(bool deleteHandler)
 {
     ::wxEvtHandler* __ret = ((::wxWindow*)__Instance)->PopEventHandler(deleteHandler);
     return (__ret == nullptr) ? nullptr : new Ozone::EvtHandler((::wxEvtHandler*)__ret);
 }
 
-bool ::Ozone::Window::RemoveEventHandler(::Ozone::EvtHandler* handler)
+bool Ozone::Window::RemoveEventHandler(::Ozone::EvtHandler* handler)
 {
     auto __arg0 = handler ? (::wxEvtHandler*)handler->__Instance : nullptr;
     bool __ret = ((::wxWindow*)__Instance)->RemoveEventHandler(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Window::ProcessWindowEvent(::Ozone::Event& event)
+bool Ozone::Window::ProcessWindowEvent(::Ozone::Event& event)
 {
     auto &__arg0 = *(::wxEvent*)event.__Instance;
     bool __ret = ((::wxWindow*)__Instance)->ProcessWindowEvent(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Window::ProcessWindowEventLocally(::Ozone::Event& event)
+bool Ozone::Window::ProcessWindowEventLocally(::Ozone::Event& event)
 {
     auto &__arg0 = *(::wxEvent*)event.__Instance;
     bool __ret = ((::wxWindow*)__Instance)->ProcessWindowEventLocally(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Window::HandleWindowEvent(::Ozone::Event& event) const
+bool Ozone::Window::HandleWindowEvent(::Ozone::Event& event) const
 {
     auto &__arg0 = *(::wxEvent*)event.__Instance;
     bool __ret = ((::wxWindow*)__Instance)->HandleWindowEvent(__arg0);
     return __ret;
 }
 
-void ::Ozone::Window::SetNextHandler(::Ozone::EvtHandler* handler)
+void Ozone::Window::SetNextHandler(::Ozone::EvtHandler* handler)
 {
     auto __arg0 = handler ? (::wxEvtHandler*)handler->__Instance : nullptr;
     ((::wxWindow*)__Instance)->SetNextHandler(__arg0);
 }
 
-void ::Ozone::Window::SetPreviousHandler(::Ozone::EvtHandler* handler)
+void Ozone::Window::SetPreviousHandler(::Ozone::EvtHandler* handler)
 {
     auto __arg0 = handler ? (::wxEvtHandler*)handler->__Instance : nullptr;
     ((::wxWindow*)__Instance)->SetPreviousHandler(__arg0);
 }
 
-bool ::Ozone::Window::Validate()
+bool Ozone::Window::Validate()
 {
     bool __ret = ((::wxWindow*)__Instance)->Validate();
     return __ret;
 }
 
-bool ::Ozone::Window::TransferDataToWindow()
+bool Ozone::Window::TransferDataToWindow()
 {
     bool __ret = ((::wxWindow*)__Instance)->TransferDataToWindow();
     return __ret;
 }
 
-bool ::Ozone::Window::TransferDataFromWindow()
+bool Ozone::Window::TransferDataFromWindow()
 {
     bool __ret = ((::wxWindow*)__Instance)->TransferDataFromWindow();
     return __ret;
 }
 
-void ::Ozone::Window::InitDialog()
+void Ozone::Window::InitDialog()
 {
     ((::wxWindow*)__Instance)->InitDialog();
 }
 
-bool ::Ozone::Window::RegisterHotKey(int hotkeyId, int modifiers, int keycode)
+bool Ozone::Window::RegisterHotKey(int hotkeyId, int modifiers, int keycode)
 {
     bool __ret = ((::wxWindow*)__Instance)->RegisterHotKey(hotkeyId, modifiers, keycode);
     return __ret;
 }
 
-bool ::Ozone::Window::UnregisterHotKey(int hotkeyId)
+bool Ozone::Window::UnregisterHotKey(int hotkeyId)
 {
     bool __ret = ((::wxWindow*)__Instance)->UnregisterHotKey(hotkeyId);
     return __ret;
 }
 
-::Ozone::Size ::Ozone::Window::GetDPI() const
+::Ozone::Size Ozone::Window::GetDPI() const
 {
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetDPI();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Window::FromDIP(const ::Ozone::Size& sz) const
+::Ozone::Size Ozone::Window::FromDIP(const ::Ozone::Size& sz) const
 {
     auto &__arg0 = *(::wxSize*)sz.__Instance;
     ::wxSize __ret = ((::wxWindow*)__Instance)->FromDIP(__arg0);
@@ -1468,7 +1468,7 @@ bool ::Ozone::Window::UnregisterHotKey(int hotkeyId)
     return ____ret;
 }
 
-::Ozone::Point ::Ozone::Window::FromDIP(const ::Ozone::Point& pt) const
+::Ozone::Point Ozone::Window::FromDIP(const ::Ozone::Point& pt) const
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ::wxPoint __ret = ((::wxWindow*)__Instance)->FromDIP(__arg0);
@@ -1476,13 +1476,13 @@ bool ::Ozone::Window::UnregisterHotKey(int hotkeyId)
     return ____ret;
 }
 
-int ::Ozone::Window::FromDIP(int d) const
+int Ozone::Window::FromDIP(int d) const
 {
     int __ret = ((::wxWindow*)__Instance)->FromDIP(d);
     return __ret;
 }
 
-::Ozone::Size ::Ozone::Window::ToDIP(const ::Ozone::Size& sz) const
+::Ozone::Size Ozone::Window::ToDIP(const ::Ozone::Size& sz) const
 {
     auto &__arg0 = *(::wxSize*)sz.__Instance;
     ::wxSize __ret = ((::wxWindow*)__Instance)->ToDIP(__arg0);
@@ -1490,7 +1490,7 @@ int ::Ozone::Window::FromDIP(int d) const
     return ____ret;
 }
 
-::Ozone::Point ::Ozone::Window::ToDIP(const ::Ozone::Point& pt) const
+::Ozone::Point Ozone::Window::ToDIP(const ::Ozone::Point& pt) const
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ::wxPoint __ret = ((::wxWindow*)__Instance)->ToDIP(__arg0);
@@ -1498,13 +1498,13 @@ int ::Ozone::Window::FromDIP(int d) const
     return ____ret;
 }
 
-int ::Ozone::Window::ToDIP(int d) const
+int Ozone::Window::ToDIP(int d) const
 {
     int __ret = ((::wxWindow*)__Instance)->ToDIP(d);
     return __ret;
 }
 
-::Ozone::Point ::Ozone::Window::ConvertPixelsToDialog(const ::Ozone::Point& pt) const
+::Ozone::Point Ozone::Window::ConvertPixelsToDialog(const ::Ozone::Point& pt) const
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ::wxPoint __ret = ((::wxWindow*)__Instance)->ConvertPixelsToDialog(__arg0);
@@ -1512,7 +1512,7 @@ int ::Ozone::Window::ToDIP(int d) const
     return ____ret;
 }
 
-::Ozone::Point ::Ozone::Window::ConvertDialogToPixels(const ::Ozone::Point& pt) const
+::Ozone::Point Ozone::Window::ConvertDialogToPixels(const ::Ozone::Point& pt) const
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ::wxPoint __ret = ((::wxWindow*)__Instance)->ConvertDialogToPixels(__arg0);
@@ -1520,7 +1520,7 @@ int ::Ozone::Window::ToDIP(int d) const
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Window::ConvertPixelsToDialog(const ::Ozone::Size& sz) const
+::Ozone::Size Ozone::Window::ConvertPixelsToDialog(const ::Ozone::Size& sz) const
 {
     auto &__arg0 = *(::wxSize*)sz.__Instance;
     ::wxSize __ret = ((::wxWindow*)__Instance)->ConvertPixelsToDialog(__arg0);
@@ -1528,7 +1528,7 @@ int ::Ozone::Window::ToDIP(int d) const
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Window::ConvertDialogToPixels(const ::Ozone::Size& sz) const
+::Ozone::Size Ozone::Window::ConvertDialogToPixels(const ::Ozone::Size& sz) const
 {
     auto &__arg0 = *(::wxSize*)sz.__Instance;
     ::wxSize __ret = ((::wxWindow*)__Instance)->ConvertDialogToPixels(__arg0);
@@ -1536,97 +1536,97 @@ int ::Ozone::Window::ToDIP(int d) const
     return ____ret;
 }
 
-void ::Ozone::Window::CaptureMouse()
+void Ozone::Window::CaptureMouse()
 {
     ((::wxWindow*)__Instance)->CaptureMouse();
 }
 
-void ::Ozone::Window::ReleaseMouse()
+void Ozone::Window::ReleaseMouse()
 {
     ((::wxWindow*)__Instance)->ReleaseMouse();
 }
 
-::Ozone::Window* ::Ozone::Window::GetCapture()
+::Ozone::Window* Ozone::Window::GetCapture()
 {
     ::wxWindow* __ret = ::wxWindowBase::GetCapture();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-bool ::Ozone::Window::HasCapture() const
+bool Ozone::Window::HasCapture() const
 {
     bool __ret = ((::wxWindow*)__Instance)->HasCapture();
     return __ret;
 }
 
-void ::Ozone::Window::RefreshRect(const ::Ozone::Rect& rect, bool eraseBackground)
+void Ozone::Window::RefreshRect(const ::Ozone::Rect& rect, bool eraseBackground)
 {
     auto &__arg0 = *(::wxRect*)rect.__Instance;
     ((::wxWindow*)__Instance)->RefreshRect(__arg0, eraseBackground);
 }
 
-void ::Ozone::Window::Freeze()
+void Ozone::Window::Freeze()
 {
     ((::wxWindow*)__Instance)->Freeze();
 }
 
-void ::Ozone::Window::Thaw()
+void Ozone::Window::Thaw()
 {
     ((::wxWindow*)__Instance)->Thaw();
 }
 
-bool ::Ozone::Window::IsFrozen() const
+bool Ozone::Window::IsFrozen() const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsFrozen();
     return __ret;
 }
 
-void ::Ozone::Window::PrepareDC(::Ozone::DC& _0)
+void Ozone::Window::PrepareDC(::Ozone::DC& _0)
 {
     auto &__arg0 = *(::wxDC*)_0.__Instance;
     ((::wxWindow*)__Instance)->PrepareDC(__arg0);
 }
 
-::Ozone::Rect ::Ozone::Window::GetUpdateClientRect() const
+::Ozone::Rect Ozone::Window::GetUpdateClientRect() const
 {
     ::wxRect __ret = ((::wxWindow*)__Instance)->GetUpdateClientRect();
     auto ____ret = new ::wxRect(__ret);
     return ____ret;
 }
 
-bool ::Ozone::Window::IsExposed(int x, int y) const
+bool Ozone::Window::IsExposed(int x, int y) const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsExposed(x, y);
     return __ret;
 }
 
-bool ::Ozone::Window::IsExposed(int x, int y, int w, int h) const
+bool Ozone::Window::IsExposed(int x, int y, int w, int h) const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsExposed(x, y, w, h);
     return __ret;
 }
 
-bool ::Ozone::Window::IsExposed(const ::Ozone::Point& pt) const
+bool Ozone::Window::IsExposed(const ::Ozone::Point& pt) const
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     bool __ret = ((::wxWindow*)__Instance)->IsExposed(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Window::IsExposed(const ::Ozone::Rect& rect) const
+bool Ozone::Window::IsExposed(const ::Ozone::Rect& rect) const
 {
     auto &__arg0 = *(::wxRect*)rect.__Instance;
     bool __ret = ((::wxWindow*)__Instance)->IsExposed(__arg0);
     return __ret;
 }
 
-::Ozone::VisualAttributes ::Ozone::Window::GetDefaultAttributes() const
+::Ozone::VisualAttributes Ozone::Window::GetDefaultAttributes() const
 {
     ::wxVisualAttributes __ret = ((::wxWindow*)__Instance)->GetDefaultAttributes();
     auto ____ret = new ::wxVisualAttributes(__ret);
     return ____ret;
 }
 
-::Ozone::VisualAttributes ::Ozone::Window::GetClassDefaultAttributes(::Ozone::WindowVariant variant)
+::Ozone::VisualAttributes Ozone::Window::GetClassDefaultAttributes(::Ozone::WindowVariant variant)
 {
     auto __arg0 = (::wxWindowVariant)variant;
     ::wxVisualAttributes __ret = ::wxWindowBase::GetClassDefaultAttributes(__arg0);
@@ -1634,75 +1634,75 @@ bool ::Ozone::Window::IsExposed(const ::Ozone::Rect& rect) const
     return ____ret;
 }
 
-void ::Ozone::Window::SetOwnBackgroundColour(const ::Ozone::Color& colour)
+void Ozone::Window::SetOwnBackgroundColour(const ::Ozone::Color& colour)
 {
     auto &__arg0 = *(::wxColour*)colour.__Instance;
     ((::wxWindow*)__Instance)->SetOwnBackgroundColour(__arg0);
 }
 
-::Ozone::Color ::Ozone::Window::GetBackgroundColour() const
+::Ozone::Color Ozone::Window::GetBackgroundColour() const
 {
     ::wxColour __ret = ((::wxWindow*)__Instance)->GetBackgroundColour();
     auto ____ret = new ::wxColour(__ret);
     return ____ret;
 }
 
-bool ::Ozone::Window::InheritsBackgroundColour() const
+bool Ozone::Window::InheritsBackgroundColour() const
 {
     bool __ret = ((::wxWindow*)__Instance)->InheritsBackgroundColour();
     return __ret;
 }
 
-bool ::Ozone::Window::UseBgCol() const
+bool Ozone::Window::UseBgCol() const
 {
     bool __ret = ((::wxWindow*)__Instance)->UseBgCol();
     return __ret;
 }
 
-bool ::Ozone::Window::UseBackgroundColour() const
+bool Ozone::Window::UseBackgroundColour() const
 {
     bool __ret = ((::wxWindow*)__Instance)->UseBackgroundColour();
     return __ret;
 }
 
-void ::Ozone::Window::SetOwnForegroundColour(const ::Ozone::Color& colour)
+void Ozone::Window::SetOwnForegroundColour(const ::Ozone::Color& colour)
 {
     auto &__arg0 = *(::wxColour*)colour.__Instance;
     ((::wxWindow*)__Instance)->SetOwnForegroundColour(__arg0);
 }
 
-::Ozone::Color ::Ozone::Window::GetForegroundColour() const
+::Ozone::Color Ozone::Window::GetForegroundColour() const
 {
     ::wxColour __ret = ((::wxWindow*)__Instance)->GetForegroundColour();
     auto ____ret = new ::wxColour(__ret);
     return ____ret;
 }
 
-bool ::Ozone::Window::UseForegroundColour() const
+bool Ozone::Window::UseForegroundColour() const
 {
     bool __ret = ((::wxWindow*)__Instance)->UseForegroundColour();
     return __ret;
 }
 
-bool ::Ozone::Window::InheritsForegroundColour() const
+bool Ozone::Window::InheritsForegroundColour() const
 {
     bool __ret = ((::wxWindow*)__Instance)->InheritsForegroundColour();
     return __ret;
 }
 
-::Ozone::BackgroundStyle ::Ozone::Window::GetBackgroundStyle() const
+::Ozone::BackgroundStyle Ozone::Window::GetBackgroundStyle() const
 {
     ::wxBackgroundStyle __ret = ((::wxWindow*)__Instance)->GetBackgroundStyle();
     return (::Ozone::BackgroundStyle)__ret;
 }
 
-bool ::Ozone::Window::HasTransparentBackground()
+bool Ozone::Window::HasTransparentBackground()
 {
     bool __ret = ((::wxWindow*)__Instance)->HasTransparentBackground();
     return __ret;
 }
 
-::Ozone::Size ::Ozone::Window::GetTextExtent(const char* string) const
+::Ozone::Size Ozone::Window::GetTextExtent(const char* string) const
 {
     auto __arg0 = string;
     ::wxSize __ret = ((::wxWindow*)__Instance)->GetTextExtent(__arg0);
@@ -1710,7 +1710,7 @@ bool ::Ozone::Window::HasTransparentBackground()
     return ____ret;
 }
 
-void ::Ozone::Window::ClientToScreen(int* x, int* y) const
+void Ozone::Window::ClientToScreen(int* x, int* y) const
 {
     int* __arg0 = (int*)x;
     int* __arg1 = (int*)y;
@@ -1719,7 +1719,7 @@ void ::Ozone::Window::ClientToScreen(int* x, int* y) const
     y = __arg1;
 }
 
-void ::Ozone::Window::ScreenToClient(int* x, int* y) const
+void Ozone::Window::ScreenToClient(int* x, int* y) const
 {
     int* __arg0 = (int*)x;
     int* __arg1 = (int*)y;
@@ -1728,7 +1728,7 @@ void ::Ozone::Window::ScreenToClient(int* x, int* y) const
     y = __arg1;
 }
 
-::Ozone::Point ::Ozone::Window::ClientToScreen(const ::Ozone::Point& pt) const
+::Ozone::Point Ozone::Window::ClientToScreen(const ::Ozone::Point& pt) const
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ::wxPoint __ret = ((::wxWindow*)__Instance)->ClientToScreen(__arg0);
@@ -1736,7 +1736,7 @@ void ::Ozone::Window::ScreenToClient(int* x, int* y) const
     return ____ret;
 }
 
-::Ozone::Point ::Ozone::Window::ScreenToClient(const ::Ozone::Point& pt) const
+::Ozone::Point Ozone::Window::ScreenToClient(const ::Ozone::Point& pt) const
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ::wxPoint __ret = ((::wxWindow*)__Instance)->ScreenToClient(__arg0);
@@ -1744,7 +1744,7 @@ void ::Ozone::Window::ScreenToClient(int* x, int* y) const
     return ____ret;
 }
 
-::Ozone::HitTest ::Ozone::Window::HitTest(int x, int y) const
+::Ozone::HitTest Ozone::Window::HitTest(int x, int y) const
 {
     auto __arg0 = (::wxCoord)x;
     auto __arg1 = (::wxCoord)y;
@@ -1752,96 +1752,96 @@ void ::Ozone::Window::ScreenToClient(int* x, int* y) const
     return (::Ozone::HitTest)__ret;
 }
 
-::Ozone::HitTest ::Ozone::Window::HitTest(const ::Ozone::Point& pt) const
+::Ozone::HitTest Ozone::Window::HitTest(const ::Ozone::Point& pt) const
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     ::wxHitTest __ret = ((::wxWindow*)__Instance)->HitTest(__arg0);
     return (::Ozone::HitTest)__ret;
 }
 
-::Ozone::Border ::Ozone::Window::GetBorder(long flags) const
+::Ozone::Border Ozone::Window::GetBorder(long flags) const
 {
     ::wxBorder __ret = ((::wxWindow*)__Instance)->GetBorder(flags);
     return (::Ozone::Border)__ret;
 }
 
-::Ozone::Border ::Ozone::Window::GetBorder() const
+::Ozone::Border Ozone::Window::GetBorder() const
 {
     ::wxBorder __ret = ((::wxWindow*)__Instance)->GetBorder();
     return (::Ozone::Border)__ret;
 }
 
-void ::Ozone::Window::UpdateWindowUI(long flags)
+void Ozone::Window::UpdateWindowUI(long flags)
 {
     ((::wxWindow*)__Instance)->UpdateWindowUI(flags);
 }
 
-void ::Ozone::Window::DoUpdateWindowUI(::Ozone::UpdateUIEvent& event)
+void Ozone::Window::DoUpdateWindowUI(::Ozone::UpdateUIEvent& event)
 {
     auto &__arg0 = *(::wxUpdateUIEvent*)event.__Instance;
     ((::wxWindow*)__Instance)->DoUpdateWindowUI(__arg0);
 }
 
-bool ::Ozone::Window::HasMultiplePages() const
+bool Ozone::Window::HasMultiplePages() const
 {
     bool __ret = ((::wxWindow*)__Instance)->HasMultiplePages();
     return __ret;
 }
 
-bool ::Ozone::Window::CanScroll(int orient) const
+bool Ozone::Window::CanScroll(int orient) const
 {
     bool __ret = ((::wxWindow*)__Instance)->CanScroll(orient);
     return __ret;
 }
 
-bool ::Ozone::Window::HasScrollbar(int orient) const
+bool Ozone::Window::HasScrollbar(int orient) const
 {
     bool __ret = ((::wxWindow*)__Instance)->HasScrollbar(orient);
     return __ret;
 }
 
-bool ::Ozone::Window::LineUp()
+bool Ozone::Window::LineUp()
 {
     bool __ret = ((::wxWindow*)__Instance)->LineUp();
     return __ret;
 }
 
-bool ::Ozone::Window::LineDown()
+bool Ozone::Window::LineDown()
 {
     bool __ret = ((::wxWindow*)__Instance)->LineDown();
     return __ret;
 }
 
-bool ::Ozone::Window::PageUp()
+bool Ozone::Window::PageUp()
 {
     bool __ret = ((::wxWindow*)__Instance)->PageUp();
     return __ret;
 }
 
-bool ::Ozone::Window::PageDown()
+bool Ozone::Window::PageDown()
 {
     bool __ret = ((::wxWindow*)__Instance)->PageDown();
     return __ret;
 }
 
-void ::Ozone::Window::AlwaysShowScrollbars(bool _0, bool _1)
+void Ozone::Window::AlwaysShowScrollbars(bool _0, bool _1)
 {
     ((::wxWindow*)__Instance)->AlwaysShowScrollbars(_0, _1);
 }
 
-bool ::Ozone::Window::IsScrollbarAlwaysShown(int _0) const
+bool Ozone::Window::IsScrollbarAlwaysShown(int _0) const
 {
     bool __ret = ((::wxWindow*)__Instance)->IsScrollbarAlwaysShown(_0);
     return __ret;
 }
 
-void ::Ozone::Window::SetHelpText(const char* text)
+void Ozone::Window::SetHelpText(const char* text)
 {
     auto __arg0 = text;
     ((::wxWindow*)__Instance)->SetHelpText(__arg0);
 }
 
-const char* ::Ozone::Window::GetHelpTextAtPoint(const ::Ozone::Point& pt, ::Ozone::HelpEvent::Source origin) const
+const char* Ozone::Window::GetHelpTextAtPoint(const ::Ozone::Point& pt, ::Ozone::HelpEvent::Source origin) const
 {
     auto &__arg0 = *(::wxPoint*)pt.__Instance;
     auto __arg1 = (::wxHelpEvent::Origin)origin;
@@ -1849,56 +1849,56 @@ const char* ::Ozone::Window::GetHelpTextAtPoint(const ::Ozone::Point& pt, ::Ozon
     return strdup(__ret.utf8_str().data());
 }
 
-const char* ::Ozone::Window::GetHelpText() const
+const char* Ozone::Window::GetHelpText() const
 {
     ::wxString __ret = ((::wxWindow*)__Instance)->GetHelpText();
     return strdup(__ret.utf8_str().data());
 }
 
-void ::Ozone::Window::SetToolTip(const char* tip)
+void Ozone::Window::SetToolTip(const char* tip)
 {
     auto __arg0 = tip;
     ((::wxWindow*)__Instance)->SetToolTip(__arg0);
 }
 
-void ::Ozone::Window::UnsetToolTip()
+void Ozone::Window::UnsetToolTip()
 {
     ((::wxWindow*)__Instance)->UnsetToolTip();
 }
 
-const char* ::Ozone::Window::GetToolTipText() const
+const char* Ozone::Window::GetToolTipText() const
 {
     ::wxString __ret = ((::wxWindow*)__Instance)->GetToolTipText();
     return strdup(__ret.utf8_str().data());
 }
 
-void ::Ozone::Window::DragAcceptFiles(bool accept)
+void Ozone::Window::DragAcceptFiles(bool accept)
 {
     ((::wxWindow*)__Instance)->DragAcceptFiles(accept);
 }
 
-::Ozone::WindowList* ::Ozone::Window::GetConstraintsInvolvedIn() const
+::Ozone::WindowList* Ozone::Window::GetConstraintsInvolvedIn() const
 {
     ::wxWindowList* __ret = ((::wxWindow*)__Instance)->GetConstraintsInvolvedIn();
     return (__ret == nullptr) ? nullptr : new Ozone::WindowList((::wxWindowList*)__ret);
 }
 
-void ::Ozone::Window::DeleteRelatedConstraints()
+void Ozone::Window::DeleteRelatedConstraints()
 {
     ((::wxWindow*)__Instance)->DeleteRelatedConstraints();
 }
 
-void ::Ozone::Window::ResetConstraints()
+void Ozone::Window::ResetConstraints()
 {
     ((::wxWindow*)__Instance)->ResetConstraints();
 }
 
-void ::Ozone::Window::SetConstraintSizes(bool recurse)
+void Ozone::Window::SetConstraintSizes(bool recurse)
 {
     ((::wxWindow*)__Instance)->SetConstraintSizes(recurse);
 }
 
-bool ::Ozone::Window::LayoutPhase1(int* noChanges)
+bool Ozone::Window::LayoutPhase1(int* noChanges)
 {
     int* __arg0 = (int*)noChanges;
     bool __ret = ((::wxWindow*)__Instance)->LayoutPhase1(__arg0);
@@ -1906,7 +1906,7 @@ bool ::Ozone::Window::LayoutPhase1(int* noChanges)
     return __ret;
 }
 
-bool ::Ozone::Window::LayoutPhase2(int* noChanges)
+bool Ozone::Window::LayoutPhase2(int* noChanges)
 {
     int* __arg0 = (int*)noChanges;
     bool __ret = ((::wxWindow*)__Instance)->LayoutPhase2(__arg0);
@@ -1914,23 +1914,23 @@ bool ::Ozone::Window::LayoutPhase2(int* noChanges)
     return __ret;
 }
 
-bool ::Ozone::Window::DoPhase(int phase)
+bool Ozone::Window::DoPhase(int phase)
 {
     bool __ret = ((::wxWindow*)__Instance)->DoPhase(phase);
     return __ret;
 }
 
-void ::Ozone::Window::SetSizeConstraint(int x, int y, int w, int h)
+void Ozone::Window::SetSizeConstraint(int x, int y, int w, int h)
 {
     ((::wxWindow*)__Instance)->SetSizeConstraint(x, y, w, h);
 }
 
-void ::Ozone::Window::MoveConstraint(int x, int y)
+void Ozone::Window::MoveConstraint(int x, int y)
 {
     ((::wxWindow*)__Instance)->MoveConstraint(x, y);
 }
 
-void ::Ozone::Window::GetSizeConstraint(int* w, int* h) const
+void Ozone::Window::GetSizeConstraint(int* w, int* h) const
 {
     int* __arg0 = (int*)w;
     int* __arg1 = (int*)h;
@@ -1939,7 +1939,7 @@ void ::Ozone::Window::GetSizeConstraint(int* w, int* h) const
     h = __arg1;
 }
 
-void ::Ozone::Window::GetClientSizeConstraint(int* w, int* h) const
+void Ozone::Window::GetClientSizeConstraint(int* w, int* h) const
 {
     int* __arg0 = (int*)w;
     int* __arg1 = (int*)h;
@@ -1948,7 +1948,7 @@ void ::Ozone::Window::GetClientSizeConstraint(int* w, int* h) const
     h = __arg1;
 }
 
-void ::Ozone::Window::GetPositionConstraint(int* x, int* y) const
+void Ozone::Window::GetPositionConstraint(int* x, int* y) const
 {
     int* __arg0 = (int*)x;
     int* __arg1 = (int*)y;
@@ -1957,146 +1957,146 @@ void ::Ozone::Window::GetPositionConstraint(int* x, int* y) const
     y = __arg1;
 }
 
-void ::Ozone::Window::SetAutoLayout(bool autoLayout)
+void Ozone::Window::SetAutoLayout(bool autoLayout)
 {
     ((::wxWindow*)__Instance)->SetAutoLayout(autoLayout);
 }
 
-bool ::Ozone::Window::GetAutoLayout() const
+bool Ozone::Window::GetAutoLayout() const
 {
     bool __ret = ((::wxWindow*)__Instance)->GetAutoLayout();
     return __ret;
 }
 
-bool ::Ozone::Window::Layout()
+bool Ozone::Window::Layout()
 {
     bool __ret = ((::wxWindow*)__Instance)->Layout();
     return __ret;
 }
 
-void ::Ozone::Window::SetSizer(::Ozone::Sizer* sizer, bool deleteOld)
+void Ozone::Window::SetSizer(::Ozone::Sizer* sizer, bool deleteOld)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     ((::wxWindow*)__Instance)->SetSizer(__arg0, deleteOld);
 }
 
-void ::Ozone::Window::SetSizerAndFit(::Ozone::Sizer* sizer, bool deleteOld)
+void Ozone::Window::SetSizerAndFit(::Ozone::Sizer* sizer, bool deleteOld)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     ((::wxWindow*)__Instance)->SetSizerAndFit(__arg0, deleteOld);
 }
 
-::Ozone::Sizer* ::Ozone::Window::GetSizer() const
+::Ozone::Sizer* Ozone::Window::GetSizer() const
 {
     ::wxSizer* __ret = ((::wxWindow*)__Instance)->GetSizer();
     return (__ret == nullptr) ? nullptr : new Ozone::Sizer((::wxSizer*)__ret);
 }
 
-void ::Ozone::Window::SetContainingSizer(::Ozone::Sizer* sizer)
+void Ozone::Window::SetContainingSizer(::Ozone::Sizer* sizer)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     ((::wxWindow*)__Instance)->SetContainingSizer(__arg0);
 }
 
-::Ozone::Sizer* ::Ozone::Window::GetContainingSizer() const
+::Ozone::Sizer* Ozone::Window::GetContainingSizer() const
 {
     ::wxSizer* __ret = ((::wxWindow*)__Instance)->GetContainingSizer();
     return (__ret == nullptr) ? nullptr : new Ozone::Sizer((::wxSizer*)__ret);
 }
 
-bool ::Ozone::Window::SetTransparent(unsigned char _0)
+bool Ozone::Window::SetTransparent(unsigned char _0)
 {
     auto __arg0 = (::wxByte)(::wxUint8)_0;
     bool __ret = ((::wxWindow*)__Instance)->SetTransparent(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Window::CanSetTransparent()
+bool Ozone::Window::CanSetTransparent()
 {
     bool __ret = ((::wxWindow*)__Instance)->CanSetTransparent();
     return __ret;
 }
 
-void ::Ozone::Window::OnInitDialog(::Ozone::InitDialogEvent& event)
+void Ozone::Window::OnInitDialog(::Ozone::InitDialogEvent& event)
 {
     auto &__arg0 = *(::wxInitDialogEvent*)event.__Instance;
     ((::wxWindow*)__Instance)->OnInitDialog(__arg0);
 }
 
-void ::Ozone::Window::OnMiddleClick(::Ozone::MouseEvent& event)
+void Ozone::Window::OnMiddleClick(::Ozone::MouseEvent& event)
 {
     auto &__arg0 = *(::wxMouseEvent*)event.__Instance;
     ((::wxWindow*)__Instance)->OnMiddleClick(__arg0);
 }
 
-bool ::Ozone::Window::SendIdleEvents(::Ozone::IdleEvent& event)
+bool Ozone::Window::SendIdleEvents(::Ozone::IdleEvent& event)
 {
     auto &__arg0 = *(::wxIdleEvent*)event.__Instance;
     bool __ret = ((::wxWindow*)__Instance)->SendIdleEvents(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Window::WXSendContextMenuEvent(const ::Ozone::Point& posInScreenCoords)
+bool Ozone::Window::WXSendContextMenuEvent(const ::Ozone::Point& posInScreenCoords)
 {
     auto &__arg0 = *(::wxPoint*)posInScreenCoords.__Instance;
     bool __ret = ((::wxWindow*)__Instance)->WXSendContextMenuEvent(__arg0);
     return __ret;
 }
 
-void ::Ozone::Window::DissociateHandle()
+void Ozone::Window::DissociateHandle()
 {
     ((::wxWindow*)__Instance)->DissociateHandle();
 }
 
-bool ::Ozone::Window::HasCustomPalette() const
+bool Ozone::Window::HasCustomPalette() const
 {
     bool __ret = ((::wxWindow*)__Instance)->HasCustomPalette();
     return __ret;
 }
 
-::Ozone::Window* ::Ozone::Window::GetAncestorWithCustomPalette() const
+::Ozone::Window* Ozone::Window::GetAncestorWithCustomPalette() const
 {
     ::wxWindow* __ret = ((::wxWindow*)__Instance)->GetAncestorWithCustomPalette();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-void ::Ozone::Window::InheritAttributes()
+void Ozone::Window::InheritAttributes()
 {
     ((::wxWindow*)__Instance)->InheritAttributes();
 }
 
-bool ::Ozone::Window::ShouldInheritColours() const
+bool Ozone::Window::ShouldInheritColours() const
 {
     bool __ret = ((::wxWindow*)__Instance)->ShouldInheritColours();
     return __ret;
 }
 
-bool ::Ozone::Window::CanBeOutsideClientArea() const
+bool Ozone::Window::CanBeOutsideClientArea() const
 {
     bool __ret = ((::wxWindow*)__Instance)->CanBeOutsideClientArea();
     return __ret;
 }
 
-bool ::Ozone::Window::CanApplyThemeBorder() const
+bool Ozone::Window::CanApplyThemeBorder() const
 {
     bool __ret = ((::wxWindow*)__Instance)->CanApplyThemeBorder();
     return __ret;
 }
 
-::Ozone::Window* ::Ozone::Window::GetMainWindowOfCompositeControl()
+::Ozone::Window* Ozone::Window::GetMainWindowOfCompositeControl()
 {
     ::wxWindow* __ret = ((::wxWindow*)__Instance)->GetMainWindowOfCompositeControl();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-bool ::Ozone::Window::IsTopNavigationDomain(::Ozone::Window::NavigationKind _0) const
+bool Ozone::Window::IsTopNavigationDomain(::Ozone::Window::NavigationKind _0) const
 {
     auto __arg0 = (::wxWindowBase::NavigationKind)_0;
     bool __ret = ((::wxWindow*)__Instance)->IsTopNavigationDomain(__arg0);
     return __ret;
 }
 
-int ::Ozone::Window::HandleEvent(::wxEvent& event)
+int Ozone::Window::HandleEvent(::wxEvent& event)
 {
     wxEventType eventType = event.GetEventType();
 
@@ -2437,207 +2437,207 @@ int ::Ozone::Window::HandleEvent(::wxEvent& event)
     return EvtHandler::HandleEvent(event);
 }
 
-int ::Ozone::Window::get_m_x()
+int Ozone::Window::get_m_x()
 {
     int __ret = ((::wxWindow*)__Instance)->m_x;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_x(int value)
+void Ozone::Window::set_m_x(int value)
 {
     ((::wxWindow*)__Instance)->m_x = value;
 }
 
-int ::Ozone::Window::get_m_y()
+int Ozone::Window::get_m_y()
 {
     int __ret = ((::wxWindow*)__Instance)->m_y;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_y(int value)
+void Ozone::Window::set_m_y(int value)
 {
     ((::wxWindow*)__Instance)->m_y = value;
 }
 
-int ::Ozone::Window::get_m_width()
+int Ozone::Window::get_m_width()
 {
     int __ret = ((::wxWindow*)__Instance)->m_width;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_width(int value)
+void Ozone::Window::set_m_width(int value)
 {
     ((::wxWindow*)__Instance)->m_width = value;
 }
 
-int ::Ozone::Window::get_m_height()
+int Ozone::Window::get_m_height()
 {
     int __ret = ((::wxWindow*)__Instance)->m_height;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_height(int value)
+void Ozone::Window::set_m_height(int value)
 {
     ((::wxWindow*)__Instance)->m_height = value;
 }
 
-int ::Ozone::Window::get_m_clientWidth()
+int Ozone::Window::get_m_clientWidth()
 {
     int __ret = ((::wxWindow*)__Instance)->m_clientWidth;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_clientWidth(int value)
+void Ozone::Window::set_m_clientWidth(int value)
 {
     ((::wxWindow*)__Instance)->m_clientWidth = value;
 }
 
-int ::Ozone::Window::get_m_clientHeight()
+int Ozone::Window::get_m_clientHeight()
 {
     int __ret = ((::wxWindow*)__Instance)->m_clientHeight;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_clientHeight(int value)
+void Ozone::Window::set_m_clientHeight(int value)
 {
     ((::wxWindow*)__Instance)->m_clientHeight = value;
 }
 
-bool ::Ozone::Window::get_m_useCachedClientSize()
+bool Ozone::Window::get_m_useCachedClientSize()
 {
     bool __ret = ((::wxWindow*)__Instance)->m_useCachedClientSize;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_useCachedClientSize(bool value)
+void Ozone::Window::set_m_useCachedClientSize(bool value)
 {
     ((::wxWindow*)__Instance)->m_useCachedClientSize = value;
 }
 
-bool ::Ozone::Window::get_m_isGtkPositionValid()
+bool Ozone::Window::get_m_isGtkPositionValid()
 {
     bool __ret = ((::wxWindow*)__Instance)->m_isGtkPositionValid;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_isGtkPositionValid(bool value)
+void Ozone::Window::set_m_isGtkPositionValid(bool value)
 {
     ((::wxWindow*)__Instance)->m_isGtkPositionValid = value;
 }
 
-const char* ::Ozone::Window::get_m_gtkLabel()
+const char* Ozone::Window::get_m_gtkLabel()
 {
     ::wxString __ret = ((::wxWindow*)__Instance)->m_gtkLabel;
     return strdup(__ret.utf8_str().data());
 }
 
 
-void ::Ozone::Window::set_m_gtkLabel(const char* value)
+void Ozone::Window::set_m_gtkLabel(const char* value)
 {
     auto __arg0 = value;
     ((::wxWindow*)__Instance)->m_gtkLabel = __arg0;
 }
 
-bool ::Ozone::Window::get_m_noExpose()
+bool Ozone::Window::get_m_noExpose()
 {
     bool __ret = ((::wxWindow*)__Instance)->m_noExpose;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_noExpose(bool value)
+void Ozone::Window::set_m_noExpose(bool value)
 {
     ((::wxWindow*)__Instance)->m_noExpose = value;
 }
 
-bool ::Ozone::Window::get_m_nativeSizeEvent()
+bool Ozone::Window::get_m_nativeSizeEvent()
 {
     bool __ret = ((::wxWindow*)__Instance)->m_nativeSizeEvent;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_nativeSizeEvent(bool value)
+void Ozone::Window::set_m_nativeSizeEvent(bool value)
 {
     ((::wxWindow*)__Instance)->m_nativeSizeEvent = value;
 }
 
-bool ::Ozone::Window::get_m_isScrolling()
+bool Ozone::Window::get_m_isScrolling()
 {
     bool __ret = ((::wxWindow*)__Instance)->m_isScrolling;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_isScrolling(bool value)
+void Ozone::Window::set_m_isScrolling(bool value)
 {
     ((::wxWindow*)__Instance)->m_isScrolling = value;
 }
 
-bool ::Ozone::Window::get_m_clipPaintRegion()
+bool Ozone::Window::get_m_clipPaintRegion()
 {
     bool __ret = ((::wxWindow*)__Instance)->m_clipPaintRegion;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_clipPaintRegion(bool value)
+void Ozone::Window::set_m_clipPaintRegion(bool value)
 {
     ((::wxWindow*)__Instance)->m_clipPaintRegion = value;
 }
 
-bool ::Ozone::Window::get_m_dirtyTabOrder()
+bool Ozone::Window::get_m_dirtyTabOrder()
 {
     bool __ret = ((::wxWindow*)__Instance)->m_dirtyTabOrder;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_dirtyTabOrder(bool value)
+void Ozone::Window::set_m_dirtyTabOrder(bool value)
 {
     ((::wxWindow*)__Instance)->m_dirtyTabOrder = value;
 }
 
-bool ::Ozone::Window::get_m_mouseButtonDown()
+bool Ozone::Window::get_m_mouseButtonDown()
 {
     bool __ret = ((::wxWindow*)__Instance)->m_mouseButtonDown;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_mouseButtonDown(bool value)
+void Ozone::Window::set_m_mouseButtonDown(bool value)
 {
     ((::wxWindow*)__Instance)->m_mouseButtonDown = value;
 }
 
-bool ::Ozone::Window::get_m_showOnIdle()
+bool Ozone::Window::get_m_showOnIdle()
 {
     bool __ret = ((::wxWindow*)__Instance)->m_showOnIdle;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_showOnIdle(bool value)
+void Ozone::Window::set_m_showOnIdle(bool value)
 {
     ((::wxWindow*)__Instance)->m_showOnIdle = value;
 }
 
-bool ::Ozone::Window::get_m_needCursorReset()
+bool Ozone::Window::get_m_needCursorReset()
 {
     bool __ret = ((::wxWindow*)__Instance)->m_needCursorReset;
     return __ret;
 }
 
 
-void ::Ozone::Window::set_m_needCursorReset(bool value)
+void Ozone::Window::set_m_needCursorReset(bool value)
 {
     ((::wxWindow*)__Instance)->m_needCursorReset = value;
 }

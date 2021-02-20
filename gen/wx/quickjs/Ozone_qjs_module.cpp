@@ -23,6 +23,7 @@ extern void register_ozone_app(JSContext *ctx, JSModuleDef *m, bool set, int pha
 extern void register_ozone_toplevel(JSContext *ctx, JSModuleDef *m, bool set, int phase);
 extern void register_ozone_window(JSContext *ctx, JSModuleDef *m, bool set, int phase);
 extern void register_ozone_graphics(JSContext *ctx, JSModuleDef *m, bool set, int phase);
+extern void register_ozone_webview(JSContext *ctx, JSModuleDef *m, bool set, int phase);
 extern void register_ozone_defs(JSContext *ctx, JSModuleDef *m, bool set, int phase);
 extern void register_ozone_dcclient(JSContext *ctx, JSModuleDef *m, bool set, int phase);
 extern void register_ozone_nonownedwnd(JSContext *ctx, JSModuleDef *m, bool set, int phase);
@@ -51,6 +52,7 @@ static int js_Ozone_init(JSContext* ctx, JSModuleDef* m)
         register_ozone_toplevel(ctx, m, /*set=*/true, phase);
         register_ozone_window(ctx, m, /*set=*/true, phase);
         register_ozone_graphics(ctx, m, /*set=*/true, phase);
+        register_ozone_webview(ctx, m, /*set=*/true, phase);
         register_ozone_defs(ctx, m, /*set=*/true, phase);
         register_ozone_dcclient(ctx, m, /*set=*/true, phase);
         register_ozone_nonownedwnd(ctx, m, /*set=*/true, phase);
@@ -90,6 +92,7 @@ extern "C" JSModuleDef *JS_INIT_MODULE(JSContext *ctx, const char *module_name)
     register_ozone_toplevel(ctx, m, /*set=*/false, 0);
     register_ozone_window(ctx, m, /*set=*/false, 0);
     register_ozone_graphics(ctx, m, /*set=*/false, 0);
+    register_ozone_webview(ctx, m, /*set=*/false, 0);
     register_ozone_defs(ctx, m, /*set=*/false, 0);
     register_ozone_dcclient(ctx, m, /*set=*/false, 0);
     register_ozone_nonownedwnd(ctx, m, /*set=*/false, 0);

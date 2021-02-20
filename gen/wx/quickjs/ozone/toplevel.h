@@ -46,7 +46,7 @@ enum class UserAttention : unsigned int
     ERROR = 2
 };
 
-class TopLevelWindow : public Ozone::Ozone::NonOwnedWindow
+class TopLevelWindow : public ::Ozone::Ozone::NonOwnedWindow
 {
 public:
 

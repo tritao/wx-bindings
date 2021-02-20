@@ -25,7 +25,7 @@
 {
 }
 
-::Ozone::FileDialog::FileDialog()
+Ozone::FileDialog::FileDialog()
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxFileDialog();
@@ -35,7 +35,7 @@
         __instance->SetClientData(this);
 }
 
-::Ozone::FileDialog::FileDialog(::Ozone::Window* parent, const char* message, const char* defaultDir, const char* defaultFile, const char* wildCard, long style, const ::Ozone::Point& pos, const ::Ozone::Size& sz, const char* name)
+Ozone::FileDialog::FileDialog(::Ozone::Window* parent, const char* message, const char* defaultDir, const char* defaultFile, const char* wildCard, long style, const ::Ozone::Point& pos, const ::Ozone::Size& sz, const char* name)
 {
     __OwnsNativeInstance = true;
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
@@ -53,7 +53,7 @@
         __instance->SetClientData(this);
 }
 
-bool ::Ozone::FileDialog::Create(::Ozone::Window* parent, const char* message, const char* defaultDir, const char* defaultFile, const char* wildCard, long style, const ::Ozone::Point& pos, const ::Ozone::Size& sz, const char* name)
+bool Ozone::FileDialog::Create(::Ozone::Window* parent, const char* message, const char* defaultDir, const char* defaultFile, const char* wildCard, long style, const ::Ozone::Point& pos, const ::Ozone::Size& sz, const char* name)
 {
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
     auto __arg1 = message;
@@ -67,114 +67,114 @@ bool ::Ozone::FileDialog::Create(::Ozone::Window* parent, const char* message, c
     return __ret;
 }
 
-const char* ::Ozone::FileDialog::GetPath() const
+const char* Ozone::FileDialog::GetPath() const
 {
     ::wxString __ret = ((::wxFileDialog*)__Instance)->GetPath();
     return strdup(__ret.utf8_str().data());
 }
 
-const char* ::Ozone::FileDialog::GetFilename() const
+const char* Ozone::FileDialog::GetFilename() const
 {
     ::wxString __ret = ((::wxFileDialog*)__Instance)->GetFilename();
     return strdup(__ret.utf8_str().data());
 }
 
-int ::Ozone::FileDialog::GetFilterIndex() const
+int Ozone::FileDialog::GetFilterIndex() const
 {
     int __ret = ((::wxFileDialog*)__Instance)->GetFilterIndex();
     return __ret;
 }
 
-void ::Ozone::FileDialog::SetMessage(const char* message)
+void Ozone::FileDialog::SetMessage(const char* message)
 {
     auto __arg0 = message;
     ((::wxFileDialog*)__Instance)->SetMessage(__arg0);
 }
 
-void ::Ozone::FileDialog::SetPath(const char* path)
+void Ozone::FileDialog::SetPath(const char* path)
 {
     auto __arg0 = path;
     ((::wxFileDialog*)__Instance)->SetPath(__arg0);
 }
 
-void ::Ozone::FileDialog::SetDirectory(const char* dir)
+void Ozone::FileDialog::SetDirectory(const char* dir)
 {
     auto __arg0 = dir;
     ((::wxFileDialog*)__Instance)->SetDirectory(__arg0);
 }
 
-void ::Ozone::FileDialog::SetFilename(const char* name)
+void Ozone::FileDialog::SetFilename(const char* name)
 {
     auto __arg0 = name;
     ((::wxFileDialog*)__Instance)->SetFilename(__arg0);
 }
 
-void ::Ozone::FileDialog::SetWildcard(const char* wildCard)
+void Ozone::FileDialog::SetWildcard(const char* wildCard)
 {
     auto __arg0 = wildCard;
     ((::wxFileDialog*)__Instance)->SetWildcard(__arg0);
 }
 
-void ::Ozone::FileDialog::SetFilterIndex(int filterIndex)
+void Ozone::FileDialog::SetFilterIndex(int filterIndex)
 {
     ((::wxFileDialog*)__Instance)->SetFilterIndex(filterIndex);
 }
 
-int ::Ozone::FileDialog::ShowModal()
+int Ozone::FileDialog::ShowModal()
 {
     int __ret = ((::wxFileDialog*)__Instance)->ShowModal();
     return __ret;
 }
 
-bool ::Ozone::FileDialog::SupportsExtraControl() const
+bool Ozone::FileDialog::SupportsExtraControl() const
 {
     bool __ret = ((::wxFileDialog*)__Instance)->SupportsExtraControl();
     return __ret;
 }
 
-bool ::Ozone::FileDialog::HasFdFlag(int flag) const
+bool Ozone::FileDialog::HasFdFlag(int flag) const
 {
     bool __ret = ((::wxFileDialog*)__Instance)->HasFdFlag(flag);
     return __ret;
 }
 
-const char* ::Ozone::FileDialog::GetMessage() const
+const char* Ozone::FileDialog::GetMessage() const
 {
     ::wxString __ret = ((::wxFileDialog*)__Instance)->GetMessage();
     return strdup(__ret.utf8_str().data());
 }
 
-const char* ::Ozone::FileDialog::GetDirectory() const
+const char* Ozone::FileDialog::GetDirectory() const
 {
     ::wxString __ret = ((::wxFileDialog*)__Instance)->GetDirectory();
     return strdup(__ret.utf8_str().data());
 }
 
-const char* ::Ozone::FileDialog::GetWildcard() const
+const char* Ozone::FileDialog::GetWildcard() const
 {
     ::wxString __ret = ((::wxFileDialog*)__Instance)->GetWildcard();
     return strdup(__ret.utf8_str().data());
 }
 
-const char* ::Ozone::FileDialog::GetCurrentlySelectedFilename() const
+const char* Ozone::FileDialog::GetCurrentlySelectedFilename() const
 {
     ::wxString __ret = ((::wxFileDialog*)__Instance)->GetCurrentlySelectedFilename();
     return strdup(__ret.utf8_str().data());
 }
 
-int ::Ozone::FileDialog::GetCurrentlySelectedFilterIndex() const
+int Ozone::FileDialog::GetCurrentlySelectedFilterIndex() const
 {
     int __ret = ((::wxFileDialog*)__Instance)->GetCurrentlySelectedFilterIndex();
     return __ret;
 }
 
-::Ozone::Window* ::Ozone::FileDialog::GetExtraControl() const
+::Ozone::Window* Ozone::FileDialog::GetExtraControl() const
 {
     ::wxWindow* __ret = ((::wxFileDialog*)__Instance)->GetExtraControl();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-const char* ::Ozone::FileDialog::AppendExtension(const char* filePath, const char* extensionList)
+const char* Ozone::FileDialog::AppendExtension(const char* filePath, const char* extensionList)
 {
     auto __arg0 = filePath;
     auto __arg1 = extensionList;
@@ -182,7 +182,7 @@ const char* ::Ozone::FileDialog::AppendExtension(const char* filePath, const cha
     return strdup(__ret.utf8_str().data());
 }
 
-void ::Ozone::FileDialog::SetFilterIndexFromExt(const char* ext)
+void Ozone::FileDialog::SetFilterIndexFromExt(const char* ext)
 {
     auto __arg0 = ext;
     ((::wxFileDialog*)__Instance)->SetFilterIndexFromExt(__arg0);

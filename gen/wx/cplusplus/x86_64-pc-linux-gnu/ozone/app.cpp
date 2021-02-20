@@ -26,7 +26,7 @@
 {
 }
 
-::Ozone::AppConsole::AppConsole()
+Ozone::AppConsole::AppConsole()
     : ::Ozone::EvtHandler((::wxEvtHandler*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -37,7 +37,7 @@
         __instance->SetClientData(this);
 }
 
-bool ::Ozone::AppConsole::Initialize(int& argc, wchar_t** argv)
+bool Ozone::AppConsole::Initialize(int& argc, wchar_t** argv)
 {
     int& __arg0 = (int&)argc;
     auto __arg1 = (::wxChar**)argv;
@@ -46,240 +46,240 @@ bool ::Ozone::AppConsole::Initialize(int& argc, wchar_t** argv)
     return __ret;
 }
 
-void ::Ozone::AppConsole::CheckSignal()
+void Ozone::AppConsole::CheckSignal()
 {
     ((::wxAppConsole*)__Instance)->CheckSignal();
 }
 
-bool ::Ozone::AppConsole::CallOnInit()
+bool Ozone::AppConsole::CallOnInit()
 {
     bool __ret = ((::wxAppConsole*)__Instance)->CallOnInit();
     return __ret;
 }
 
-bool ::Ozone::AppConsole::OnInit()
+bool Ozone::AppConsole::OnInit()
 {
     bool __ret = ((::wxAppConsole*)__Instance)->OnInit();
     return __ret;
 }
 
-int ::Ozone::AppConsole::OnRun()
+int Ozone::AppConsole::OnRun()
 {
     int __ret = ((::wxAppConsole*)__Instance)->OnRun();
     return __ret;
 }
 
-void ::Ozone::AppConsole::OnLaunched()
+void Ozone::AppConsole::OnLaunched()
 {
     ((::wxAppConsole*)__Instance)->OnLaunched();
 }
 
-int ::Ozone::AppConsole::OnExit()
+int Ozone::AppConsole::OnExit()
 {
     int __ret = ((::wxAppConsole*)__Instance)->OnExit();
     return __ret;
 }
 
-void ::Ozone::AppConsole::CleanUp()
+void Ozone::AppConsole::CleanUp()
 {
     ((::wxAppConsole*)__Instance)->CleanUp();
 }
 
-void ::Ozone::AppConsole::OnFatalException()
+void Ozone::AppConsole::OnFatalException()
 {
     ((::wxAppConsole*)__Instance)->OnFatalException();
 }
 
-void ::Ozone::AppConsole::Exit()
+void Ozone::AppConsole::Exit()
 {
     ((::wxAppConsole*)__Instance)->Exit();
 }
 
-const char* ::Ozone::AppConsole::GetAppName() const
+const char* Ozone::AppConsole::GetAppName() const
 {
     ::wxString __ret = ((::wxAppConsole*)__Instance)->GetAppName();
     return strdup(__ret.utf8_str().data());
 }
 
-void ::Ozone::AppConsole::SetAppName(const char* name)
+void Ozone::AppConsole::SetAppName(const char* name)
 {
     auto __arg0 = name;
     ((::wxAppConsole*)__Instance)->SetAppName(__arg0);
 }
 
-const char* ::Ozone::AppConsole::GetAppDisplayName() const
+const char* Ozone::AppConsole::GetAppDisplayName() const
 {
     ::wxString __ret = ((::wxAppConsole*)__Instance)->GetAppDisplayName();
     return strdup(__ret.utf8_str().data());
 }
 
-void ::Ozone::AppConsole::SetAppDisplayName(const char* name)
+void Ozone::AppConsole::SetAppDisplayName(const char* name)
 {
     auto __arg0 = name;
     ((::wxAppConsole*)__Instance)->SetAppDisplayName(__arg0);
 }
 
-const char* ::Ozone::AppConsole::GetClassName() const
+const char* Ozone::AppConsole::GetClassName() const
 {
     ::wxString __ret = ((::wxAppConsole*)__Instance)->GetClassName();
     return strdup(__ret.utf8_str().data());
 }
 
-void ::Ozone::AppConsole::SetClassName(const char* name)
+void Ozone::AppConsole::SetClassName(const char* name)
 {
     auto __arg0 = name;
     ((::wxAppConsole*)__Instance)->SetClassName(__arg0);
 }
 
-void ::Ozone::AppConsole::SetVendorName(const char* name)
+void Ozone::AppConsole::SetVendorName(const char* name)
 {
     auto __arg0 = name;
     ((::wxAppConsole*)__Instance)->SetVendorName(__arg0);
 }
 
-void ::Ozone::AppConsole::SetVendorDisplayName(const char* name)
+void Ozone::AppConsole::SetVendorDisplayName(const char* name)
 {
     auto __arg0 = name;
     ((::wxAppConsole*)__Instance)->SetVendorDisplayName(__arg0);
 }
 
-void ::Ozone::AppConsole::SetCLocale()
+void Ozone::AppConsole::SetCLocale()
 {
     ((::wxAppConsole*)__Instance)->SetCLocale();
 }
 
-bool ::Ozone::AppConsole::IsMainLoopRunning()
+bool Ozone::AppConsole::IsMainLoopRunning()
 {
     bool __ret = ::wxAppConsoleBase::IsMainLoopRunning();
     return __ret;
 }
 
-void ::Ozone::AppConsole::OnUnhandledException()
+void Ozone::AppConsole::OnUnhandledException()
 {
     ((::wxAppConsole*)__Instance)->OnUnhandledException();
 }
 
-bool ::Ozone::AppConsole::OnExceptionInMainLoop()
+bool Ozone::AppConsole::OnExceptionInMainLoop()
 {
     bool __ret = ((::wxAppConsole*)__Instance)->OnExceptionInMainLoop();
     return __ret;
 }
 
-bool ::Ozone::AppConsole::StoreCurrentException()
+bool Ozone::AppConsole::StoreCurrentException()
 {
     bool __ret = ((::wxAppConsole*)__Instance)->StoreCurrentException();
     return __ret;
 }
 
-void ::Ozone::AppConsole::RethrowStoredException()
+void Ozone::AppConsole::RethrowStoredException()
 {
     ((::wxAppConsole*)__Instance)->RethrowStoredException();
 }
 
-void ::Ozone::AppConsole::ProcessPendingEvents()
+void Ozone::AppConsole::ProcessPendingEvents()
 {
     ((::wxAppConsole*)__Instance)->ProcessPendingEvents();
 }
 
-bool ::Ozone::AppConsole::HasPendingEvents() const
+bool Ozone::AppConsole::HasPendingEvents() const
 {
     bool __ret = ((::wxAppConsole*)__Instance)->HasPendingEvents();
     return __ret;
 }
 
-void ::Ozone::AppConsole::SuspendProcessingOfPendingEvents()
+void Ozone::AppConsole::SuspendProcessingOfPendingEvents()
 {
     ((::wxAppConsole*)__Instance)->SuspendProcessingOfPendingEvents();
 }
 
-void ::Ozone::AppConsole::ResumeProcessingOfPendingEvents()
+void Ozone::AppConsole::ResumeProcessingOfPendingEvents()
 {
     ((::wxAppConsole*)__Instance)->ResumeProcessingOfPendingEvents();
 }
 
-void ::Ozone::AppConsole::RemovePendingEventHandler(::Ozone::EvtHandler* toRemove)
+void Ozone::AppConsole::RemovePendingEventHandler(::Ozone::EvtHandler* toRemove)
 {
     auto __arg0 = toRemove ? (::wxEvtHandler*)toRemove->__Instance : nullptr;
     ((::wxAppConsole*)__Instance)->RemovePendingEventHandler(__arg0);
 }
 
-void ::Ozone::AppConsole::AppendPendingEventHandler(::Ozone::EvtHandler* toAppend)
+void Ozone::AppConsole::AppendPendingEventHandler(::Ozone::EvtHandler* toAppend)
 {
     auto __arg0 = toAppend ? (::wxEvtHandler*)toAppend->__Instance : nullptr;
     ((::wxAppConsole*)__Instance)->AppendPendingEventHandler(__arg0);
 }
 
-void ::Ozone::AppConsole::DelayPendingEventHandler(::Ozone::EvtHandler* toDelay)
+void Ozone::AppConsole::DelayPendingEventHandler(::Ozone::EvtHandler* toDelay)
 {
     auto __arg0 = toDelay ? (::wxEvtHandler*)toDelay->__Instance : nullptr;
     ((::wxAppConsole*)__Instance)->DelayPendingEventHandler(__arg0);
 }
 
-void ::Ozone::AppConsole::DeletePendingEvents()
+void Ozone::AppConsole::DeletePendingEvents()
 {
     ((::wxAppConsole*)__Instance)->DeletePendingEvents();
 }
 
-void ::Ozone::AppConsole::ScheduleForDestruction(::Ozone::Object* object)
+void Ozone::AppConsole::ScheduleForDestruction(::Ozone::Object* object)
 {
     auto __arg0 = object ? (::wxObject*)object->__Instance : nullptr;
     ((::wxAppConsole*)__Instance)->ScheduleForDestruction(__arg0);
 }
 
-bool ::Ozone::AppConsole::IsScheduledForDestruction(::Ozone::Object* object) const
+bool Ozone::AppConsole::IsScheduledForDestruction(::Ozone::Object* object) const
 {
     auto __arg0 = object ? (::wxObject*)object->__Instance : nullptr;
     bool __ret = ((::wxAppConsole*)__Instance)->IsScheduledForDestruction(__arg0);
     return __ret;
 }
 
-bool ::Ozone::AppConsole::Pending()
+bool Ozone::AppConsole::Pending()
 {
     bool __ret = ((::wxAppConsole*)__Instance)->Pending();
     return __ret;
 }
 
-bool ::Ozone::AppConsole::Dispatch()
+bool Ozone::AppConsole::Dispatch()
 {
     bool __ret = ((::wxAppConsole*)__Instance)->Dispatch();
     return __ret;
 }
 
-int ::Ozone::AppConsole::MainLoop()
+int Ozone::AppConsole::MainLoop()
 {
     int __ret = ((::wxAppConsole*)__Instance)->MainLoop();
     return __ret;
 }
 
-void ::Ozone::AppConsole::ExitMainLoop()
+void Ozone::AppConsole::ExitMainLoop()
 {
     ((::wxAppConsole*)__Instance)->ExitMainLoop();
 }
 
-bool ::Ozone::AppConsole::Yield(bool onlyIfNeeded)
+bool Ozone::AppConsole::Yield(bool onlyIfNeeded)
 {
     bool __ret = ((::wxAppConsole*)__Instance)->Yield(onlyIfNeeded);
     return __ret;
 }
 
-void ::Ozone::AppConsole::WakeUpIdle()
+void Ozone::AppConsole::WakeUpIdle()
 {
     ((::wxAppConsole*)__Instance)->WakeUpIdle();
 }
 
-bool ::Ozone::AppConsole::ProcessIdle()
+bool Ozone::AppConsole::ProcessIdle()
 {
     bool __ret = ((::wxAppConsole*)__Instance)->ProcessIdle();
     return __ret;
 }
 
-bool ::Ozone::AppConsole::UsesEventLoop() const
+bool Ozone::AppConsole::UsesEventLoop() const
 {
     bool __ret = ((::wxAppConsole*)__Instance)->UsesEventLoop();
     return __ret;
 }
 
-void ::Ozone::AppConsole::OnAssertFailure(wchar_t* file, int line, wchar_t* func, wchar_t* cond, wchar_t* msg)
+void Ozone::AppConsole::OnAssertFailure(wchar_t* file, int line, wchar_t* func, wchar_t* cond, wchar_t* msg)
 {
     auto __arg0 = (::wxChar*)file;
     auto __arg2 = (::wxChar*)func;
@@ -288,7 +288,7 @@ void ::Ozone::AppConsole::OnAssertFailure(wchar_t* file, int line, wchar_t* func
     ((::wxAppConsole*)__Instance)->OnAssertFailure(__arg0, line, __arg2, __arg3, __arg4);
 }
 
-void ::Ozone::AppConsole::OnAssert(wchar_t* file, int line, wchar_t* cond, wchar_t* msg)
+void Ozone::AppConsole::OnAssert(wchar_t* file, int line, wchar_t* cond, wchar_t* msg)
 {
     auto __arg0 = (::wxChar*)file;
     auto __arg2 = (::wxChar*)cond;
@@ -296,7 +296,7 @@ void ::Ozone::AppConsole::OnAssert(wchar_t* file, int line, wchar_t* cond, wchar
     ((::wxAppConsole*)__Instance)->OnAssert(__arg0, line, __arg2, __arg3);
 }
 
-bool ::Ozone::AppConsole::CheckBuildOptions(const char* optionsSignature, const char* componentName)
+bool Ozone::AppConsole::CheckBuildOptions(const char* optionsSignature, const char* componentName)
 {
     auto __arg0 = (const char*)optionsSignature;
     auto __arg1 = (const char*)componentName;
@@ -304,26 +304,26 @@ bool ::Ozone::AppConsole::CheckBuildOptions(const char* optionsSignature, const 
     return __ret;
 }
 
-::Ozone::AppConsole* ::Ozone::AppConsole::GetInstance()
+::Ozone::AppConsole* Ozone::AppConsole::GetInstance()
 {
     ::wxAppConsole* __ret = ::wxAppConsoleBase::GetInstance();
     return (__ret == nullptr) ? nullptr : new Ozone::AppConsole((::wxAppConsole*)__ret);
 }
 
-void ::Ozone::AppConsole::SetInstance(::Ozone::AppConsole* app)
+void Ozone::AppConsole::SetInstance(::Ozone::AppConsole* app)
 {
     auto __arg0 = app ? (::wxAppConsole*)app->__Instance : nullptr;
     ::wxAppConsoleBase::SetInstance(__arg0);
 }
 
-int ::Ozone::AppConsole::get_argc()
+int Ozone::AppConsole::get_argc()
 {
     int __ret = ((::wxAppConsole*)__Instance)->argc;
     return __ret;
 }
 
 
-void ::Ozone::AppConsole::set_argc(int value)
+void Ozone::AppConsole::set_argc(int value)
 {
     ((::wxAppConsole*)__Instance)->argc = value;
 }
@@ -342,7 +342,7 @@ void ::Ozone::AppConsole::set_argc(int value)
 {
 }
 
-::Ozone::App::App()
+Ozone::App::App()
     : ::Ozone::AppConsole((::wxAppConsole*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -353,25 +353,25 @@ void ::Ozone::AppConsole::set_argc(int value)
         __instance->SetClientData(this);
 }
 
-bool ::Ozone::App::SetNativeTheme(const char* theme)
+bool Ozone::App::SetNativeTheme(const char* theme)
 {
     auto __arg0 = theme;
     bool __ret = ((::wxApp*)__Instance)->SetNativeTheme(__arg0);
     return __ret;
 }
 
-bool ::Ozone::App::OnInitGui()
+bool Ozone::App::OnInitGui()
 {
     bool __ret = ((::wxApp*)__Instance)->OnInitGui();
     return __ret;
 }
 
-void ::Ozone::App::WakeUpIdle()
+void Ozone::App::WakeUpIdle()
 {
     ((::wxApp*)__Instance)->WakeUpIdle();
 }
 
-bool ::Ozone::App::Initialize(int& argc, wchar_t** argv)
+bool Ozone::App::Initialize(int& argc, wchar_t** argv)
 {
     int& __arg0 = (int&)argc;
     auto __arg1 = (::wxChar**)argv;
@@ -380,12 +380,12 @@ bool ::Ozone::App::Initialize(int& argc, wchar_t** argv)
     return __ret;
 }
 
-void ::Ozone::App::CleanUp()
+void Ozone::App::CleanUp()
 {
     ((::wxApp*)__Instance)->CleanUp();
 }
 
-void ::Ozone::App::OnAssertFailure(wchar_t* file, int line, wchar_t* func, wchar_t* cond, wchar_t* msg)
+void Ozone::App::OnAssertFailure(wchar_t* file, int line, wchar_t* func, wchar_t* cond, wchar_t* msg)
 {
     auto __arg0 = (::wxChar*)file;
     auto __arg2 = (::wxChar*)func;
@@ -394,120 +394,120 @@ void ::Ozone::App::OnAssertFailure(wchar_t* file, int line, wchar_t* func, wchar
     ((::wxApp*)__Instance)->OnAssertFailure(__arg0, line, __arg2, __arg3, __arg4);
 }
 
-void* ::Ozone::App::GetXVisualInfo()
+void* Ozone::App::GetXVisualInfo()
 {
     void* __ret = ((::wxApp*)__Instance)->GetXVisualInfo();
     return __ret;
 }
 
-bool ::Ozone::App::EventsPending()
+bool Ozone::App::EventsPending()
 {
     bool __ret = ((::wxApp*)__Instance)->EventsPending();
     return __ret;
 }
 
-bool ::Ozone::App::DoIdle()
+bool Ozone::App::DoIdle()
 {
     bool __ret = ((::wxApp*)__Instance)->DoIdle();
     return __ret;
 }
 
-int ::Ozone::App::OnRun()
+int Ozone::App::OnRun()
 {
     int __ret = ((::wxApp*)__Instance)->OnRun();
     return __ret;
 }
 
-int ::Ozone::App::OnExit()
+int Ozone::App::OnExit()
 {
     int __ret = ((::wxApp*)__Instance)->OnExit();
     return __ret;
 }
 
-bool ::Ozone::App::SafeYield(::Ozone::Window* win, bool onlyIfNeeded)
+bool Ozone::App::SafeYield(::Ozone::Window* win, bool onlyIfNeeded)
 {
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     bool __ret = ((::wxApp*)__Instance)->SafeYield(__arg0, onlyIfNeeded);
     return __ret;
 }
 
-bool ::Ozone::App::SafeYieldFor(::Ozone::Window* win, long eventsToProcess)
+bool Ozone::App::SafeYieldFor(::Ozone::Window* win, long eventsToProcess)
 {
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     bool __ret = ((::wxApp*)__Instance)->SafeYieldFor(__arg0, eventsToProcess);
     return __ret;
 }
 
-bool ::Ozone::App::ProcessIdle()
+bool Ozone::App::ProcessIdle()
 {
     bool __ret = ((::wxApp*)__Instance)->ProcessIdle();
     return __ret;
 }
 
-bool ::Ozone::App::UsesEventLoop() const
+bool Ozone::App::UsesEventLoop() const
 {
     bool __ret = ((::wxApp*)__Instance)->UsesEventLoop();
     return __ret;
 }
 
-bool ::Ozone::App::IsActive() const
+bool Ozone::App::IsActive() const
 {
     bool __ret = ((::wxApp*)__Instance)->IsActive();
     return __ret;
 }
 
-void ::Ozone::App::SetTopWindow(::Ozone::Window* win)
+void Ozone::App::SetTopWindow(::Ozone::Window* win)
 {
     auto __arg0 = win ? (::wxWindow*)win->__Instance : nullptr;
     ((::wxApp*)__Instance)->SetTopWindow(__arg0);
 }
 
-::Ozone::Window* ::Ozone::App::GetTopWindow() const
+::Ozone::Window* Ozone::App::GetTopWindow() const
 {
     ::wxWindow* __ret = ((::wxApp*)__Instance)->GetTopWindow();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-void ::Ozone::App::SetExitOnFrameDelete(bool flag)
+void Ozone::App::SetExitOnFrameDelete(bool flag)
 {
     ((::wxApp*)__Instance)->SetExitOnFrameDelete(flag);
 }
 
-bool ::Ozone::App::GetExitOnFrameDelete() const
+bool Ozone::App::GetExitOnFrameDelete() const
 {
     bool __ret = ((::wxApp*)__Instance)->GetExitOnFrameDelete();
     return __ret;
 }
 
-void ::Ozone::App::SetUseBestVisual(bool flag, bool forceTrueColour)
+void Ozone::App::SetUseBestVisual(bool flag, bool forceTrueColour)
 {
     ((::wxApp*)__Instance)->SetUseBestVisual(flag, forceTrueColour);
 }
 
-bool ::Ozone::App::GetUseBestVisual() const
+bool Ozone::App::GetUseBestVisual() const
 {
     bool __ret = ((::wxApp*)__Instance)->GetUseBestVisual();
     return __ret;
 }
 
-void ::Ozone::App::SetPrintMode(int _0)
+void Ozone::App::SetPrintMode(int _0)
 {
     ((::wxApp*)__Instance)->SetPrintMode(_0);
 }
 
-int ::Ozone::App::GetPrintMode() const
+int Ozone::App::GetPrintMode() const
 {
     int __ret = ((::wxApp*)__Instance)->GetPrintMode();
     return __ret;
 }
 
-void ::Ozone::App::SetActive(bool isActive, ::Ozone::Window* lastFocus)
+void Ozone::App::SetActive(bool isActive, ::Ozone::Window* lastFocus)
 {
     auto __arg1 = lastFocus ? (::wxWindow*)lastFocus->__Instance : nullptr;
     ((::wxApp*)__Instance)->SetActive(isActive, __arg1);
 }
 
-int ::Ozone::App::HandleEvent(::wxEvent& event)
+int Ozone::App::HandleEvent(::wxEvent& event)
 {
     wxEventType eventType = event.GetEventType();
 

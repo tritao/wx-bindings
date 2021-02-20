@@ -48,7 +48,7 @@ enum class CompositionMode
     ADD = 12
 };
 
-class GraphicsObject : public Ozone::Ozone::Object
+class GraphicsObject : public ::Ozone::Ozone::Object
 {
 public:
 
@@ -67,7 +67,7 @@ public:
     ::Ozone::Ozone::GraphicsRenderer* GetRenderer() const;
 };
 
-class GraphicsPen : public Ozone::Ozone::GraphicsObject
+class GraphicsPen : public ::Ozone::Ozone::GraphicsObject
 {
 public:
 
@@ -80,7 +80,7 @@ public:
     ~GraphicsPen();
 };
 
-class GraphicsBrush : public Ozone::Ozone::GraphicsObject
+class GraphicsBrush : public ::Ozone::Ozone::GraphicsObject
 {
 public:
 
@@ -93,7 +93,7 @@ public:
     ~GraphicsBrush();
 };
 
-class GraphicsFont : public Ozone::Ozone::GraphicsObject
+class GraphicsFont : public ::Ozone::Ozone::GraphicsObject
 {
 public:
 
@@ -106,7 +106,7 @@ public:
     ~GraphicsFont();
 };
 
-class GraphicsBitmap : public Ozone::Ozone::GraphicsObject
+class GraphicsBitmap : public ::Ozone::Ozone::GraphicsObject
 {
 public:
 
@@ -119,7 +119,7 @@ public:
     ~GraphicsBitmap();
 };
 
-class GraphicsMatrix : public Ozone::Ozone::GraphicsObject
+class GraphicsMatrix : public ::Ozone::Ozone::GraphicsObject
 {
 public:
 
@@ -255,7 +255,7 @@ protected:
     bool __OwnsNativeInstance;
 };
 
-class GraphicsPath : public Ozone::Ozone::GraphicsObject
+class GraphicsPath : public ::Ozone::Ozone::GraphicsObject
 {
 public:
 
@@ -296,7 +296,7 @@ public:
     virtual bool Contains(double x, double y, ::Ozone::Ozone::PolygonFillMode fillStyle) const;
 };
 
-class GraphicsContext : public Ozone::Ozone::GraphicsObject
+class GraphicsContext : public ::Ozone::Ozone::GraphicsObject
 {
 public:
 
@@ -431,7 +431,7 @@ public:
     static ::Ozone::Ozone::GraphicsContext* Create();
 };
 
-class GraphicsRenderer : public Ozone::Ozone::Object
+class GraphicsRenderer : public ::Ozone::Ozone::Object
 {
 public:
 

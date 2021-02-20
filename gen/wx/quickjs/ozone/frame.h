@@ -16,7 +16,7 @@ enum class FrameFlags : signed char
     FRAME_FLOAT_ON_PARENT = 8
 };
 
-class Frame : public Ozone::Ozone::TopLevelWindow
+class Frame : public ::Ozone::Ozone::TopLevelWindow
 {
 public:
 

@@ -20,43 +20,43 @@
 {
 }
 
-::Ozone::SizerFlags::SizerFlags(int proportion)
+Ozone::SizerFlags::SizerFlags(int proportion)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxSizerFlags(proportion);
 }
 
-int ::Ozone::SizerFlags::GetDefaultBorder()
+int Ozone::SizerFlags::GetDefaultBorder()
 {
     int __ret = ::wxSizerFlags::GetDefaultBorder();
     return __ret;
 }
 
-float ::Ozone::SizerFlags::GetDefaultBorderFractional()
+float Ozone::SizerFlags::GetDefaultBorderFractional()
 {
     float __ret = ::wxSizerFlags::GetDefaultBorderFractional();
     return __ret;
 }
 
-int ::Ozone::SizerFlags::GetProportion() const
+int Ozone::SizerFlags::GetProportion() const
 {
     int __ret = ((::wxSizerFlags*)__Instance)->GetProportion();
     return __ret;
 }
 
-int ::Ozone::SizerFlags::GetFlags() const
+int Ozone::SizerFlags::GetFlags() const
 {
     int __ret = ((::wxSizerFlags*)__Instance)->GetFlags();
     return __ret;
 }
 
-int ::Ozone::SizerFlags::GetBorderInPixels() const
+int Ozone::SizerFlags::GetBorderInPixels() const
 {
     int __ret = ((::wxSizerFlags*)__Instance)->GetBorderInPixels();
     return __ret;
 }
 
-::Ozone::SizerFlags::SizerFlags(const ::Ozone::SizerFlags& _0)
+Ozone::SizerFlags::SizerFlags(const ::Ozone::SizerFlags& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSizerFlags*)_0.__Instance;
@@ -73,31 +73,31 @@ int ::Ozone::SizerFlags::GetBorderInPixels() const
 {
 }
 
-::Ozone::SizerSpacer::SizerSpacer(const ::Ozone::Size& size)
+Ozone::SizerSpacer::SizerSpacer(const ::Ozone::Size& size)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSize*)size.__Instance;
     __Instance = new ::wxSizerSpacer(__arg0);
 }
 
-void ::Ozone::SizerSpacer::SetSize(const ::Ozone::Size& size)
+void Ozone::SizerSpacer::SetSize(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxSizerSpacer*)__Instance)->SetSize(__arg0);
 }
 
-void ::Ozone::SizerSpacer::Show(bool show)
+void Ozone::SizerSpacer::Show(bool show)
 {
     ((::wxSizerSpacer*)__Instance)->Show(show);
 }
 
-bool ::Ozone::SizerSpacer::IsShown() const
+bool Ozone::SizerSpacer::IsShown() const
 {
     bool __ret = ((::wxSizerSpacer*)__Instance)->IsShown();
     return __ret;
 }
 
-::Ozone::SizerSpacer::SizerSpacer(const ::Ozone::SizerSpacer& _0)
+Ozone::SizerSpacer::SizerSpacer(const ::Ozone::SizerSpacer& _0)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSizerSpacer*)_0.__Instance;
@@ -114,7 +114,7 @@ bool ::Ozone::SizerSpacer::IsShown() const
 {
 }
 
-::Ozone::SizerItem::SizerItem(::Ozone::Window* window, int proportion, int flag, int border, ::Ozone::Object* userData)
+Ozone::SizerItem::SizerItem(::Ozone::Window* window, int proportion, int flag, int border, ::Ozone::Object* userData)
     : ::Ozone::Object((::wxObject*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -123,7 +123,7 @@ bool ::Ozone::SizerSpacer::IsShown() const
     __Instance = new ::wxSizerItem(__arg0, proportion, flag, border, __arg4);
 }
 
-::Ozone::SizerItem::SizerItem(::Ozone::Window* window, const ::Ozone::SizerFlags& flags)
+Ozone::SizerItem::SizerItem(::Ozone::Window* window, const ::Ozone::SizerFlags& flags)
     : ::Ozone::Object((::wxObject*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -132,7 +132,7 @@ bool ::Ozone::SizerSpacer::IsShown() const
     __Instance = new ::wxSizerItem(__arg0, __arg1);
 }
 
-::Ozone::SizerItem::SizerItem(::Ozone::Sizer* sizer, int proportion, int flag, int border, ::Ozone::Object* userData)
+Ozone::SizerItem::SizerItem(::Ozone::Sizer* sizer, int proportion, int flag, int border, ::Ozone::Object* userData)
     : ::Ozone::Object((::wxObject*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -141,7 +141,7 @@ bool ::Ozone::SizerSpacer::IsShown() const
     __Instance = new ::wxSizerItem(__arg0, proportion, flag, border, __arg4);
 }
 
-::Ozone::SizerItem::SizerItem(::Ozone::Sizer* sizer, const ::Ozone::SizerFlags& flags)
+Ozone::SizerItem::SizerItem(::Ozone::Sizer* sizer, const ::Ozone::SizerFlags& flags)
     : ::Ozone::Object((::wxObject*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -150,7 +150,7 @@ bool ::Ozone::SizerSpacer::IsShown() const
     __Instance = new ::wxSizerItem(__arg0, __arg1);
 }
 
-::Ozone::SizerItem::SizerItem(int width, int height, int proportion, int flag, int border, ::Ozone::Object* userData)
+Ozone::SizerItem::SizerItem(int width, int height, int proportion, int flag, int border, ::Ozone::Object* userData)
     : ::Ozone::Object((::wxObject*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -158,7 +158,7 @@ bool ::Ozone::SizerSpacer::IsShown() const
     __Instance = new ::wxSizerItem(width, height, proportion, flag, border, __arg5);
 }
 
-::Ozone::SizerItem::SizerItem(int width, int height, const ::Ozone::SizerFlags& flags)
+Ozone::SizerItem::SizerItem(int width, int height, const ::Ozone::SizerFlags& flags)
     : ::Ozone::Object((::wxObject*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -166,258 +166,258 @@ bool ::Ozone::SizerSpacer::IsShown() const
     __Instance = new ::wxSizerItem(width, height, __arg2);
 }
 
-::Ozone::SizerItem::SizerItem()
+Ozone::SizerItem::SizerItem()
     : ::Ozone::Object((::wxObject*)nullptr)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxSizerItem();
 }
 
-void ::Ozone::SizerItem::DeleteWindows()
+void Ozone::SizerItem::DeleteWindows()
 {
     ((::wxSizerItem*)__Instance)->DeleteWindows();
 }
 
-void ::Ozone::SizerItem::DetachSizer()
+void Ozone::SizerItem::DetachSizer()
 {
     ((::wxSizerItem*)__Instance)->DetachSizer();
 }
 
-void ::Ozone::SizerItem::DetachWindow()
+void Ozone::SizerItem::DetachWindow()
 {
     ((::wxSizerItem*)__Instance)->DetachWindow();
 }
 
-::Ozone::Size ::Ozone::SizerItem::GetSize() const
+::Ozone::Size Ozone::SizerItem::GetSize() const
 {
     ::wxSize __ret = ((::wxSizerItem*)__Instance)->GetSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::SizerItem::CalcMin()
+::Ozone::Size Ozone::SizerItem::CalcMin()
 {
     ::wxSize __ret = ((::wxSizerItem*)__Instance)->CalcMin();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-void ::Ozone::SizerItem::SetDimension(const ::Ozone::Point& pos, const ::Ozone::Size& size)
+void Ozone::SizerItem::SetDimension(const ::Ozone::Point& pos, const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxPoint*)pos.__Instance;
     auto &__arg1 = *(::wxSize*)size.__Instance;
     ((::wxSizerItem*)__Instance)->SetDimension(__arg0, __arg1);
 }
 
-::Ozone::Size ::Ozone::SizerItem::GetMinSize() const
+::Ozone::Size Ozone::SizerItem::GetMinSize() const
 {
     ::wxSize __ret = ((::wxSizerItem*)__Instance)->GetMinSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::SizerItem::GetMinSizeWithBorder() const
+::Ozone::Size Ozone::SizerItem::GetMinSizeWithBorder() const
 {
     ::wxSize __ret = ((::wxSizerItem*)__Instance)->GetMinSizeWithBorder();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::SizerItem::GetMaxSize() const
+::Ozone::Size Ozone::SizerItem::GetMaxSize() const
 {
     ::wxSize __ret = ((::wxSizerItem*)__Instance)->GetMaxSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::SizerItem::GetMaxSizeWithBorder() const
+::Ozone::Size Ozone::SizerItem::GetMaxSizeWithBorder() const
 {
     ::wxSize __ret = ((::wxSizerItem*)__Instance)->GetMaxSizeWithBorder();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-void ::Ozone::SizerItem::SetMinSize(const ::Ozone::Size& size)
+void Ozone::SizerItem::SetMinSize(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxSizerItem*)__Instance)->SetMinSize(__arg0);
 }
 
-void ::Ozone::SizerItem::SetMinSize(int x, int y)
+void Ozone::SizerItem::SetMinSize(int x, int y)
 {
     ((::wxSizerItem*)__Instance)->SetMinSize(x, y);
 }
 
-void ::Ozone::SizerItem::SetInitSize(int x, int y)
+void Ozone::SizerItem::SetInitSize(int x, int y)
 {
     ((::wxSizerItem*)__Instance)->SetInitSize(x, y);
 }
 
-void ::Ozone::SizerItem::SetRatio(int width, int height)
+void Ozone::SizerItem::SetRatio(int width, int height)
 {
     ((::wxSizerItem*)__Instance)->SetRatio(width, height);
 }
 
-void ::Ozone::SizerItem::SetRatio(const ::Ozone::Size& size)
+void Ozone::SizerItem::SetRatio(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxSizerItem*)__Instance)->SetRatio(__arg0);
 }
 
-void ::Ozone::SizerItem::SetRatio(float ratio)
+void Ozone::SizerItem::SetRatio(float ratio)
 {
     ((::wxSizerItem*)__Instance)->SetRatio(ratio);
 }
 
-float ::Ozone::SizerItem::GetRatio() const
+float Ozone::SizerItem::GetRatio() const
 {
     float __ret = ((::wxSizerItem*)__Instance)->GetRatio();
     return __ret;
 }
 
-::Ozone::Rect ::Ozone::SizerItem::GetRect()
+::Ozone::Rect Ozone::SizerItem::GetRect()
 {
     ::wxRect __ret = ((::wxSizerItem*)__Instance)->GetRect();
     auto ____ret = new ::wxRect(__ret);
     return ____ret;
 }
 
-void ::Ozone::SizerItem::SetId(int id)
+void Ozone::SizerItem::SetId(int id)
 {
     ((::wxSizerItem*)__Instance)->SetId(id);
 }
 
-int ::Ozone::SizerItem::GetId() const
+int Ozone::SizerItem::GetId() const
 {
     int __ret = ((::wxSizerItem*)__Instance)->GetId();
     return __ret;
 }
 
-bool ::Ozone::SizerItem::IsWindow() const
+bool Ozone::SizerItem::IsWindow() const
 {
     bool __ret = ((::wxSizerItem*)__Instance)->IsWindow();
     return __ret;
 }
 
-bool ::Ozone::SizerItem::IsSizer() const
+bool Ozone::SizerItem::IsSizer() const
 {
     bool __ret = ((::wxSizerItem*)__Instance)->IsSizer();
     return __ret;
 }
 
-bool ::Ozone::SizerItem::IsSpacer() const
+bool Ozone::SizerItem::IsSpacer() const
 {
     bool __ret = ((::wxSizerItem*)__Instance)->IsSpacer();
     return __ret;
 }
 
-void ::Ozone::SizerItem::SetProportion(int proportion)
+void Ozone::SizerItem::SetProportion(int proportion)
 {
     ((::wxSizerItem*)__Instance)->SetProportion(proportion);
 }
 
-int ::Ozone::SizerItem::GetProportion() const
+int Ozone::SizerItem::GetProportion() const
 {
     int __ret = ((::wxSizerItem*)__Instance)->GetProportion();
     return __ret;
 }
 
-void ::Ozone::SizerItem::SetFlag(int flag)
+void Ozone::SizerItem::SetFlag(int flag)
 {
     ((::wxSizerItem*)__Instance)->SetFlag(flag);
 }
 
-int ::Ozone::SizerItem::GetFlag() const
+int Ozone::SizerItem::GetFlag() const
 {
     int __ret = ((::wxSizerItem*)__Instance)->GetFlag();
     return __ret;
 }
 
-void ::Ozone::SizerItem::SetBorder(int border)
+void Ozone::SizerItem::SetBorder(int border)
 {
     ((::wxSizerItem*)__Instance)->SetBorder(border);
 }
 
-int ::Ozone::SizerItem::GetBorder() const
+int Ozone::SizerItem::GetBorder() const
 {
     int __ret = ((::wxSizerItem*)__Instance)->GetBorder();
     return __ret;
 }
 
-::Ozone::Window* ::Ozone::SizerItem::GetWindow() const
+::Ozone::Window* Ozone::SizerItem::GetWindow() const
 {
     ::wxWindow* __ret = ((::wxSizerItem*)__Instance)->GetWindow();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-::Ozone::Sizer* ::Ozone::SizerItem::GetSizer() const
+::Ozone::Sizer* Ozone::SizerItem::GetSizer() const
 {
     ::wxSizer* __ret = ((::wxSizerItem*)__Instance)->GetSizer();
     return (__ret == nullptr) ? nullptr : new Ozone::Sizer((::wxSizer*)__ret);
 }
 
-::Ozone::Size ::Ozone::SizerItem::GetSpacer() const
+::Ozone::Size Ozone::SizerItem::GetSpacer() const
 {
     ::wxSize __ret = ((::wxSizerItem*)__Instance)->GetSpacer();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-bool ::Ozone::SizerItem::IsShown() const
+bool Ozone::SizerItem::IsShown() const
 {
     bool __ret = ((::wxSizerItem*)__Instance)->IsShown();
     return __ret;
 }
 
-void ::Ozone::SizerItem::Show(bool show)
+void Ozone::SizerItem::Show(bool show)
 {
     ((::wxSizerItem*)__Instance)->Show(show);
 }
 
-void ::Ozone::SizerItem::SetUserData(::Ozone::Object* userData)
+void Ozone::SizerItem::SetUserData(::Ozone::Object* userData)
 {
     auto __arg0 = userData ? (::wxObject*)userData->__Instance : nullptr;
     ((::wxSizerItem*)__Instance)->SetUserData(__arg0);
 }
 
-::Ozone::Object* ::Ozone::SizerItem::GetUserData() const
+::Ozone::Object* Ozone::SizerItem::GetUserData() const
 {
     ::wxObject* __ret = ((::wxSizerItem*)__Instance)->GetUserData();
     return (__ret == nullptr) ? nullptr : new Ozone::Object((::wxObject*)__ret);
 }
 
-::Ozone::Point ::Ozone::SizerItem::GetPosition() const
+::Ozone::Point Ozone::SizerItem::GetPosition() const
 {
     ::wxPoint __ret = ((::wxSizerItem*)__Instance)->GetPosition();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-bool ::Ozone::SizerItem::InformFirstDirection(int direction, int size, int availableOtherDir)
+bool Ozone::SizerItem::InformFirstDirection(int direction, int size, int availableOtherDir)
 {
     bool __ret = ((::wxSizerItem*)__Instance)->InformFirstDirection(direction, size, availableOtherDir);
     return __ret;
 }
 
-void ::Ozone::SizerItem::AssignWindow(::Ozone::Window* window)
+void Ozone::SizerItem::AssignWindow(::Ozone::Window* window)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     ((::wxSizerItem*)__Instance)->AssignWindow(__arg0);
 }
 
-void ::Ozone::SizerItem::AssignSizer(::Ozone::Sizer* sizer)
+void Ozone::SizerItem::AssignSizer(::Ozone::Sizer* sizer)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     ((::wxSizerItem*)__Instance)->AssignSizer(__arg0);
 }
 
-void ::Ozone::SizerItem::AssignSpacer(const ::Ozone::Size& size)
+void Ozone::SizerItem::AssignSpacer(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxSizerItem*)__Instance)->AssignSpacer(__arg0);
 }
 
-void ::Ozone::SizerItem::AssignSpacer(int w, int h)
+void Ozone::SizerItem::AssignSpacer(int w, int h)
 {
     ((::wxSizerItem*)__Instance)->AssignSpacer(w, h);
 }
@@ -432,49 +432,49 @@ void ::Ozone::SizerItem::AssignSpacer(int w, int h)
 {
 }
 
-::Ozone::SizerItemList::SizerItemList(::Ozone::KeyType keyType)
+Ozone::SizerItemList::SizerItemList(::Ozone::KeyType keyType)
 {
     __OwnsNativeInstance = true;
     auto __arg0 = (::wxKeyType)keyType;
     __Instance = new ::wxSizerItemList(__arg0);
 }
 
-::Ozone::SizerItemList::SizerItemList(const ::Ozone::SizerItemList& list)
+Ozone::SizerItemList::SizerItemList(const ::Ozone::SizerItemList& list)
 {
     __OwnsNativeInstance = true;
     auto &__arg0 = *(::wxSizerItemList*)list.__Instance;
     __Instance = new ::wxSizerItemList(__arg0);
 }
 
-::Ozone::SizerItem* ::Ozone::SizerItemList::operator[](unsigned long index) const
+::Ozone::SizerItem* Ozone::SizerItemList::operator[](unsigned long index) const
 {
     auto __arg0 = (::size_t)index;
     ::wxSizerItem* __ret = ((::wxSizerItemList*)__Instance)->operator[](__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-bool ::Ozone::SizerItemList::DeleteObject(::Ozone::SizerItem* object)
+bool Ozone::SizerItemList::DeleteObject(::Ozone::SizerItem* object)
 {
     auto __arg0 = object ? (::wxSizerItem*)object->__Instance : nullptr;
     bool __ret = ((::wxSizerItemList*)__Instance)->DeleteObject(__arg0);
     return __ret;
 }
 
-bool ::Ozone::SizerItemList::Member(const ::Ozone::SizerItem* object) const
+bool Ozone::SizerItemList::Member(const ::Ozone::SizerItem* object) const
 {
     auto __arg0 = object ? (::wxSizerItem*)object->__Instance : nullptr;
     bool __ret = ((::wxSizerItemList*)__Instance)->Member(__arg0);
     return __ret;
 }
 
-int ::Ozone::SizerItemList::IndexOf(::Ozone::SizerItem* object) const
+int Ozone::SizerItemList::IndexOf(::Ozone::SizerItem* object) const
 {
     auto __arg0 = object ? (::wxSizerItem*)object->__Instance : nullptr;
     int __ret = ((::wxSizerItemList*)__Instance)->IndexOf(__arg0);
     return __ret;
 }
 
-::Ozone::SizerItemList::SizerItemList(unsigned long n, ::Ozone::SizerItem*const & v)
+Ozone::SizerItemList::SizerItemList(unsigned long n, ::Ozone::SizerItem*const & v)
 {
     __OwnsNativeInstance = true;
     auto __arg0 = (::wxSizerItemList::size_type)(::size_t)n;
@@ -482,72 +482,72 @@ int ::Ozone::SizerItemList::IndexOf(::Ozone::SizerItem* object) const
     __Instance = new ::wxSizerItemList(__arg0, __arg1);
 }
 
-void ::Ozone::SizerItemList::resize(unsigned long n, ::Ozone::SizerItem* v)
+void Ozone::SizerItemList::resize(unsigned long n, ::Ozone::SizerItem* v)
 {
     auto __arg0 = (::wxSizerItemList::size_type)(::size_t)n;
     auto __arg1 = v ? (::wxSizerItem*)v->__Instance : nullptr;
     ((::wxSizerItemList*)__Instance)->resize(__arg0, __arg1);
 }
 
-unsigned long ::Ozone::SizerItemList::size() const
+unsigned long Ozone::SizerItemList::size() const
 {
     ::wxSizerItemList::size_type __ret = ((::wxSizerItemList*)__Instance)->size();
     return __ret;
 }
 
-unsigned long ::Ozone::SizerItemList::max_size() const
+unsigned long Ozone::SizerItemList::max_size() const
 {
     ::wxSizerItemList::size_type __ret = ((::wxSizerItemList*)__Instance)->max_size();
     return __ret;
 }
 
-bool ::Ozone::SizerItemList::empty() const
+bool Ozone::SizerItemList::empty() const
 {
     bool __ret = ((::wxSizerItemList*)__Instance)->empty();
     return __ret;
 }
 
-void ::Ozone::SizerItemList::push_front(::Ozone::SizerItem*const & v)
+void Ozone::SizerItemList::push_front(::Ozone::SizerItem*const & v)
 {
     auto __arg0 = v ? (::wxSizerItem*)v->__Instance : nullptr;
     ((::wxSizerItemList*)__Instance)->push_front(__arg0);
 }
 
-void ::Ozone::SizerItemList::pop_front()
+void Ozone::SizerItemList::pop_front()
 {
     ((::wxSizerItemList*)__Instance)->pop_front();
 }
 
-void ::Ozone::SizerItemList::push_back(::Ozone::SizerItem*const & v)
+void Ozone::SizerItemList::push_back(::Ozone::SizerItem*const & v)
 {
     auto __arg0 = v ? (::wxSizerItem*)v->__Instance : nullptr;
     ((::wxSizerItemList*)__Instance)->push_back(__arg0);
 }
 
-void ::Ozone::SizerItemList::pop_back()
+void Ozone::SizerItemList::pop_back()
 {
     ((::wxSizerItemList*)__Instance)->pop_back();
 }
 
-void ::Ozone::SizerItemList::assign(unsigned long n, ::Ozone::SizerItem*const & v)
+void Ozone::SizerItemList::assign(unsigned long n, ::Ozone::SizerItem*const & v)
 {
     auto __arg0 = (::wxSizerItemList::size_type)(::size_t)n;
     auto __arg1 = v ? (::wxSizerItem*)v->__Instance : nullptr;
     ((::wxSizerItemList*)__Instance)->assign(__arg0, __arg1);
 }
 
-void ::Ozone::SizerItemList::clear()
+void Ozone::SizerItemList::clear()
 {
     ((::wxSizerItemList*)__Instance)->clear();
 }
 
-void ::Ozone::SizerItemList::remove(::Ozone::SizerItem*const & v)
+void Ozone::SizerItemList::remove(::Ozone::SizerItem*const & v)
 {
     auto __arg0 = v ? (::wxSizerItem*)v->__Instance : nullptr;
     ((::wxSizerItemList*)__Instance)->remove(__arg0);
 }
 
-void ::Ozone::SizerItemList::reverse()
+void Ozone::SizerItemList::reverse()
 {
     ((::wxSizerItemList*)__Instance)->reverse();
 }
@@ -562,13 +562,13 @@ void ::Ozone::SizerItemList::reverse()
 {
 }
 
-::Ozone::Sizer::Sizer()
+Ozone::Sizer::Sizer()
     : ::Ozone::Object((::wxObject*)nullptr)
 {
     __OwnsNativeInstance = true;
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Add(::Ozone::Window* window, int proportion, int flag, int border, ::Ozone::Object* userData)
+::Ozone::SizerItem* Ozone::Sizer::Add(::Ozone::Window* window, int proportion, int flag, int border, ::Ozone::Object* userData)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     auto __arg4 = userData ? (::wxObject*)userData->__Instance : nullptr;
@@ -576,7 +576,7 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Add(::Ozone::Sizer* sizer, int proportion, int flag, int border, ::Ozone::Object* userData)
+::Ozone::SizerItem* Ozone::Sizer::Add(::Ozone::Sizer* sizer, int proportion, int flag, int border, ::Ozone::Object* userData)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     auto __arg4 = userData ? (::wxObject*)userData->__Instance : nullptr;
@@ -584,14 +584,14 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Add(int width, int height, int proportion, int flag, int border, ::Ozone::Object* userData)
+::Ozone::SizerItem* Ozone::Sizer::Add(int width, int height, int proportion, int flag, int border, ::Ozone::Object* userData)
 {
     auto __arg5 = userData ? (::wxObject*)userData->__Instance : nullptr;
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->Add(width, height, proportion, flag, border, __arg5);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Add(::Ozone::Window* window, const ::Ozone::SizerFlags& flags)
+::Ozone::SizerItem* Ozone::Sizer::Add(::Ozone::Window* window, const ::Ozone::SizerFlags& flags)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     auto &__arg1 = *(::wxSizerFlags*)flags.__Instance;
@@ -599,7 +599,7 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Add(::Ozone::Sizer* sizer, const ::Ozone::SizerFlags& flags)
+::Ozone::SizerItem* Ozone::Sizer::Add(::Ozone::Sizer* sizer, const ::Ozone::SizerFlags& flags)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     auto &__arg1 = *(::wxSizerFlags*)flags.__Instance;
@@ -607,33 +607,33 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Add(int width, int height, const ::Ozone::SizerFlags& flags)
+::Ozone::SizerItem* Ozone::Sizer::Add(int width, int height, const ::Ozone::SizerFlags& flags)
 {
     auto &__arg2 = *(::wxSizerFlags*)flags.__Instance;
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->Add(width, height, __arg2);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Add(::Ozone::SizerItem* item)
+::Ozone::SizerItem* Ozone::Sizer::Add(::Ozone::SizerItem* item)
 {
     auto __arg0 = item ? (::wxSizerItem*)item->__Instance : nullptr;
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->Add(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::AddSpacer(int size)
+::Ozone::SizerItem* Ozone::Sizer::AddSpacer(int size)
 {
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->AddSpacer(size);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::AddStretchSpacer(int prop)
+::Ozone::SizerItem* Ozone::Sizer::AddStretchSpacer(int prop)
 {
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->AddStretchSpacer(prop);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Insert(unsigned long index, ::Ozone::Window* window, int proportion, int flag, int border, ::Ozone::Object* userData)
+::Ozone::SizerItem* Ozone::Sizer::Insert(unsigned long index, ::Ozone::Window* window, int proportion, int flag, int border, ::Ozone::Object* userData)
 {
     auto __arg0 = (::size_t)index;
     auto __arg1 = window ? (::wxWindow*)window->__Instance : nullptr;
@@ -642,7 +642,7 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Insert(unsigned long index, ::Ozone::Sizer* sizer, int proportion, int flag, int border, ::Ozone::Object* userData)
+::Ozone::SizerItem* Ozone::Sizer::Insert(unsigned long index, ::Ozone::Sizer* sizer, int proportion, int flag, int border, ::Ozone::Object* userData)
 {
     auto __arg0 = (::size_t)index;
     auto __arg1 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
@@ -651,7 +651,7 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Insert(unsigned long index, int width, int height, int proportion, int flag, int border, ::Ozone::Object* userData)
+::Ozone::SizerItem* Ozone::Sizer::Insert(unsigned long index, int width, int height, int proportion, int flag, int border, ::Ozone::Object* userData)
 {
     auto __arg0 = (::size_t)index;
     auto __arg6 = userData ? (::wxObject*)userData->__Instance : nullptr;
@@ -659,7 +659,7 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Insert(unsigned long index, ::Ozone::Window* window, const ::Ozone::SizerFlags& flags)
+::Ozone::SizerItem* Ozone::Sizer::Insert(unsigned long index, ::Ozone::Window* window, const ::Ozone::SizerFlags& flags)
 {
     auto __arg0 = (::size_t)index;
     auto __arg1 = window ? (::wxWindow*)window->__Instance : nullptr;
@@ -668,7 +668,7 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Insert(unsigned long index, ::Ozone::Sizer* sizer, const ::Ozone::SizerFlags& flags)
+::Ozone::SizerItem* Ozone::Sizer::Insert(unsigned long index, ::Ozone::Sizer* sizer, const ::Ozone::SizerFlags& flags)
 {
     auto __arg0 = (::size_t)index;
     auto __arg1 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
@@ -677,7 +677,7 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Insert(unsigned long index, int width, int height, const ::Ozone::SizerFlags& flags)
+::Ozone::SizerItem* Ozone::Sizer::Insert(unsigned long index, int width, int height, const ::Ozone::SizerFlags& flags)
 {
     auto __arg0 = (::size_t)index;
     auto &__arg3 = *(::wxSizerFlags*)flags.__Instance;
@@ -685,7 +685,7 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Insert(unsigned long index, ::Ozone::SizerItem* item)
+::Ozone::SizerItem* Ozone::Sizer::Insert(unsigned long index, ::Ozone::SizerItem* item)
 {
     auto __arg0 = (::size_t)index;
     auto __arg1 = item ? (::wxSizerItem*)item->__Instance : nullptr;
@@ -693,21 +693,21 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::InsertSpacer(unsigned long index, int size)
+::Ozone::SizerItem* Ozone::Sizer::InsertSpacer(unsigned long index, int size)
 {
     auto __arg0 = (::size_t)index;
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->InsertSpacer(__arg0, size);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::InsertStretchSpacer(unsigned long index, int prop)
+::Ozone::SizerItem* Ozone::Sizer::InsertStretchSpacer(unsigned long index, int prop)
 {
     auto __arg0 = (::size_t)index;
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->InsertStretchSpacer(__arg0, prop);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Prepend(::Ozone::Window* window, int proportion, int flag, int border, ::Ozone::Object* userData)
+::Ozone::SizerItem* Ozone::Sizer::Prepend(::Ozone::Window* window, int proportion, int flag, int border, ::Ozone::Object* userData)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     auto __arg4 = userData ? (::wxObject*)userData->__Instance : nullptr;
@@ -715,7 +715,7 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Prepend(::Ozone::Sizer* sizer, int proportion, int flag, int border, ::Ozone::Object* userData)
+::Ozone::SizerItem* Ozone::Sizer::Prepend(::Ozone::Sizer* sizer, int proportion, int flag, int border, ::Ozone::Object* userData)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     auto __arg4 = userData ? (::wxObject*)userData->__Instance : nullptr;
@@ -723,14 +723,14 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Prepend(int width, int height, int proportion, int flag, int border, ::Ozone::Object* userData)
+::Ozone::SizerItem* Ozone::Sizer::Prepend(int width, int height, int proportion, int flag, int border, ::Ozone::Object* userData)
 {
     auto __arg5 = userData ? (::wxObject*)userData->__Instance : nullptr;
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->Prepend(width, height, proportion, flag, border, __arg5);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Prepend(::Ozone::Window* window, const ::Ozone::SizerFlags& flags)
+::Ozone::SizerItem* Ozone::Sizer::Prepend(::Ozone::Window* window, const ::Ozone::SizerFlags& flags)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     auto &__arg1 = *(::wxSizerFlags*)flags.__Instance;
@@ -738,7 +738,7 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Prepend(::Ozone::Sizer* sizer, const ::Ozone::SizerFlags& flags)
+::Ozone::SizerItem* Ozone::Sizer::Prepend(::Ozone::Sizer* sizer, const ::Ozone::SizerFlags& flags)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     auto &__arg1 = *(::wxSizerFlags*)flags.__Instance;
@@ -746,78 +746,78 @@ void ::Ozone::SizerItemList::reverse()
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Prepend(int width, int height, const ::Ozone::SizerFlags& flags)
+::Ozone::SizerItem* Ozone::Sizer::Prepend(int width, int height, const ::Ozone::SizerFlags& flags)
 {
     auto &__arg2 = *(::wxSizerFlags*)flags.__Instance;
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->Prepend(width, height, __arg2);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::Prepend(::Ozone::SizerItem* item)
+::Ozone::SizerItem* Ozone::Sizer::Prepend(::Ozone::SizerItem* item)
 {
     auto __arg0 = item ? (::wxSizerItem*)item->__Instance : nullptr;
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->Prepend(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::PrependSpacer(int size)
+::Ozone::SizerItem* Ozone::Sizer::PrependSpacer(int size)
 {
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->PrependSpacer(size);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::PrependStretchSpacer(int prop)
+::Ozone::SizerItem* Ozone::Sizer::PrependStretchSpacer(int prop)
 {
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->PrependStretchSpacer(prop);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-void ::Ozone::Sizer::SetContainingWindow(::Ozone::Window* window)
+void Ozone::Sizer::SetContainingWindow(::Ozone::Window* window)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     ((::wxSizer*)__Instance)->SetContainingWindow(__arg0);
 }
 
-::Ozone::Window* ::Ozone::Sizer::GetContainingWindow() const
+::Ozone::Window* Ozone::Sizer::GetContainingWindow() const
 {
     ::wxWindow* __ret = ((::wxSizer*)__Instance)->GetContainingWindow();
     return (__ret == nullptr) ? nullptr : new Ozone::Window((::wxWindow*)__ret);
 }
 
-bool ::Ozone::Sizer::Remove(::Ozone::Sizer* sizer)
+bool Ozone::Sizer::Remove(::Ozone::Sizer* sizer)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     bool __ret = ((::wxSizer*)__Instance)->Remove(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Sizer::Remove(int index)
+bool Ozone::Sizer::Remove(int index)
 {
     bool __ret = ((::wxSizer*)__Instance)->Remove(index);
     return __ret;
 }
 
-bool ::Ozone::Sizer::Detach(::Ozone::Window* window)
+bool Ozone::Sizer::Detach(::Ozone::Window* window)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     bool __ret = ((::wxSizer*)__Instance)->Detach(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Sizer::Detach(::Ozone::Sizer* sizer)
+bool Ozone::Sizer::Detach(::Ozone::Sizer* sizer)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     bool __ret = ((::wxSizer*)__Instance)->Detach(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Sizer::Detach(int index)
+bool Ozone::Sizer::Detach(int index)
 {
     bool __ret = ((::wxSizer*)__Instance)->Detach(index);
     return __ret;
 }
 
-bool ::Ozone::Sizer::Replace(::Ozone::Window* oldwin, ::Ozone::Window* newwin, bool recursive)
+bool Ozone::Sizer::Replace(::Ozone::Window* oldwin, ::Ozone::Window* newwin, bool recursive)
 {
     auto __arg0 = oldwin ? (::wxWindow*)oldwin->__Instance : nullptr;
     auto __arg1 = newwin ? (::wxWindow*)newwin->__Instance : nullptr;
@@ -825,7 +825,7 @@ bool ::Ozone::Sizer::Replace(::Ozone::Window* oldwin, ::Ozone::Window* newwin, b
     return __ret;
 }
 
-bool ::Ozone::Sizer::Replace(::Ozone::Sizer* oldsz, ::Ozone::Sizer* newsz, bool recursive)
+bool Ozone::Sizer::Replace(::Ozone::Sizer* oldsz, ::Ozone::Sizer* newsz, bool recursive)
 {
     auto __arg0 = oldsz ? (::wxSizer*)oldsz->__Instance : nullptr;
     auto __arg1 = newsz ? (::wxSizer*)newsz->__Instance : nullptr;
@@ -833,7 +833,7 @@ bool ::Ozone::Sizer::Replace(::Ozone::Sizer* oldsz, ::Ozone::Sizer* newsz, bool 
     return __ret;
 }
 
-bool ::Ozone::Sizer::Replace(unsigned long index, ::Ozone::SizerItem* newitem)
+bool Ozone::Sizer::Replace(unsigned long index, ::Ozone::SizerItem* newitem)
 {
     auto __arg0 = (::size_t)index;
     auto __arg1 = newitem ? (::wxSizerItem*)newitem->__Instance : nullptr;
@@ -841,41 +841,41 @@ bool ::Ozone::Sizer::Replace(unsigned long index, ::Ozone::SizerItem* newitem)
     return __ret;
 }
 
-void ::Ozone::Sizer::Clear(bool delete_windows)
+void Ozone::Sizer::Clear(bool delete_windows)
 {
     ((::wxSizer*)__Instance)->Clear(delete_windows);
 }
 
-void ::Ozone::Sizer::DeleteWindows()
+void Ozone::Sizer::DeleteWindows()
 {
     ((::wxSizer*)__Instance)->DeleteWindows();
 }
 
-bool ::Ozone::Sizer::InformFirstDirection(int _0, int _1, int _2)
+bool Ozone::Sizer::InformFirstDirection(int _0, int _1, int _2)
 {
     bool __ret = ((::wxSizer*)__Instance)->InformFirstDirection(_0, _1, _2);
     return __ret;
 }
 
-void ::Ozone::Sizer::SetMinSize(int width, int height)
+void Ozone::Sizer::SetMinSize(int width, int height)
 {
     ((::wxSizer*)__Instance)->SetMinSize(width, height);
 }
 
-void ::Ozone::Sizer::SetMinSize(const ::Ozone::Size& size)
+void Ozone::Sizer::SetMinSize(const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxSize*)size.__Instance;
     ((::wxSizer*)__Instance)->SetMinSize(__arg0);
 }
 
-bool ::Ozone::Sizer::SetItemMinSize(::Ozone::Window* window, int width, int height)
+bool Ozone::Sizer::SetItemMinSize(::Ozone::Window* window, int width, int height)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     bool __ret = ((::wxSizer*)__Instance)->SetItemMinSize(__arg0, width, height);
     return __ret;
 }
 
-bool ::Ozone::Sizer::SetItemMinSize(::Ozone::Window* window, const ::Ozone::Size& size)
+bool Ozone::Sizer::SetItemMinSize(::Ozone::Window* window, const ::Ozone::Size& size)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     auto &__arg1 = *(::wxSize*)size.__Instance;
@@ -883,14 +883,14 @@ bool ::Ozone::Sizer::SetItemMinSize(::Ozone::Window* window, const ::Ozone::Size
     return __ret;
 }
 
-bool ::Ozone::Sizer::SetItemMinSize(::Ozone::Sizer* sizer, int width, int height)
+bool Ozone::Sizer::SetItemMinSize(::Ozone::Sizer* sizer, int width, int height)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     bool __ret = ((::wxSizer*)__Instance)->SetItemMinSize(__arg0, width, height);
     return __ret;
 }
 
-bool ::Ozone::Sizer::SetItemMinSize(::Ozone::Sizer* sizer, const ::Ozone::Size& size)
+bool Ozone::Sizer::SetItemMinSize(::Ozone::Sizer* sizer, const ::Ozone::Size& size)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     auto &__arg1 = *(::wxSize*)size.__Instance;
@@ -898,14 +898,14 @@ bool ::Ozone::Sizer::SetItemMinSize(::Ozone::Sizer* sizer, const ::Ozone::Size& 
     return __ret;
 }
 
-bool ::Ozone::Sizer::SetItemMinSize(unsigned long index, int width, int height)
+bool Ozone::Sizer::SetItemMinSize(unsigned long index, int width, int height)
 {
     auto __arg0 = (::size_t)index;
     bool __ret = ((::wxSizer*)__Instance)->SetItemMinSize(__arg0, width, height);
     return __ret;
 }
 
-bool ::Ozone::Sizer::SetItemMinSize(unsigned long index, const ::Ozone::Size& size)
+bool Ozone::Sizer::SetItemMinSize(unsigned long index, const ::Ozone::Size& size)
 {
     auto __arg0 = (::size_t)index;
     auto &__arg1 = *(::wxSize*)size.__Instance;
@@ -913,51 +913,51 @@ bool ::Ozone::Sizer::SetItemMinSize(unsigned long index, const ::Ozone::Size& si
     return __ret;
 }
 
-::Ozone::Size ::Ozone::Sizer::GetSize() const
+::Ozone::Size Ozone::Sizer::GetSize() const
 {
     ::wxSize __ret = ((::wxSizer*)__Instance)->GetSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Point ::Ozone::Sizer::GetPosition() const
+::Ozone::Point Ozone::Sizer::GetPosition() const
 {
     ::wxPoint __ret = ((::wxSizer*)__Instance)->GetPosition();
     auto ____ret = new ::wxPoint(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Sizer::GetMinSize()
+::Ozone::Size Ozone::Sizer::GetMinSize()
 {
     ::wxSize __ret = ((::wxSizer*)__Instance)->GetMinSize();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Sizer::CalcMin()
+::Ozone::Size Ozone::Sizer::CalcMin()
 {
     ::wxSize __ret = ((::wxSizer*)__Instance)->CalcMin();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-void ::Ozone::Sizer::RepositionChildren(const ::Ozone::Size& _0)
+void Ozone::Sizer::RepositionChildren(const ::Ozone::Size& _0)
 {
     auto &__arg0 = *(::wxSize*)_0.__Instance;
     ((::wxSizer*)__Instance)->RepositionChildren(__arg0);
 }
 
-void ::Ozone::Sizer::RecalcSizes()
+void Ozone::Sizer::RecalcSizes()
 {
     ((::wxSizer*)__Instance)->RecalcSizes();
 }
 
-void ::Ozone::Sizer::Layout()
+void Ozone::Sizer::Layout()
 {
     ((::wxSizer*)__Instance)->Layout();
 }
 
-::Ozone::Size ::Ozone::Sizer::ComputeFittingClientSize(::Ozone::Window* window)
+::Ozone::Size Ozone::Sizer::ComputeFittingClientSize(::Ozone::Window* window)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     ::wxSize __ret = ((::wxSizer*)__Instance)->ComputeFittingClientSize(__arg0);
@@ -965,7 +965,7 @@ void ::Ozone::Sizer::Layout()
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Sizer::ComputeFittingWindowSize(::Ozone::Window* window)
+::Ozone::Size Ozone::Sizer::ComputeFittingWindowSize(::Ozone::Window* window)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     ::wxSize __ret = ((::wxSizer*)__Instance)->ComputeFittingWindowSize(__arg0);
@@ -973,7 +973,7 @@ void ::Ozone::Sizer::Layout()
     return ____ret;
 }
 
-::Ozone::Size ::Ozone::Sizer::Fit(::Ozone::Window* window)
+::Ozone::Size Ozone::Sizer::Fit(::Ozone::Window* window)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     ::wxSize __ret = ((::wxSizer*)__Instance)->Fit(__arg0);
@@ -981,149 +981,149 @@ void ::Ozone::Sizer::Layout()
     return ____ret;
 }
 
-void ::Ozone::Sizer::FitInside(::Ozone::Window* window)
+void Ozone::Sizer::FitInside(::Ozone::Window* window)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     ((::wxSizer*)__Instance)->FitInside(__arg0);
 }
 
-void ::Ozone::Sizer::SetSizeHints(::Ozone::Window* window)
+void Ozone::Sizer::SetSizeHints(::Ozone::Window* window)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     ((::wxSizer*)__Instance)->SetSizeHints(__arg0);
 }
 
-void ::Ozone::Sizer::SetDimension(const ::Ozone::Point& pos, const ::Ozone::Size& size)
+void Ozone::Sizer::SetDimension(const ::Ozone::Point& pos, const ::Ozone::Size& size)
 {
     auto &__arg0 = *(::wxPoint*)pos.__Instance;
     auto &__arg1 = *(::wxSize*)size.__Instance;
     ((::wxSizer*)__Instance)->SetDimension(__arg0, __arg1);
 }
 
-void ::Ozone::Sizer::SetDimension(int x, int y, int width, int height)
+void Ozone::Sizer::SetDimension(int x, int y, int width, int height)
 {
     ((::wxSizer*)__Instance)->SetDimension(x, y, width, height);
 }
 
-unsigned long ::Ozone::Sizer::GetItemCount() const
+unsigned long Ozone::Sizer::GetItemCount() const
 {
     ::size_t __ret = ((::wxSizer*)__Instance)->GetItemCount();
     return __ret;
 }
 
-bool ::Ozone::Sizer::IsEmpty() const
+bool Ozone::Sizer::IsEmpty() const
 {
     bool __ret = ((::wxSizer*)__Instance)->IsEmpty();
     return __ret;
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::GetItem(::Ozone::Window* window, bool recursive)
+::Ozone::SizerItem* Ozone::Sizer::GetItem(::Ozone::Window* window, bool recursive)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->GetItem(__arg0, recursive);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::GetItem(::Ozone::Sizer* sizer, bool recursive)
+::Ozone::SizerItem* Ozone::Sizer::GetItem(::Ozone::Sizer* sizer, bool recursive)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->GetItem(__arg0, recursive);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::GetItem(unsigned long index)
+::Ozone::SizerItem* Ozone::Sizer::GetItem(unsigned long index)
 {
     auto __arg0 = (::size_t)index;
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->GetItem(__arg0);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerItem* ::Ozone::Sizer::GetItemById(int id, bool recursive)
+::Ozone::SizerItem* Ozone::Sizer::GetItemById(int id, bool recursive)
 {
     ::wxSizerItem* __ret = ((::wxSizer*)__Instance)->GetItemById(id, recursive);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-bool ::Ozone::Sizer::Show(::Ozone::Window* window, bool show, bool recursive)
+bool Ozone::Sizer::Show(::Ozone::Window* window, bool show, bool recursive)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     bool __ret = ((::wxSizer*)__Instance)->Show(__arg0, show, recursive);
     return __ret;
 }
 
-bool ::Ozone::Sizer::Show(::Ozone::Sizer* sizer, bool show, bool recursive)
+bool Ozone::Sizer::Show(::Ozone::Sizer* sizer, bool show, bool recursive)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     bool __ret = ((::wxSizer*)__Instance)->Show(__arg0, show, recursive);
     return __ret;
 }
 
-bool ::Ozone::Sizer::Show(unsigned long index, bool show)
+bool Ozone::Sizer::Show(unsigned long index, bool show)
 {
     auto __arg0 = (::size_t)index;
     bool __ret = ((::wxSizer*)__Instance)->Show(__arg0, show);
     return __ret;
 }
 
-bool ::Ozone::Sizer::Hide(::Ozone::Sizer* sizer, bool recursive)
+bool Ozone::Sizer::Hide(::Ozone::Sizer* sizer, bool recursive)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     bool __ret = ((::wxSizer*)__Instance)->Hide(__arg0, recursive);
     return __ret;
 }
 
-bool ::Ozone::Sizer::Hide(::Ozone::Window* window, bool recursive)
+bool Ozone::Sizer::Hide(::Ozone::Window* window, bool recursive)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     bool __ret = ((::wxSizer*)__Instance)->Hide(__arg0, recursive);
     return __ret;
 }
 
-bool ::Ozone::Sizer::Hide(unsigned long index)
+bool Ozone::Sizer::Hide(unsigned long index)
 {
     auto __arg0 = (::size_t)index;
     bool __ret = ((::wxSizer*)__Instance)->Hide(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Sizer::IsShown(::Ozone::Window* window) const
+bool Ozone::Sizer::IsShown(::Ozone::Window* window) const
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     bool __ret = ((::wxSizer*)__Instance)->IsShown(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Sizer::IsShown(::Ozone::Sizer* sizer) const
+bool Ozone::Sizer::IsShown(::Ozone::Sizer* sizer) const
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     bool __ret = ((::wxSizer*)__Instance)->IsShown(__arg0);
     return __ret;
 }
 
-bool ::Ozone::Sizer::IsShown(unsigned long index) const
+bool Ozone::Sizer::IsShown(unsigned long index) const
 {
     auto __arg0 = (::size_t)index;
     bool __ret = ((::wxSizer*)__Instance)->IsShown(__arg0);
     return __ret;
 }
 
-void ::Ozone::Sizer::ShowItems(bool show)
+void Ozone::Sizer::ShowItems(bool show)
 {
     ((::wxSizer*)__Instance)->ShowItems(show);
 }
 
-void ::Ozone::Sizer::Show(bool show)
+void Ozone::Sizer::Show(bool show)
 {
     ((::wxSizer*)__Instance)->Show(show);
 }
 
-bool ::Ozone::Sizer::AreAnyItemsShown() const
+bool Ozone::Sizer::AreAnyItemsShown() const
 {
     bool __ret = ((::wxSizer*)__Instance)->AreAnyItemsShown();
     return __ret;
 }
 
-::Ozone::Sizer::Sizer(const ::Ozone::Sizer& _0)
+Ozone::Sizer::Sizer(const ::Ozone::Sizer& _0)
     : ::Ozone::Object((::wxObject*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -1139,14 +1139,14 @@ bool ::Ozone::Sizer::AreAnyItemsShown() const
 {
 }
 
-::Ozone::GridSizer::GridSizer(int cols, int vgap, int hgap)
+Ozone::GridSizer::GridSizer(int cols, int vgap, int hgap)
     : ::Ozone::Sizer((::wxSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxGridSizer(cols, vgap, hgap);
 }
 
-::Ozone::GridSizer::GridSizer(int cols, const ::Ozone::Size& gap)
+Ozone::GridSizer::GridSizer(int cols, const ::Ozone::Size& gap)
     : ::Ozone::Sizer((::wxSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -1154,14 +1154,14 @@ bool ::Ozone::Sizer::AreAnyItemsShown() const
     __Instance = new ::wxGridSizer(cols, __arg1);
 }
 
-::Ozone::GridSizer::GridSizer(int rows, int cols, int vgap, int hgap)
+Ozone::GridSizer::GridSizer(int rows, int cols, int vgap, int hgap)
     : ::Ozone::Sizer((::wxSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxGridSizer(rows, cols, vgap, hgap);
 }
 
-::Ozone::GridSizer::GridSizer(int rows, int cols, const ::Ozone::Size& gap)
+Ozone::GridSizer::GridSizer(int rows, int cols, const ::Ozone::Size& gap)
     : ::Ozone::Sizer((::wxSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -1169,76 +1169,76 @@ bool ::Ozone::Sizer::AreAnyItemsShown() const
     __Instance = new ::wxGridSizer(rows, cols, __arg2);
 }
 
-void ::Ozone::GridSizer::RepositionChildren(const ::Ozone::Size& minSize)
+void Ozone::GridSizer::RepositionChildren(const ::Ozone::Size& minSize)
 {
     auto &__arg0 = *(::wxSize*)minSize.__Instance;
     ((::wxGridSizer*)__Instance)->RepositionChildren(__arg0);
 }
 
-::Ozone::Size ::Ozone::GridSizer::CalcMin()
+::Ozone::Size Ozone::GridSizer::CalcMin()
 {
     ::wxSize __ret = ((::wxGridSizer*)__Instance)->CalcMin();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-void ::Ozone::GridSizer::SetCols(int cols)
+void Ozone::GridSizer::SetCols(int cols)
 {
     ((::wxGridSizer*)__Instance)->SetCols(cols);
 }
 
-void ::Ozone::GridSizer::SetRows(int rows)
+void Ozone::GridSizer::SetRows(int rows)
 {
     ((::wxGridSizer*)__Instance)->SetRows(rows);
 }
 
-void ::Ozone::GridSizer::SetVGap(int gap)
+void Ozone::GridSizer::SetVGap(int gap)
 {
     ((::wxGridSizer*)__Instance)->SetVGap(gap);
 }
 
-void ::Ozone::GridSizer::SetHGap(int gap)
+void Ozone::GridSizer::SetHGap(int gap)
 {
     ((::wxGridSizer*)__Instance)->SetHGap(gap);
 }
 
-int ::Ozone::GridSizer::GetCols() const
+int Ozone::GridSizer::GetCols() const
 {
     int __ret = ((::wxGridSizer*)__Instance)->GetCols();
     return __ret;
 }
 
-int ::Ozone::GridSizer::GetRows() const
+int Ozone::GridSizer::GetRows() const
 {
     int __ret = ((::wxGridSizer*)__Instance)->GetRows();
     return __ret;
 }
 
-int ::Ozone::GridSizer::GetVGap() const
+int Ozone::GridSizer::GetVGap() const
 {
     int __ret = ((::wxGridSizer*)__Instance)->GetVGap();
     return __ret;
 }
 
-int ::Ozone::GridSizer::GetHGap() const
+int Ozone::GridSizer::GetHGap() const
 {
     int __ret = ((::wxGridSizer*)__Instance)->GetHGap();
     return __ret;
 }
 
-int ::Ozone::GridSizer::GetEffectiveColsCount() const
+int Ozone::GridSizer::GetEffectiveColsCount() const
 {
     int __ret = ((::wxGridSizer*)__Instance)->GetEffectiveColsCount();
     return __ret;
 }
 
-int ::Ozone::GridSizer::GetEffectiveRowsCount() const
+int Ozone::GridSizer::GetEffectiveRowsCount() const
 {
     int __ret = ((::wxGridSizer*)__Instance)->GetEffectiveRowsCount();
     return __ret;
 }
 
-int ::Ozone::GridSizer::CalcRowsCols(int& rows, int& cols) const
+int Ozone::GridSizer::CalcRowsCols(int& rows, int& cols) const
 {
     int& __arg0 = (int&)rows;
     int& __arg1 = (int&)cols;
@@ -1248,7 +1248,7 @@ int ::Ozone::GridSizer::CalcRowsCols(int& rows, int& cols) const
     return __ret;
 }
 
-::Ozone::GridSizer::GridSizer(const ::Ozone::GridSizer& _0)
+Ozone::GridSizer::GridSizer(const ::Ozone::GridSizer& _0)
     : ::Ozone::Sizer((::wxSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -1266,14 +1266,14 @@ int ::Ozone::GridSizer::CalcRowsCols(int& rows, int& cols) const
 {
 }
 
-::Ozone::FlexGridSizer::FlexGridSizer(int cols, int vgap, int hgap)
+Ozone::FlexGridSizer::FlexGridSizer(int cols, int vgap, int hgap)
     : ::Ozone::GridSizer((::wxGridSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxFlexGridSizer(cols, vgap, hgap);
 }
 
-::Ozone::FlexGridSizer::FlexGridSizer(int cols, const ::Ozone::Size& gap)
+Ozone::FlexGridSizer::FlexGridSizer(int cols, const ::Ozone::Size& gap)
     : ::Ozone::GridSizer((::wxGridSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -1281,14 +1281,14 @@ int ::Ozone::GridSizer::CalcRowsCols(int& rows, int& cols) const
     __Instance = new ::wxFlexGridSizer(cols, __arg1);
 }
 
-::Ozone::FlexGridSizer::FlexGridSizer(int rows, int cols, int vgap, int hgap)
+Ozone::FlexGridSizer::FlexGridSizer(int rows, int cols, int vgap, int hgap)
     : ::Ozone::GridSizer((::wxGridSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxFlexGridSizer(rows, cols, vgap, hgap);
 }
 
-::Ozone::FlexGridSizer::FlexGridSizer(int rows, int cols, const ::Ozone::Size& gap)
+Ozone::FlexGridSizer::FlexGridSizer(int rows, int cols, const ::Ozone::Size& gap)
     : ::Ozone::GridSizer((::wxGridSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -1296,74 +1296,74 @@ int ::Ozone::GridSizer::CalcRowsCols(int& rows, int& cols) const
     __Instance = new ::wxFlexGridSizer(rows, cols, __arg2);
 }
 
-void ::Ozone::FlexGridSizer::AddGrowableRow(unsigned long idx, int proportion)
+void Ozone::FlexGridSizer::AddGrowableRow(unsigned long idx, int proportion)
 {
     auto __arg0 = (::size_t)idx;
     ((::wxFlexGridSizer*)__Instance)->AddGrowableRow(__arg0, proportion);
 }
 
-void ::Ozone::FlexGridSizer::RemoveGrowableRow(unsigned long idx)
+void Ozone::FlexGridSizer::RemoveGrowableRow(unsigned long idx)
 {
     auto __arg0 = (::size_t)idx;
     ((::wxFlexGridSizer*)__Instance)->RemoveGrowableRow(__arg0);
 }
 
-void ::Ozone::FlexGridSizer::AddGrowableCol(unsigned long idx, int proportion)
+void Ozone::FlexGridSizer::AddGrowableCol(unsigned long idx, int proportion)
 {
     auto __arg0 = (::size_t)idx;
     ((::wxFlexGridSizer*)__Instance)->AddGrowableCol(__arg0, proportion);
 }
 
-void ::Ozone::FlexGridSizer::RemoveGrowableCol(unsigned long idx)
+void Ozone::FlexGridSizer::RemoveGrowableCol(unsigned long idx)
 {
     auto __arg0 = (::size_t)idx;
     ((::wxFlexGridSizer*)__Instance)->RemoveGrowableCol(__arg0);
 }
 
-bool ::Ozone::FlexGridSizer::IsRowGrowable(unsigned long idx)
+bool Ozone::FlexGridSizer::IsRowGrowable(unsigned long idx)
 {
     auto __arg0 = (::size_t)idx;
     bool __ret = ((::wxFlexGridSizer*)__Instance)->IsRowGrowable(__arg0);
     return __ret;
 }
 
-bool ::Ozone::FlexGridSizer::IsColGrowable(unsigned long idx)
+bool Ozone::FlexGridSizer::IsColGrowable(unsigned long idx)
 {
     auto __arg0 = (::size_t)idx;
     bool __ret = ((::wxFlexGridSizer*)__Instance)->IsColGrowable(__arg0);
     return __ret;
 }
 
-void ::Ozone::FlexGridSizer::SetFlexibleDirection(int direction)
+void Ozone::FlexGridSizer::SetFlexibleDirection(int direction)
 {
     ((::wxFlexGridSizer*)__Instance)->SetFlexibleDirection(direction);
 }
 
-int ::Ozone::FlexGridSizer::GetFlexibleDirection() const
+int Ozone::FlexGridSizer::GetFlexibleDirection() const
 {
     int __ret = ((::wxFlexGridSizer*)__Instance)->GetFlexibleDirection();
     return __ret;
 }
 
-void ::Ozone::FlexGridSizer::SetNonFlexibleGrowMode(::Ozone::FlexSizerGrowMode mode)
+void Ozone::FlexGridSizer::SetNonFlexibleGrowMode(::Ozone::FlexSizerGrowMode mode)
 {
     auto __arg0 = (::wxFlexSizerGrowMode)mode;
     ((::wxFlexGridSizer*)__Instance)->SetNonFlexibleGrowMode(__arg0);
 }
 
-::Ozone::FlexSizerGrowMode ::Ozone::FlexGridSizer::GetNonFlexibleGrowMode() const
+::Ozone::FlexSizerGrowMode Ozone::FlexGridSizer::GetNonFlexibleGrowMode() const
 {
     ::wxFlexSizerGrowMode __ret = ((::wxFlexGridSizer*)__Instance)->GetNonFlexibleGrowMode();
     return (::Ozone::FlexSizerGrowMode)__ret;
 }
 
-void ::Ozone::FlexGridSizer::RepositionChildren(const ::Ozone::Size& minSize)
+void Ozone::FlexGridSizer::RepositionChildren(const ::Ozone::Size& minSize)
 {
     auto &__arg0 = *(::wxSize*)minSize.__Instance;
     ((::wxFlexGridSizer*)__Instance)->RepositionChildren(__arg0);
 }
 
-::Ozone::Size ::Ozone::FlexGridSizer::CalcMin()
+::Ozone::Size Ozone::FlexGridSizer::CalcMin()
 {
     ::wxSize __ret = ((::wxFlexGridSizer*)__Instance)->CalcMin();
     auto ____ret = new ::wxSize(__ret);
@@ -1380,7 +1380,7 @@ void ::Ozone::FlexGridSizer::RepositionChildren(const ::Ozone::Size& minSize)
 {
 }
 
-::Ozone::BoxSizer::BoxSizer(::Ozone::SizerOrientation orient)
+Ozone::BoxSizer::BoxSizer(::Ozone::SizerOrientation orient)
     : ::Ozone::Sizer((::wxSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -1388,50 +1388,50 @@ void ::Ozone::FlexGridSizer::RepositionChildren(const ::Ozone::Size& minSize)
     __Instance = new ::wxBoxSizer(__arg0);
 }
 
-::Ozone::SizerItem* ::Ozone::BoxSizer::AddSpacer(int size)
+::Ozone::SizerItem* Ozone::BoxSizer::AddSpacer(int size)
 {
     ::wxSizerItem* __ret = ((::wxBoxSizer*)__Instance)->AddSpacer(size);
     return (__ret == nullptr) ? nullptr : new Ozone::SizerItem((::wxSizerItem*)__ret);
 }
 
-::Ozone::SizerOrientation ::Ozone::BoxSizer::GetOrientation() const
+::Ozone::SizerOrientation Ozone::BoxSizer::GetOrientation() const
 {
     int __ret = ((::wxBoxSizer*)__Instance)->GetOrientation();
     return (::Ozone::SizerOrientation)__ret;
 }
 
-bool ::Ozone::BoxSizer::IsVertical() const
+bool Ozone::BoxSizer::IsVertical() const
 {
     bool __ret = ((::wxBoxSizer*)__Instance)->IsVertical();
     return __ret;
 }
 
-void ::Ozone::BoxSizer::SetOrientation(::Ozone::SizerOrientation orient)
+void Ozone::BoxSizer::SetOrientation(::Ozone::SizerOrientation orient)
 {
     auto __arg0 = (int)orient;
     ((::wxBoxSizer*)__Instance)->SetOrientation(__arg0);
 }
 
-::Ozone::Size ::Ozone::BoxSizer::CalcMin()
+::Ozone::Size Ozone::BoxSizer::CalcMin()
 {
     ::wxSize __ret = ((::wxBoxSizer*)__Instance)->CalcMin();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-void ::Ozone::BoxSizer::RepositionChildren(const ::Ozone::Size& minSize)
+void Ozone::BoxSizer::RepositionChildren(const ::Ozone::Size& minSize)
 {
     auto &__arg0 = *(::wxSize*)minSize.__Instance;
     ((::wxBoxSizer*)__Instance)->RepositionChildren(__arg0);
 }
 
-bool ::Ozone::BoxSizer::InformFirstDirection(int direction, int size, int availableOtherDir)
+bool Ozone::BoxSizer::InformFirstDirection(int direction, int size, int availableOtherDir)
 {
     bool __ret = ((::wxBoxSizer*)__Instance)->InformFirstDirection(direction, size, availableOtherDir);
     return __ret;
 }
 
-::Ozone::BoxSizer::BoxSizer(const ::Ozone::BoxSizer& _0)
+Ozone::BoxSizer::BoxSizer(const ::Ozone::BoxSizer& _0)
     : ::Ozone::Sizer((::wxSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -1449,7 +1449,7 @@ bool ::Ozone::BoxSizer::InformFirstDirection(int direction, int size, int availa
 {
 }
 
-::Ozone::StaticBoxSizer::StaticBoxSizer(::Ozone::SizerOrientation orient, ::Ozone::Window* win, const char* label)
+Ozone::StaticBoxSizer::StaticBoxSizer(::Ozone::SizerOrientation orient, ::Ozone::Window* win, const char* label)
     : ::Ozone::BoxSizer((::wxBoxSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -1459,45 +1459,45 @@ bool ::Ozone::BoxSizer::InformFirstDirection(int direction, int size, int availa
     __Instance = new ::wxStaticBoxSizer(__arg0, __arg1, __arg2);
 }
 
-::Ozone::Size ::Ozone::StaticBoxSizer::CalcMin()
+::Ozone::Size Ozone::StaticBoxSizer::CalcMin()
 {
     ::wxSize __ret = ((::wxStaticBoxSizer*)__Instance)->CalcMin();
     auto ____ret = new ::wxSize(__ret);
     return ____ret;
 }
 
-void ::Ozone::StaticBoxSizer::RepositionChildren(const ::Ozone::Size& minSize)
+void Ozone::StaticBoxSizer::RepositionChildren(const ::Ozone::Size& minSize)
 {
     auto &__arg0 = *(::wxSize*)minSize.__Instance;
     ((::wxStaticBoxSizer*)__Instance)->RepositionChildren(__arg0);
 }
 
-void ::Ozone::StaticBoxSizer::ShowItems(bool show)
+void Ozone::StaticBoxSizer::ShowItems(bool show)
 {
     ((::wxStaticBoxSizer*)__Instance)->ShowItems(show);
 }
 
-bool ::Ozone::StaticBoxSizer::AreAnyItemsShown() const
+bool Ozone::StaticBoxSizer::AreAnyItemsShown() const
 {
     bool __ret = ((::wxStaticBoxSizer*)__Instance)->AreAnyItemsShown();
     return __ret;
 }
 
-bool ::Ozone::StaticBoxSizer::Detach(::Ozone::Window* window)
+bool Ozone::StaticBoxSizer::Detach(::Ozone::Window* window)
 {
     auto __arg0 = window ? (::wxWindow*)window->__Instance : nullptr;
     bool __ret = ((::wxStaticBoxSizer*)__Instance)->Detach(__arg0);
     return __ret;
 }
 
-bool ::Ozone::StaticBoxSizer::Detach(::Ozone::Sizer* sizer)
+bool Ozone::StaticBoxSizer::Detach(::Ozone::Sizer* sizer)
 {
     auto __arg0 = sizer ? (::wxSizer*)sizer->__Instance : nullptr;
     bool __ret = ((::wxStaticBoxSizer*)__Instance)->Detach(__arg0);
     return __ret;
 }
 
-bool ::Ozone::StaticBoxSizer::Detach(int index)
+bool Ozone::StaticBoxSizer::Detach(int index)
 {
     bool __ret = ((::wxStaticBoxSizer*)__Instance)->Detach(index);
     return __ret;
@@ -1513,14 +1513,14 @@ bool ::Ozone::StaticBoxSizer::Detach(int index)
 {
 }
 
-::Ozone::StdDialogButtonSizer::StdDialogButtonSizer()
+Ozone::StdDialogButtonSizer::StdDialogButtonSizer()
     : ::Ozone::BoxSizer((::wxBoxSizer*)nullptr)
 {
     __OwnsNativeInstance = true;
     __Instance = new ::wxStdDialogButtonSizer();
 }
 
-void ::Ozone::StdDialogButtonSizer::Realize()
+void Ozone::StdDialogButtonSizer::Realize()
 {
     ((::wxStdDialogButtonSizer*)__Instance)->Realize();
 }

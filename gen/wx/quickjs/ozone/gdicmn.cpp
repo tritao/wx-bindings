@@ -4088,6 +4088,255 @@ static void register_class_Ozone_ResourceCache(JSContext *ctx, JSModuleDef *m, b
     }
 }
 
+static void register_enum_Ozone_StockGDI_Item(JSContext *ctx, JSModuleDef *m, bool set)
+{
+    if (!set)
+    {
+        int status = JS_AddModuleExport(ctx, m, "Item");
+        assert(status != -1);
+        return;
+    }
+
+    JSValue val = JS_NewObject(ctx);
+
+    // BRUSH_BLACK
+    {
+        JSValue __item = JS_NewUint32(ctx, 0);
+        JS_SetPropertyStr(ctx, val, "BRUSH_BLACK", __item);
+    }
+
+    // BRUSH_BLUE
+    {
+        JSValue __item = JS_NewUint32(ctx, 1);
+        JS_SetPropertyStr(ctx, val, "BRUSH_BLUE", __item);
+    }
+
+    // BRUSH_CYAN
+    {
+        JSValue __item = JS_NewUint32(ctx, 2);
+        JS_SetPropertyStr(ctx, val, "BRUSH_CYAN", __item);
+    }
+
+    // BRUSH_GREEN
+    {
+        JSValue __item = JS_NewUint32(ctx, 3);
+        JS_SetPropertyStr(ctx, val, "BRUSH_GREEN", __item);
+    }
+
+    // BRUSH_YELLOW
+    {
+        JSValue __item = JS_NewUint32(ctx, 4);
+        JS_SetPropertyStr(ctx, val, "BRUSH_YELLOW", __item);
+    }
+
+    // BRUSH_GREY
+    {
+        JSValue __item = JS_NewUint32(ctx, 5);
+        JS_SetPropertyStr(ctx, val, "BRUSH_GREY", __item);
+    }
+
+    // BRUSH_LIGHTGREY
+    {
+        JSValue __item = JS_NewUint32(ctx, 6);
+        JS_SetPropertyStr(ctx, val, "BRUSH_LIGHTGREY", __item);
+    }
+
+    // BRUSH_MEDIUMGREY
+    {
+        JSValue __item = JS_NewUint32(ctx, 7);
+        JS_SetPropertyStr(ctx, val, "BRUSH_MEDIUMGREY", __item);
+    }
+
+    // BRUSH_RED
+    {
+        JSValue __item = JS_NewUint32(ctx, 8);
+        JS_SetPropertyStr(ctx, val, "BRUSH_RED", __item);
+    }
+
+    // BRUSH_TRANSPARENT
+    {
+        JSValue __item = JS_NewUint32(ctx, 9);
+        JS_SetPropertyStr(ctx, val, "BRUSH_TRANSPARENT", __item);
+    }
+
+    // BRUSH_WHITE
+    {
+        JSValue __item = JS_NewUint32(ctx, 10);
+        JS_SetPropertyStr(ctx, val, "BRUSH_WHITE", __item);
+    }
+
+    // COLOUR_BLACK
+    {
+        JSValue __item = JS_NewUint32(ctx, 11);
+        JS_SetPropertyStr(ctx, val, "COLOUR_BLACK", __item);
+    }
+
+    // COLOUR_BLUE
+    {
+        JSValue __item = JS_NewUint32(ctx, 12);
+        JS_SetPropertyStr(ctx, val, "COLOUR_BLUE", __item);
+    }
+
+    // COLOUR_CYAN
+    {
+        JSValue __item = JS_NewUint32(ctx, 13);
+        JS_SetPropertyStr(ctx, val, "COLOUR_CYAN", __item);
+    }
+
+    // COLOUR_GREEN
+    {
+        JSValue __item = JS_NewUint32(ctx, 14);
+        JS_SetPropertyStr(ctx, val, "COLOUR_GREEN", __item);
+    }
+
+    // COLOUR_YELLOW
+    {
+        JSValue __item = JS_NewUint32(ctx, 15);
+        JS_SetPropertyStr(ctx, val, "COLOUR_YELLOW", __item);
+    }
+
+    // COLOUR_LIGHTGREY
+    {
+        JSValue __item = JS_NewUint32(ctx, 16);
+        JS_SetPropertyStr(ctx, val, "COLOUR_LIGHTGREY", __item);
+    }
+
+    // COLOUR_RED
+    {
+        JSValue __item = JS_NewUint32(ctx, 17);
+        JS_SetPropertyStr(ctx, val, "COLOUR_RED", __item);
+    }
+
+    // COLOUR_WHITE
+    {
+        JSValue __item = JS_NewUint32(ctx, 18);
+        JS_SetPropertyStr(ctx, val, "COLOUR_WHITE", __item);
+    }
+
+    // CURSOR_CROSS
+    {
+        JSValue __item = JS_NewUint32(ctx, 19);
+        JS_SetPropertyStr(ctx, val, "CURSOR_CROSS", __item);
+    }
+
+    // CURSOR_HOURGLASS
+    {
+        JSValue __item = JS_NewUint32(ctx, 20);
+        JS_SetPropertyStr(ctx, val, "CURSOR_HOURGLASS", __item);
+    }
+
+    // CURSOR_STANDARD
+    {
+        JSValue __item = JS_NewUint32(ctx, 21);
+        JS_SetPropertyStr(ctx, val, "CURSOR_STANDARD", __item);
+    }
+
+    // FONT_ITALIC
+    {
+        JSValue __item = JS_NewUint32(ctx, 22);
+        JS_SetPropertyStr(ctx, val, "FONT_ITALIC", __item);
+    }
+
+    // FONT_NORMAL
+    {
+        JSValue __item = JS_NewUint32(ctx, 23);
+        JS_SetPropertyStr(ctx, val, "FONT_NORMAL", __item);
+    }
+
+    // FONT_SMALL
+    {
+        JSValue __item = JS_NewUint32(ctx, 24);
+        JS_SetPropertyStr(ctx, val, "FONT_SMALL", __item);
+    }
+
+    // FONT_SWISS
+    {
+        JSValue __item = JS_NewUint32(ctx, 25);
+        JS_SetPropertyStr(ctx, val, "FONT_SWISS", __item);
+    }
+
+    // PEN_BLACK
+    {
+        JSValue __item = JS_NewUint32(ctx, 26);
+        JS_SetPropertyStr(ctx, val, "PEN_BLACK", __item);
+    }
+
+    // PEN_BLACKDASHED
+    {
+        JSValue __item = JS_NewUint32(ctx, 27);
+        JS_SetPropertyStr(ctx, val, "PEN_BLACKDASHED", __item);
+    }
+
+    // PEN_BLUE
+    {
+        JSValue __item = JS_NewUint32(ctx, 28);
+        JS_SetPropertyStr(ctx, val, "PEN_BLUE", __item);
+    }
+
+    // PEN_CYAN
+    {
+        JSValue __item = JS_NewUint32(ctx, 29);
+        JS_SetPropertyStr(ctx, val, "PEN_CYAN", __item);
+    }
+
+    // PEN_GREEN
+    {
+        JSValue __item = JS_NewUint32(ctx, 30);
+        JS_SetPropertyStr(ctx, val, "PEN_GREEN", __item);
+    }
+
+    // PEN_YELLOW
+    {
+        JSValue __item = JS_NewUint32(ctx, 31);
+        JS_SetPropertyStr(ctx, val, "PEN_YELLOW", __item);
+    }
+
+    // PEN_GREY
+    {
+        JSValue __item = JS_NewUint32(ctx, 32);
+        JS_SetPropertyStr(ctx, val, "PEN_GREY", __item);
+    }
+
+    // PEN_LIGHTGREY
+    {
+        JSValue __item = JS_NewUint32(ctx, 33);
+        JS_SetPropertyStr(ctx, val, "PEN_LIGHTGREY", __item);
+    }
+
+    // PEN_MEDIUMGREY
+    {
+        JSValue __item = JS_NewUint32(ctx, 34);
+        JS_SetPropertyStr(ctx, val, "PEN_MEDIUMGREY", __item);
+    }
+
+    // PEN_RED
+    {
+        JSValue __item = JS_NewUint32(ctx, 35);
+        JS_SetPropertyStr(ctx, val, "PEN_RED", __item);
+    }
+
+    // PEN_TRANSPARENT
+    {
+        JSValue __item = JS_NewUint32(ctx, 36);
+        JS_SetPropertyStr(ctx, val, "PEN_TRANSPARENT", __item);
+    }
+
+    // PEN_WHITE
+    {
+        JSValue __item = JS_NewUint32(ctx, 37);
+        JS_SetPropertyStr(ctx, val, "PEN_WHITE", __item);
+    }
+
+    // ITEMCOUNT
+    {
+        JSValue __item = JS_NewUint32(ctx, 38);
+        JS_SetPropertyStr(ctx, val, "ITEMCOUNT", __item);
+    }
+
+    int status = JS_SetModuleExport(ctx, m, "Item", val);
+    assert(status != -1);
+}
+
 JSClassID classId_Ozone_StockGDI;
 
 enum class Item : unsigned int

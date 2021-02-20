@@ -27,7 +27,7 @@
 {
 }
 
-::Ozone::Panel::Panel()
+Ozone::Panel::Panel()
     : ::Ozone::Window((::wxWindow*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -38,7 +38,7 @@
         __instance->SetClientData(this);
 }
 
-::Ozone::Panel::Panel(::Ozone::Window* parent, int winid, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
+Ozone::Panel::Panel(::Ozone::Window* parent, int winid, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
     : ::Ozone::Window((::wxWindow*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -54,7 +54,7 @@
         __instance->SetClientData(this);
 }
 
-bool ::Ozone::Panel::Create(::Ozone::Window* parent, int winid, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
+bool Ozone::Panel::Create(::Ozone::Window* parent, int winid, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name)
 {
     auto __arg0 = parent ? (::wxWindow*)parent->__Instance : nullptr;
     auto __arg1 = (::wxWindowID)winid;
@@ -65,12 +65,12 @@ bool ::Ozone::Panel::Create(::Ozone::Window* parent, int winid, const ::Ozone::P
     return __ret;
 }
 
-void ::Ozone::Panel::InitDialog()
+void Ozone::Panel::InitDialog()
 {
     ((::wxPanel*)__Instance)->InitDialog();
 }
 
-int ::Ozone::Panel::HandleEvent(::wxEvent& event)
+int Ozone::Panel::HandleEvent(::wxEvent& event)
 {
     wxEventType eventType = event.GetEventType();
 

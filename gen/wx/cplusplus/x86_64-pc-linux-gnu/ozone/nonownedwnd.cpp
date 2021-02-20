@@ -24,7 +24,7 @@
 {
 }
 
-::Ozone::NonOwnedWindow::NonOwnedWindow()
+Ozone::NonOwnedWindow::NonOwnedWindow()
     : ::Ozone::Window((::wxWindow*)nullptr)
 {
     __OwnsNativeInstance = true;
@@ -35,14 +35,14 @@
         __instance->SetClientData(this);
 }
 
-bool ::Ozone::NonOwnedWindow::SetShape(const ::Ozone::GraphicsPath& path)
+bool Ozone::NonOwnedWindow::SetShape(const ::Ozone::GraphicsPath& path)
 {
     auto &__arg0 = *(::wxGraphicsPath*)path.__Instance;
     bool __ret = ((::wxNonOwnedWindow*)__Instance)->SetShape(__arg0);
     return __ret;
 }
 
-void ::Ozone::NonOwnedWindow::InheritAttributes()
+void Ozone::NonOwnedWindow::InheritAttributes()
 {
     ((::wxNonOwnedWindow*)__Instance)->InheritAttributes();
 }

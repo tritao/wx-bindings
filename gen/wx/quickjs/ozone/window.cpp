@@ -559,6 +559,66 @@ static void register_class_Ozone_WindowListNode(JSContext *ctx, JSModuleDef *m, 
     }
 }
 
+static void register_enum_Ozone_Window_ScrollDir(JSContext *ctx, JSModuleDef *m, bool set)
+{
+    if (!set)
+    {
+        int status = JS_AddModuleExport(ctx, m, "ScrollDir");
+        assert(status != -1);
+        return;
+    }
+
+    JSValue val = JS_NewObject(ctx);
+
+    // Horz
+    {
+        JSValue __item = JS_NewUint32(ctx, 0);
+        JS_SetPropertyStr(ctx, val, "Horz", __item);
+    }
+
+    // Vert
+    {
+        JSValue __item = JS_NewUint32(ctx, 1);
+        JS_SetPropertyStr(ctx, val, "Vert", __item);
+    }
+
+    // Max
+    {
+        JSValue __item = JS_NewUint32(ctx, 2);
+        JS_SetPropertyStr(ctx, val, "Max", __item);
+    }
+
+    int status = JS_SetModuleExport(ctx, m, "ScrollDir", val);
+    assert(status != -1);
+}
+
+static void register_enum_Ozone_Window_NavigationKind(JSContext *ctx, JSModuleDef *m, bool set)
+{
+    if (!set)
+    {
+        int status = JS_AddModuleExport(ctx, m, "NavigationKind");
+        assert(status != -1);
+        return;
+    }
+
+    JSValue val = JS_NewObject(ctx);
+
+    // Tab
+    {
+        JSValue __item = JS_NewUint32(ctx, 0);
+        JS_SetPropertyStr(ctx, val, "Tab", __item);
+    }
+
+    // Accel
+    {
+        JSValue __item = JS_NewUint32(ctx, 1);
+        JS_SetPropertyStr(ctx, val, "Accel", __item);
+    }
+
+    int status = JS_SetModuleExport(ctx, m, "NavigationKind", val);
+    assert(status != -1);
+}
+
 JSClassID classId_Ozone_Window;
 
 struct data_Ozone_Window : public JS_Interop_ClassData

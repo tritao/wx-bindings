@@ -133,7 +133,7 @@ protected:
     bool __OwnsNativeInstance;
 };
 
-class PenList : public Ozone::Ozone::GDIObjListBase
+class PenList : public ::Ozone::Ozone::GDIObjListBase
 {
 public:
 

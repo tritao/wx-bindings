@@ -7114,6 +7114,33 @@ static void register_class_Ozone_ChildFocusEvent(JSContext *ctx, JSModuleDef *m,
     }
 }
 
+static void register_enum_Ozone_ActivateEvent_Reason(JSContext *ctx, JSModuleDef *m, bool set)
+{
+    if (!set)
+    {
+        int status = JS_AddModuleExport(ctx, m, "Reason");
+        assert(status != -1);
+        return;
+    }
+
+    JSValue val = JS_NewObject(ctx);
+
+    // Mouse
+    {
+        JSValue __item = JS_NewUint32(ctx, 0);
+        JS_SetPropertyStr(ctx, val, "Mouse", __item);
+    }
+
+    // Unknown
+    {
+        JSValue __item = JS_NewUint32(ctx, 1);
+        JS_SetPropertyStr(ctx, val, "Unknown", __item);
+    }
+
+    int status = JS_SetModuleExport(ctx, m, "Reason", val);
+    assert(status != -1);
+}
+
 JSClassID classId_Ozone_ActivateEvent;
 
 enum class Reason : unsigned int
@@ -10460,6 +10487,45 @@ static void register_class_Ozone_QueryNewPaletteEvent(JSContext *ctx, JSModuleDe
     }
 }
 
+static void register_enum_Ozone_NavigationKeyEvent_NavigationKeyEventFlags(JSContext *ctx, JSModuleDef *m, bool set)
+{
+    if (!set)
+    {
+        int status = JS_AddModuleExport(ctx, m, "NavigationKeyEventFlags");
+        assert(status != -1);
+        return;
+    }
+
+    JSValue val = JS_NewObject(ctx);
+
+    // IsBackward
+    {
+        JSValue __item = JS_NewUint32(ctx, 0x0);
+        JS_SetPropertyStr(ctx, val, "IsBackward", __item);
+    }
+
+    // IsForward
+    {
+        JSValue __item = JS_NewUint32(ctx, 0x1);
+        JS_SetPropertyStr(ctx, val, "IsForward", __item);
+    }
+
+    // WinChange
+    {
+        JSValue __item = JS_NewUint32(ctx, 0x2);
+        JS_SetPropertyStr(ctx, val, "WinChange", __item);
+    }
+
+    // FromTab
+    {
+        JSValue __item = JS_NewUint32(ctx, 0x4);
+        JS_SetPropertyStr(ctx, val, "FromTab", __item);
+    }
+
+    int status = JS_SetModuleExport(ctx, m, "NavigationKeyEventFlags", val);
+    assert(status != -1);
+}
+
 JSClassID classId_Ozone_NavigationKeyEvent;
 
 enum class NavigationKeyEventFlags : unsigned int
@@ -11187,6 +11253,39 @@ static void register_class_Ozone_WindowDestroyEvent(JSContext *ctx, JSModuleDef 
         JS_FreeValue(ctx, baseProto);
         JS_FreeValue(ctx, proto);
     }
+}
+
+static void register_enum_Ozone_HelpEvent_Source(JSContext *ctx, JSModuleDef *m, bool set)
+{
+    if (!set)
+    {
+        int status = JS_AddModuleExport(ctx, m, "Source");
+        assert(status != -1);
+        return;
+    }
+
+    JSValue val = JS_NewObject(ctx);
+
+    // Unknown
+    {
+        JSValue __item = JS_NewUint32(ctx, 0);
+        JS_SetPropertyStr(ctx, val, "Unknown", __item);
+    }
+
+    // Keyboard
+    {
+        JSValue __item = JS_NewUint32(ctx, 1);
+        JS_SetPropertyStr(ctx, val, "Keyboard", __item);
+    }
+
+    // HelpButton
+    {
+        JSValue __item = JS_NewUint32(ctx, 2);
+        JS_SetPropertyStr(ctx, val, "HelpButton", __item);
+    }
+
+    int status = JS_SetModuleExport(ctx, m, "Source", val);
+    assert(status != -1);
 }
 
 JSClassID classId_Ozone_HelpEvent;

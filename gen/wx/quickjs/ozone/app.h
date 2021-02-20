@@ -8,7 +8,7 @@
 
 #include <quickjs.h>
 
-class AppConsole : public Ozone::Ozone::EvtHandler
+class AppConsole : public ::Ozone::Ozone::EvtHandler
 {
 public:
 
@@ -113,7 +113,7 @@ public:
     static void SetInstance(::Ozone::Ozone::AppConsole* app);
 };
 
-class App : public Ozone::Ozone::AppConsole
+class App : public ::Ozone::Ozone::AppConsole
 {
 public:
 

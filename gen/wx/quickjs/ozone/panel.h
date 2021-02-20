@@ -8,7 +8,7 @@
 
 #include <quickjs.h>
 
-class Panel : public Ozone::Ozone::Window
+class Panel : public ::Ozone::Ozone::Window
 {
 public:
 

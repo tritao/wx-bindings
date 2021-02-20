@@ -8,7 +8,7 @@
 
 #include <quickjs.h>
 
-class WindowDC : public Ozone::Ozone::DC
+class WindowDC : public ::Ozone::Ozone::DC
 {
 public:
 
@@ -21,7 +21,7 @@ public:
     ~WindowDC();
 };
 
-class ClientDC : public Ozone::Ozone::WindowDC
+class ClientDC : public ::Ozone::Ozone::WindowDC
 {
 public:
 
@@ -34,7 +34,7 @@ public:
     ~ClientDC();
 };
 
-class PaintDC : public Ozone::Ozone::ClientDC
+class PaintDC : public ::Ozone::Ozone::ClientDC
 {
 public:
 

@@ -84,7 +84,7 @@ protected:
     bool __OwnsNativeInstance;
 };
 
-class DC : public Ozone::Ozone::Object
+class DC : public ::Ozone::Ozone::Object
 {
 public:
 

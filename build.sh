@@ -128,7 +128,6 @@ build()
 
   if [ $oshost = "linux" ] || [ $oshost = "macosx" ]; then
     NUMCPUS=`grep -c '^processor' /proc/cpuinfo`
-    NUMCPUS=1
     config=$(tr '[:upper:]' '[:lower:]' <<< ${configuration}) make -C $DIR/build -j$NUMCPUS
   fi
 

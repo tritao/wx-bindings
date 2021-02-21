@@ -31,16 +31,16 @@ static void register_enum_Ozone_WebViewReloadFlags(JSContext *ctx, JSModuleDef *
 
     JSValue val = JS_NewObject(ctx);
 
-    // WEBVIEW_RELOAD_DEFAULT
+    // DEFAULT
     {
         JSValue __item = JS_NewUint32(ctx, 0);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_RELOAD_DEFAULT", __item);
+        JS_SetPropertyStr(ctx, val, "DEFAULT", __item);
     }
 
-    // WEBVIEW_RELOAD_NO_CACHE
+    // NO_CACHE
     {
         JSValue __item = JS_NewUint32(ctx, 1);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_RELOAD_NO_CACHE", __item);
+        JS_SetPropertyStr(ctx, val, "NO_CACHE", __item);
     }
 
     int status = JS_SetModuleExport(ctx, m, "WebViewReloadFlags", val);
@@ -58,16 +58,16 @@ static void register_enum_Ozone_WebViewZoomType(JSContext *ctx, JSModuleDef *m, 
 
     JSValue val = JS_NewObject(ctx);
 
-    // WEBVIEW_ZOOM_TYPE_LAYOUT
+    // LAYOUT
     {
         JSValue __item = JS_NewUint32(ctx, 0);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_ZOOM_TYPE_LAYOUT", __item);
+        JS_SetPropertyStr(ctx, val, "LAYOUT", __item);
     }
 
-    // WEBVIEW_ZOOM_TYPE_TEXT
+    // TEXT
     {
         JSValue __item = JS_NewUint32(ctx, 1);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_ZOOM_TYPE_TEXT", __item);
+        JS_SetPropertyStr(ctx, val, "TEXT", __item);
     }
 
     int status = JS_SetModuleExport(ctx, m, "WebViewZoomType", val);
@@ -85,34 +85,34 @@ static void register_enum_Ozone_WebViewZoom(JSContext *ctx, JSModuleDef *m, bool
 
     JSValue val = JS_NewObject(ctx);
 
-    // WEBVIEW_ZOOM_TINY
+    // TINY
     {
         JSValue __item = JS_NewUint32(ctx, 0);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_ZOOM_TINY", __item);
+        JS_SetPropertyStr(ctx, val, "TINY", __item);
     }
 
-    // WEBVIEW_ZOOM_SMALL
+    // SMALL
     {
         JSValue __item = JS_NewUint32(ctx, 1);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_ZOOM_SMALL", __item);
+        JS_SetPropertyStr(ctx, val, "SMALL", __item);
     }
 
-    // WEBVIEW_ZOOM_MEDIUM
+    // MEDIUM
     {
         JSValue __item = JS_NewUint32(ctx, 2);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_ZOOM_MEDIUM", __item);
+        JS_SetPropertyStr(ctx, val, "MEDIUM", __item);
     }
 
-    // WEBVIEW_ZOOM_LARGE
+    // LARGE
     {
         JSValue __item = JS_NewUint32(ctx, 3);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_ZOOM_LARGE", __item);
+        JS_SetPropertyStr(ctx, val, "LARGE", __item);
     }
 
-    // WEBVIEW_ZOOM_LARGEST
+    // LARGEST
     {
         JSValue __item = JS_NewUint32(ctx, 4);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_ZOOM_LARGEST", __item);
+        JS_SetPropertyStr(ctx, val, "LARGEST", __item);
     }
 
     int status = JS_SetModuleExport(ctx, m, "WebViewZoom", val);
@@ -130,22 +130,22 @@ static void register_enum_Ozone_WebViewNavigationActionFlags(JSContext *ctx, JSM
 
     JSValue val = JS_NewObject(ctx);
 
-    // WEBVIEW_NAV_ACTION_NONE
+    // NONE
     {
         JSValue __item = JS_NewUint32(ctx, 0);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_NAV_ACTION_NONE", __item);
+        JS_SetPropertyStr(ctx, val, "NONE", __item);
     }
 
-    // WEBVIEW_NAV_ACTION_USER
+    // USER
     {
         JSValue __item = JS_NewUint32(ctx, 1);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_NAV_ACTION_USER", __item);
+        JS_SetPropertyStr(ctx, val, "USER", __item);
     }
 
-    // WEBVIEW_NAV_ACTION_OTHER
+    // OTHER
     {
         JSValue __item = JS_NewUint32(ctx, 2);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_NAV_ACTION_OTHER", __item);
+        JS_SetPropertyStr(ctx, val, "OTHER", __item);
     }
 
     int status = JS_SetModuleExport(ctx, m, "WebViewNavigationActionFlags", val);
@@ -163,40 +163,40 @@ static void register_enum_Ozone_WebViewFindFlags(JSContext *ctx, JSModuleDef *m,
 
     JSValue val = JS_NewObject(ctx);
 
-    // WEBVIEW_FIND_WRAP
+    // WRAP
     {
         JSValue __item = JS_NewUint32(ctx, 0x1);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_FIND_WRAP", __item);
+        JS_SetPropertyStr(ctx, val, "WRAP", __item);
     }
 
-    // WEBVIEW_FIND_ENTIRE_WORD
+    // ENTIRE_WORD
     {
         JSValue __item = JS_NewUint32(ctx, 0x2);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_FIND_ENTIRE_WORD", __item);
+        JS_SetPropertyStr(ctx, val, "ENTIRE_WORD", __item);
     }
 
-    // WEBVIEW_FIND_MATCH_CASE
+    // MATCH_CASE
     {
         JSValue __item = JS_NewUint32(ctx, 0x4);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_FIND_MATCH_CASE", __item);
+        JS_SetPropertyStr(ctx, val, "MATCH_CASE", __item);
     }
 
-    // WEBVIEW_FIND_HIGHLIGHT_RESULT
+    // HIGHLIGHT_RESULT
     {
         JSValue __item = JS_NewUint32(ctx, 0x8);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_FIND_HIGHLIGHT_RESULT", __item);
+        JS_SetPropertyStr(ctx, val, "HIGHLIGHT_RESULT", __item);
     }
 
-    // WEBVIEW_FIND_BACKWARDS
+    // BACKWARDS
     {
         JSValue __item = JS_NewUint32(ctx, 0x10);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_FIND_BACKWARDS", __item);
+        JS_SetPropertyStr(ctx, val, "BACKWARDS", __item);
     }
 
-    // WEBVIEW_FIND_DEFAULT
+    // DEFAULT
     {
         JSValue __item = JS_NewUint32(ctx, 0);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_FIND_DEFAULT", __item);
+        JS_SetPropertyStr(ctx, val, "DEFAULT", __item);
     }
 
     int status = JS_SetModuleExport(ctx, m, "WebViewFindFlags", val);
@@ -214,52 +214,52 @@ static void register_enum_Ozone_WebViewNavigationError(JSContext *ctx, JSModuleD
 
     JSValue val = JS_NewObject(ctx);
 
-    // WEBVIEW_NAV_ERR_CONNECTION
+    // CONNECTION
     {
         JSValue __item = JS_NewUint32(ctx, 0);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_NAV_ERR_CONNECTION", __item);
+        JS_SetPropertyStr(ctx, val, "CONNECTION", __item);
     }
 
-    // WEBVIEW_NAV_ERR_CERTIFICATE
+    // CERTIFICATE
     {
         JSValue __item = JS_NewUint32(ctx, 1);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_NAV_ERR_CERTIFICATE", __item);
+        JS_SetPropertyStr(ctx, val, "CERTIFICATE", __item);
     }
 
-    // WEBVIEW_NAV_ERR_AUTH
+    // AUTH
     {
         JSValue __item = JS_NewUint32(ctx, 2);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_NAV_ERR_AUTH", __item);
+        JS_SetPropertyStr(ctx, val, "AUTH", __item);
     }
 
-    // WEBVIEW_NAV_ERR_SECURITY
+    // SECURITY
     {
         JSValue __item = JS_NewUint32(ctx, 3);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_NAV_ERR_SECURITY", __item);
+        JS_SetPropertyStr(ctx, val, "SECURITY", __item);
     }
 
-    // WEBVIEW_NAV_ERR_NOT_FOUND
+    // NOT_FOUND
     {
         JSValue __item = JS_NewUint32(ctx, 4);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_NAV_ERR_NOT_FOUND", __item);
+        JS_SetPropertyStr(ctx, val, "NOT_FOUND", __item);
     }
 
-    // WEBVIEW_NAV_ERR_REQUEST
+    // REQUEST
     {
         JSValue __item = JS_NewUint32(ctx, 5);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_NAV_ERR_REQUEST", __item);
+        JS_SetPropertyStr(ctx, val, "REQUEST", __item);
     }
 
-    // WEBVIEW_NAV_ERR_USER_CANCELLED
+    // USER_CANCELLED
     {
         JSValue __item = JS_NewUint32(ctx, 6);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_NAV_ERR_USER_CANCELLED", __item);
+        JS_SetPropertyStr(ctx, val, "USER_CANCELLED", __item);
     }
 
-    // WEBVIEW_NAV_ERR_OTHER
+    // OTHER
     {
         JSValue __item = JS_NewUint32(ctx, 7);
-        JS_SetPropertyStr(ctx, val, "WEBVIEW_NAV_ERR_OTHER", __item);
+        JS_SetPropertyStr(ctx, val, "OTHER", __item);
     }
 
     int status = JS_SetModuleExport(ctx, m, "WebViewNavigationError", val);

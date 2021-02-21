@@ -10,52 +10,52 @@
 
 enum class WebViewReloadFlags : unsigned int
 {
-    WEBVIEW_RELOAD_DEFAULT = 0,
-    WEBVIEW_RELOAD_NO_CACHE = 1
+    DEFAULT = 0,
+    NO_CACHE = 1
 };
 
 enum class WebViewZoomType : unsigned int
 {
-    WEBVIEW_ZOOM_TYPE_LAYOUT = 0,
-    WEBVIEW_ZOOM_TYPE_TEXT = 1
+    LAYOUT = 0,
+    TEXT = 1
 };
 
 enum class WebViewZoom : unsigned int
 {
-    WEBVIEW_ZOOM_TINY = 0,
-    WEBVIEW_ZOOM_SMALL = 1,
-    WEBVIEW_ZOOM_MEDIUM = 2,
-    WEBVIEW_ZOOM_LARGE = 3,
-    WEBVIEW_ZOOM_LARGEST = 4
+    TINY = 0,
+    SMALL = 1,
+    MEDIUM = 2,
+    LARGE = 3,
+    LARGEST = 4
 };
 
 enum class WebViewNavigationActionFlags : unsigned int
 {
-    WEBVIEW_NAV_ACTION_NONE = 0,
-    WEBVIEW_NAV_ACTION_USER = 1,
-    WEBVIEW_NAV_ACTION_OTHER = 2
+    NONE = 0,
+    USER = 1,
+    OTHER = 2
 };
 
 enum class WebViewFindFlags : unsigned int
 {
-    WEBVIEW_FIND_WRAP = 0x1,
-    WEBVIEW_FIND_ENTIRE_WORD = 0x2,
-    WEBVIEW_FIND_MATCH_CASE = 0x4,
-    WEBVIEW_FIND_HIGHLIGHT_RESULT = 0x8,
-    WEBVIEW_FIND_BACKWARDS = 0x10,
-    WEBVIEW_FIND_DEFAULT = 0
+    WRAP = 0x1,
+    ENTIRE_WORD = 0x2,
+    MATCH_CASE = 0x4,
+    HIGHLIGHT_RESULT = 0x8,
+    BACKWARDS = 0x10,
+    DEFAULT = 0
 };
 
 enum class WebViewNavigationError : unsigned int
 {
-    WEBVIEW_NAV_ERR_CONNECTION = 0,
-    WEBVIEW_NAV_ERR_CERTIFICATE = 1,
-    WEBVIEW_NAV_ERR_AUTH = 2,
-    WEBVIEW_NAV_ERR_SECURITY = 3,
-    WEBVIEW_NAV_ERR_NOT_FOUND = 4,
-    WEBVIEW_NAV_ERR_REQUEST = 5,
-    WEBVIEW_NAV_ERR_USER_CANCELLED = 6,
-    WEBVIEW_NAV_ERR_OTHER = 7
+    CONNECTION = 0,
+    CERTIFICATE = 1,
+    AUTH = 2,
+    SECURITY = 3,
+    NOT_FOUND = 4,
+    REQUEST = 5,
+    USER_CANCELLED = 6,
+    OTHER = 7
 };
 
 class WebViewHandler

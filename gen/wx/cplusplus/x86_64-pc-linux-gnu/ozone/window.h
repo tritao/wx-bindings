@@ -950,4 +950,6 @@ namespace Ozone
     ::Ozone::Window* FindWindowAtPointer(::Ozone::Point& pt);
     ::Ozone::Point GetMousePosition();
     ::Ozone::Window* GetActiveWindow();
+
+    // ::Ozone::WindowList TopLevelWindows
 }

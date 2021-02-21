@@ -249,4 +249,16 @@ namespace Ozone
 
         virtual ::Ozone::Event* Clone() const override;
     };
+
+    // char[] WebViewDefaultURLStr
+
+    // char[] WebViewNameStr
+
+    // char[] WebViewBackendDefault
+
+    // char[] WebViewBackendIE
+
+    // char[] WebViewBackendEdge
+
+    // char[] WebViewBackendWebKit
 }

@@ -95,4 +95,8 @@ namespace Ozone
 
         virtual int HandleEvent(::wxEvent& event) override;
     };
+
+    // char[] StatusLineNameStr
+
+    // char[] ToolBarNameStr
 }

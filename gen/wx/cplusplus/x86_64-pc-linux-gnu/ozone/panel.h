@@ -45,4 +45,6 @@ namespace Ozone
 
         virtual int HandleEvent(::wxEvent& event) override;
     };
+
+    // char[] PanelNameStr
 }

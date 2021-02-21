@@ -580,4 +580,16 @@ namespace Ozone
 
         static ::Ozone::GraphicsRenderer* GetCairoRenderer();
     };
+
+    // ::Ozone::GraphicsMatrix NullGraphicsMatrix
+
+    // ::Ozone::GraphicsPen NullGraphicsPen
+
+    // ::Ozone::GraphicsBrush NullGraphicsBrush
+
+    // ::Ozone::GraphicsFont NullGraphicsFont
+
+    // ::Ozone::GraphicsBitmap NullGraphicsBitmap
+
+    // ::Ozone::GraphicsPath NullGraphicsPath
 }

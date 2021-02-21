@@ -100,4 +100,8 @@ namespace Ozone
 
         bool __OwnsNativeInstance;
     };
+
+    // unsigned char ALPHA_OPAQUE
+
+    // unsigned char ALPHA_TRANSPARENT
 }

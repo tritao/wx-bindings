@@ -225,4 +225,6 @@ namespace Ozone
 
         static ::Ozone::Size GetDefaultSize();
     };
+
+    // char[] FrameNameStr
 }

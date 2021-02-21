@@ -101,4 +101,10 @@ namespace Ozone
     const char* FileSelector(const char* message, const char* default_path, const char* default_filename, const char* default_extension, const char* wildcard, int flags, ::Ozone::Window* parent, int x, int y);
     const char* LoadFileSelector(const char* what, const char* extension, const char* default_name, ::Ozone::Window* parent);
     const char* SaveFileSelector(const char* what, const char* extension, const char* default_name, ::Ozone::Window* parent);
+
+    // char[] FileDialogNameStr
+
+    // char[] FileSelectorPromptStr
+
+    // char[] FileSelectorDefaultWildcardStr
 }

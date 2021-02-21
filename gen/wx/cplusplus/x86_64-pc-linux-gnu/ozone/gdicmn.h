@@ -738,4 +738,16 @@ namespace Ozone
     ::Ozone::Size GetDisplayPPI();
     void ClientDisplayRect(int* x, int* y, int* width, int* height);
     ::Ozone::Rect GetClientDisplayRect();
+
+    // ::Ozone::Size DefaultSize
+
+    // ::Ozone::Point DefaultPosition
+
+    // char[] PanelNameStr
+
+    // ::Ozone::Pen NullPen
+
+    // ::Ozone::Brush NullBrush
+
+    // ::Ozone::Color NullColour
 }

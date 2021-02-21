@@ -1421,6 +1421,140 @@ namespace Ozone
     void QueueEvent(::Ozone::EvtHandler* dest, ::Ozone::Event* event);
     ::Ozone::Window* FindFocusDescendant(::Ozone::Window* ancestor);
 
+    // int EVT_NULL
+
+    // int EVT_FIRST
+
+    // int EVT_USER_FIRST
+
+    // ::Ozone::EventTypeTag<::Ozone::ThreadEvent> EVT_THREAD
+
+    // ::Ozone::EventTypeTag<::Ozone::AsyncMethodCallEvent> EVT_ASYNC_METHOD_CALL
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_LEFT_DOWN
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_LEFT_UP
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_MIDDLE_DOWN
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_MIDDLE_UP
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_RIGHT_DOWN
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_RIGHT_UP
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_MOTION
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_ENTER_WINDOW
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_LEAVE_WINDOW
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_LEFT_DCLICK
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_MIDDLE_DCLICK
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_RIGHT_DCLICK
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_MOUSEWHEEL
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_AUX1_DOWN
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_AUX1_UP
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_AUX1_DCLICK
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_AUX2_DOWN
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_AUX2_UP
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_AUX2_DCLICK
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseEvent> EVT_MAGNIFY
+
+    // ::Ozone::EventTypeTag<::Ozone::KeyEvent> EVT_CHAR
+
+    // ::Ozone::EventTypeTag<::Ozone::KeyEvent> EVT_CHAR_HOOK
+
+    // ::Ozone::EventTypeTag<::Ozone::NavigationKeyEvent> EVT_NAVIGATION_KEY
+
+    // ::Ozone::EventTypeTag<::Ozone::KeyEvent> EVT_KEY_DOWN
+
+    // ::Ozone::EventTypeTag<::Ozone::KeyEvent> EVT_KEY_UP
+
+    // ::Ozone::EventTypeTag<::Ozone::KeyEvent> EVT_HOTKEY
+
+    // ::Ozone::EventTypeTag<::Ozone::KeyEvent> EVT_AFTER_CHAR
+
+    // ::Ozone::EventTypeTag<::Ozone::SetCursorEvent> EVT_SET_CURSOR
+
+    // ::Ozone::EventTypeTag<::Ozone::PanGestureEvent> EVT_GESTURE_PAN
+
+    // ::Ozone::EventTypeTag<::Ozone::ZoomGestureEvent> EVT_GESTURE_ZOOM
+
+    // ::Ozone::EventTypeTag<::Ozone::RotateGestureEvent> EVT_GESTURE_ROTATE
+
+    // ::Ozone::EventTypeTag<::Ozone::TwoFingerTapEvent> EVT_TWO_FINGER_TAP
+
+    // ::Ozone::EventTypeTag<::Ozone::LongPressEvent> EVT_LONG_PRESS
+
+    // ::Ozone::EventTypeTag<::Ozone::PressAndTapEvent> EVT_PRESS_AND_TAP
+
+    // ::Ozone::EventTypeTag<::Ozone::SizeEvent> EVT_SIZE
+
+    // ::Ozone::EventTypeTag<::Ozone::MoveEvent> EVT_MOVE
+
+    // ::Ozone::EventTypeTag<::Ozone::CloseEvent> EVT_CLOSE_WINDOW
+
+    // ::Ozone::EventTypeTag<::Ozone::CloseEvent> EVT_END_SESSION
+
+    // ::Ozone::EventTypeTag<::Ozone::CloseEvent> EVT_QUERY_END_SESSION
+
+    // ::Ozone::EventTypeTag<::Ozone::ShowEvent> EVT_SHOW
+
+    // ::Ozone::EventTypeTag<::Ozone::IconizeEvent> EVT_ICONIZE
+
+    // ::Ozone::EventTypeTag<::Ozone::MaximizeEvent> EVT_MAXIMIZE
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseCaptureChangedEvent> EVT_MOUSE_CAPTURE_CHANGED
+
+    // ::Ozone::EventTypeTag<::Ozone::MouseCaptureLostEvent> EVT_MOUSE_CAPTURE_LOST
+
+    // ::Ozone::EventTypeTag<::Ozone::EraseEvent> EVT_ERASE_BACKGROUND
+
+    // ::Ozone::EventTypeTag<::Ozone::SysColourChangedEvent> EVT_SYS_COLOUR_CHANGED
+
+    // ::Ozone::EventTypeTag<::Ozone::DisplayChangedEvent> EVT_DISPLAY_CHANGED
+
+    // ::Ozone::EventTypeTag<::Ozone::DPIChangedEvent> EVT_DPI_CHANGED
+
+    // ::Ozone::EventTypeTag<::Ozone::QueryNewPaletteEvent> EVT_QUERY_NEW_PALETTE
+
+    // ::Ozone::EventTypeTag<::Ozone::PaletteChangedEvent> EVT_PALETTE_CHANGED
+
+    // ::Ozone::EventTypeTag<::Ozone::JoystickEvent> EVT_JOY_BUTTON_DOWN
+
+    // ::Ozone::EventTypeTag<::Ozone::JoystickEvent> EVT_JOY_BUTTON_UP
+
+    // ::Ozone::EventTypeTag<::Ozone::JoystickEvent> EVT_JOY_MOVE
+
+    // ::Ozone::EventTypeTag<::Ozone::JoystickEvent> EVT_JOY_ZMOVE
+
+    // ::Ozone::EventTypeTag<::Ozone::InitDialogEvent> EVT_INIT_DIALOG
+
+    // ::Ozone::EventTypeTag<::Ozone::IdleEvent> EVT_IDLE
+
+    // ::Ozone::EventTypeTag<::Ozone::UpdateUIEvent> EVT_UPDATE_UI
+
+    // ::Ozone::EventTypeTag<::Ozone::SizeEvent> EVT_SIZING
+
+    // ::Ozone::EventTypeTag<::Ozone::MoveEvent> EVT_MOVING
+
+    // ::Ozone::EventTypeTag<::Ozone::MoveEvent> EVT_MOVE_START
+
+    // ::Ozone::EventTypeTag<::Ozone::MoveEvent> EVT_MOVE_END
+
+    // unsigned int TwoFingerTimeInterval
+
     namespace Private
     {
     }

@@ -10,6 +10,7 @@
 #include "wx/app.h"
 #include "wx/window.h"
 #include "wx/toplevel.h"
+#include "wx/control.h"
 #include "wx/frame.h"
 #include "wx/panel.h"
 class _EventFilter : public ::wxEventFilter

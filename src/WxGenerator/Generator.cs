@@ -131,6 +131,7 @@ namespace CppSharp
                 "wx/brush.h",
                 "wx/pen.h",
                 "wx/filedlg.h",
+                "wx/control.h",
                 "wx/webview.h"
             };
 
@@ -352,6 +353,11 @@ namespace CppSharp
             var appConsole = ctx.FindCompleteClass("wxAppConsole");
             appConsole.FindMethod("GetInitializerFunction").ExplicitlyIgnore();
             appConsole.FindMethod("SetInitializerFunction").ExplicitlyIgnore();
+
+            ctx.FindDecl<Variable>("wxPendingDelete").FirstOrDefault()?.ExplicitlyIgnore();
+            var appConsoleBase = ctx.FindCompleteClass("wxAppConsoleBase");
+            appConsoleBase.FindVariable("ms_appInitFn").ExplicitlyIgnore();
+            appConsoleBase.FindVariable("ms_appInstance").ExplicitlyIgnore();
 
             //ctx.IgnoreFunctionWithName("wxCreateApp");
 
@@ -644,6 +650,15 @@ namespace CppSharp
 
             // ----------------------------------------------------------------
 
+            ctx.GenerateTranslationUnits(new[] { "control.h" });
+
+            if (TargetPlatform == TargetPlatform.Linux)
+                MoveTranslationUnitFromTo(ctx, "wx/gtk/control.h", "wx/control.h");
+
+            MoveDefinitionsFromTo(ctx, "wxControlBase", "wxControl");
+
+            // ----------------------------------------------------------------
+
             ctx.GenerateTranslationUnits(new[] { "webview.h" });
 
             ctx.IgnoreClassWithName("wxWebViewFactory");
@@ -651,6 +666,13 @@ namespace CppSharp
             ctx.IgnoreClassWithName("wxStringWebViewFactoryMap_wxImplementation_KeyEx");
             ctx.IgnoreClassWithName("wxStringWebViewFactoryMap_wxImplementation_HashTable");
             ctx.IgnoreClassWithName("wxStringWebViewFactoryMap");
+
+            passBuilder.RemovePrefix("wxWEBVIEW_RELOAD_");
+            passBuilder.RemovePrefix("wxWEBVIEW_ZOOM_TYPE_");
+            passBuilder.RemovePrefix("wxWEBVIEW_ZOOM_");
+            passBuilder.RemovePrefix("wxWEBVIEW_FIND_");
+            passBuilder.RemovePrefix("wxWEBVIEW_NAV_ERR_");
+            passBuilder.RemovePrefix("wxWEBVIEW_NAV_ACTION_");
 
             // ----------------------------------------------------------------
 
@@ -947,9 +969,15 @@ namespace CppSharp
             WriteOpenBraceAndIndent();
 
             WriteLine("wxEventType eventType = event.GetEventType();");
-            WriteLine("wxEvtHandler* eventObject = wxStaticCast(event.GetEventObject(), wxEvtHandler);");
 
-            WriteLine("Ozone::EvtHandler* evtHandler = static_cast<Ozone::EvtHandler*>(eventObject->GetClientData());");
+            WriteLine("wxObject* eventObject = event.GetEventObject();");
+            WriteLine("if (!eventObject)");
+            WriteLineIndent("return Event_Skip;");
+            NewLine();
+
+            WriteLine("wxEvtHandler* eventHandler = wxStaticCast(eventObject, wxEvtHandler);");
+
+            WriteLine("Ozone::EvtHandler* evtHandler = static_cast<Ozone::EvtHandler*>(eventHandler->GetClientData());");
             WriteLine("if (evtHandler)");
             WriteLineIndent("evtHandler->HandleEvent(event);");
 

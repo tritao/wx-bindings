@@ -51,7 +51,7 @@ Ozone::WebViewHandler::WebViewHandler(const ::Ozone::WebViewHandler& _0)
 }
 
 ::Ozone::WebView::WebView(::wxWebView* instance, bool ownNativeInstance)
-    : __OwnsNativeInstance(ownNativeInstance)
+    : ::Ozone::Control((::wxControl*)instance, ownNativeInstance)
 {
     __Instance = instance;
 
@@ -65,6 +65,7 @@ Ozone::WebViewHandler::WebViewHandler(const ::Ozone::WebViewHandler& _0)
 }
 
 Ozone::WebView::WebView()
+    : ::Ozone::Control((::wxControl*)nullptr)
 {
     __OwnsNativeInstance = true;
 }

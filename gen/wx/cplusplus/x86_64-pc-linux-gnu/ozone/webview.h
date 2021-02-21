@@ -9,6 +9,7 @@
 #include "CppSharp.h"
 #include "FastDelegates.h"
 #include <wx/webview.h>
+#include "ozone/control.h"
 #include "ozone/event.h"
 #include "ozone/object.h"
 
@@ -108,11 +109,9 @@ namespace Ozone
         bool __OwnsNativeInstance;
     };
 
-    class WebView
+    class WebView : public ::Ozone::Control
     {
     public:
-
-        ::wxWebView* __Instance;
 
         void* __ExternalInstance;
 
@@ -225,10 +224,6 @@ namespace Ozone
         static ::Ozone::WebView* New(::Ozone::Window* parent, int id, const char* url, const ::Ozone::Point& pos, const ::Ozone::Size& size, const char* backend, long style, const char* name);
 
         static bool IsBackendAvailable(const char* backend);
-
-    protected:
-
-        bool __OwnsNativeInstance;
     };
 
     class WebViewEvent : public ::Ozone::NotifyEvent

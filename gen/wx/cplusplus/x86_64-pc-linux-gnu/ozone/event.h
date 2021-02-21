@@ -148,6 +148,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         Event(::wxEvent* instance, bool ownNativeInstance = false);
 
         Event(int winid, int commandType);
@@ -228,6 +230,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         IdleEvent(::wxIdleEvent* instance, bool ownNativeInstance = false);
 
         IdleEvent();
@@ -249,6 +253,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         ThreadEvent(::wxThreadEvent* instance, bool ownNativeInstance = false);
 
         ThreadEvent(int eventType, int id);
@@ -264,6 +270,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         AsyncMethodCallEvent(::wxAsyncMethodCallEvent* instance, bool ownNativeInstance = false);
 
         AsyncMethodCallEvent(::Ozone::Object* object);
@@ -276,6 +284,8 @@ namespace Ozone
     class CommandEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         CommandEvent(::wxCommandEvent* instance, bool ownNativeInstance = false);
 
@@ -304,6 +314,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         NotifyEvent(::wxNotifyEvent* instance, bool ownNativeInstance = false);
 
         NotifyEvent(int commandType, int winid);
@@ -322,6 +334,8 @@ namespace Ozone
     class ScrollEvent : public ::Ozone::CommandEvent
     {
     public:
+
+        void* __ExternalInstance;
 
         ScrollEvent(::wxScrollEvent* instance, bool ownNativeInstance = false);
 
@@ -344,6 +358,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         ScrollWinEvent(::wxScrollWinEvent* instance, bool ownNativeInstance = false);
 
         ScrollWinEvent(int commandType, int pos, int orient);
@@ -364,6 +380,8 @@ namespace Ozone
     class MouseEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         MouseEvent(::wxMouseEvent* instance, bool ownNativeInstance = false);
 
@@ -484,6 +502,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         SetCursorEvent(::wxSetCursorEvent* instance, bool ownNativeInstance = false);
 
         SetCursorEvent(int x, int y);
@@ -502,6 +522,8 @@ namespace Ozone
     class GestureEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         GestureEvent(::wxGestureEvent* instance, bool ownNativeInstance = false);
 
@@ -526,6 +548,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         PanGestureEvent(::wxPanGestureEvent* instance, bool ownNativeInstance = false);
 
         PanGestureEvent(int winid);
@@ -542,6 +566,8 @@ namespace Ozone
     class ZoomGestureEvent : public ::Ozone::GestureEvent
     {
     public:
+
+        void* __ExternalInstance;
 
         ZoomGestureEvent(::wxZoomGestureEvent* instance, bool ownNativeInstance = false);
 
@@ -560,6 +586,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         RotateGestureEvent(::wxRotateGestureEvent* instance, bool ownNativeInstance = false);
 
         RotateGestureEvent(int winid);
@@ -577,6 +605,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         TwoFingerTapEvent(::wxTwoFingerTapEvent* instance, bool ownNativeInstance = false);
 
         TwoFingerTapEvent(int winid);
@@ -589,6 +619,8 @@ namespace Ozone
     class LongPressEvent : public ::Ozone::GestureEvent
     {
     public:
+
+        void* __ExternalInstance;
 
         LongPressEvent(::wxLongPressEvent* instance, bool ownNativeInstance = false);
 
@@ -603,6 +635,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         PressAndTapEvent(::wxPressAndTapEvent* instance, bool ownNativeInstance = false);
 
         PressAndTapEvent(int winid);
@@ -615,6 +649,8 @@ namespace Ozone
     class KeyEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         KeyEvent(::wxKeyEvent* instance, bool ownNativeInstance = false);
 
@@ -681,6 +717,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         SizeEvent(::wxSizeEvent* instance, bool ownNativeInstance = false);
 
         SizeEvent();
@@ -714,6 +752,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         MoveEvent(::wxMoveEvent* instance, bool ownNativeInstance = false);
 
         MoveEvent();
@@ -739,6 +779,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         PaintEvent(::wxPaintEvent* instance, bool ownNativeInstance = false);
 
         ~PaintEvent();
@@ -750,6 +792,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         NcPaintEvent(::wxNcPaintEvent* instance, bool ownNativeInstance = false);
 
         ~NcPaintEvent();
@@ -760,6 +804,8 @@ namespace Ozone
     class EraseEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         EraseEvent(::wxEraseEvent* instance, bool ownNativeInstance = false);
 
@@ -775,6 +821,8 @@ namespace Ozone
     class FocusEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         FocusEvent(::wxFocusEvent* instance, bool ownNativeInstance = false);
 
@@ -792,6 +840,8 @@ namespace Ozone
     class ChildFocusEvent : public ::Ozone::CommandEvent
     {
     public:
+
+        void* __ExternalInstance;
 
         ChildFocusEvent(::wxChildFocusEvent* instance, bool ownNativeInstance = false);
 
@@ -814,6 +864,8 @@ namespace Ozone
             Unknown = 1
         };
 
+        void* __ExternalInstance;
+
         ActivateEvent(::wxActivateEvent* instance, bool ownNativeInstance = false);
 
         ActivateEvent(int type, bool active, int Id, ::Ozone::ActivateEvent::Reason activationReason);
@@ -831,6 +883,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         InitDialogEvent(::wxInitDialogEvent* instance, bool ownNativeInstance = false);
 
         InitDialogEvent(int Id);
@@ -843,6 +897,8 @@ namespace Ozone
     class MenuEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         MenuEvent(::wxMenuEvent* instance, bool ownNativeInstance = false);
 
@@ -858,6 +914,8 @@ namespace Ozone
     class CloseEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         CloseEvent(::wxCloseEvent* instance, bool ownNativeInstance = false);
 
@@ -884,6 +942,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         ShowEvent(::wxShowEvent* instance, bool ownNativeInstance = false);
 
         ShowEvent(int winid, bool show);
@@ -901,6 +961,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         IconizeEvent(::wxIconizeEvent* instance, bool ownNativeInstance = false);
 
         IconizeEvent(int winid, bool iconized);
@@ -916,6 +978,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         MaximizeEvent(::wxMaximizeEvent* instance, bool ownNativeInstance = false);
 
         MaximizeEvent(int winid);
@@ -928,6 +992,8 @@ namespace Ozone
     class JoystickEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         JoystickEvent(::wxJoystickEvent* instance, bool ownNativeInstance = false);
 
@@ -975,6 +1041,8 @@ namespace Ozone
     class UpdateUIEvent : public ::Ozone::CommandEvent
     {
     public:
+
+        void* __ExternalInstance;
 
         UpdateUIEvent(::wxUpdateUIEvent* instance, bool ownNativeInstance = false);
 
@@ -1027,6 +1095,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         SysColourChangedEvent(::wxSysColourChangedEvent* instance, bool ownNativeInstance = false);
 
         SysColourChangedEvent();
@@ -1039,6 +1109,8 @@ namespace Ozone
     class MouseCaptureChangedEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         MouseCaptureChangedEvent(::wxMouseCaptureChangedEvent* instance, bool ownNativeInstance = false);
 
@@ -1055,6 +1127,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         MouseCaptureLostEvent(::wxMouseCaptureLostEvent* instance, bool ownNativeInstance = false);
 
         MouseCaptureLostEvent(int winid);
@@ -1068,6 +1142,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         DisplayChangedEvent(::wxDisplayChangedEvent* instance, bool ownNativeInstance = false);
 
         DisplayChangedEvent();
@@ -1080,6 +1156,8 @@ namespace Ozone
     class DPIChangedEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         DPIChangedEvent(::wxDPIChangedEvent* instance, bool ownNativeInstance = false);
 
@@ -1098,6 +1176,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         PaletteChangedEvent(::wxPaletteChangedEvent* instance, bool ownNativeInstance = false);
 
         PaletteChangedEvent(int winid);
@@ -1114,6 +1194,8 @@ namespace Ozone
     class QueryNewPaletteEvent : public ::Ozone::Event
     {
     public:
+
+        void* __ExternalInstance;
 
         QueryNewPaletteEvent(::wxQueryNewPaletteEvent* instance, bool ownNativeInstance = false);
 
@@ -1139,6 +1221,8 @@ namespace Ozone
             WinChange = 0x2,
             FromTab = 0x4
         };
+
+        void* __ExternalInstance;
 
         NavigationKeyEvent(::wxNavigationKeyEvent* instance, bool ownNativeInstance = false);
 
@@ -1179,6 +1263,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         WindowCreateEvent(::wxWindowCreateEvent* instance, bool ownNativeInstance = false);
 
         WindowCreateEvent(::Ozone::Window* win);
@@ -1193,6 +1279,8 @@ namespace Ozone
     class WindowDestroyEvent : public ::Ozone::CommandEvent
     {
     public:
+
+        void* __ExternalInstance;
 
         WindowDestroyEvent(::wxWindowDestroyEvent* instance, bool ownNativeInstance = false);
 
@@ -1215,6 +1303,8 @@ namespace Ozone
             Keyboard = 1,
             HelpButton = 2
         };
+
+        void* __ExternalInstance;
 
         HelpEvent(::wxHelpEvent* instance, bool ownNativeInstance = false);
 
@@ -1239,6 +1329,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         ClipboardTextEvent(::wxClipboardTextEvent* instance, bool ownNativeInstance = false);
 
         ClipboardTextEvent(int type, int winid);
@@ -1251,6 +1343,8 @@ namespace Ozone
     class ContextMenuEvent : public ::Ozone::CommandEvent
     {
     public:
+
+        void* __ExternalInstance;
 
         ContextMenuEvent(::wxContextMenuEvent* instance, bool ownNativeInstance = false);
 
@@ -1266,6 +1360,8 @@ namespace Ozone
     class EvtHandler : public ::Ozone::Object
     {
     public:
+
+        void* __ExternalInstance;
 
         EvtHandler(::wxEvtHandler* instance, bool ownNativeInstance = false);
 

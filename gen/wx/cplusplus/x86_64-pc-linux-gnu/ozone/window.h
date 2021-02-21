@@ -220,6 +220,8 @@ namespace Ozone
             Accel = 1
         };
 
+        void* __ExternalInstance;
+
         Window(::wxWindow* instance, bool ownNativeInstance = false);
 
         Window();

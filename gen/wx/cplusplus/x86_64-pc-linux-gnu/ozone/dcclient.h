@@ -25,6 +25,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         WindowDC(::wxWindowDC* instance, bool ownNativeInstance = false);
 
         WindowDC(::Ozone::Window* win);
@@ -36,6 +38,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         ClientDC(::wxClientDC* instance, bool ownNativeInstance = false);
 
         ClientDC(::Ozone::Window* win);
@@ -46,6 +50,8 @@ namespace Ozone
     class PaintDC : public ::Ozone::ClientDC
     {
     public:
+
+        void* __ExternalInstance;
 
         PaintDC(::wxPaintDC* instance, bool ownNativeInstance = false);
 

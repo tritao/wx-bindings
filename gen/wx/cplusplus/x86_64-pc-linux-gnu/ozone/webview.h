@@ -235,6 +235,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         WebViewEvent(::wxWebViewEvent* instance, bool ownNativeInstance = false);
 
         WebViewEvent();

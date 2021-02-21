@@ -23,6 +23,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         NonOwnedWindow(::wxNonOwnedWindow* instance, bool ownNativeInstance = false);
 
         NonOwnedWindow();

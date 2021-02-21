@@ -26,6 +26,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         AppConsole(::wxAppConsole* instance, bool ownNativeInstance = false);
 
         AppConsole();
@@ -134,6 +136,8 @@ namespace Ozone
     class App : public ::Ozone::AppConsole
     {
     public:
+
+        void* __ExternalInstance;
 
         App(::wxApp* instance, bool ownNativeInstance = false);
 

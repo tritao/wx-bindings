@@ -87,6 +87,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         BrushList(::wxBrushList* instance, bool ownNativeInstance = false);
 
         BrushList(const ::Ozone::BrushList& _0);

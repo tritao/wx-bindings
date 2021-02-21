@@ -89,6 +89,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         GraphicsObject(::wxGraphicsObject* instance, bool ownNativeInstance = false);
 
         GraphicsObject();
@@ -108,6 +110,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         GraphicsPen(::wxGraphicsPen* instance, bool ownNativeInstance = false);
 
         GraphicsPen();
@@ -120,6 +124,8 @@ namespace Ozone
     class GraphicsBrush : public ::Ozone::GraphicsObject
     {
     public:
+
+        void* __ExternalInstance;
 
         GraphicsBrush(::wxGraphicsBrush* instance, bool ownNativeInstance = false);
 
@@ -134,6 +140,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         GraphicsFont(::wxGraphicsFont* instance, bool ownNativeInstance = false);
 
         GraphicsFont();
@@ -146,6 +154,8 @@ namespace Ozone
     class GraphicsBitmap : public ::Ozone::GraphicsObject
     {
     public:
+
+        void* __ExternalInstance;
 
         GraphicsBitmap(::wxGraphicsBitmap* instance, bool ownNativeInstance = false);
 
@@ -161,6 +171,8 @@ namespace Ozone
     class GraphicsMatrix : public ::Ozone::GraphicsObject
     {
     public:
+
+        void* __ExternalInstance;
 
         GraphicsMatrix(::wxGraphicsMatrix* instance, bool ownNativeInstance = false);
 
@@ -322,6 +334,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         GraphicsPath(::wxGraphicsPath* instance, bool ownNativeInstance = false);
 
         GraphicsPath();
@@ -370,6 +384,8 @@ namespace Ozone
     class GraphicsContext : public ::Ozone::GraphicsObject
     {
     public:
+
+        void* __ExternalInstance;
 
         GraphicsContext(::wxGraphicsContext* instance, bool ownNativeInstance = false);
 
@@ -517,6 +533,8 @@ namespace Ozone
     class GraphicsRenderer : public ::Ozone::Object
     {
     public:
+
+        void* __ExternalInstance;
 
         GraphicsRenderer(::wxGraphicsRenderer* instance, bool ownNativeInstance = false);
 

@@ -39,6 +39,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         Frame(::wxFrame* instance, bool ownNativeInstance = false);
 
         Frame();

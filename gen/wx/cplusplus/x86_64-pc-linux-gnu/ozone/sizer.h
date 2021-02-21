@@ -101,6 +101,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         SizerItem(::wxSizerItem* instance, bool ownNativeInstance = false);
 
         SizerItem(::Ozone::Window* window, int proportion, int flag, int border, ::Ozone::Object* userData);
@@ -262,6 +264,8 @@ namespace Ozone
     class Sizer : public ::Ozone::Object
     {
     public:
+
+        void* __ExternalInstance;
 
         Sizer(::wxSizer* instance, bool ownNativeInstance = false);
 
@@ -436,6 +440,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         GridSizer(::wxGridSizer* instance, bool ownNativeInstance = false);
 
         GridSizer(int cols, int vgap, int hgap);
@@ -481,6 +487,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         FlexGridSizer(::wxFlexGridSizer* instance, bool ownNativeInstance = false);
 
         FlexGridSizer(int cols, int vgap, int hgap);
@@ -522,6 +530,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         BoxSizer(::wxBoxSizer* instance, bool ownNativeInstance = false);
 
         BoxSizer(::Ozone::SizerOrientation orient);
@@ -549,6 +559,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         StaticBoxSizer(::wxStaticBoxSizer* instance, bool ownNativeInstance = false);
 
         StaticBoxSizer(::Ozone::SizerOrientation orient, ::Ozone::Window* win, const char* label);
@@ -573,6 +585,8 @@ namespace Ozone
     class StdDialogButtonSizer : public ::Ozone::BoxSizer
     {
     public:
+
+        void* __ExternalInstance;
 
         StdDialogButtonSizer(::wxStdDialogButtonSizer* instance, bool ownNativeInstance = false);
 

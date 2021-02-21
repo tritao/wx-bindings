@@ -171,6 +171,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         PenList(::wxPenList* instance, bool ownNativeInstance = false);
 
         PenList(const ::Ozone::PenList& _0);

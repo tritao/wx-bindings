@@ -73,6 +73,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         TopLevelWindow(::wxTopLevelWindow* instance, bool ownNativeInstance = false);
 
         TopLevelWindow();

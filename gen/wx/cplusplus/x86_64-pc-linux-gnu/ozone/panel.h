@@ -27,6 +27,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         Panel(::wxPanel* instance, bool ownNativeInstance = false);
 
         Panel();

@@ -118,6 +118,8 @@ namespace Ozone
     {
     public:
 
+        void* __ExternalInstance;
+
         DC(::wxDC* instance, bool ownNativeInstance = false);
 
         ~DC();

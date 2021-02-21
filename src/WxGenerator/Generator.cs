@@ -26,8 +26,8 @@ namespace CppSharp
         {
             const TargetPlatform targetPlatform = TargetPlatform.Linux;
             ConsoleDriver.Run(new LowLevelGen(GeneratorKind.CPlusPlus, targetPlatform));
-            ConsoleDriver.Run(new HighLevelGen(GeneratorKind.QuickJS, targetPlatform));
-            ConsoleDriver.Run(new HighLevelGen(GeneratorKind.TypeScript, targetPlatform));
+            //ConsoleDriver.Run(new HighLevelGen(GeneratorKind.QuickJS, targetPlatform));
+            //ConsoleDriver.Run(new HighLevelGen(GeneratorKind.TypeScript, targetPlatform));
             //ConsoleDriver.Run(new HighLevelGen(GeneratorKind.CSharp, targetPlatform));
         }
 
@@ -152,6 +152,7 @@ namespace CppSharp
             options.GenerateClassTemplates = true;
             options.GeneratorKind = GeneratorKind;
             options.UseHeaderDirectories = true;
+            options.GenerateExternalDataFields = true;
             //options.DryRun = true;
             //options.Verbose = true;
         }
@@ -442,6 +443,8 @@ namespace CppSharp
             ctx.IgnoreClassWithName("wxStringToColourHashMap");
             ctx.IgnoreClassWithName("StringToColourHashMap_wxImplementation_KeyEx");
 
+            ctx.FindDecl<Variable>("wxTheColourDatabase").FirstOrDefault()?.ExplicitlyIgnore();
+
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "graphics.h" });
 
@@ -591,6 +594,8 @@ namespace CppSharp
             MoveDefinitionsFromTo(ctx, "wxBrushBase", "wxBrush");
             passBuilder.RemovePrefix("wxBRUSHSTYLE_");
 
+            ctx.FindDecl<Variable>("wxTheBrushList").FirstOrDefault()?.ExplicitlyIgnore();
+
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "pen.h", "peninfobase.h" });
 
@@ -601,6 +606,8 @@ namespace CppSharp
                 MoveTranslationUnitFromTo(ctx, "wx/gtk/pen.h", "wx/pen.h");
 
             MoveDefinitionsFromTo(ctx, "wxPenBase", "wxPen");
+
+            ctx.FindDecl<Variable>("wxThePenList").FirstOrDefault()?.ExplicitlyIgnore();
 
             // ----------------------------------------------------------------
             ctx.GenerateTranslationUnits(new[] { "peninfobase.h" });
@@ -1608,6 +1615,14 @@ namespace CppSharp
                 @class.GenerationKind = GenerationKind.None;
 
             return base.VisitClassDecl(@class);
+        }
+
+        public override bool VisitVariableDecl(Variable variable)
+        {
+            if (variable.Name == "ms_classInfo")
+                variable.ExplicitlyIgnore();
+
+            return base.VisitVariableDecl(variable);
         }
     }
 

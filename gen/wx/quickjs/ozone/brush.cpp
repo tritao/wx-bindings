@@ -473,6 +473,19 @@ static JSCFunctionListEntry funcDef_Ozone_Brush[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_Brush_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_Brush_statics[]
+{
+    JS_CFUNC_DEF("operator==", 1, callback_method_Ozone_Brush_operator_EqualEqual),
+    JS_CFUNC_DEF("operator!=", 1, callback_method_Ozone_Brush_operator_ExclaimEqual),
+    JS_CFUNC_DEF("GetStyle", 0, callback_method_Ozone_Brush_GetStyle),
+    JS_CFUNC_DEF("GetColour", 0, callback_method_Ozone_Brush_GetColour),
+    JS_CFUNC_DEF("SetColour", 3, callback_method_Ozone_Brush_SetColour),
+    JS_CFUNC_DEF("SetStyle", 1, callback_method_Ozone_Brush_SetStyle),
+    JS_CFUNC_DEF("IsHatch", 0, callback_method_Ozone_Brush_IsHatch),
+    JS_CFUNC_DEF("IsTransparent", 0, callback_method_Ozone_Brush_IsTransparent),
+    JS_CFUNC_DEF("IsNonTransparent", 0, callback_method_Ozone_Brush_IsNonTransparent),
+};
+
 static void register_class_Ozone_Brush(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -488,10 +501,11 @@ static void register_class_Ozone_Brush(JSContext *ctx, JSModuleDef *m, bool set,
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_Brush, &classDef_Ozone_Brush);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Brush, sizeof(funcDef_Ozone_Brush) / sizeof(funcDef_Ozone_Brush[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Brush, countof(funcDef_Ozone_Brush));
         JS_SetClassProto(ctx, classId_Ozone_Brush, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_Brush_Brush, "Brush", 2, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_Brush_statics, countof(funcDef_Ozone_Brush_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "Brush", ctor);
@@ -601,6 +615,11 @@ static JSCFunctionListEntry funcDef_Ozone_BrushList[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_BrushList_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_BrushList_statics[]
+{
+    JS_CFUNC_DEF("FindOrCreateBrush", 2, callback_method_Ozone_BrushList_FindOrCreateBrush),
+};
+
 static void register_class_Ozone_BrushList(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -616,7 +635,7 @@ static void register_class_Ozone_BrushList(JSContext *ctx, JSModuleDef *m, bool 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_BrushList, &classDef_Ozone_BrushList);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_BrushList, sizeof(funcDef_Ozone_BrushList) / sizeof(funcDef_Ozone_BrushList[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_BrushList, countof(funcDef_Ozone_BrushList));
         JS_SetClassProto(ctx, classId_Ozone_BrushList, proto);
 
     }

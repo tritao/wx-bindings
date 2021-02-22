@@ -2359,8 +2359,80 @@ static JSCFunctionListEntry funcDef_Ozone_TopLevelWindow[]
     JS_CFUNC_DEF("set_m_urgency_hint", 1, callback_method_Ozone_TopLevelWindow_set_m_urgency_hint),
     JS_CFUNC_DEF("get_m_netFrameExtentsTimerId", 0, callback_method_Ozone_TopLevelWindow_get_m_netFrameExtentsTimerId),
     JS_CFUNC_DEF("set_m_netFrameExtentsTimerId", 1, callback_method_Ozone_TopLevelWindow_set_m_netFrameExtentsTimerId),
-    JS_CFUNC_DEF("GetDefaultSize", 0, callback_method_Ozone_TopLevelWindow_GetDefaultSize),
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_TopLevelWindow_toString),
+};
+
+static JSCFunctionListEntry funcDef_Ozone_TopLevelWindow_statics[]
+{
+    JS_CGETSET_DEF("OnMaximize", callback_event_getter_Ozone_TopLevelWindow_OnMaximize, NULL),
+    JS_CGETSET_DEF("OnMove", callback_event_getter_Ozone_TopLevelWindow_OnMove, NULL),
+    JS_CGETSET_DEF("OnMoveStart", callback_event_getter_Ozone_TopLevelWindow_OnMoveStart, NULL),
+    JS_CGETSET_DEF("OnMoveEnd", callback_event_getter_Ozone_TopLevelWindow_OnMoveEnd, NULL),
+    JS_CGETSET_DEF("OnShow", callback_event_getter_Ozone_TopLevelWindow_OnShow, NULL),
+    JS_CFUNC_DEF("Create", 7, callback_method_Ozone_TopLevelWindow_Create),
+    JS_CFUNC_DEF("Maximize", 1, callback_method_Ozone_TopLevelWindow_Maximize),
+    JS_CFUNC_DEF("IsMaximized", 0, callback_method_Ozone_TopLevelWindow_IsMaximized),
+    JS_CFUNC_DEF("Iconize", 1, callback_method_Ozone_TopLevelWindow_Iconize),
+    JS_CFUNC_DEF("IsIconized", 0, callback_method_Ozone_TopLevelWindow_IsIconized),
+    JS_CFUNC_DEF("Restore", 0, callback_method_Ozone_TopLevelWindow_Restore),
+    JS_CFUNC_DEF("EnableCloseButton", 1, callback_method_Ozone_TopLevelWindow_EnableCloseButton),
+    JS_CFUNC_DEF("ShowWithoutActivating", 0, callback_method_Ozone_TopLevelWindow_ShowWithoutActivating),
+    JS_CFUNC_DEF("ShowFullScreen", 2, callback_method_Ozone_TopLevelWindow_ShowFullScreen),
+    JS_CFUNC_DEF("IsFullScreen", 0, callback_method_Ozone_TopLevelWindow_IsFullScreen),
+    JS_CFUNC_DEF("RequestUserAttention", 1, callback_method_Ozone_TopLevelWindow_RequestUserAttention),
+    JS_CFUNC_DEF("SetWindowStyleFlag", 1, callback_method_Ozone_TopLevelWindow_SetWindowStyleFlag),
+    JS_CFUNC_DEF("Show", 1, callback_method_Ozone_TopLevelWindow_Show),
+    JS_CFUNC_DEF("Raise", 0, callback_method_Ozone_TopLevelWindow_Raise),
+    JS_CFUNC_DEF("IsActive", 0, callback_method_Ozone_TopLevelWindow_IsActive),
+    JS_CFUNC_DEF("SetTitle", 1, callback_method_Ozone_TopLevelWindow_SetTitle),
+    JS_CFUNC_DEF("GetTitle", 0, callback_method_Ozone_TopLevelWindow_GetTitle),
+    JS_CFUNC_DEF("SetLabel", 1, callback_method_Ozone_TopLevelWindow_SetLabel),
+    JS_CFUNC_DEF("GetLabel", 0, callback_method_Ozone_TopLevelWindow_GetLabel),
+    JS_CFUNC_DEF("GetDefaultAttributes", 0, callback_method_Ozone_TopLevelWindow_GetDefaultAttributes),
+    JS_CFUNC_DEF("SetTransparent", 1, callback_method_Ozone_TopLevelWindow_SetTransparent),
+    JS_CFUNC_DEF("CanSetTransparent", 0, callback_method_Ozone_TopLevelWindow_CanSetTransparent),
+    JS_CFUNC_DEF("AddGrab", 0, callback_method_Ozone_TopLevelWindow_AddGrab),
+    JS_CFUNC_DEF("RemoveGrab", 0, callback_method_Ozone_TopLevelWindow_RemoveGrab),
+    JS_CFUNC_DEF("IsGrabbed", 0, callback_method_Ozone_TopLevelWindow_IsGrabbed),
+    JS_CFUNC_DEF("Refresh", 2, callback_method_Ozone_TopLevelWindow_Refresh),
+    JS_CFUNC_DEF("SetIconizeState", 1, callback_method_Ozone_TopLevelWindow_SetIconizeState),
+    JS_CFUNC_DEF("IsAlwaysMaximized", 0, callback_method_Ozone_TopLevelWindow_IsAlwaysMaximized),
+    JS_CFUNC_DEF("EnableFullScreenView", 1, callback_method_Ozone_TopLevelWindow_EnableFullScreenView),
+    JS_CFUNC_DEF("EnableMaximizeButton", 1, callback_method_Ozone_TopLevelWindow_EnableMaximizeButton),
+    JS_CFUNC_DEF("EnableMinimizeButton", 1, callback_method_Ozone_TopLevelWindow_EnableMinimizeButton),
+    JS_CFUNC_DEF("ShouldPreventAppExit", 0, callback_method_Ozone_TopLevelWindow_ShouldPreventAppExit),
+    JS_CFUNC_DEF("CentreOnScreen", 1, callback_method_Ozone_TopLevelWindow_CentreOnScreen),
+    JS_CFUNC_DEF("CenterOnScreen", 1, callback_method_Ozone_TopLevelWindow_CenterOnScreen),
+    JS_CFUNC_DEF("GetDefaultItem", 0, callback_method_Ozone_TopLevelWindow_GetDefaultItem),
+    JS_CFUNC_DEF("SetDefaultItem", 1, callback_method_Ozone_TopLevelWindow_SetDefaultItem),
+    JS_CFUNC_DEF("GetTmpDefaultItem", 0, callback_method_Ozone_TopLevelWindow_GetTmpDefaultItem),
+    JS_CFUNC_DEF("SetTmpDefaultItem", 1, callback_method_Ozone_TopLevelWindow_SetTmpDefaultItem),
+    JS_CFUNC_DEF("Destroy", 0, callback_method_Ozone_TopLevelWindow_Destroy),
+    JS_CFUNC_DEF("IsTopLevel", 0, callback_method_Ozone_TopLevelWindow_IsTopLevel),
+    JS_CFUNC_DEF("IsTopNavigationDomain", 1, callback_method_Ozone_TopLevelWindow_IsTopNavigationDomain),
+    JS_CFUNC_DEF("IsVisible", 0, callback_method_Ozone_TopLevelWindow_IsVisible),
+    JS_CFUNC_DEF("Layout", 0, callback_method_Ozone_TopLevelWindow_Layout),
+    JS_CFUNC_DEF("DoUpdateWindowUI", 1, callback_method_Ozone_TopLevelWindow_DoUpdateWindowUI),
+    JS_CFUNC_DEF("SetMinSize", 1, callback_method_Ozone_TopLevelWindow_SetMinSize),
+    JS_CFUNC_DEF("SetMaxSize", 1, callback_method_Ozone_TopLevelWindow_SetMaxSize),
+    JS_CFUNC_DEF("SetRepresentedFilename", 1, callback_method_Ozone_TopLevelWindow_SetRepresentedFilename),
+    JS_CFUNC_DEF("get_m_fsIsShowing", 0, callback_method_Ozone_TopLevelWindow_get_m_fsIsShowing),
+    JS_CFUNC_DEF("set_m_fsIsShowing", 1, callback_method_Ozone_TopLevelWindow_set_m_fsIsShowing),
+    JS_CFUNC_DEF("get_m_fsSaveGdkFunc", 0, callback_method_Ozone_TopLevelWindow_get_m_fsSaveGdkFunc),
+    JS_CFUNC_DEF("set_m_fsSaveGdkFunc", 1, callback_method_Ozone_TopLevelWindow_set_m_fsSaveGdkFunc),
+    JS_CFUNC_DEF("get_m_fsSaveGdkDecor", 0, callback_method_Ozone_TopLevelWindow_get_m_fsSaveGdkDecor),
+    JS_CFUNC_DEF("set_m_fsSaveGdkDecor", 1, callback_method_Ozone_TopLevelWindow_set_m_fsSaveGdkDecor),
+    JS_CFUNC_DEF("get_m_fsSaveFrame", 0, callback_method_Ozone_TopLevelWindow_get_m_fsSaveFrame),
+    JS_CFUNC_DEF("set_m_fsSaveFrame", 1, callback_method_Ozone_TopLevelWindow_set_m_fsSaveFrame),
+    JS_CFUNC_DEF("get_m_gdkFunc", 0, callback_method_Ozone_TopLevelWindow_get_m_gdkFunc),
+    JS_CFUNC_DEF("set_m_gdkFunc", 1, callback_method_Ozone_TopLevelWindow_set_m_gdkFunc),
+    JS_CFUNC_DEF("get_m_gdkDecor", 0, callback_method_Ozone_TopLevelWindow_get_m_gdkDecor),
+    JS_CFUNC_DEF("set_m_gdkDecor", 1, callback_method_Ozone_TopLevelWindow_set_m_gdkDecor),
+    JS_CFUNC_DEF("get_m_urgency_hint", 0, callback_method_Ozone_TopLevelWindow_get_m_urgency_hint),
+    JS_CFUNC_DEF("set_m_urgency_hint", 1, callback_method_Ozone_TopLevelWindow_set_m_urgency_hint),
+    JS_CFUNC_DEF("get_m_netFrameExtentsTimerId", 0, callback_method_Ozone_TopLevelWindow_get_m_netFrameExtentsTimerId),
+    JS_CFUNC_DEF("set_m_netFrameExtentsTimerId", 1, callback_method_Ozone_TopLevelWindow_set_m_netFrameExtentsTimerId),
+    JS_CFUNC_DEF("GetDefaultSize", 0, callback_method_Ozone_TopLevelWindow_GetDefaultSize),
 };
 
 static void register_class_Ozone_TopLevelWindow(JSContext *ctx, JSModuleDef *m, bool set, int phase)
@@ -2378,10 +2450,11 @@ static void register_class_Ozone_TopLevelWindow(JSContext *ctx, JSModuleDef *m, 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_TopLevelWindow, &classDef_Ozone_TopLevelWindow);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_TopLevelWindow, sizeof(funcDef_Ozone_TopLevelWindow) / sizeof(funcDef_Ozone_TopLevelWindow[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_TopLevelWindow, countof(funcDef_Ozone_TopLevelWindow));
         JS_SetClassProto(ctx, classId_Ozone_TopLevelWindow, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_TopLevelWindow_TopLevelWindow, "TopLevelWindow", 7, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_TopLevelWindow_statics, countof(funcDef_Ozone_TopLevelWindow_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "TopLevelWindow", ctor);

@@ -81,7 +81,7 @@ protected:
     bool __OwnsNativeInstance;
 };
 
-class WebView
+class WebView : public ::Ozone::Ozone::Control
 {
 public:
 
@@ -196,10 +196,6 @@ public:
     static ::Ozone::Ozone::WebView* New(::Ozone::Ozone::Window* parent, int id, const char* url, const ::Ozone::Ozone::Point& pos, const ::Ozone::Ozone::Size& size, const char* backend, long style, const char* name);
 
     static bool IsBackendAvailable(const char* backend);
-
-protected:
-
-    bool __OwnsNativeInstance;
 };
 
 class WebViewEvent : public ::Ozone::Ozone::NotifyEvent

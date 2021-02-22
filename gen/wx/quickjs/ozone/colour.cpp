@@ -738,8 +738,27 @@ static JSCFunctionListEntry funcDef_Ozone_Color[]
     JS_CFUNC_DEF("GetRGBA", 0, callback_method_Ozone_Color_GetRGBA),
     JS_CFUNC_DEF("GetLuminance", 0, callback_method_Ozone_Color_GetLuminance),
     JS_CFUNC_DEF("ChangeLightness", 1, callback_method_Ozone_Color_ChangeLightness),
-    JS_CFUNC_DEF("AlphaBlend", 3, callback_method_Ozone_Color_AlphaBlend),
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_Color_toString),
+};
+
+static JSCFunctionListEntry funcDef_Ozone_Color_statics[]
+{
+    JS_CFUNC_DEF("operator==", 1, callback_method_Ozone_Color_operator_EqualEqual),
+    JS_CFUNC_DEF("operator!=", 1, callback_method_Ozone_Color_operator_ExclaimEqual),
+    JS_CFUNC_DEF("Red", 0, callback_method_Ozone_Color_Red),
+    JS_CFUNC_DEF("Green", 0, callback_method_Ozone_Color_Green),
+    JS_CFUNC_DEF("Blue", 0, callback_method_Ozone_Color_Blue),
+    JS_CFUNC_DEF("Alpha", 0, callback_method_Ozone_Color_Alpha),
+    JS_CFUNC_DEF("Set", 4, callback_method_Ozone_Color_Set),
+    JS_CFUNC_DEF("IsSolid", 0, callback_method_Ozone_Color_IsSolid),
+    JS_CFUNC_DEF("GetAsString", 1, callback_method_Ozone_Color_GetAsString),
+    JS_CFUNC_DEF("SetRGB", 1, callback_method_Ozone_Color_SetRGB),
+    JS_CFUNC_DEF("SetRGBA", 1, callback_method_Ozone_Color_SetRGBA),
+    JS_CFUNC_DEF("GetRGB", 0, callback_method_Ozone_Color_GetRGB),
+    JS_CFUNC_DEF("GetRGBA", 0, callback_method_Ozone_Color_GetRGBA),
+    JS_CFUNC_DEF("GetLuminance", 0, callback_method_Ozone_Color_GetLuminance),
+    JS_CFUNC_DEF("ChangeLightness", 1, callback_method_Ozone_Color_ChangeLightness),
+    JS_CFUNC_DEF("AlphaBlend", 3, callback_method_Ozone_Color_AlphaBlend),
 };
 
 static void register_class_Ozone_Color(JSContext *ctx, JSModuleDef *m, bool set, int phase)
@@ -757,10 +776,11 @@ static void register_class_Ozone_Color(JSContext *ctx, JSModuleDef *m, bool set,
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_Color, &classDef_Ozone_Color);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Color, sizeof(funcDef_Ozone_Color) / sizeof(funcDef_Ozone_Color[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Color, countof(funcDef_Ozone_Color));
         JS_SetClassProto(ctx, classId_Ozone_Color, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_Color_Color, "Color", 4, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_Color_statics, countof(funcDef_Ozone_Color_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "Color", ctor);

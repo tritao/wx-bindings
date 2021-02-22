@@ -1060,11 +1060,57 @@ static JSCFunctionListEntry funcDef_Ozone_AppConsole[]
     JS_CFUNC_DEF("UsesEventLoop", 0, callback_method_Ozone_AppConsole_UsesEventLoop),
     JS_CFUNC_DEF("get_argc", 0, callback_method_Ozone_AppConsole_get_argc),
     JS_CFUNC_DEF("set_argc", 1, callback_method_Ozone_AppConsole_set_argc),
+    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_AppConsole_toString),
+};
+
+static JSCFunctionListEntry funcDef_Ozone_AppConsole_statics[]
+{
+    JS_CFUNC_DEF("CheckSignal", 0, callback_method_Ozone_AppConsole_CheckSignal),
+    JS_CFUNC_DEF("CallOnInit", 0, callback_method_Ozone_AppConsole_CallOnInit),
+    JS_CFUNC_DEF("OnInit", 0, callback_method_Ozone_AppConsole_OnInit),
+    JS_CFUNC_DEF("OnRun", 0, callback_method_Ozone_AppConsole_OnRun),
+    JS_CFUNC_DEF("OnLaunched", 0, callback_method_Ozone_AppConsole_OnLaunched),
+    JS_CFUNC_DEF("OnExit", 0, callback_method_Ozone_AppConsole_OnExit),
+    JS_CFUNC_DEF("CleanUp", 0, callback_method_Ozone_AppConsole_CleanUp),
+    JS_CFUNC_DEF("OnFatalException", 0, callback_method_Ozone_AppConsole_OnFatalException),
+    JS_CFUNC_DEF("Exit", 0, callback_method_Ozone_AppConsole_Exit),
+    JS_CFUNC_DEF("GetAppName", 0, callback_method_Ozone_AppConsole_GetAppName),
+    JS_CFUNC_DEF("SetAppName", 1, callback_method_Ozone_AppConsole_SetAppName),
+    JS_CFUNC_DEF("GetAppDisplayName", 0, callback_method_Ozone_AppConsole_GetAppDisplayName),
+    JS_CFUNC_DEF("SetAppDisplayName", 1, callback_method_Ozone_AppConsole_SetAppDisplayName),
+    JS_CFUNC_DEF("GetClassName", 0, callback_method_Ozone_AppConsole_GetClassName),
+    JS_CFUNC_DEF("SetClassName", 1, callback_method_Ozone_AppConsole_SetClassName),
+    JS_CFUNC_DEF("SetVendorName", 1, callback_method_Ozone_AppConsole_SetVendorName),
+    JS_CFUNC_DEF("SetVendorDisplayName", 1, callback_method_Ozone_AppConsole_SetVendorDisplayName),
+    JS_CFUNC_DEF("SetCLocale", 0, callback_method_Ozone_AppConsole_SetCLocale),
+    JS_CFUNC_DEF("OnUnhandledException", 0, callback_method_Ozone_AppConsole_OnUnhandledException),
+    JS_CFUNC_DEF("OnExceptionInMainLoop", 0, callback_method_Ozone_AppConsole_OnExceptionInMainLoop),
+    JS_CFUNC_DEF("StoreCurrentException", 0, callback_method_Ozone_AppConsole_StoreCurrentException),
+    JS_CFUNC_DEF("RethrowStoredException", 0, callback_method_Ozone_AppConsole_RethrowStoredException),
+    JS_CFUNC_DEF("ProcessPendingEvents", 0, callback_method_Ozone_AppConsole_ProcessPendingEvents),
+    JS_CFUNC_DEF("HasPendingEvents", 0, callback_method_Ozone_AppConsole_HasPendingEvents),
+    JS_CFUNC_DEF("SuspendProcessingOfPendingEvents", 0, callback_method_Ozone_AppConsole_SuspendProcessingOfPendingEvents),
+    JS_CFUNC_DEF("ResumeProcessingOfPendingEvents", 0, callback_method_Ozone_AppConsole_ResumeProcessingOfPendingEvents),
+    JS_CFUNC_DEF("RemovePendingEventHandler", 1, callback_method_Ozone_AppConsole_RemovePendingEventHandler),
+    JS_CFUNC_DEF("AppendPendingEventHandler", 1, callback_method_Ozone_AppConsole_AppendPendingEventHandler),
+    JS_CFUNC_DEF("DelayPendingEventHandler", 1, callback_method_Ozone_AppConsole_DelayPendingEventHandler),
+    JS_CFUNC_DEF("DeletePendingEvents", 0, callback_method_Ozone_AppConsole_DeletePendingEvents),
+    JS_CFUNC_DEF("ScheduleForDestruction", 1, callback_method_Ozone_AppConsole_ScheduleForDestruction),
+    JS_CFUNC_DEF("IsScheduledForDestruction", 1, callback_method_Ozone_AppConsole_IsScheduledForDestruction),
+    JS_CFUNC_DEF("Pending", 0, callback_method_Ozone_AppConsole_Pending),
+    JS_CFUNC_DEF("Dispatch", 0, callback_method_Ozone_AppConsole_Dispatch),
+    JS_CFUNC_DEF("MainLoop", 0, callback_method_Ozone_AppConsole_MainLoop),
+    JS_CFUNC_DEF("ExitMainLoop", 0, callback_method_Ozone_AppConsole_ExitMainLoop),
+    JS_CFUNC_DEF("Yield", 1, callback_method_Ozone_AppConsole_Yield),
+    JS_CFUNC_DEF("WakeUpIdle", 0, callback_method_Ozone_AppConsole_WakeUpIdle),
+    JS_CFUNC_DEF("ProcessIdle", 0, callback_method_Ozone_AppConsole_ProcessIdle),
+    JS_CFUNC_DEF("UsesEventLoop", 0, callback_method_Ozone_AppConsole_UsesEventLoop),
+    JS_CFUNC_DEF("get_argc", 0, callback_method_Ozone_AppConsole_get_argc),
+    JS_CFUNC_DEF("set_argc", 1, callback_method_Ozone_AppConsole_set_argc),
     JS_CFUNC_DEF("IsMainLoopRunning", 0, callback_method_Ozone_AppConsole_IsMainLoopRunning),
     JS_CFUNC_DEF("CheckBuildOptions", 2, callback_method_Ozone_AppConsole_CheckBuildOptions),
     JS_CFUNC_DEF("GetInstance", 0, callback_method_Ozone_AppConsole_GetInstance),
     JS_CFUNC_DEF("SetInstance", 1, callback_method_Ozone_AppConsole_SetInstance),
-    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_AppConsole_toString),
 };
 
 static void register_class_Ozone_AppConsole(JSContext *ctx, JSModuleDef *m, bool set, int phase)
@@ -1082,10 +1128,11 @@ static void register_class_Ozone_AppConsole(JSContext *ctx, JSModuleDef *m, bool
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_AppConsole, &classDef_Ozone_AppConsole);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_AppConsole, sizeof(funcDef_Ozone_AppConsole) / sizeof(funcDef_Ozone_AppConsole[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_AppConsole, countof(funcDef_Ozone_AppConsole));
         JS_SetClassProto(ctx, classId_Ozone_AppConsole, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_AppConsole_AppConsole, "AppConsole", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_AppConsole_statics, countof(funcDef_Ozone_AppConsole_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "AppConsole", ctor);
@@ -1107,7 +1154,7 @@ struct data_Ozone_App : public JS_Interop_ClassData
 {
     void event_invoke_OnQueryEndSession(::Ozone::CloseEvent& arg0)
     {
-        JSValue event = JS_Interop_FindEvent(&events, 50);
+        JSValue event = JS_Interop_FindEvent(&events, 53);
         if (JS_IsUndefined(event))
             return;
 
@@ -1120,7 +1167,7 @@ struct data_Ozone_App : public JS_Interop_ClassData
 
     void event_invoke_OnEndSession(::Ozone::CloseEvent& arg0)
     {
-        JSValue event = JS_Interop_FindEvent(&events, 51);
+        JSValue event = JS_Interop_FindEvent(&events, 54);
         if (JS_IsUndefined(event))
             return;
 
@@ -1133,7 +1180,7 @@ struct data_Ozone_App : public JS_Interop_ClassData
 
     void event_invoke_OnActivateApp(::Ozone::ActivateEvent& arg0)
     {
-        JSValue event = JS_Interop_FindEvent(&events, 52);
+        JSValue event = JS_Interop_FindEvent(&events, 55);
         if (JS_IsUndefined(event))
             return;
 
@@ -1146,7 +1193,7 @@ struct data_Ozone_App : public JS_Interop_ClassData
 
     void event_invoke_OnHibernate(::Ozone::ActivateEvent& arg0)
     {
-        JSValue event = JS_Interop_FindEvent(&events, 53);
+        JSValue event = JS_Interop_FindEvent(&events, 56);
         if (JS_IsUndefined(event))
             return;
 
@@ -1159,7 +1206,7 @@ struct data_Ozone_App : public JS_Interop_ClassData
 
     void event_invoke_OnIdle(::Ozone::IdleEvent& arg0)
     {
-        JSValue event = JS_Interop_FindEvent(&events, 54);
+        JSValue event = JS_Interop_FindEvent(&events, 57);
         if (JS_IsUndefined(event))
             return;
 
@@ -1172,78 +1219,6 @@ struct data_Ozone_App : public JS_Interop_ClassData
 };
 
 JSValue callback_event_getter_Ozone_App_OnQueryEndSession(JSContext *ctx, JSValueConst this_val)
-{
-    auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    if (data == nullptr)
-        return JS_ThrowTypeError(ctx, "Could not find object instance");
-
-    JSValue event = JS_Interop_FindEvent(&data->events, 50);
-    if (!JS_IsUndefined(event))
-        return JS_DupValue(ctx, event);
-
-    JSValue signalProto = JS_GetClassProto(ctx, classId__Signal);
-    JSValue signalCtor = JS_GetProperty(ctx, signalProto, JS_ATOM_constructor);
-    JSValue argv[] = { this_val };
-    JSValue __obj = JS_CallConstructor(ctx, signalCtor, 1, argv);
-    JS_FreeValue(ctx, signalCtor);
-    JS_FreeValue(ctx, signalProto);
-
-    JS_Interop_InsertEvent(&data->events, 50, JS_DupValue(ctx, __obj));
-
-    ((Ozone::App*)data->instance)->OnQueryEndSession.bind(data, &data_Ozone_App::event_invoke_OnQueryEndSession);
-
-    return __obj;
-}
-
-JSValue callback_event_getter_Ozone_App_OnEndSession(JSContext *ctx, JSValueConst this_val)
-{
-    auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    if (data == nullptr)
-        return JS_ThrowTypeError(ctx, "Could not find object instance");
-
-    JSValue event = JS_Interop_FindEvent(&data->events, 51);
-    if (!JS_IsUndefined(event))
-        return JS_DupValue(ctx, event);
-
-    JSValue signalProto = JS_GetClassProto(ctx, classId__Signal);
-    JSValue signalCtor = JS_GetProperty(ctx, signalProto, JS_ATOM_constructor);
-    JSValue argv[] = { this_val };
-    JSValue __obj = JS_CallConstructor(ctx, signalCtor, 1, argv);
-    JS_FreeValue(ctx, signalCtor);
-    JS_FreeValue(ctx, signalProto);
-
-    JS_Interop_InsertEvent(&data->events, 51, JS_DupValue(ctx, __obj));
-
-    ((Ozone::App*)data->instance)->OnEndSession.bind(data, &data_Ozone_App::event_invoke_OnEndSession);
-
-    return __obj;
-}
-
-JSValue callback_event_getter_Ozone_App_OnActivateApp(JSContext *ctx, JSValueConst this_val)
-{
-    auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
-    if (data == nullptr)
-        return JS_ThrowTypeError(ctx, "Could not find object instance");
-
-    JSValue event = JS_Interop_FindEvent(&data->events, 52);
-    if (!JS_IsUndefined(event))
-        return JS_DupValue(ctx, event);
-
-    JSValue signalProto = JS_GetClassProto(ctx, classId__Signal);
-    JSValue signalCtor = JS_GetProperty(ctx, signalProto, JS_ATOM_constructor);
-    JSValue argv[] = { this_val };
-    JSValue __obj = JS_CallConstructor(ctx, signalCtor, 1, argv);
-    JS_FreeValue(ctx, signalCtor);
-    JS_FreeValue(ctx, signalProto);
-
-    JS_Interop_InsertEvent(&data->events, 52, JS_DupValue(ctx, __obj));
-
-    ((Ozone::App*)data->instance)->OnActivateApp.bind(data, &data_Ozone_App::event_invoke_OnActivateApp);
-
-    return __obj;
-}
-
-JSValue callback_event_getter_Ozone_App_OnHibernate(JSContext *ctx, JSValueConst this_val)
 {
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     if (data == nullptr)
@@ -1262,12 +1237,12 @@ JSValue callback_event_getter_Ozone_App_OnHibernate(JSContext *ctx, JSValueConst
 
     JS_Interop_InsertEvent(&data->events, 53, JS_DupValue(ctx, __obj));
 
-    ((Ozone::App*)data->instance)->OnHibernate.bind(data, &data_Ozone_App::event_invoke_OnHibernate);
+    ((Ozone::App*)data->instance)->OnQueryEndSession.bind(data, &data_Ozone_App::event_invoke_OnQueryEndSession);
 
     return __obj;
 }
 
-JSValue callback_event_getter_Ozone_App_OnIdle(JSContext *ctx, JSValueConst this_val)
+JSValue callback_event_getter_Ozone_App_OnEndSession(JSContext *ctx, JSValueConst this_val)
 {
     auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
     if (data == nullptr)
@@ -1285,6 +1260,78 @@ JSValue callback_event_getter_Ozone_App_OnIdle(JSContext *ctx, JSValueConst this
     JS_FreeValue(ctx, signalProto);
 
     JS_Interop_InsertEvent(&data->events, 54, JS_DupValue(ctx, __obj));
+
+    ((Ozone::App*)data->instance)->OnEndSession.bind(data, &data_Ozone_App::event_invoke_OnEndSession);
+
+    return __obj;
+}
+
+JSValue callback_event_getter_Ozone_App_OnActivateApp(JSContext *ctx, JSValueConst this_val)
+{
+    auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
+    if (data == nullptr)
+        return JS_ThrowTypeError(ctx, "Could not find object instance");
+
+    JSValue event = JS_Interop_FindEvent(&data->events, 55);
+    if (!JS_IsUndefined(event))
+        return JS_DupValue(ctx, event);
+
+    JSValue signalProto = JS_GetClassProto(ctx, classId__Signal);
+    JSValue signalCtor = JS_GetProperty(ctx, signalProto, JS_ATOM_constructor);
+    JSValue argv[] = { this_val };
+    JSValue __obj = JS_CallConstructor(ctx, signalCtor, 1, argv);
+    JS_FreeValue(ctx, signalCtor);
+    JS_FreeValue(ctx, signalProto);
+
+    JS_Interop_InsertEvent(&data->events, 55, JS_DupValue(ctx, __obj));
+
+    ((Ozone::App*)data->instance)->OnActivateApp.bind(data, &data_Ozone_App::event_invoke_OnActivateApp);
+
+    return __obj;
+}
+
+JSValue callback_event_getter_Ozone_App_OnHibernate(JSContext *ctx, JSValueConst this_val)
+{
+    auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
+    if (data == nullptr)
+        return JS_ThrowTypeError(ctx, "Could not find object instance");
+
+    JSValue event = JS_Interop_FindEvent(&data->events, 56);
+    if (!JS_IsUndefined(event))
+        return JS_DupValue(ctx, event);
+
+    JSValue signalProto = JS_GetClassProto(ctx, classId__Signal);
+    JSValue signalCtor = JS_GetProperty(ctx, signalProto, JS_ATOM_constructor);
+    JSValue argv[] = { this_val };
+    JSValue __obj = JS_CallConstructor(ctx, signalCtor, 1, argv);
+    JS_FreeValue(ctx, signalCtor);
+    JS_FreeValue(ctx, signalProto);
+
+    JS_Interop_InsertEvent(&data->events, 56, JS_DupValue(ctx, __obj));
+
+    ((Ozone::App*)data->instance)->OnHibernate.bind(data, &data_Ozone_App::event_invoke_OnHibernate);
+
+    return __obj;
+}
+
+JSValue callback_event_getter_Ozone_App_OnIdle(JSContext *ctx, JSValueConst this_val)
+{
+    auto data = (data_Ozone_App*) JS_GetOpaque(this_val, 0);
+    if (data == nullptr)
+        return JS_ThrowTypeError(ctx, "Could not find object instance");
+
+    JSValue event = JS_Interop_FindEvent(&data->events, 57);
+    if (!JS_IsUndefined(event))
+        return JS_DupValue(ctx, event);
+
+    JSValue signalProto = JS_GetClassProto(ctx, classId__Signal);
+    JSValue signalCtor = JS_GetProperty(ctx, signalProto, JS_ATOM_constructor);
+    JSValue argv[] = { this_val };
+    JSValue __obj = JS_CallConstructor(ctx, signalCtor, 1, argv);
+    JS_FreeValue(ctx, signalCtor);
+    JS_FreeValue(ctx, signalProto);
+
+    JS_Interop_InsertEvent(&data->events, 57, JS_DupValue(ctx, __obj));
 
     ((Ozone::App*)data->instance)->OnIdle.bind(data, &data_Ozone_App::event_invoke_OnIdle);
 
@@ -1921,6 +1968,37 @@ static JSCFunctionListEntry funcDef_Ozone_App[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_App_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_App_statics[]
+{
+    JS_CGETSET_DEF("OnQueryEndSession", callback_event_getter_Ozone_App_OnQueryEndSession, NULL),
+    JS_CGETSET_DEF("OnEndSession", callback_event_getter_Ozone_App_OnEndSession, NULL),
+    JS_CGETSET_DEF("OnActivateApp", callback_event_getter_Ozone_App_OnActivateApp, NULL),
+    JS_CGETSET_DEF("OnHibernate", callback_event_getter_Ozone_App_OnHibernate, NULL),
+    JS_CGETSET_DEF("OnIdle", callback_event_getter_Ozone_App_OnIdle, NULL),
+    JS_CFUNC_DEF("SetNativeTheme", 1, callback_method_Ozone_App_SetNativeTheme),
+    JS_CFUNC_DEF("OnInitGui", 0, callback_method_Ozone_App_OnInitGui),
+    JS_CFUNC_DEF("WakeUpIdle", 0, callback_method_Ozone_App_WakeUpIdle),
+    JS_CFUNC_DEF("CleanUp", 0, callback_method_Ozone_App_CleanUp),
+    JS_CFUNC_DEF("EventsPending", 0, callback_method_Ozone_App_EventsPending),
+    JS_CFUNC_DEF("DoIdle", 0, callback_method_Ozone_App_DoIdle),
+    JS_CFUNC_DEF("OnRun", 0, callback_method_Ozone_App_OnRun),
+    JS_CFUNC_DEF("OnExit", 0, callback_method_Ozone_App_OnExit),
+    JS_CFUNC_DEF("SafeYield", 2, callback_method_Ozone_App_SafeYield),
+    JS_CFUNC_DEF("SafeYieldFor", 2, callback_method_Ozone_App_SafeYieldFor),
+    JS_CFUNC_DEF("ProcessIdle", 0, callback_method_Ozone_App_ProcessIdle),
+    JS_CFUNC_DEF("UsesEventLoop", 0, callback_method_Ozone_App_UsesEventLoop),
+    JS_CFUNC_DEF("IsActive", 0, callback_method_Ozone_App_IsActive),
+    JS_CFUNC_DEF("SetTopWindow", 1, callback_method_Ozone_App_SetTopWindow),
+    JS_CFUNC_DEF("GetTopWindow", 0, callback_method_Ozone_App_GetTopWindow),
+    JS_CFUNC_DEF("SetExitOnFrameDelete", 1, callback_method_Ozone_App_SetExitOnFrameDelete),
+    JS_CFUNC_DEF("GetExitOnFrameDelete", 0, callback_method_Ozone_App_GetExitOnFrameDelete),
+    JS_CFUNC_DEF("SetUseBestVisual", 2, callback_method_Ozone_App_SetUseBestVisual),
+    JS_CFUNC_DEF("GetUseBestVisual", 0, callback_method_Ozone_App_GetUseBestVisual),
+    JS_CFUNC_DEF("SetPrintMode", 1, callback_method_Ozone_App_SetPrintMode),
+    JS_CFUNC_DEF("GetPrintMode", 0, callback_method_Ozone_App_GetPrintMode),
+    JS_CFUNC_DEF("SetActive", 2, callback_method_Ozone_App_SetActive),
+};
+
 static void register_class_Ozone_App(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1936,10 +2014,11 @@ static void register_class_Ozone_App(JSContext *ctx, JSModuleDef *m, bool set, i
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_App, &classDef_Ozone_App);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_App, sizeof(funcDef_Ozone_App) / sizeof(funcDef_Ozone_App[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_App, countof(funcDef_Ozone_App));
         JS_SetClassProto(ctx, classId_Ozone_App, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_App_App, "App", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_App_statics, countof(funcDef_Ozone_App_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "App", ctor);

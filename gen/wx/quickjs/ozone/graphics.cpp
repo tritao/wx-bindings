@@ -353,6 +353,12 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsObject[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsObject_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GraphicsObject_statics[]
+{
+    JS_CFUNC_DEF("IsNull", 0, callback_method_Ozone_GraphicsObject_IsNull),
+    JS_CFUNC_DEF("GetRenderer", 0, callback_method_Ozone_GraphicsObject_GetRenderer),
+};
+
 static void register_class_Ozone_GraphicsObject(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -368,10 +374,11 @@ static void register_class_Ozone_GraphicsObject(JSContext *ctx, JSModuleDef *m, 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsObject, &classDef_Ozone_GraphicsObject);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsObject, sizeof(funcDef_Ozone_GraphicsObject) / sizeof(funcDef_Ozone_GraphicsObject[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsObject, countof(funcDef_Ozone_GraphicsObject));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsObject, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsObject_GraphicsObject, "GraphicsObject", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsObject_statics, countof(funcDef_Ozone_GraphicsObject_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsObject", ctor);
@@ -444,6 +451,10 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsPen[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsPen_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GraphicsPen_statics[]
+{
+};
+
 static void register_class_Ozone_GraphicsPen(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -459,10 +470,11 @@ static void register_class_Ozone_GraphicsPen(JSContext *ctx, JSModuleDef *m, boo
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsPen, &classDef_Ozone_GraphicsPen);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsPen, sizeof(funcDef_Ozone_GraphicsPen) / sizeof(funcDef_Ozone_GraphicsPen[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsPen, countof(funcDef_Ozone_GraphicsPen));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsPen, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsPen_GraphicsPen, "GraphicsPen", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsPen_statics, countof(funcDef_Ozone_GraphicsPen_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsPen", ctor);
@@ -535,6 +547,10 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsBrush[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsBrush_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GraphicsBrush_statics[]
+{
+};
+
 static void register_class_Ozone_GraphicsBrush(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -550,10 +566,11 @@ static void register_class_Ozone_GraphicsBrush(JSContext *ctx, JSModuleDef *m, b
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsBrush, &classDef_Ozone_GraphicsBrush);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsBrush, sizeof(funcDef_Ozone_GraphicsBrush) / sizeof(funcDef_Ozone_GraphicsBrush[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsBrush, countof(funcDef_Ozone_GraphicsBrush));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsBrush, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsBrush_GraphicsBrush, "GraphicsBrush", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsBrush_statics, countof(funcDef_Ozone_GraphicsBrush_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsBrush", ctor);
@@ -626,6 +643,10 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsFont[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsFont_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GraphicsFont_statics[]
+{
+};
+
 static void register_class_Ozone_GraphicsFont(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -641,10 +662,11 @@ static void register_class_Ozone_GraphicsFont(JSContext *ctx, JSModuleDef *m, bo
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsFont, &classDef_Ozone_GraphicsFont);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsFont, sizeof(funcDef_Ozone_GraphicsFont) / sizeof(funcDef_Ozone_GraphicsFont[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsFont, countof(funcDef_Ozone_GraphicsFont));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsFont, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsFont_GraphicsFont, "GraphicsFont", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsFont_statics, countof(funcDef_Ozone_GraphicsFont_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsFont", ctor);
@@ -717,6 +739,10 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsBitmap[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsBitmap_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GraphicsBitmap_statics[]
+{
+};
+
 static void register_class_Ozone_GraphicsBitmap(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -732,10 +758,11 @@ static void register_class_Ozone_GraphicsBitmap(JSContext *ctx, JSModuleDef *m, 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsBitmap, &classDef_Ozone_GraphicsBitmap);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsBitmap, sizeof(funcDef_Ozone_GraphicsBitmap) / sizeof(funcDef_Ozone_GraphicsBitmap[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsBitmap, countof(funcDef_Ozone_GraphicsBitmap));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsBitmap, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsBitmap_GraphicsBitmap, "GraphicsBitmap", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsBitmap_statics, countof(funcDef_Ozone_GraphicsBitmap_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsBitmap", ctor);
@@ -1109,6 +1136,18 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsMatrix[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsMatrix_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GraphicsMatrix_statics[]
+{
+    JS_CFUNC_DEF("Concat", 1, callback_method_Ozone_GraphicsMatrix_Concat),
+    JS_CFUNC_DEF("Set", 6, callback_method_Ozone_GraphicsMatrix_Set),
+    JS_CFUNC_DEF("Invert", 0, callback_method_Ozone_GraphicsMatrix_Invert),
+    JS_CFUNC_DEF("IsEqual", 1, callback_method_Ozone_GraphicsMatrix_IsEqual),
+    JS_CFUNC_DEF("IsIdentity", 0, callback_method_Ozone_GraphicsMatrix_IsIdentity),
+    JS_CFUNC_DEF("Translate", 2, callback_method_Ozone_GraphicsMatrix_Translate),
+    JS_CFUNC_DEF("Scale", 2, callback_method_Ozone_GraphicsMatrix_Scale),
+    JS_CFUNC_DEF("Rotate", 1, callback_method_Ozone_GraphicsMatrix_Rotate),
+};
+
 static void register_class_Ozone_GraphicsMatrix(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1124,10 +1163,11 @@ static void register_class_Ozone_GraphicsMatrix(JSContext *ctx, JSModuleDef *m, 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsMatrix, &classDef_Ozone_GraphicsMatrix);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsMatrix, sizeof(funcDef_Ozone_GraphicsMatrix) / sizeof(funcDef_Ozone_GraphicsMatrix[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsMatrix, countof(funcDef_Ozone_GraphicsMatrix));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsMatrix, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsMatrix_GraphicsMatrix, "GraphicsMatrix", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsMatrix_statics, countof(funcDef_Ozone_GraphicsMatrix_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsMatrix", ctor);
@@ -1311,6 +1351,13 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsGradientStop[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsGradientStop_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GraphicsGradientStop_statics[]
+{
+    JS_CFUNC_DEF("SetColour", 1, callback_method_Ozone_GraphicsGradientStop_SetColour),
+    JS_CFUNC_DEF("GetPosition", 0, callback_method_Ozone_GraphicsGradientStop_GetPosition),
+    JS_CFUNC_DEF("SetPosition", 1, callback_method_Ozone_GraphicsGradientStop_SetPosition),
+};
+
 static void register_class_Ozone_GraphicsGradientStop(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1326,10 +1373,11 @@ static void register_class_Ozone_GraphicsGradientStop(JSContext *ctx, JSModuleDe
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsGradientStop, &classDef_Ozone_GraphicsGradientStop);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsGradientStop, sizeof(funcDef_Ozone_GraphicsGradientStop) / sizeof(funcDef_Ozone_GraphicsGradientStop[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsGradientStop, countof(funcDef_Ozone_GraphicsGradientStop));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsGradientStop, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsGradientStop_GraphicsGradientStop, "GraphicsGradientStop", 2, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsGradientStop_statics, countof(funcDef_Ozone_GraphicsGradientStop_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsGradientStop", ctor);
@@ -1628,6 +1676,17 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsGradientStops[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsGradientStops_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GraphicsGradientStops_statics[]
+{
+    JS_CFUNC_DEF("Add", 2, callback_method_Ozone_GraphicsGradientStops_Add),
+    JS_CFUNC_DEF("GetCount", 0, callback_method_Ozone_GraphicsGradientStops_GetCount),
+    JS_CFUNC_DEF("Item", 1, callback_method_Ozone_GraphicsGradientStops_Item),
+    JS_CFUNC_DEF("SetStartColour", 1, callback_method_Ozone_GraphicsGradientStops_SetStartColour),
+    JS_CFUNC_DEF("GetStartColour", 0, callback_method_Ozone_GraphicsGradientStops_GetStartColour),
+    JS_CFUNC_DEF("SetEndColour", 1, callback_method_Ozone_GraphicsGradientStops_SetEndColour),
+    JS_CFUNC_DEF("GetEndColour", 0, callback_method_Ozone_GraphicsGradientStops_GetEndColour),
+};
+
 static void register_class_Ozone_GraphicsGradientStops(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1643,10 +1702,11 @@ static void register_class_Ozone_GraphicsGradientStops(JSContext *ctx, JSModuleD
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsGradientStops, &classDef_Ozone_GraphicsGradientStops);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsGradientStops, sizeof(funcDef_Ozone_GraphicsGradientStops) / sizeof(funcDef_Ozone_GraphicsGradientStops[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsGradientStops, countof(funcDef_Ozone_GraphicsGradientStops));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsGradientStops, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsGradientStops_GraphicsGradientStops, "GraphicsGradientStops", 2, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsGradientStops_statics, countof(funcDef_Ozone_GraphicsGradientStops_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsGradientStops", ctor);
@@ -2039,6 +2099,27 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsPenInfo[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsPenInfo_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GraphicsPenInfo_statics[]
+{
+    JS_CFUNC_DEF("GetWidth", 0, callback_method_Ozone_GraphicsPenInfo_GetWidth),
+    JS_CFUNC_DEF("GetGradientType", 0, callback_method_Ozone_GraphicsPenInfo_GetGradientType),
+    JS_CFUNC_DEF("GetX1", 0, callback_method_Ozone_GraphicsPenInfo_GetX1),
+    JS_CFUNC_DEF("GetY1", 0, callback_method_Ozone_GraphicsPenInfo_GetY1),
+    JS_CFUNC_DEF("GetX2", 0, callback_method_Ozone_GraphicsPenInfo_GetX2),
+    JS_CFUNC_DEF("GetY2", 0, callback_method_Ozone_GraphicsPenInfo_GetY2),
+    JS_CFUNC_DEF("GetStartX", 0, callback_method_Ozone_GraphicsPenInfo_GetStartX),
+    JS_CFUNC_DEF("GetStartY", 0, callback_method_Ozone_GraphicsPenInfo_GetStartY),
+    JS_CFUNC_DEF("GetEndX", 0, callback_method_Ozone_GraphicsPenInfo_GetEndX),
+    JS_CFUNC_DEF("GetEndY", 0, callback_method_Ozone_GraphicsPenInfo_GetEndY),
+    JS_CFUNC_DEF("GetRadius", 0, callback_method_Ozone_GraphicsPenInfo_GetRadius),
+    JS_CFUNC_DEF("GetColour", 0, callback_method_Ozone_GraphicsPenInfo_GetColour),
+    JS_CFUNC_DEF("GetStyle", 0, callback_method_Ozone_GraphicsPenInfo_GetStyle),
+    JS_CFUNC_DEF("GetJoin", 0, callback_method_Ozone_GraphicsPenInfo_GetJoin),
+    JS_CFUNC_DEF("GetCap", 0, callback_method_Ozone_GraphicsPenInfo_GetCap),
+    JS_CFUNC_DEF("GetDashCount", 0, callback_method_Ozone_GraphicsPenInfo_GetDashCount),
+    JS_CFUNC_DEF("IsTransparent", 0, callback_method_Ozone_GraphicsPenInfo_IsTransparent),
+};
+
 static void register_class_Ozone_GraphicsPenInfo(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -2054,10 +2135,11 @@ static void register_class_Ozone_GraphicsPenInfo(JSContext *ctx, JSModuleDef *m,
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsPenInfo, &classDef_Ozone_GraphicsPenInfo);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsPenInfo, sizeof(funcDef_Ozone_GraphicsPenInfo) / sizeof(funcDef_Ozone_GraphicsPenInfo[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsPenInfo, countof(funcDef_Ozone_GraphicsPenInfo));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsPenInfo, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsPenInfo_GraphicsPenInfo, "GraphicsPenInfo", 3, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsPenInfo_statics, countof(funcDef_Ozone_GraphicsPenInfo_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsPenInfo", ctor);
@@ -2918,6 +3000,24 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsPath[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsPath_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GraphicsPath_statics[]
+{
+    JS_CFUNC_DEF("MoveToPoint", 2, callback_method_Ozone_GraphicsPath_MoveToPoint),
+    JS_CFUNC_DEF("AddLineToPoint", 2, callback_method_Ozone_GraphicsPath_AddLineToPoint),
+    JS_CFUNC_DEF("AddCurveToPoint", 6, callback_method_Ozone_GraphicsPath_AddCurveToPoint),
+    JS_CFUNC_DEF("AddPath", 1, callback_method_Ozone_GraphicsPath_AddPath),
+    JS_CFUNC_DEF("CloseSubpath", 0, callback_method_Ozone_GraphicsPath_CloseSubpath),
+    JS_CFUNC_DEF("AddArc", 6, callback_method_Ozone_GraphicsPath_AddArc),
+    JS_CFUNC_DEF("AddQuadCurveToPoint", 4, callback_method_Ozone_GraphicsPath_AddQuadCurveToPoint),
+    JS_CFUNC_DEF("AddRectangle", 4, callback_method_Ozone_GraphicsPath_AddRectangle),
+    JS_CFUNC_DEF("AddCircle", 3, callback_method_Ozone_GraphicsPath_AddCircle),
+    JS_CFUNC_DEF("AddArcToPoint", 5, callback_method_Ozone_GraphicsPath_AddArcToPoint),
+    JS_CFUNC_DEF("AddEllipse", 4, callback_method_Ozone_GraphicsPath_AddEllipse),
+    JS_CFUNC_DEF("AddRoundedRectangle", 5, callback_method_Ozone_GraphicsPath_AddRoundedRectangle),
+    JS_CFUNC_DEF("Transform", 1, callback_method_Ozone_GraphicsPath_Transform),
+    JS_CFUNC_DEF("Contains", 3, callback_method_Ozone_GraphicsPath_Contains),
+};
+
 static void register_class_Ozone_GraphicsPath(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -2933,10 +3033,11 @@ static void register_class_Ozone_GraphicsPath(JSContext *ctx, JSModuleDef *m, bo
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsPath, &classDef_Ozone_GraphicsPath);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsPath, sizeof(funcDef_Ozone_GraphicsPath) / sizeof(funcDef_Ozone_GraphicsPath[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsPath, countof(funcDef_Ozone_GraphicsPath));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsPath, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsPath_GraphicsPath, "GraphicsPath", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsPath_statics, countof(funcDef_Ozone_GraphicsPath_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsPath", ctor);
@@ -5316,9 +5417,62 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsContext[]
     JS_CFUNC_DEF("EnableOffset", 1, callback_method_Ozone_GraphicsContext_EnableOffset),
     JS_CFUNC_DEF("DisableOffset", 0, callback_method_Ozone_GraphicsContext_DisableOffset),
     JS_CFUNC_DEF("OffsetEnabled", 0, callback_method_Ozone_GraphicsContext_OffsetEnabled),
+    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsContext_toString),
+};
+
+static JSCFunctionListEntry funcDef_Ozone_GraphicsContext_statics[]
+{
+    JS_CFUNC_DEF("GetWindow", 0, callback_method_Ozone_GraphicsContext_GetWindow),
+    JS_CFUNC_DEF("StartDoc", 1, callback_method_Ozone_GraphicsContext_StartDoc),
+    JS_CFUNC_DEF("EndDoc", 0, callback_method_Ozone_GraphicsContext_EndDoc),
+    JS_CFUNC_DEF("StartPage", 2, callback_method_Ozone_GraphicsContext_StartPage),
+    JS_CFUNC_DEF("EndPage", 0, callback_method_Ozone_GraphicsContext_EndPage),
+    JS_CFUNC_DEF("Flush", 0, callback_method_Ozone_GraphicsContext_Flush),
+    JS_CFUNC_DEF("CreatePath", 0, callback_method_Ozone_GraphicsContext_CreatePath),
+    JS_CFUNC_DEF("CreatePen", 1, callback_method_Ozone_GraphicsContext_CreatePen),
+    JS_CFUNC_DEF("CreateBrush", 1, callback_method_Ozone_GraphicsContext_CreateBrush),
+    JS_CFUNC_DEF("CreateLinearGradientBrush", 7, callback_method_Ozone_GraphicsContext_CreateLinearGradientBrush),
+    JS_CFUNC_DEF("CreateRadialGradientBrush", 8, callback_method_Ozone_GraphicsContext_CreateRadialGradientBrush),
+    JS_CFUNC_DEF("CreateFont", 4, callback_method_Ozone_GraphicsContext_CreateFont),
+    JS_CFUNC_DEF("CreateSubBitmap", 5, callback_method_Ozone_GraphicsContext_CreateSubBitmap),
+    JS_CFUNC_DEF("CreateMatrix", 6, callback_method_Ozone_GraphicsContext_CreateMatrix),
+    JS_CFUNC_DEF("PushState", 0, callback_method_Ozone_GraphicsContext_PushState),
+    JS_CFUNC_DEF("PopState", 0, callback_method_Ozone_GraphicsContext_PopState),
+    JS_CFUNC_DEF("Clip", 4, callback_method_Ozone_GraphicsContext_Clip),
+    JS_CFUNC_DEF("ResetClip", 0, callback_method_Ozone_GraphicsContext_ResetClip),
+    JS_CFUNC_DEF("GetAntialiasMode", 0, callback_method_Ozone_GraphicsContext_GetAntialiasMode),
+    JS_CFUNC_DEF("SetAntialiasMode", 1, callback_method_Ozone_GraphicsContext_SetAntialiasMode),
+    JS_CFUNC_DEF("GetInterpolationQuality", 0, callback_method_Ozone_GraphicsContext_GetInterpolationQuality),
+    JS_CFUNC_DEF("SetInterpolationQuality", 1, callback_method_Ozone_GraphicsContext_SetInterpolationQuality),
+    JS_CFUNC_DEF("GetCompositionMode", 0, callback_method_Ozone_GraphicsContext_GetCompositionMode),
+    JS_CFUNC_DEF("SetCompositionMode", 1, callback_method_Ozone_GraphicsContext_SetCompositionMode),
+    JS_CFUNC_DEF("BeginLayer", 1, callback_method_Ozone_GraphicsContext_BeginLayer),
+    JS_CFUNC_DEF("EndLayer", 0, callback_method_Ozone_GraphicsContext_EndLayer),
+    JS_CFUNC_DEF("Translate", 2, callback_method_Ozone_GraphicsContext_Translate),
+    JS_CFUNC_DEF("Scale", 2, callback_method_Ozone_GraphicsContext_Scale),
+    JS_CFUNC_DEF("Rotate", 1, callback_method_Ozone_GraphicsContext_Rotate),
+    JS_CFUNC_DEF("ConcatTransform", 1, callback_method_Ozone_GraphicsContext_ConcatTransform),
+    JS_CFUNC_DEF("SetTransform", 1, callback_method_Ozone_GraphicsContext_SetTransform),
+    JS_CFUNC_DEF("GetTransform", 0, callback_method_Ozone_GraphicsContext_GetTransform),
+    JS_CFUNC_DEF("SetPen", 1, callback_method_Ozone_GraphicsContext_SetPen),
+    JS_CFUNC_DEF("SetBrush", 1, callback_method_Ozone_GraphicsContext_SetBrush),
+    JS_CFUNC_DEF("SetFont", 1, callback_method_Ozone_GraphicsContext_SetFont),
+    JS_CFUNC_DEF("StrokePath", 1, callback_method_Ozone_GraphicsContext_StrokePath),
+    JS_CFUNC_DEF("FillPath", 2, callback_method_Ozone_GraphicsContext_FillPath),
+    JS_CFUNC_DEF("DrawPath", 2, callback_method_Ozone_GraphicsContext_DrawPath),
+    JS_CFUNC_DEF("ClearRectangle", 4, callback_method_Ozone_GraphicsContext_ClearRectangle),
+    JS_CFUNC_DEF("DrawText", 5, callback_method_Ozone_GraphicsContext_DrawText),
+    JS_CFUNC_DEF("DrawBitmap", 5, callback_method_Ozone_GraphicsContext_DrawBitmap),
+    JS_CFUNC_DEF("StrokeLine", 4, callback_method_Ozone_GraphicsContext_StrokeLine),
+    JS_CFUNC_DEF("DrawRectangle", 4, callback_method_Ozone_GraphicsContext_DrawRectangle),
+    JS_CFUNC_DEF("DrawEllipse", 4, callback_method_Ozone_GraphicsContext_DrawEllipse),
+    JS_CFUNC_DEF("DrawRoundedRectangle", 5, callback_method_Ozone_GraphicsContext_DrawRoundedRectangle),
+    JS_CFUNC_DEF("ShouldOffset", 0, callback_method_Ozone_GraphicsContext_ShouldOffset),
+    JS_CFUNC_DEF("EnableOffset", 1, callback_method_Ozone_GraphicsContext_EnableOffset),
+    JS_CFUNC_DEF("DisableOffset", 0, callback_method_Ozone_GraphicsContext_DisableOffset),
+    JS_CFUNC_DEF("OffsetEnabled", 0, callback_method_Ozone_GraphicsContext_OffsetEnabled),
     JS_CFUNC_DEF("Create", 1, callback_method_Ozone_GraphicsContext_Create),
     JS_CFUNC_DEF("CreateFromUnknownDC", 1, callback_method_Ozone_GraphicsContext_CreateFromUnknownDC),
-    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsContext_toString),
 };
 
 static void register_class_Ozone_GraphicsContext(JSContext *ctx, JSModuleDef *m, bool set, int phase)
@@ -5336,10 +5490,11 @@ static void register_class_Ozone_GraphicsContext(JSContext *ctx, JSModuleDef *m,
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsContext, &classDef_Ozone_GraphicsContext);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsContext, sizeof(funcDef_Ozone_GraphicsContext) / sizeof(funcDef_Ozone_GraphicsContext[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsContext, countof(funcDef_Ozone_GraphicsContext));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsContext, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsContext_GraphicsContext, "GraphicsContext", 2, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsContext_statics, countof(funcDef_Ozone_GraphicsContext_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsContext", ctor);
@@ -6060,9 +6215,25 @@ static JSCFunctionListEntry funcDef_Ozone_GraphicsRenderer[]
     JS_CFUNC_DEF("CreateFont", 4, callback_method_Ozone_GraphicsRenderer_CreateFont),
     JS_CFUNC_DEF("CreateSubBitmap", 5, callback_method_Ozone_GraphicsRenderer_CreateSubBitmap),
     JS_CFUNC_DEF("GetName", 0, callback_method_Ozone_GraphicsRenderer_GetName),
+    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsRenderer_toString),
+};
+
+static JSCFunctionListEntry funcDef_Ozone_GraphicsRenderer_statics[]
+{
+    JS_CFUNC_DEF("CreateContext", 1, callback_method_Ozone_GraphicsRenderer_CreateContext),
+    JS_CFUNC_DEF("CreateContextFromUnknownDC", 1, callback_method_Ozone_GraphicsRenderer_CreateContextFromUnknownDC),
+    JS_CFUNC_DEF("CreateMeasuringContext", 0, callback_method_Ozone_GraphicsRenderer_CreateMeasuringContext),
+    JS_CFUNC_DEF("CreatePath", 0, callback_method_Ozone_GraphicsRenderer_CreatePath),
+    JS_CFUNC_DEF("CreateMatrix", 6, callback_method_Ozone_GraphicsRenderer_CreateMatrix),
+    JS_CFUNC_DEF("CreatePen", 1, callback_method_Ozone_GraphicsRenderer_CreatePen),
+    JS_CFUNC_DEF("CreateBrush", 1, callback_method_Ozone_GraphicsRenderer_CreateBrush),
+    JS_CFUNC_DEF("CreateLinearGradientBrush", 6, callback_method_Ozone_GraphicsRenderer_CreateLinearGradientBrush),
+    JS_CFUNC_DEF("CreateRadialGradientBrush", 7, callback_method_Ozone_GraphicsRenderer_CreateRadialGradientBrush),
+    JS_CFUNC_DEF("CreateFont", 4, callback_method_Ozone_GraphicsRenderer_CreateFont),
+    JS_CFUNC_DEF("CreateSubBitmap", 5, callback_method_Ozone_GraphicsRenderer_CreateSubBitmap),
+    JS_CFUNC_DEF("GetName", 0, callback_method_Ozone_GraphicsRenderer_GetName),
     JS_CFUNC_DEF("GetDefaultRenderer", 0, callback_method_Ozone_GraphicsRenderer_GetDefaultRenderer),
     JS_CFUNC_DEF("GetCairoRenderer", 0, callback_method_Ozone_GraphicsRenderer_GetCairoRenderer),
-    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GraphicsRenderer_toString),
 };
 
 static void register_class_Ozone_GraphicsRenderer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
@@ -6080,10 +6251,11 @@ static void register_class_Ozone_GraphicsRenderer(JSContext *ctx, JSModuleDef *m
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GraphicsRenderer, &classDef_Ozone_GraphicsRenderer);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsRenderer, sizeof(funcDef_Ozone_GraphicsRenderer) / sizeof(funcDef_Ozone_GraphicsRenderer[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GraphicsRenderer, countof(funcDef_Ozone_GraphicsRenderer));
         JS_SetClassProto(ctx, classId_Ozone_GraphicsRenderer, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GraphicsRenderer_GraphicsRenderer, "GraphicsRenderer", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GraphicsRenderer_statics, countof(funcDef_Ozone_GraphicsRenderer_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GraphicsRenderer", ctor);

@@ -12,6 +12,7 @@ extern "C" {
 
 extern JSClassID classId_Ozone_WebViewHandler;
 extern JSClassID classId_Ozone_WebView;
+extern JSClassID classId_Ozone_Control;
 extern JSClassID classId_Ozone_Window;
 extern JSClassID classId_Ozone_Point;
 extern JSClassID classId_Ozone_Size;
@@ -412,6 +413,13 @@ static JSCFunctionListEntry funcDef_Ozone_WebViewHandler[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_WebViewHandler_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_WebViewHandler_statics[]
+{
+    JS_CFUNC_DEF("GetName", 0, callback_method_Ozone_WebViewHandler_GetName),
+    JS_CFUNC_DEF("SetSecurityURL", 1, callback_method_Ozone_WebViewHandler_SetSecurityURL),
+    JS_CFUNC_DEF("GetSecurityURL", 0, callback_method_Ozone_WebViewHandler_GetSecurityURL),
+};
+
 static void register_class_Ozone_WebViewHandler(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -427,10 +435,11 @@ static void register_class_Ozone_WebViewHandler(JSContext *ctx, JSModuleDef *m, 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_WebViewHandler, &classDef_Ozone_WebViewHandler);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_WebViewHandler, sizeof(funcDef_Ozone_WebViewHandler) / sizeof(funcDef_Ozone_WebViewHandler[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_WebViewHandler, countof(funcDef_Ozone_WebViewHandler));
         JS_SetClassProto(ctx, classId_Ozone_WebViewHandler, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_WebViewHandler_WebViewHandler, "WebViewHandler", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_WebViewHandler_statics, countof(funcDef_Ozone_WebViewHandler_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "WebViewHandler", ctor);
@@ -438,6 +447,10 @@ static void register_class_Ozone_WebViewHandler(JSContext *ctx, JSModuleDef *m, 
 }
 
 JSClassID classId_Ozone_WebView;
+
+struct data_Ozone_WebView : public JS_Interop_ClassData
+{
+};
 
 // Ozone::WebView::WebView
 static JSValue callback_method_Ozone_WebView_WebView(JSContext* ctx, JSValueConst this_val,
@@ -464,7 +477,7 @@ wrap:
     JSValue __obj = JS_NewObjectProtoClass(ctx, proto, classId_Ozone_WebView);
     JS_FreeValue(ctx, proto);
 
-    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_RAW_POINTER, instance);
+    JS_Interop_InitObject(ctx, __obj, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, instance);
     JSObject* __js_obj = JS_VALUE_GET_OBJ(__obj);
     instance->__ExternalInstance = (void*) __js_obj;
 
@@ -479,7 +492,8 @@ static JSValue callback_method_Ozone_WebView_Create(JSContext* ctx, JSValueConst
     if (argc != 7)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsObject(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
@@ -584,7 +598,8 @@ static JSValue callback_method_Ozone_WebView_EnableContextMenu(JSContext* ctx, J
     if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsBool(argv[0]))
         goto overload0;
@@ -616,7 +631,8 @@ static JSValue callback_method_Ozone_WebView_EnableAccessToDevTools(JSContext* c
     if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsBool(argv[0]))
         goto overload0;
@@ -648,7 +664,8 @@ static JSValue callback_method_Ozone_WebView_GetCurrentTitle(JSContext* ctx, JSV
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     const char* __ret = instance->GetCurrentTitle();
 
@@ -664,7 +681,8 @@ static JSValue callback_method_Ozone_WebView_GetCurrentURL(JSContext* ctx, JSVal
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     const char* __ret = instance->GetCurrentURL();
 
@@ -680,7 +698,8 @@ static JSValue callback_method_Ozone_WebView_GetPageSource(JSContext* ctx, JSVal
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     const char* __ret = instance->GetPageSource();
 
@@ -696,7 +715,8 @@ static JSValue callback_method_Ozone_WebView_GetPageText(JSContext* ctx, JSValue
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     const char* __ret = instance->GetPageText();
 
@@ -712,7 +732,8 @@ static JSValue callback_method_Ozone_WebView_IsBusy(JSContext* ctx, JSValueConst
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->IsBusy();
 
@@ -728,7 +749,8 @@ static JSValue callback_method_Ozone_WebView_IsContextMenuEnabled(JSContext* ctx
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->IsContextMenuEnabled();
 
@@ -744,7 +766,8 @@ static JSValue callback_method_Ozone_WebView_IsAccessToDevToolsEnabled(JSContext
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->IsAccessToDevToolsEnabled();
 
@@ -760,7 +783,8 @@ static JSValue callback_method_Ozone_WebView_IsEditable(JSContext* ctx, JSValueC
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->IsEditable();
 
@@ -776,7 +800,8 @@ static JSValue callback_method_Ozone_WebView_LoadURL(JSContext* ctx, JSValueCons
     if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto overload0;
@@ -810,7 +835,8 @@ static JSValue callback_method_Ozone_WebView_Print(JSContext* ctx, JSValueConst 
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->Print();
 
@@ -824,7 +850,8 @@ static JSValue callback_method_Ozone_WebView_Reload(JSContext* ctx, JSValueConst
     if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsInt32(argv[0]))
         goto overload0;
@@ -857,7 +884,8 @@ static JSValue callback_method_Ozone_WebView_RunScript(JSContext* ctx, JSValueCo
     if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
@@ -906,7 +934,8 @@ static JSValue callback_method_Ozone_WebView_SetEditable(JSContext* ctx, JSValue
     if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsBool(argv[0]))
         goto overload0;
@@ -938,7 +967,8 @@ static JSValue callback_method_Ozone_WebView_SetPage(JSContext* ctx, JSValueCons
     if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
@@ -985,7 +1015,8 @@ static JSValue callback_method_Ozone_WebView_Stop(JSContext* ctx, JSValueConst t
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->Stop();
 
@@ -999,7 +1030,8 @@ static JSValue callback_method_Ozone_WebView_CanGoBack(JSContext* ctx, JSValueCo
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->CanGoBack();
 
@@ -1015,7 +1047,8 @@ static JSValue callback_method_Ozone_WebView_CanGoForward(JSContext* ctx, JSValu
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->CanGoForward();
 
@@ -1031,7 +1064,8 @@ static JSValue callback_method_Ozone_WebView_GoBack(JSContext* ctx, JSValueConst
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->GoBack();
 
@@ -1045,7 +1079,8 @@ static JSValue callback_method_Ozone_WebView_GoForward(JSContext* ctx, JSValueCo
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->GoForward();
 
@@ -1059,7 +1094,8 @@ static JSValue callback_method_Ozone_WebView_ClearHistory(JSContext* ctx, JSValu
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->ClearHistory();
 
@@ -1073,7 +1109,8 @@ static JSValue callback_method_Ozone_WebView_EnableHistory(JSContext* ctx, JSVal
     if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsBool(argv[0]))
         goto overload0;
@@ -1105,7 +1142,8 @@ static JSValue callback_method_Ozone_WebView_CanSetZoomType(JSContext* ctx, JSVa
     if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsInt32(argv[0]))
         goto overload0;
@@ -1140,7 +1178,8 @@ static JSValue callback_method_Ozone_WebView_GetZoom(JSContext* ctx, JSValueCons
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     ::Ozone::WebViewZoom __ret = instance->GetZoom();
 
@@ -1156,7 +1195,8 @@ static JSValue callback_method_Ozone_WebView_GetZoomFactor(JSContext* ctx, JSVal
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     float __ret = instance->GetZoomFactor();
 
@@ -1172,7 +1212,8 @@ static JSValue callback_method_Ozone_WebView_GetZoomType(JSContext* ctx, JSValue
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     ::Ozone::WebViewZoomType __ret = instance->GetZoomType();
 
@@ -1188,7 +1229,8 @@ static JSValue callback_method_Ozone_WebView_SetZoom(JSContext* ctx, JSValueCons
     if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsInt32(argv[0]))
         goto overload0;
@@ -1221,7 +1263,8 @@ static JSValue callback_method_Ozone_WebView_SetZoomFactor(JSContext* ctx, JSVal
     if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsFloat(argv[0]))
         goto overload0;
@@ -1254,7 +1297,8 @@ static JSValue callback_method_Ozone_WebView_SetZoomType(JSContext* ctx, JSValue
     if (argc != 1)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsInt32(argv[0]))
         goto overload0;
@@ -1287,7 +1331,8 @@ static JSValue callback_method_Ozone_WebView_SelectAll(JSContext* ctx, JSValueCo
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->SelectAll();
 
@@ -1301,7 +1346,8 @@ static JSValue callback_method_Ozone_WebView_HasSelection(JSContext* ctx, JSValu
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->HasSelection();
 
@@ -1317,7 +1363,8 @@ static JSValue callback_method_Ozone_WebView_DeleteSelection(JSContext* ctx, JSV
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->DeleteSelection();
 
@@ -1331,7 +1378,8 @@ static JSValue callback_method_Ozone_WebView_GetSelectedText(JSContext* ctx, JSV
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     const char* __ret = instance->GetSelectedText();
 
@@ -1347,7 +1395,8 @@ static JSValue callback_method_Ozone_WebView_GetSelectedSource(JSContext* ctx, J
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     const char* __ret = instance->GetSelectedSource();
 
@@ -1363,7 +1412,8 @@ static JSValue callback_method_Ozone_WebView_ClearSelection(JSContext* ctx, JSVa
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->ClearSelection();
 
@@ -1377,7 +1427,8 @@ static JSValue callback_method_Ozone_WebView_CanCut(JSContext* ctx, JSValueConst
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->CanCut();
 
@@ -1393,7 +1444,8 @@ static JSValue callback_method_Ozone_WebView_CanCopy(JSContext* ctx, JSValueCons
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->CanCopy();
 
@@ -1409,7 +1461,8 @@ static JSValue callback_method_Ozone_WebView_CanPaste(JSContext* ctx, JSValueCon
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->CanPaste();
 
@@ -1425,7 +1478,8 @@ static JSValue callback_method_Ozone_WebView_Cut(JSContext* ctx, JSValueConst th
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->Cut();
 
@@ -1439,7 +1493,8 @@ static JSValue callback_method_Ozone_WebView_Copy(JSContext* ctx, JSValueConst t
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->Copy();
 
@@ -1453,7 +1508,8 @@ static JSValue callback_method_Ozone_WebView_Paste(JSContext* ctx, JSValueConst 
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->Paste();
 
@@ -1467,7 +1523,8 @@ static JSValue callback_method_Ozone_WebView_CanUndo(JSContext* ctx, JSValueCons
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->CanUndo();
 
@@ -1483,7 +1540,8 @@ static JSValue callback_method_Ozone_WebView_CanRedo(JSContext* ctx, JSValueCons
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     bool __ret = instance->CanRedo();
 
@@ -1499,7 +1557,8 @@ static JSValue callback_method_Ozone_WebView_Undo(JSContext* ctx, JSValueConst t
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->Undo();
 
@@ -1513,7 +1572,8 @@ static JSValue callback_method_Ozone_WebView_Redo(JSContext* ctx, JSValueConst t
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     instance->Redo();
 
@@ -1527,7 +1587,8 @@ static JSValue callback_method_Ozone_WebView_GetNativeBackend(JSContext* ctx, JS
     if (argc > 0)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     void* __ret = instance->GetNativeBackend();
 
@@ -1541,7 +1602,8 @@ static JSValue callback_method_Ozone_WebView_Find(JSContext* ctx, JSValueConst t
     if (argc != 2)
         return JS_ThrowRangeError(ctx, "Unsupported number of arguments");
 
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(this_val, 0);
+    auto data = (data_Ozone_WebView*) JS_GetOpaque(this_val, 0);
+    Ozone::WebView* instance = (Ozone::WebView*) data->instance;
 
     if (JS_IsString(argv[0]) || JS_IsNull(argv[0]))
         goto typecheck1;
@@ -1657,7 +1719,7 @@ overload0:
         JS_FreeCString(ctx, backend);
 
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_WebView, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_WebView, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
         return ____ret;
     }
@@ -1715,7 +1777,7 @@ overload1:
         JS_FreeCString(ctx, backend);
         JS_FreeCString(ctx, name);
 
-        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_WebView, JS_INTEROP_INSTANCE_RAW_POINTER, (void*) __ret);
+        JSValue ____ret = JS_Interop_CreateFromInstance(ctx, classId_Ozone_WebView, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT, (void*) __ret);
 
         return ____ret;
     }
@@ -1763,7 +1825,7 @@ static JSValue callback_class_Ozone_WebView_toString(JSContext* ctx, JSValueCons
 
 void finalizer_Ozone_WebView(JSRuntime *rt, JSValue val)
 {
-    Ozone::WebView* instance = (Ozone::WebView*) JS_GetOpaque(val, 0);
+    JS_Interop_CleanupObject(val, JS_INTEROP_INSTANCE_SIGNAL_CONTEXT);
 }
 
 static JSClassDef classDef_Ozone_WebView
@@ -1823,9 +1885,62 @@ static JSCFunctionListEntry funcDef_Ozone_WebView[]
     JS_CFUNC_DEF("Redo", 0, callback_method_Ozone_WebView_Redo),
     JS_CFUNC_DEF("GetNativeBackend", 0, callback_method_Ozone_WebView_GetNativeBackend),
     JS_CFUNC_DEF("Find", 2, callback_method_Ozone_WebView_Find),
+    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_WebView_toString),
+};
+
+static JSCFunctionListEntry funcDef_Ozone_WebView_statics[]
+{
+    JS_CFUNC_DEF("Create", 7, callback_method_Ozone_WebView_Create),
+    JS_CFUNC_DEF("EnableContextMenu", 1, callback_method_Ozone_WebView_EnableContextMenu),
+    JS_CFUNC_DEF("EnableAccessToDevTools", 1, callback_method_Ozone_WebView_EnableAccessToDevTools),
+    JS_CFUNC_DEF("GetCurrentTitle", 0, callback_method_Ozone_WebView_GetCurrentTitle),
+    JS_CFUNC_DEF("GetCurrentURL", 0, callback_method_Ozone_WebView_GetCurrentURL),
+    JS_CFUNC_DEF("GetPageSource", 0, callback_method_Ozone_WebView_GetPageSource),
+    JS_CFUNC_DEF("GetPageText", 0, callback_method_Ozone_WebView_GetPageText),
+    JS_CFUNC_DEF("IsBusy", 0, callback_method_Ozone_WebView_IsBusy),
+    JS_CFUNC_DEF("IsContextMenuEnabled", 0, callback_method_Ozone_WebView_IsContextMenuEnabled),
+    JS_CFUNC_DEF("IsAccessToDevToolsEnabled", 0, callback_method_Ozone_WebView_IsAccessToDevToolsEnabled),
+    JS_CFUNC_DEF("IsEditable", 0, callback_method_Ozone_WebView_IsEditable),
+    JS_CFUNC_DEF("LoadURL", 1, callback_method_Ozone_WebView_LoadURL),
+    JS_CFUNC_DEF("Print", 0, callback_method_Ozone_WebView_Print),
+    JS_CFUNC_DEF("Reload", 1, callback_method_Ozone_WebView_Reload),
+    JS_CFUNC_DEF("RunScript", 2, callback_method_Ozone_WebView_RunScript),
+    JS_CFUNC_DEF("SetEditable", 1, callback_method_Ozone_WebView_SetEditable),
+    JS_CFUNC_DEF("SetPage", 2, callback_method_Ozone_WebView_SetPage),
+    JS_CFUNC_DEF("Stop", 0, callback_method_Ozone_WebView_Stop),
+    JS_CFUNC_DEF("CanGoBack", 0, callback_method_Ozone_WebView_CanGoBack),
+    JS_CFUNC_DEF("CanGoForward", 0, callback_method_Ozone_WebView_CanGoForward),
+    JS_CFUNC_DEF("GoBack", 0, callback_method_Ozone_WebView_GoBack),
+    JS_CFUNC_DEF("GoForward", 0, callback_method_Ozone_WebView_GoForward),
+    JS_CFUNC_DEF("ClearHistory", 0, callback_method_Ozone_WebView_ClearHistory),
+    JS_CFUNC_DEF("EnableHistory", 1, callback_method_Ozone_WebView_EnableHistory),
+    JS_CFUNC_DEF("CanSetZoomType", 1, callback_method_Ozone_WebView_CanSetZoomType),
+    JS_CFUNC_DEF("GetZoom", 0, callback_method_Ozone_WebView_GetZoom),
+    JS_CFUNC_DEF("GetZoomFactor", 0, callback_method_Ozone_WebView_GetZoomFactor),
+    JS_CFUNC_DEF("GetZoomType", 0, callback_method_Ozone_WebView_GetZoomType),
+    JS_CFUNC_DEF("SetZoom", 1, callback_method_Ozone_WebView_SetZoom),
+    JS_CFUNC_DEF("SetZoomFactor", 1, callback_method_Ozone_WebView_SetZoomFactor),
+    JS_CFUNC_DEF("SetZoomType", 1, callback_method_Ozone_WebView_SetZoomType),
+    JS_CFUNC_DEF("SelectAll", 0, callback_method_Ozone_WebView_SelectAll),
+    JS_CFUNC_DEF("HasSelection", 0, callback_method_Ozone_WebView_HasSelection),
+    JS_CFUNC_DEF("DeleteSelection", 0, callback_method_Ozone_WebView_DeleteSelection),
+    JS_CFUNC_DEF("GetSelectedText", 0, callback_method_Ozone_WebView_GetSelectedText),
+    JS_CFUNC_DEF("GetSelectedSource", 0, callback_method_Ozone_WebView_GetSelectedSource),
+    JS_CFUNC_DEF("ClearSelection", 0, callback_method_Ozone_WebView_ClearSelection),
+    JS_CFUNC_DEF("CanCut", 0, callback_method_Ozone_WebView_CanCut),
+    JS_CFUNC_DEF("CanCopy", 0, callback_method_Ozone_WebView_CanCopy),
+    JS_CFUNC_DEF("CanPaste", 0, callback_method_Ozone_WebView_CanPaste),
+    JS_CFUNC_DEF("Cut", 0, callback_method_Ozone_WebView_Cut),
+    JS_CFUNC_DEF("Copy", 0, callback_method_Ozone_WebView_Copy),
+    JS_CFUNC_DEF("Paste", 0, callback_method_Ozone_WebView_Paste),
+    JS_CFUNC_DEF("CanUndo", 0, callback_method_Ozone_WebView_CanUndo),
+    JS_CFUNC_DEF("CanRedo", 0, callback_method_Ozone_WebView_CanRedo),
+    JS_CFUNC_DEF("Undo", 0, callback_method_Ozone_WebView_Undo),
+    JS_CFUNC_DEF("Redo", 0, callback_method_Ozone_WebView_Redo),
+    JS_CFUNC_DEF("GetNativeBackend", 0, callback_method_Ozone_WebView_GetNativeBackend),
+    JS_CFUNC_DEF("Find", 2, callback_method_Ozone_WebView_Find),
     JS_CFUNC_DEF("New", 8, callback_method_Ozone_WebView_New),
     JS_CFUNC_DEF("IsBackendAvailable", 1, callback_method_Ozone_WebView_IsBackendAvailable),
-    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_WebView_toString),
 };
 
 static void register_class_Ozone_WebView(JSContext *ctx, JSModuleDef *m, bool set, int phase)
@@ -1843,13 +1958,23 @@ static void register_class_Ozone_WebView(JSContext *ctx, JSModuleDef *m, bool se
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_WebView, &classDef_Ozone_WebView);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_WebView, sizeof(funcDef_Ozone_WebView) / sizeof(funcDef_Ozone_WebView[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_WebView, countof(funcDef_Ozone_WebView));
         JS_SetClassProto(ctx, classId_Ozone_WebView, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_WebView_WebView, "WebView", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_WebView_statics, countof(funcDef_Ozone_WebView_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "WebView", ctor);
+    }
+    else if (phase == 1)
+    {
+        JSValue proto = JS_GetClassProto(ctx, classId_Ozone_WebView);
+        JSValue baseProto = JS_GetClassProto(ctx, classId_Ozone_Control);
+        int err = JS_SetPrototype(ctx, proto, baseProto);
+        assert(err != -1);
+        JS_FreeValue(ctx, baseProto);
+        JS_FreeValue(ctx, proto);
     }
 }
 
@@ -2027,6 +2152,12 @@ static JSCFunctionListEntry funcDef_Ozone_WebViewEvent[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_WebViewEvent_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_WebViewEvent_statics[]
+{
+    JS_CFUNC_DEF("GetNavigationAction", 0, callback_method_Ozone_WebViewEvent_GetNavigationAction),
+    JS_CFUNC_DEF("Clone", 0, callback_method_Ozone_WebViewEvent_Clone),
+};
+
 static void register_class_Ozone_WebViewEvent(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -2042,10 +2173,11 @@ static void register_class_Ozone_WebViewEvent(JSContext *ctx, JSModuleDef *m, bo
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_WebViewEvent, &classDef_Ozone_WebViewEvent);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_WebViewEvent, sizeof(funcDef_Ozone_WebViewEvent) / sizeof(funcDef_Ozone_WebViewEvent[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_WebViewEvent, countof(funcDef_Ozone_WebViewEvent));
         JS_SetClassProto(ctx, classId_Ozone_WebViewEvent, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_WebViewEvent_WebViewEvent, "WebViewEvent", 5, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_WebViewEvent_statics, countof(funcDef_Ozone_WebViewEvent_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "WebViewEvent", ctor);

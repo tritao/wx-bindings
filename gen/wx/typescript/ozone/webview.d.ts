@@ -73,7 +73,7 @@ declare module "Ozone"
             GetSecurityURL(): string;
         }
 
-        class WebView
+        class WebView extends Ozone.Ozone.Control
         {
 
             constructor();

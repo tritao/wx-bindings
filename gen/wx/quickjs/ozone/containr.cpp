@@ -218,6 +218,18 @@ static JSCFunctionListEntry funcDef_Ozone_ControlContainer[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_ControlContainer_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_ControlContainer_statics[]
+{
+    JS_CFUNC_DEF("SetContainerWindow", 1, callback_method_Ozone_ControlContainer_SetContainerWindow),
+    JS_CFUNC_DEF("DisableSelfFocus", 0, callback_method_Ozone_ControlContainer_DisableSelfFocus),
+    JS_CFUNC_DEF("EnableSelfFocus", 0, callback_method_Ozone_ControlContainer_EnableSelfFocus),
+    JS_CFUNC_DEF("DoSetFocus", 0, callback_method_Ozone_ControlContainer_DoSetFocus),
+    JS_CFUNC_DEF("AcceptsFocus", 0, callback_method_Ozone_ControlContainer_AcceptsFocus),
+    JS_CFUNC_DEF("AcceptsFocusRecursively", 0, callback_method_Ozone_ControlContainer_AcceptsFocusRecursively),
+    JS_CFUNC_DEF("AcceptsFocusFromKeyboard", 0, callback_method_Ozone_ControlContainer_AcceptsFocusFromKeyboard),
+    JS_CFUNC_DEF("UpdateCanFocusChildren", 0, callback_method_Ozone_ControlContainer_UpdateCanFocusChildren),
+};
+
 static void register_class_Ozone_ControlContainer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -233,7 +245,7 @@ static void register_class_Ozone_ControlContainer(JSContext *ctx, JSModuleDef *m
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_ControlContainer, &classDef_Ozone_ControlContainer);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_ControlContainer, sizeof(funcDef_Ozone_ControlContainer) / sizeof(funcDef_Ozone_ControlContainer[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_ControlContainer, countof(funcDef_Ozone_ControlContainer));
         JS_SetClassProto(ctx, classId_Ozone_ControlContainer, proto);
 
     }

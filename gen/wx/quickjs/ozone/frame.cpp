@@ -1162,6 +1162,32 @@ static JSCFunctionListEntry funcDef_Ozone_Frame[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_Frame_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_Frame_statics[]
+{
+    JS_CGETSET_DEF("OnClose", callback_event_getter_Ozone_Frame_OnClose, NULL),
+    JS_CGETSET_DEF("OnIconize", callback_event_getter_Ozone_Frame_OnIconize, NULL),
+    JS_CGETSET_DEF("OnMenuOpen", callback_event_getter_Ozone_Frame_OnMenuOpen, NULL),
+    JS_CGETSET_DEF("OnMenuClose", callback_event_getter_Ozone_Frame_OnMenuClose, NULL),
+    JS_CGETSET_DEF("OnMenuHighlight", callback_event_getter_Ozone_Frame_OnMenuHighlight, NULL),
+    JS_CGETSET_DEF("OnMenuHighlightAll", callback_event_getter_Ozone_Frame_OnMenuHighlightAll, NULL),
+    JS_CFUNC_DEF("Create", 7, callback_method_Ozone_Frame_Create),
+    JS_CFUNC_DEF("ShowFullScreen", 2, callback_method_Ozone_Frame_ShowFullScreen),
+    JS_CFUNC_DEF("GetClientAreaOrigin", 0, callback_method_Ozone_Frame_GetClientAreaOrigin),
+    JS_CFUNC_DEF("SendIdleEvents", 1, callback_method_Ozone_Frame_SendIdleEvents),
+    JS_CFUNC_DEF("New", 7, callback_method_Ozone_Frame_New),
+    JS_CFUNC_DEF("ProcessCommand", 1, callback_method_Ozone_Frame_ProcessCommand),
+    JS_CFUNC_DEF("SetStatusText", 2, callback_method_Ozone_Frame_SetStatusText),
+    JS_CFUNC_DEF("SetStatusWidths", 2, callback_method_Ozone_Frame_SetStatusWidths),
+    JS_CFUNC_DEF("PushStatusText", 2, callback_method_Ozone_Frame_PushStatusText),
+    JS_CFUNC_DEF("PopStatusText", 1, callback_method_Ozone_Frame_PopStatusText),
+    JS_CFUNC_DEF("SetStatusBarPane", 1, callback_method_Ozone_Frame_SetStatusBarPane),
+    JS_CFUNC_DEF("GetStatusBarPane", 0, callback_method_Ozone_Frame_GetStatusBarPane),
+    JS_CFUNC_DEF("UpdateWindowUI", 1, callback_method_Ozone_Frame_UpdateWindowUI),
+    JS_CFUNC_DEF("OnInternalIdle", 0, callback_method_Ozone_Frame_OnInternalIdle),
+    JS_CFUNC_DEF("DoGiveHelp", 2, callback_method_Ozone_Frame_DoGiveHelp),
+    JS_CFUNC_DEF("IsClientAreaChild", 1, callback_method_Ozone_Frame_IsClientAreaChild),
+};
+
 static void register_class_Ozone_Frame(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1177,10 +1203,11 @@ static void register_class_Ozone_Frame(JSContext *ctx, JSModuleDef *m, bool set,
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_Frame, &classDef_Ozone_Frame);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Frame, sizeof(funcDef_Ozone_Frame) / sizeof(funcDef_Ozone_Frame[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Frame, countof(funcDef_Ozone_Frame));
         JS_SetClassProto(ctx, classId_Ozone_Frame, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_Frame_Frame, "Frame", 7, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_Frame_statics, countof(funcDef_Ozone_Frame_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "Frame", ctor);

@@ -23,7 +23,7 @@ struct data_Ozone_Panel : public JS_Interop_ClassData
 {
     void event_invoke_OnNavigationKey(::Ozone::NavigationKeyEvent& arg0)
     {
-        JSValue event = JS_Interop_FindEvent(&events, 49);
+        JSValue event = JS_Interop_FindEvent(&events, 52);
         if (JS_IsUndefined(event))
             return;
 
@@ -41,7 +41,7 @@ JSValue callback_event_getter_Ozone_Panel_OnNavigationKey(JSContext *ctx, JSValu
     if (data == nullptr)
         return JS_ThrowTypeError(ctx, "Could not find object instance");
 
-    JSValue event = JS_Interop_FindEvent(&data->events, 49);
+    JSValue event = JS_Interop_FindEvent(&data->events, 52);
     if (!JS_IsUndefined(event))
         return JS_DupValue(ctx, event);
 
@@ -52,7 +52,7 @@ JSValue callback_event_getter_Ozone_Panel_OnNavigationKey(JSContext *ctx, JSValu
     JS_FreeValue(ctx, signalCtor);
     JS_FreeValue(ctx, signalProto);
 
-    JS_Interop_InsertEvent(&data->events, 49, JS_DupValue(ctx, __obj));
+    JS_Interop_InsertEvent(&data->events, 52, JS_DupValue(ctx, __obj));
 
     ((Ozone::Panel*)data->instance)->OnNavigationKey.bind(data, &data_Ozone_Panel::event_invoke_OnNavigationKey);
 
@@ -312,6 +312,13 @@ static JSCFunctionListEntry funcDef_Ozone_Panel[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_Panel_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_Panel_statics[]
+{
+    JS_CGETSET_DEF("OnNavigationKey", callback_event_getter_Ozone_Panel_OnNavigationKey, NULL),
+    JS_CFUNC_DEF("Create", 6, callback_method_Ozone_Panel_Create),
+    JS_CFUNC_DEF("InitDialog", 0, callback_method_Ozone_Panel_InitDialog),
+};
+
 static void register_class_Ozone_Panel(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -327,10 +334,11 @@ static void register_class_Ozone_Panel(JSContext *ctx, JSModuleDef *m, bool set,
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_Panel, &classDef_Ozone_Panel);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Panel, sizeof(funcDef_Ozone_Panel) / sizeof(funcDef_Ozone_Panel[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Panel, countof(funcDef_Ozone_Panel));
         JS_SetClassProto(ctx, classId_Ozone_Panel, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_Panel_Panel, "Panel", 6, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_Panel_statics, countof(funcDef_Ozone_Panel_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "Panel", ctor);

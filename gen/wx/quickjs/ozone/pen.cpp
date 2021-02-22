@@ -443,6 +443,17 @@ static JSCFunctionListEntry funcDef_Ozone_PenInfo[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_PenInfo_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_PenInfo_statics[]
+{
+    JS_CFUNC_DEF("GetWidth", 0, callback_method_Ozone_PenInfo_GetWidth),
+    JS_CFUNC_DEF("GetColour", 0, callback_method_Ozone_PenInfo_GetColour),
+    JS_CFUNC_DEF("GetStyle", 0, callback_method_Ozone_PenInfo_GetStyle),
+    JS_CFUNC_DEF("GetJoin", 0, callback_method_Ozone_PenInfo_GetJoin),
+    JS_CFUNC_DEF("GetCap", 0, callback_method_Ozone_PenInfo_GetCap),
+    JS_CFUNC_DEF("GetDashCount", 0, callback_method_Ozone_PenInfo_GetDashCount),
+    JS_CFUNC_DEF("IsTransparent", 0, callback_method_Ozone_PenInfo_IsTransparent),
+};
+
 static void register_class_Ozone_PenInfo(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -458,10 +469,11 @@ static void register_class_Ozone_PenInfo(JSContext *ctx, JSModuleDef *m, bool se
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_PenInfo, &classDef_Ozone_PenInfo);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_PenInfo, sizeof(funcDef_Ozone_PenInfo) / sizeof(funcDef_Ozone_PenInfo[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_PenInfo, countof(funcDef_Ozone_PenInfo));
         JS_SetClassProto(ctx, classId_Ozone_PenInfo, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_PenInfo_PenInfo, "PenInfo", 3, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_PenInfo_statics, countof(funcDef_Ozone_PenInfo_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "PenInfo", ctor);
@@ -1007,6 +1019,25 @@ static JSCFunctionListEntry funcDef_Ozone_Pen[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_Pen_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_Pen_statics[]
+{
+    JS_CFUNC_DEF("operator==", 1, callback_method_Ozone_Pen_operator_EqualEqual),
+    JS_CFUNC_DEF("operator!=", 1, callback_method_Ozone_Pen_operator_ExclaimEqual),
+    JS_CFUNC_DEF("SetColour", 3, callback_method_Ozone_Pen_SetColour),
+    JS_CFUNC_DEF("SetCap", 1, callback_method_Ozone_Pen_SetCap),
+    JS_CFUNC_DEF("SetJoin", 1, callback_method_Ozone_Pen_SetJoin),
+    JS_CFUNC_DEF("SetStyle", 1, callback_method_Ozone_Pen_SetStyle),
+    JS_CFUNC_DEF("SetWidth", 1, callback_method_Ozone_Pen_SetWidth),
+    JS_CFUNC_DEF("GetColour", 0, callback_method_Ozone_Pen_GetColour),
+    JS_CFUNC_DEF("GetCap", 0, callback_method_Ozone_Pen_GetCap),
+    JS_CFUNC_DEF("GetJoin", 0, callback_method_Ozone_Pen_GetJoin),
+    JS_CFUNC_DEF("GetStyle", 0, callback_method_Ozone_Pen_GetStyle),
+    JS_CFUNC_DEF("GetWidth", 0, callback_method_Ozone_Pen_GetWidth),
+    JS_CFUNC_DEF("GetDashCount", 0, callback_method_Ozone_Pen_GetDashCount),
+    JS_CFUNC_DEF("IsTransparent", 0, callback_method_Ozone_Pen_IsTransparent),
+    JS_CFUNC_DEF("IsNonTransparent", 0, callback_method_Ozone_Pen_IsNonTransparent),
+};
+
 static void register_class_Ozone_Pen(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1022,10 +1053,11 @@ static void register_class_Ozone_Pen(JSContext *ctx, JSModuleDef *m, bool set, i
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_Pen, &classDef_Ozone_Pen);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Pen, sizeof(funcDef_Ozone_Pen) / sizeof(funcDef_Ozone_Pen[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Pen, countof(funcDef_Ozone_Pen));
         JS_SetClassProto(ctx, classId_Ozone_Pen, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_Pen_Pen, "Pen", 3, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_Pen_statics, countof(funcDef_Ozone_Pen_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "Pen", ctor);
@@ -1148,6 +1180,11 @@ static JSCFunctionListEntry funcDef_Ozone_PenList[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_PenList_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_PenList_statics[]
+{
+    JS_CFUNC_DEF("FindOrCreatePen", 3, callback_method_Ozone_PenList_FindOrCreatePen),
+};
+
 static void register_class_Ozone_PenList(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1163,7 +1200,7 @@ static void register_class_Ozone_PenList(JSContext *ctx, JSModuleDef *m, bool se
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_PenList, &classDef_Ozone_PenList);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_PenList, sizeof(funcDef_Ozone_PenList) / sizeof(funcDef_Ozone_PenList[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_PenList, countof(funcDef_Ozone_PenList));
         JS_SetClassProto(ctx, classId_Ozone_PenList, proto);
 
     }

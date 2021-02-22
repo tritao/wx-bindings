@@ -118,6 +118,13 @@ static JSCFunctionListEntry funcDef_Ozone_RefCounter[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_RefCounter_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_RefCounter_statics[]
+{
+    JS_CFUNC_DEF("GetRefCount", 0, callback_method_Ozone_RefCounter_GetRefCount),
+    JS_CFUNC_DEF("IncRef", 0, callback_method_Ozone_RefCounter_IncRef),
+    JS_CFUNC_DEF("DecRef", 0, callback_method_Ozone_RefCounter_DecRef),
+};
+
 static void register_class_Ozone_RefCounter(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -133,10 +140,11 @@ static void register_class_Ozone_RefCounter(JSContext *ctx, JSModuleDef *m, bool
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_RefCounter, &classDef_Ozone_RefCounter);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_RefCounter, sizeof(funcDef_Ozone_RefCounter) / sizeof(funcDef_Ozone_RefCounter[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_RefCounter, countof(funcDef_Ozone_RefCounter));
         JS_SetClassProto(ctx, classId_Ozone_RefCounter, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_RefCounter_RefCounter, "RefCounter", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_RefCounter_statics, countof(funcDef_Ozone_RefCounter_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "RefCounter", ctor);
@@ -342,6 +350,16 @@ static JSCFunctionListEntry funcDef_Ozone_Object[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_Object_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_Object_statics[]
+{
+    JS_CFUNC_DEF("GetRefData", 0, callback_method_Ozone_Object_GetRefData),
+    JS_CFUNC_DEF("SetRefData", 1, callback_method_Ozone_Object_SetRefData),
+    JS_CFUNC_DEF("Ref", 1, callback_method_Ozone_Object_Ref),
+    JS_CFUNC_DEF("UnRef", 0, callback_method_Ozone_Object_UnRef),
+    JS_CFUNC_DEF("UnShare", 0, callback_method_Ozone_Object_UnShare),
+    JS_CFUNC_DEF("IsSameAs", 1, callback_method_Ozone_Object_IsSameAs),
+};
+
 static void register_class_Ozone_Object(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -357,10 +375,11 @@ static void register_class_Ozone_Object(JSContext *ctx, JSModuleDef *m, bool set
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_Object, &classDef_Ozone_Object);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Object, sizeof(funcDef_Ozone_Object) / sizeof(funcDef_Ozone_Object[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Object, countof(funcDef_Ozone_Object));
         JS_SetClassProto(ctx, classId_Ozone_Object, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_Object_Object, "Object", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_Object_statics, countof(funcDef_Ozone_Object_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "Object", ctor);

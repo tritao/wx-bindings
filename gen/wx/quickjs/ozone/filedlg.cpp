@@ -911,8 +911,32 @@ static JSCFunctionListEntry funcDef_Ozone_FileDialog[]
     JS_CFUNC_DEF("GetCurrentlySelectedFilterIndex", 0, callback_method_Ozone_FileDialog_GetCurrentlySelectedFilterIndex),
     JS_CFUNC_DEF("GetExtraControl", 0, callback_method_Ozone_FileDialog_GetExtraControl),
     JS_CFUNC_DEF("SetFilterIndexFromExt", 1, callback_method_Ozone_FileDialog_SetFilterIndexFromExt),
-    JS_CFUNC_DEF("AppendExtension", 2, callback_method_Ozone_FileDialog_AppendExtension),
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_FileDialog_toString),
+};
+
+static JSCFunctionListEntry funcDef_Ozone_FileDialog_statics[]
+{
+    JS_CFUNC_DEF("Create", 9, callback_method_Ozone_FileDialog_Create),
+    JS_CFUNC_DEF("GetPath", 0, callback_method_Ozone_FileDialog_GetPath),
+    JS_CFUNC_DEF("GetFilename", 0, callback_method_Ozone_FileDialog_GetFilename),
+    JS_CFUNC_DEF("GetFilterIndex", 0, callback_method_Ozone_FileDialog_GetFilterIndex),
+    JS_CFUNC_DEF("SetMessage", 1, callback_method_Ozone_FileDialog_SetMessage),
+    JS_CFUNC_DEF("SetPath", 1, callback_method_Ozone_FileDialog_SetPath),
+    JS_CFUNC_DEF("SetDirectory", 1, callback_method_Ozone_FileDialog_SetDirectory),
+    JS_CFUNC_DEF("SetFilename", 1, callback_method_Ozone_FileDialog_SetFilename),
+    JS_CFUNC_DEF("SetWildcard", 1, callback_method_Ozone_FileDialog_SetWildcard),
+    JS_CFUNC_DEF("SetFilterIndex", 1, callback_method_Ozone_FileDialog_SetFilterIndex),
+    JS_CFUNC_DEF("ShowModal", 0, callback_method_Ozone_FileDialog_ShowModal),
+    JS_CFUNC_DEF("SupportsExtraControl", 0, callback_method_Ozone_FileDialog_SupportsExtraControl),
+    JS_CFUNC_DEF("HasFdFlag", 1, callback_method_Ozone_FileDialog_HasFdFlag),
+    JS_CFUNC_DEF("GetMessage", 0, callback_method_Ozone_FileDialog_GetMessage),
+    JS_CFUNC_DEF("GetDirectory", 0, callback_method_Ozone_FileDialog_GetDirectory),
+    JS_CFUNC_DEF("GetWildcard", 0, callback_method_Ozone_FileDialog_GetWildcard),
+    JS_CFUNC_DEF("GetCurrentlySelectedFilename", 0, callback_method_Ozone_FileDialog_GetCurrentlySelectedFilename),
+    JS_CFUNC_DEF("GetCurrentlySelectedFilterIndex", 0, callback_method_Ozone_FileDialog_GetCurrentlySelectedFilterIndex),
+    JS_CFUNC_DEF("GetExtraControl", 0, callback_method_Ozone_FileDialog_GetExtraControl),
+    JS_CFUNC_DEF("SetFilterIndexFromExt", 1, callback_method_Ozone_FileDialog_SetFilterIndexFromExt),
+    JS_CFUNC_DEF("AppendExtension", 2, callback_method_Ozone_FileDialog_AppendExtension),
 };
 
 static void register_class_Ozone_FileDialog(JSContext *ctx, JSModuleDef *m, bool set, int phase)
@@ -930,10 +954,11 @@ static void register_class_Ozone_FileDialog(JSContext *ctx, JSModuleDef *m, bool
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_FileDialog, &classDef_Ozone_FileDialog);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_FileDialog, sizeof(funcDef_Ozone_FileDialog) / sizeof(funcDef_Ozone_FileDialog[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_FileDialog, countof(funcDef_Ozone_FileDialog));
         JS_SetClassProto(ctx, classId_Ozone_FileDialog, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_FileDialog_FileDialog, "FileDialog", 9, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_FileDialog_statics, countof(funcDef_Ozone_FileDialog_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "FileDialog", ctor);

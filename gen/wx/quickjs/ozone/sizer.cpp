@@ -212,9 +212,16 @@ static JSCFunctionListEntry funcDef_Ozone_SizerFlags[]
     JS_CFUNC_DEF("GetProportion", 0, callback_method_Ozone_SizerFlags_GetProportion),
     JS_CFUNC_DEF("GetFlags", 0, callback_method_Ozone_SizerFlags_GetFlags),
     JS_CFUNC_DEF("GetBorderInPixels", 0, callback_method_Ozone_SizerFlags_GetBorderInPixels),
+    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_SizerFlags_toString),
+};
+
+static JSCFunctionListEntry funcDef_Ozone_SizerFlags_statics[]
+{
+    JS_CFUNC_DEF("GetProportion", 0, callback_method_Ozone_SizerFlags_GetProportion),
+    JS_CFUNC_DEF("GetFlags", 0, callback_method_Ozone_SizerFlags_GetFlags),
+    JS_CFUNC_DEF("GetBorderInPixels", 0, callback_method_Ozone_SizerFlags_GetBorderInPixels),
     JS_CFUNC_DEF("GetDefaultBorder", 0, callback_method_Ozone_SizerFlags_GetDefaultBorder),
     JS_CFUNC_DEF("GetDefaultBorderFractional", 0, callback_method_Ozone_SizerFlags_GetDefaultBorderFractional),
-    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_SizerFlags_toString),
 };
 
 static void register_class_Ozone_SizerFlags(JSContext *ctx, JSModuleDef *m, bool set, int phase)
@@ -232,10 +239,11 @@ static void register_class_Ozone_SizerFlags(JSContext *ctx, JSModuleDef *m, bool
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_SizerFlags, &classDef_Ozone_SizerFlags);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_SizerFlags, sizeof(funcDef_Ozone_SizerFlags) / sizeof(funcDef_Ozone_SizerFlags[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_SizerFlags, countof(funcDef_Ozone_SizerFlags));
         JS_SetClassProto(ctx, classId_Ozone_SizerFlags, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_SizerFlags_SizerFlags, "SizerFlags", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_SizerFlags_statics, countof(funcDef_Ozone_SizerFlags_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "SizerFlags", ctor);
@@ -396,6 +404,13 @@ static JSCFunctionListEntry funcDef_Ozone_SizerSpacer[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_SizerSpacer_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_SizerSpacer_statics[]
+{
+    JS_CFUNC_DEF("SetSize", 1, callback_method_Ozone_SizerSpacer_SetSize),
+    JS_CFUNC_DEF("Show", 1, callback_method_Ozone_SizerSpacer_Show),
+    JS_CFUNC_DEF("IsShown", 0, callback_method_Ozone_SizerSpacer_IsShown),
+};
+
 static void register_class_Ozone_SizerSpacer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -411,10 +426,11 @@ static void register_class_Ozone_SizerSpacer(JSContext *ctx, JSModuleDef *m, boo
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_SizerSpacer, &classDef_Ozone_SizerSpacer);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_SizerSpacer, sizeof(funcDef_Ozone_SizerSpacer) / sizeof(funcDef_Ozone_SizerSpacer[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_SizerSpacer, countof(funcDef_Ozone_SizerSpacer));
         JS_SetClassProto(ctx, classId_Ozone_SizerSpacer, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_SizerSpacer_SizerSpacer, "SizerSpacer", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_SizerSpacer_statics, countof(funcDef_Ozone_SizerSpacer_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "SizerSpacer", ctor);
@@ -1787,6 +1803,48 @@ static JSCFunctionListEntry funcDef_Ozone_SizerItem[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_SizerItem_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_SizerItem_statics[]
+{
+    JS_CFUNC_DEF("DeleteWindows", 0, callback_method_Ozone_SizerItem_DeleteWindows),
+    JS_CFUNC_DEF("DetachSizer", 0, callback_method_Ozone_SizerItem_DetachSizer),
+    JS_CFUNC_DEF("DetachWindow", 0, callback_method_Ozone_SizerItem_DetachWindow),
+    JS_CFUNC_DEF("GetSize", 0, callback_method_Ozone_SizerItem_GetSize),
+    JS_CFUNC_DEF("CalcMin", 0, callback_method_Ozone_SizerItem_CalcMin),
+    JS_CFUNC_DEF("SetDimension", 2, callback_method_Ozone_SizerItem_SetDimension),
+    JS_CFUNC_DEF("GetMinSize", 0, callback_method_Ozone_SizerItem_GetMinSize),
+    JS_CFUNC_DEF("GetMinSizeWithBorder", 0, callback_method_Ozone_SizerItem_GetMinSizeWithBorder),
+    JS_CFUNC_DEF("GetMaxSize", 0, callback_method_Ozone_SizerItem_GetMaxSize),
+    JS_CFUNC_DEF("GetMaxSizeWithBorder", 0, callback_method_Ozone_SizerItem_GetMaxSizeWithBorder),
+    JS_CFUNC_DEF("SetMinSize", 2, callback_method_Ozone_SizerItem_SetMinSize),
+    JS_CFUNC_DEF("SetInitSize", 2, callback_method_Ozone_SizerItem_SetInitSize),
+    JS_CFUNC_DEF("SetRatio", 2, callback_method_Ozone_SizerItem_SetRatio),
+    JS_CFUNC_DEF("GetRatio", 0, callback_method_Ozone_SizerItem_GetRatio),
+    JS_CFUNC_DEF("GetRect", 0, callback_method_Ozone_SizerItem_GetRect),
+    JS_CFUNC_DEF("SetId", 1, callback_method_Ozone_SizerItem_SetId),
+    JS_CFUNC_DEF("GetId", 0, callback_method_Ozone_SizerItem_GetId),
+    JS_CFUNC_DEF("IsWindow", 0, callback_method_Ozone_SizerItem_IsWindow),
+    JS_CFUNC_DEF("IsSizer", 0, callback_method_Ozone_SizerItem_IsSizer),
+    JS_CFUNC_DEF("IsSpacer", 0, callback_method_Ozone_SizerItem_IsSpacer),
+    JS_CFUNC_DEF("SetProportion", 1, callback_method_Ozone_SizerItem_SetProportion),
+    JS_CFUNC_DEF("GetProportion", 0, callback_method_Ozone_SizerItem_GetProportion),
+    JS_CFUNC_DEF("SetFlag", 1, callback_method_Ozone_SizerItem_SetFlag),
+    JS_CFUNC_DEF("GetFlag", 0, callback_method_Ozone_SizerItem_GetFlag),
+    JS_CFUNC_DEF("SetBorder", 1, callback_method_Ozone_SizerItem_SetBorder),
+    JS_CFUNC_DEF("GetBorder", 0, callback_method_Ozone_SizerItem_GetBorder),
+    JS_CFUNC_DEF("GetWindow", 0, callback_method_Ozone_SizerItem_GetWindow),
+    JS_CFUNC_DEF("GetSizer", 0, callback_method_Ozone_SizerItem_GetSizer),
+    JS_CFUNC_DEF("GetSpacer", 0, callback_method_Ozone_SizerItem_GetSpacer),
+    JS_CFUNC_DEF("IsShown", 0, callback_method_Ozone_SizerItem_IsShown),
+    JS_CFUNC_DEF("Show", 1, callback_method_Ozone_SizerItem_Show),
+    JS_CFUNC_DEF("SetUserData", 1, callback_method_Ozone_SizerItem_SetUserData),
+    JS_CFUNC_DEF("GetUserData", 0, callback_method_Ozone_SizerItem_GetUserData),
+    JS_CFUNC_DEF("GetPosition", 0, callback_method_Ozone_SizerItem_GetPosition),
+    JS_CFUNC_DEF("InformFirstDirection", 3, callback_method_Ozone_SizerItem_InformFirstDirection),
+    JS_CFUNC_DEF("AssignWindow", 1, callback_method_Ozone_SizerItem_AssignWindow),
+    JS_CFUNC_DEF("AssignSizer", 1, callback_method_Ozone_SizerItem_AssignSizer),
+    JS_CFUNC_DEF("AssignSpacer", 2, callback_method_Ozone_SizerItem_AssignSpacer),
+};
+
 static void register_class_Ozone_SizerItem(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1802,10 +1860,11 @@ static void register_class_Ozone_SizerItem(JSContext *ctx, JSModuleDef *m, bool 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_SizerItem, &classDef_Ozone_SizerItem);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_SizerItem, sizeof(funcDef_Ozone_SizerItem) / sizeof(funcDef_Ozone_SizerItem[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_SizerItem, countof(funcDef_Ozone_SizerItem));
         JS_SetClassProto(ctx, classId_Ozone_SizerItem, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_SizerItem_SizerItem, "SizerItem", 6, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_SizerItem_statics, countof(funcDef_Ozone_SizerItem_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "SizerItem", ctor);
@@ -2352,6 +2411,26 @@ static JSCFunctionListEntry funcDef_Ozone_SizerItemList[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_SizerItemList_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_SizerItemList_statics[]
+{
+    JS_CFUNC_DEF("operator[]", 1, callback_method_Ozone_SizerItemList_operator_Subscript),
+    JS_CFUNC_DEF("DeleteObject", 1, callback_method_Ozone_SizerItemList_DeleteObject),
+    JS_CFUNC_DEF("Member", 1, callback_method_Ozone_SizerItemList_Member),
+    JS_CFUNC_DEF("IndexOf", 1, callback_method_Ozone_SizerItemList_IndexOf),
+    JS_CFUNC_DEF("resize", 2, callback_method_Ozone_SizerItemList_resize),
+    JS_CFUNC_DEF("size", 0, callback_method_Ozone_SizerItemList_size),
+    JS_CFUNC_DEF("max_size", 0, callback_method_Ozone_SizerItemList_max_size),
+    JS_CFUNC_DEF("empty", 0, callback_method_Ozone_SizerItemList_empty),
+    JS_CFUNC_DEF("push_front", 1, callback_method_Ozone_SizerItemList_push_front),
+    JS_CFUNC_DEF("pop_front", 0, callback_method_Ozone_SizerItemList_pop_front),
+    JS_CFUNC_DEF("push_back", 1, callback_method_Ozone_SizerItemList_push_back),
+    JS_CFUNC_DEF("pop_back", 0, callback_method_Ozone_SizerItemList_pop_back),
+    JS_CFUNC_DEF("assign", 2, callback_method_Ozone_SizerItemList_assign),
+    JS_CFUNC_DEF("clear", 0, callback_method_Ozone_SizerItemList_clear),
+    JS_CFUNC_DEF("remove", 1, callback_method_Ozone_SizerItemList_remove),
+    JS_CFUNC_DEF("reverse", 0, callback_method_Ozone_SizerItemList_reverse),
+};
+
 static void register_class_Ozone_SizerItemList(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -2367,10 +2446,11 @@ static void register_class_Ozone_SizerItemList(JSContext *ctx, JSModuleDef *m, b
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_SizerItemList, &classDef_Ozone_SizerItemList);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_SizerItemList, sizeof(funcDef_Ozone_SizerItemList) / sizeof(funcDef_Ozone_SizerItemList[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_SizerItemList, countof(funcDef_Ozone_SizerItemList));
         JS_SetClassProto(ctx, classId_Ozone_SizerItemList, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_SizerItemList_SizerItemList, "SizerItemList", 2, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_SizerItemList_statics, countof(funcDef_Ozone_SizerItemList_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "SizerItemList", ctor);
@@ -5336,6 +5416,51 @@ static JSCFunctionListEntry funcDef_Ozone_Sizer[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_Sizer_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_Sizer_statics[]
+{
+    JS_CFUNC_DEF("Add", 6, callback_method_Ozone_Sizer_Add),
+    JS_CFUNC_DEF("AddSpacer", 1, callback_method_Ozone_Sizer_AddSpacer),
+    JS_CFUNC_DEF("AddStretchSpacer", 1, callback_method_Ozone_Sizer_AddStretchSpacer),
+    JS_CFUNC_DEF("Insert", 7, callback_method_Ozone_Sizer_Insert),
+    JS_CFUNC_DEF("InsertSpacer", 2, callback_method_Ozone_Sizer_InsertSpacer),
+    JS_CFUNC_DEF("InsertStretchSpacer", 2, callback_method_Ozone_Sizer_InsertStretchSpacer),
+    JS_CFUNC_DEF("Prepend", 6, callback_method_Ozone_Sizer_Prepend),
+    JS_CFUNC_DEF("PrependSpacer", 1, callback_method_Ozone_Sizer_PrependSpacer),
+    JS_CFUNC_DEF("PrependStretchSpacer", 1, callback_method_Ozone_Sizer_PrependStretchSpacer),
+    JS_CFUNC_DEF("SetContainingWindow", 1, callback_method_Ozone_Sizer_SetContainingWindow),
+    JS_CFUNC_DEF("GetContainingWindow", 0, callback_method_Ozone_Sizer_GetContainingWindow),
+    JS_CFUNC_DEF("Remove", 1, callback_method_Ozone_Sizer_Remove),
+    JS_CFUNC_DEF("Detach", 1, callback_method_Ozone_Sizer_Detach),
+    JS_CFUNC_DEF("Replace", 3, callback_method_Ozone_Sizer_Replace),
+    JS_CFUNC_DEF("Clear", 1, callback_method_Ozone_Sizer_Clear),
+    JS_CFUNC_DEF("DeleteWindows", 0, callback_method_Ozone_Sizer_DeleteWindows),
+    JS_CFUNC_DEF("InformFirstDirection", 3, callback_method_Ozone_Sizer_InformFirstDirection),
+    JS_CFUNC_DEF("SetMinSize", 2, callback_method_Ozone_Sizer_SetMinSize),
+    JS_CFUNC_DEF("SetItemMinSize", 3, callback_method_Ozone_Sizer_SetItemMinSize),
+    JS_CFUNC_DEF("GetSize", 0, callback_method_Ozone_Sizer_GetSize),
+    JS_CFUNC_DEF("GetPosition", 0, callback_method_Ozone_Sizer_GetPosition),
+    JS_CFUNC_DEF("GetMinSize", 0, callback_method_Ozone_Sizer_GetMinSize),
+    JS_CFUNC_DEF("CalcMin", 0, callback_method_Ozone_Sizer_CalcMin),
+    JS_CFUNC_DEF("RepositionChildren", 1, callback_method_Ozone_Sizer_RepositionChildren),
+    JS_CFUNC_DEF("RecalcSizes", 0, callback_method_Ozone_Sizer_RecalcSizes),
+    JS_CFUNC_DEF("Layout", 0, callback_method_Ozone_Sizer_Layout),
+    JS_CFUNC_DEF("ComputeFittingClientSize", 1, callback_method_Ozone_Sizer_ComputeFittingClientSize),
+    JS_CFUNC_DEF("ComputeFittingWindowSize", 1, callback_method_Ozone_Sizer_ComputeFittingWindowSize),
+    JS_CFUNC_DEF("Fit", 1, callback_method_Ozone_Sizer_Fit),
+    JS_CFUNC_DEF("FitInside", 1, callback_method_Ozone_Sizer_FitInside),
+    JS_CFUNC_DEF("SetSizeHints", 1, callback_method_Ozone_Sizer_SetSizeHints),
+    JS_CFUNC_DEF("SetDimension", 4, callback_method_Ozone_Sizer_SetDimension),
+    JS_CFUNC_DEF("GetItemCount", 0, callback_method_Ozone_Sizer_GetItemCount),
+    JS_CFUNC_DEF("IsEmpty", 0, callback_method_Ozone_Sizer_IsEmpty),
+    JS_CFUNC_DEF("GetItem", 2, callback_method_Ozone_Sizer_GetItem),
+    JS_CFUNC_DEF("GetItemById", 2, callback_method_Ozone_Sizer_GetItemById),
+    JS_CFUNC_DEF("Show", 3, callback_method_Ozone_Sizer_Show),
+    JS_CFUNC_DEF("Hide", 2, callback_method_Ozone_Sizer_Hide),
+    JS_CFUNC_DEF("IsShown", 1, callback_method_Ozone_Sizer_IsShown),
+    JS_CFUNC_DEF("ShowItems", 1, callback_method_Ozone_Sizer_ShowItems),
+    JS_CFUNC_DEF("AreAnyItemsShown", 0, callback_method_Ozone_Sizer_AreAnyItemsShown),
+};
+
 static void register_class_Ozone_Sizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -5351,10 +5476,11 @@ static void register_class_Ozone_Sizer(JSContext *ctx, JSModuleDef *m, bool set,
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_Sizer, &classDef_Ozone_Sizer);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Sizer, sizeof(funcDef_Ozone_Sizer) / sizeof(funcDef_Ozone_Sizer[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Sizer, countof(funcDef_Ozone_Sizer));
         JS_SetClassProto(ctx, classId_Ozone_Sizer, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_Sizer_Sizer, "Sizer", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_Sizer_statics, countof(funcDef_Ozone_Sizer_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "Sizer", ctor);
@@ -5845,6 +5971,22 @@ static JSCFunctionListEntry funcDef_Ozone_GridSizer[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GridSizer_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GridSizer_statics[]
+{
+    JS_CFUNC_DEF("RepositionChildren", 1, callback_method_Ozone_GridSizer_RepositionChildren),
+    JS_CFUNC_DEF("CalcMin", 0, callback_method_Ozone_GridSizer_CalcMin),
+    JS_CFUNC_DEF("SetCols", 1, callback_method_Ozone_GridSizer_SetCols),
+    JS_CFUNC_DEF("SetRows", 1, callback_method_Ozone_GridSizer_SetRows),
+    JS_CFUNC_DEF("SetVGap", 1, callback_method_Ozone_GridSizer_SetVGap),
+    JS_CFUNC_DEF("SetHGap", 1, callback_method_Ozone_GridSizer_SetHGap),
+    JS_CFUNC_DEF("GetCols", 0, callback_method_Ozone_GridSizer_GetCols),
+    JS_CFUNC_DEF("GetRows", 0, callback_method_Ozone_GridSizer_GetRows),
+    JS_CFUNC_DEF("GetVGap", 0, callback_method_Ozone_GridSizer_GetVGap),
+    JS_CFUNC_DEF("GetHGap", 0, callback_method_Ozone_GridSizer_GetHGap),
+    JS_CFUNC_DEF("GetEffectiveColsCount", 0, callback_method_Ozone_GridSizer_GetEffectiveColsCount),
+    JS_CFUNC_DEF("GetEffectiveRowsCount", 0, callback_method_Ozone_GridSizer_GetEffectiveRowsCount),
+};
+
 static void register_class_Ozone_GridSizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -5860,10 +6002,11 @@ static void register_class_Ozone_GridSizer(JSContext *ctx, JSModuleDef *m, bool 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GridSizer, &classDef_Ozone_GridSizer);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GridSizer, sizeof(funcDef_Ozone_GridSizer) / sizeof(funcDef_Ozone_GridSizer[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GridSizer, countof(funcDef_Ozone_GridSizer));
         JS_SetClassProto(ctx, classId_Ozone_GridSizer, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GridSizer_GridSizer, "GridSizer", 4, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GridSizer_statics, countof(funcDef_Ozone_GridSizer_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GridSizer", ctor);
@@ -6452,6 +6595,22 @@ static JSCFunctionListEntry funcDef_Ozone_FlexGridSizer[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_FlexGridSizer_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_FlexGridSizer_statics[]
+{
+    JS_CFUNC_DEF("AddGrowableRow", 2, callback_method_Ozone_FlexGridSizer_AddGrowableRow),
+    JS_CFUNC_DEF("RemoveGrowableRow", 1, callback_method_Ozone_FlexGridSizer_RemoveGrowableRow),
+    JS_CFUNC_DEF("AddGrowableCol", 2, callback_method_Ozone_FlexGridSizer_AddGrowableCol),
+    JS_CFUNC_DEF("RemoveGrowableCol", 1, callback_method_Ozone_FlexGridSizer_RemoveGrowableCol),
+    JS_CFUNC_DEF("IsRowGrowable", 1, callback_method_Ozone_FlexGridSizer_IsRowGrowable),
+    JS_CFUNC_DEF("IsColGrowable", 1, callback_method_Ozone_FlexGridSizer_IsColGrowable),
+    JS_CFUNC_DEF("SetFlexibleDirection", 1, callback_method_Ozone_FlexGridSizer_SetFlexibleDirection),
+    JS_CFUNC_DEF("GetFlexibleDirection", 0, callback_method_Ozone_FlexGridSizer_GetFlexibleDirection),
+    JS_CFUNC_DEF("SetNonFlexibleGrowMode", 1, callback_method_Ozone_FlexGridSizer_SetNonFlexibleGrowMode),
+    JS_CFUNC_DEF("GetNonFlexibleGrowMode", 0, callback_method_Ozone_FlexGridSizer_GetNonFlexibleGrowMode),
+    JS_CFUNC_DEF("RepositionChildren", 1, callback_method_Ozone_FlexGridSizer_RepositionChildren),
+    JS_CFUNC_DEF("CalcMin", 0, callback_method_Ozone_FlexGridSizer_CalcMin),
+};
+
 static void register_class_Ozone_FlexGridSizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -6467,10 +6626,11 @@ static void register_class_Ozone_FlexGridSizer(JSContext *ctx, JSModuleDef *m, b
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_FlexGridSizer, &classDef_Ozone_FlexGridSizer);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_FlexGridSizer, sizeof(funcDef_Ozone_FlexGridSizer) / sizeof(funcDef_Ozone_FlexGridSizer[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_FlexGridSizer, countof(funcDef_Ozone_FlexGridSizer));
         JS_SetClassProto(ctx, classId_Ozone_FlexGridSizer, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_FlexGridSizer_FlexGridSizer, "FlexGridSizer", 4, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_FlexGridSizer_statics, countof(funcDef_Ozone_FlexGridSizer_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "FlexGridSizer", ctor);
@@ -6776,6 +6936,17 @@ static JSCFunctionListEntry funcDef_Ozone_BoxSizer[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_BoxSizer_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_BoxSizer_statics[]
+{
+    JS_CFUNC_DEF("AddSpacer", 1, callback_method_Ozone_BoxSizer_AddSpacer),
+    JS_CFUNC_DEF("GetOrientation", 0, callback_method_Ozone_BoxSizer_GetOrientation),
+    JS_CFUNC_DEF("IsVertical", 0, callback_method_Ozone_BoxSizer_IsVertical),
+    JS_CFUNC_DEF("SetOrientation", 1, callback_method_Ozone_BoxSizer_SetOrientation),
+    JS_CFUNC_DEF("CalcMin", 0, callback_method_Ozone_BoxSizer_CalcMin),
+    JS_CFUNC_DEF("RepositionChildren", 1, callback_method_Ozone_BoxSizer_RepositionChildren),
+    JS_CFUNC_DEF("InformFirstDirection", 3, callback_method_Ozone_BoxSizer_InformFirstDirection),
+};
+
 static void register_class_Ozone_BoxSizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -6791,10 +6962,11 @@ static void register_class_Ozone_BoxSizer(JSContext *ctx, JSModuleDef *m, bool s
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_BoxSizer, &classDef_Ozone_BoxSizer);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_BoxSizer, sizeof(funcDef_Ozone_BoxSizer) / sizeof(funcDef_Ozone_BoxSizer[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_BoxSizer, countof(funcDef_Ozone_BoxSizer));
         JS_SetClassProto(ctx, classId_Ozone_BoxSizer, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_BoxSizer_BoxSizer, "BoxSizer", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_BoxSizer_statics, countof(funcDef_Ozone_BoxSizer_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "BoxSizer", ctor);
@@ -7080,6 +7252,15 @@ static JSCFunctionListEntry funcDef_Ozone_StaticBoxSizer[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_StaticBoxSizer_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_StaticBoxSizer_statics[]
+{
+    JS_CFUNC_DEF("CalcMin", 0, callback_method_Ozone_StaticBoxSizer_CalcMin),
+    JS_CFUNC_DEF("RepositionChildren", 1, callback_method_Ozone_StaticBoxSizer_RepositionChildren),
+    JS_CFUNC_DEF("ShowItems", 1, callback_method_Ozone_StaticBoxSizer_ShowItems),
+    JS_CFUNC_DEF("AreAnyItemsShown", 0, callback_method_Ozone_StaticBoxSizer_AreAnyItemsShown),
+    JS_CFUNC_DEF("Detach", 1, callback_method_Ozone_StaticBoxSizer_Detach),
+};
+
 static void register_class_Ozone_StaticBoxSizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -7095,10 +7276,11 @@ static void register_class_Ozone_StaticBoxSizer(JSContext *ctx, JSModuleDef *m, 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_StaticBoxSizer, &classDef_Ozone_StaticBoxSizer);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_StaticBoxSizer, sizeof(funcDef_Ozone_StaticBoxSizer) / sizeof(funcDef_Ozone_StaticBoxSizer[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_StaticBoxSizer, countof(funcDef_Ozone_StaticBoxSizer));
         JS_SetClassProto(ctx, classId_Ozone_StaticBoxSizer, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_StaticBoxSizer_StaticBoxSizer, "StaticBoxSizer", 3, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_StaticBoxSizer_statics, countof(funcDef_Ozone_StaticBoxSizer_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "StaticBoxSizer", ctor);
@@ -7186,6 +7368,11 @@ static JSCFunctionListEntry funcDef_Ozone_StdDialogButtonSizer[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_StdDialogButtonSizer_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_StdDialogButtonSizer_statics[]
+{
+    JS_CFUNC_DEF("Realize", 0, callback_method_Ozone_StdDialogButtonSizer_Realize),
+};
+
 static void register_class_Ozone_StdDialogButtonSizer(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -7201,10 +7388,11 @@ static void register_class_Ozone_StdDialogButtonSizer(JSContext *ctx, JSModuleDe
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_StdDialogButtonSizer, &classDef_Ozone_StdDialogButtonSizer);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_StdDialogButtonSizer, sizeof(funcDef_Ozone_StdDialogButtonSizer) / sizeof(funcDef_Ozone_StdDialogButtonSizer[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_StdDialogButtonSizer, countof(funcDef_Ozone_StdDialogButtonSizer));
         JS_SetClassProto(ctx, classId_Ozone_StdDialogButtonSizer, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_StdDialogButtonSizer_StdDialogButtonSizer, "StdDialogButtonSizer", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_StdDialogButtonSizer_statics, countof(funcDef_Ozone_StdDialogButtonSizer_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "StdDialogButtonSizer", ctor);

@@ -569,6 +569,22 @@ static JSCFunctionListEntry funcDef_Ozone_FontMetrics[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_FontMetrics_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_FontMetrics_statics[]
+{
+    JS_CFUNC_DEF("get_height", 0, callback_method_Ozone_FontMetrics_get_height),
+    JS_CFUNC_DEF("set_height", 1, callback_method_Ozone_FontMetrics_set_height),
+    JS_CFUNC_DEF("get_ascent", 0, callback_method_Ozone_FontMetrics_get_ascent),
+    JS_CFUNC_DEF("set_ascent", 1, callback_method_Ozone_FontMetrics_set_ascent),
+    JS_CFUNC_DEF("get_descent", 0, callback_method_Ozone_FontMetrics_get_descent),
+    JS_CFUNC_DEF("set_descent", 1, callback_method_Ozone_FontMetrics_set_descent),
+    JS_CFUNC_DEF("get_internalLeading", 0, callback_method_Ozone_FontMetrics_get_internalLeading),
+    JS_CFUNC_DEF("set_internalLeading", 1, callback_method_Ozone_FontMetrics_set_internalLeading),
+    JS_CFUNC_DEF("get_externalLeading", 0, callback_method_Ozone_FontMetrics_get_externalLeading),
+    JS_CFUNC_DEF("set_externalLeading", 1, callback_method_Ozone_FontMetrics_set_externalLeading),
+    JS_CFUNC_DEF("get_averageWidth", 0, callback_method_Ozone_FontMetrics_get_averageWidth),
+    JS_CFUNC_DEF("set_averageWidth", 1, callback_method_Ozone_FontMetrics_set_averageWidth),
+};
+
 static void register_class_Ozone_FontMetrics(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -584,10 +600,11 @@ static void register_class_Ozone_FontMetrics(JSContext *ctx, JSModuleDef *m, boo
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_FontMetrics, &classDef_Ozone_FontMetrics);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_FontMetrics, sizeof(funcDef_Ozone_FontMetrics) / sizeof(funcDef_Ozone_FontMetrics[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_FontMetrics, countof(funcDef_Ozone_FontMetrics));
         JS_SetClassProto(ctx, classId_Ozone_FontMetrics, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_FontMetrics_FontMetrics, "FontMetrics", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_FontMetrics_statics, countof(funcDef_Ozone_FontMetrics_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "FontMetrics", ctor);
@@ -5093,6 +5110,97 @@ static JSCFunctionListEntry funcDef_Ozone_DC[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_DC_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_DC_statics[]
+{
+    JS_CFUNC_DEF("GetResolution", 0, callback_method_Ozone_DC_GetResolution),
+    JS_CFUNC_DEF("GetGraphicsContext", 0, callback_method_Ozone_DC_GetGraphicsContext),
+    JS_CFUNC_DEF("SetGraphicsContext", 1, callback_method_Ozone_DC_SetGraphicsContext),
+    JS_CFUNC_DEF("CopyAttributes", 1, callback_method_Ozone_DC_CopyAttributes),
+    JS_CFUNC_DEF("GetWindow", 0, callback_method_Ozone_DC_GetWindow),
+    JS_CFUNC_DEF("IsOk", 0, callback_method_Ozone_DC_IsOk),
+    JS_CFUNC_DEF("CanDrawBitmap", 0, callback_method_Ozone_DC_CanDrawBitmap),
+    JS_CFUNC_DEF("CanGetTextExtent", 0, callback_method_Ozone_DC_CanGetTextExtent),
+    JS_CFUNC_DEF("GetSize", 0, callback_method_Ozone_DC_GetSize),
+    JS_CFUNC_DEF("GetSizeMM", 0, callback_method_Ozone_DC_GetSizeMM),
+    JS_CFUNC_DEF("GetDepth", 0, callback_method_Ozone_DC_GetDepth),
+    JS_CFUNC_DEF("GetPPI", 0, callback_method_Ozone_DC_GetPPI),
+    JS_CFUNC_DEF("GetContentScaleFactor", 0, callback_method_Ozone_DC_GetContentScaleFactor),
+    JS_CFUNC_DEF("StartDoc", 1, callback_method_Ozone_DC_StartDoc),
+    JS_CFUNC_DEF("EndDoc", 0, callback_method_Ozone_DC_EndDoc),
+    JS_CFUNC_DEF("StartPage", 0, callback_method_Ozone_DC_StartPage),
+    JS_CFUNC_DEF("EndPage", 0, callback_method_Ozone_DC_EndPage),
+    JS_CFUNC_DEF("CalcBoundingBox", 2, callback_method_Ozone_DC_CalcBoundingBox),
+    JS_CFUNC_DEF("ResetBoundingBox", 0, callback_method_Ozone_DC_ResetBoundingBox),
+    JS_CFUNC_DEF("MinX", 0, callback_method_Ozone_DC_MinX),
+    JS_CFUNC_DEF("MaxX", 0, callback_method_Ozone_DC_MaxX),
+    JS_CFUNC_DEF("MinY", 0, callback_method_Ozone_DC_MinY),
+    JS_CFUNC_DEF("MaxY", 0, callback_method_Ozone_DC_MaxY),
+    JS_CFUNC_DEF("SetPen", 1, callback_method_Ozone_DC_SetPen),
+    JS_CFUNC_DEF("SetBrush", 1, callback_method_Ozone_DC_SetBrush),
+    JS_CFUNC_DEF("SetBackground", 1, callback_method_Ozone_DC_SetBackground),
+    JS_CFUNC_DEF("SetBackgroundMode", 1, callback_method_Ozone_DC_SetBackgroundMode),
+    JS_CFUNC_DEF("GetBackgroundMode", 0, callback_method_Ozone_DC_GetBackgroundMode),
+    JS_CFUNC_DEF("SetTextForeground", 1, callback_method_Ozone_DC_SetTextForeground),
+    JS_CFUNC_DEF("SetTextBackground", 1, callback_method_Ozone_DC_SetTextBackground),
+    JS_CFUNC_DEF("SetLogicalFunction", 1, callback_method_Ozone_DC_SetLogicalFunction),
+    JS_CFUNC_DEF("GetLogicalFunction", 0, callback_method_Ozone_DC_GetLogicalFunction),
+    JS_CFUNC_DEF("GetCharHeight", 0, callback_method_Ozone_DC_GetCharHeight),
+    JS_CFUNC_DEF("GetCharWidth", 0, callback_method_Ozone_DC_GetCharWidth),
+    JS_CFUNC_DEF("GetFontMetrics", 0, callback_method_Ozone_DC_GetFontMetrics),
+    JS_CFUNC_DEF("GetMultiLineTextExtent", 1, callback_method_Ozone_DC_GetMultiLineTextExtent),
+    JS_CFUNC_DEF("Clear", 0, callback_method_Ozone_DC_Clear),
+    JS_CFUNC_DEF("SetClippingRegion", 4, callback_method_Ozone_DC_SetClippingRegion),
+    JS_CFUNC_DEF("DestroyClippingRegion", 0, callback_method_Ozone_DC_DestroyClippingRegion),
+    JS_CFUNC_DEF("GetClippingBox", 1, callback_method_Ozone_DC_GetClippingBox),
+    JS_CFUNC_DEF("DeviceToLogicalX", 1, callback_method_Ozone_DC_DeviceToLogicalX),
+    JS_CFUNC_DEF("DeviceToLogicalY", 1, callback_method_Ozone_DC_DeviceToLogicalY),
+    JS_CFUNC_DEF("DeviceToLogicalXRel", 1, callback_method_Ozone_DC_DeviceToLogicalXRel),
+    JS_CFUNC_DEF("DeviceToLogicalYRel", 1, callback_method_Ozone_DC_DeviceToLogicalYRel),
+    JS_CFUNC_DEF("DeviceToLogical", 2, callback_method_Ozone_DC_DeviceToLogical),
+    JS_CFUNC_DEF("DeviceToLogicalRel", 2, callback_method_Ozone_DC_DeviceToLogicalRel),
+    JS_CFUNC_DEF("LogicalToDeviceX", 1, callback_method_Ozone_DC_LogicalToDeviceX),
+    JS_CFUNC_DEF("LogicalToDeviceY", 1, callback_method_Ozone_DC_LogicalToDeviceY),
+    JS_CFUNC_DEF("LogicalToDeviceXRel", 1, callback_method_Ozone_DC_LogicalToDeviceXRel),
+    JS_CFUNC_DEF("LogicalToDeviceYRel", 1, callback_method_Ozone_DC_LogicalToDeviceYRel),
+    JS_CFUNC_DEF("LogicalToDevice", 2, callback_method_Ozone_DC_LogicalToDevice),
+    JS_CFUNC_DEF("LogicalToDeviceRel", 2, callback_method_Ozone_DC_LogicalToDeviceRel),
+    JS_CFUNC_DEF("SetMapMode", 1, callback_method_Ozone_DC_SetMapMode),
+    JS_CFUNC_DEF("GetMapMode", 0, callback_method_Ozone_DC_GetMapMode),
+    JS_CFUNC_DEF("SetUserScale", 2, callback_method_Ozone_DC_SetUserScale),
+    JS_CFUNC_DEF("SetLogicalScale", 2, callback_method_Ozone_DC_SetLogicalScale),
+    JS_CFUNC_DEF("SetLogicalOrigin", 2, callback_method_Ozone_DC_SetLogicalOrigin),
+    JS_CFUNC_DEF("GetLogicalOrigin", 0, callback_method_Ozone_DC_GetLogicalOrigin),
+    JS_CFUNC_DEF("SetDeviceOrigin", 2, callback_method_Ozone_DC_SetDeviceOrigin),
+    JS_CFUNC_DEF("GetDeviceOrigin", 0, callback_method_Ozone_DC_GetDeviceOrigin),
+    JS_CFUNC_DEF("SetAxisOrientation", 2, callback_method_Ozone_DC_SetAxisOrientation),
+    JS_CFUNC_DEF("CanUseTransformMatrix", 0, callback_method_Ozone_DC_CanUseTransformMatrix),
+    JS_CFUNC_DEF("ResetTransformMatrix", 0, callback_method_Ozone_DC_ResetTransformMatrix),
+    JS_CFUNC_DEF("SetDeviceLocalOrigin", 2, callback_method_Ozone_DC_SetDeviceLocalOrigin),
+    JS_CFUNC_DEF("FloodFill", 4, callback_method_Ozone_DC_FloodFill),
+    JS_CFUNC_DEF("GradientFillConcentric", 4, callback_method_Ozone_DC_GradientFillConcentric),
+    JS_CFUNC_DEF("GradientFillLinear", 4, callback_method_Ozone_DC_GradientFillLinear),
+    JS_CFUNC_DEF("GetPixel", 3, callback_method_Ozone_DC_GetPixel),
+    JS_CFUNC_DEF("DrawLine", 4, callback_method_Ozone_DC_DrawLine),
+    JS_CFUNC_DEF("CrossHair", 2, callback_method_Ozone_DC_CrossHair),
+    JS_CFUNC_DEF("DrawArc", 6, callback_method_Ozone_DC_DrawArc),
+    JS_CFUNC_DEF("DrawCheckMark", 4, callback_method_Ozone_DC_DrawCheckMark),
+    JS_CFUNC_DEF("DrawEllipticArc", 6, callback_method_Ozone_DC_DrawEllipticArc),
+    JS_CFUNC_DEF("DrawPoint", 2, callback_method_Ozone_DC_DrawPoint),
+    JS_CFUNC_DEF("DrawLines", 4, callback_method_Ozone_DC_DrawLines),
+    JS_CFUNC_DEF("DrawPolygon", 5, callback_method_Ozone_DC_DrawPolygon),
+    JS_CFUNC_DEF("DrawPolyPolygon", 6, callback_method_Ozone_DC_DrawPolyPolygon),
+    JS_CFUNC_DEF("DrawRectangle", 4, callback_method_Ozone_DC_DrawRectangle),
+    JS_CFUNC_DEF("DrawRoundedRectangle", 5, callback_method_Ozone_DC_DrawRoundedRectangle),
+    JS_CFUNC_DEF("DrawCircle", 3, callback_method_Ozone_DC_DrawCircle),
+    JS_CFUNC_DEF("DrawEllipse", 4, callback_method_Ozone_DC_DrawEllipse),
+    JS_CFUNC_DEF("DrawText", 3, callback_method_Ozone_DC_DrawText),
+    JS_CFUNC_DEF("DrawRotatedText", 4, callback_method_Ozone_DC_DrawRotatedText),
+    JS_CFUNC_DEF("DrawLabel", 4, callback_method_Ozone_DC_DrawLabel),
+    JS_CFUNC_DEF("Blit", 11, callback_method_Ozone_DC_Blit),
+    JS_CFUNC_DEF("StretchBlit", 13, callback_method_Ozone_DC_StretchBlit),
+    JS_CFUNC_DEF("DrawSpline", 6, callback_method_Ozone_DC_DrawSpline),
+};
+
 static void register_class_Ozone_DC(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -5108,7 +5216,7 @@ static void register_class_Ozone_DC(JSContext *ctx, JSModuleDef *m, bool set, in
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_DC, &classDef_Ozone_DC);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_DC, sizeof(funcDef_Ozone_DC) / sizeof(funcDef_Ozone_DC[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_DC, countof(funcDef_Ozone_DC));
         JS_SetClassProto(ctx, classId_Ozone_DC, proto);
 
     }

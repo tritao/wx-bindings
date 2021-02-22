@@ -16,6 +16,7 @@ extern void register_ozone_object(JSContext *ctx, JSModuleDef *m, bool set, int 
 extern void register_ozone_gdicmn(JSContext *ctx, JSModuleDef *m, bool set, int phase);
 extern void register_ozone_brush(JSContext *ctx, JSModuleDef *m, bool set, int phase);
 extern void register_ozone_frame(JSContext *ctx, JSModuleDef *m, bool set, int phase);
+extern void register_ozone_control(JSContext *ctx, JSModuleDef *m, bool set, int phase);
 extern void register_ozone_filedlg(JSContext *ctx, JSModuleDef *m, bool set, int phase);
 extern void register_ozone_pen(JSContext *ctx, JSModuleDef *m, bool set, int phase);
 extern void register_ozone_panel(JSContext *ctx, JSModuleDef *m, bool set, int phase);
@@ -45,6 +46,7 @@ static int js_Ozone_init(JSContext* ctx, JSModuleDef* m)
         register_ozone_gdicmn(ctx, m, /*set=*/true, phase);
         register_ozone_brush(ctx, m, /*set=*/true, phase);
         register_ozone_frame(ctx, m, /*set=*/true, phase);
+        register_ozone_control(ctx, m, /*set=*/true, phase);
         register_ozone_filedlg(ctx, m, /*set=*/true, phase);
         register_ozone_pen(ctx, m, /*set=*/true, phase);
         register_ozone_panel(ctx, m, /*set=*/true, phase);
@@ -85,6 +87,7 @@ extern "C" JSModuleDef *JS_INIT_MODULE(JSContext *ctx, const char *module_name)
     register_ozone_gdicmn(ctx, m, /*set=*/false, 0);
     register_ozone_brush(ctx, m, /*set=*/false, 0);
     register_ozone_frame(ctx, m, /*set=*/false, 0);
+    register_ozone_control(ctx, m, /*set=*/false, 0);
     register_ozone_filedlg(ctx, m, /*set=*/false, 0);
     register_ozone_pen(ctx, m, /*set=*/false, 0);
     register_ozone_panel(ctx, m, /*set=*/false, 0);

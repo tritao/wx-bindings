@@ -1265,6 +1265,28 @@ static JSCFunctionListEntry funcDef_Ozone_Size[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_Size_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_Size_statics[]
+{
+    JS_CFUNC_DEF("IncTo", 1, callback_method_Ozone_Size_IncTo),
+    JS_CFUNC_DEF("DecTo", 1, callback_method_Ozone_Size_DecTo),
+    JS_CFUNC_DEF("DecToIfSpecified", 1, callback_method_Ozone_Size_DecToIfSpecified),
+    JS_CFUNC_DEF("IncBy", 2, callback_method_Ozone_Size_IncBy),
+    JS_CFUNC_DEF("DecBy", 2, callback_method_Ozone_Size_DecBy),
+    JS_CFUNC_DEF("Set", 2, callback_method_Ozone_Size_Set),
+    JS_CFUNC_DEF("SetWidth", 1, callback_method_Ozone_Size_SetWidth),
+    JS_CFUNC_DEF("SetHeight", 1, callback_method_Ozone_Size_SetHeight),
+    JS_CFUNC_DEF("GetWidth", 0, callback_method_Ozone_Size_GetWidth),
+    JS_CFUNC_DEF("GetHeight", 0, callback_method_Ozone_Size_GetHeight),
+    JS_CFUNC_DEF("IsFullySpecified", 0, callback_method_Ozone_Size_IsFullySpecified),
+    JS_CFUNC_DEF("SetDefaults", 1, callback_method_Ozone_Size_SetDefaults),
+    JS_CFUNC_DEF("GetX", 0, callback_method_Ozone_Size_GetX),
+    JS_CFUNC_DEF("GetY", 0, callback_method_Ozone_Size_GetY),
+    JS_CFUNC_DEF("get_x", 0, callback_method_Ozone_Size_get_x),
+    JS_CFUNC_DEF("set_x", 1, callback_method_Ozone_Size_set_x),
+    JS_CFUNC_DEF("get_y", 0, callback_method_Ozone_Size_get_y),
+    JS_CFUNC_DEF("set_y", 1, callback_method_Ozone_Size_set_y),
+};
+
 static void register_class_Ozone_Size(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1280,10 +1302,11 @@ static void register_class_Ozone_Size(JSContext *ctx, JSModuleDef *m, bool set, 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_Size, &classDef_Ozone_Size);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Size, sizeof(funcDef_Ozone_Size) / sizeof(funcDef_Ozone_Size[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Size, countof(funcDef_Ozone_Size));
         JS_SetClassProto(ctx, classId_Ozone_Size, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_Size_Size, "Size", 2, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_Size_statics, countof(funcDef_Ozone_Size_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "Size", ctor);
@@ -1499,6 +1522,14 @@ static JSCFunctionListEntry funcDef_Ozone_RealPoint[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_RealPoint_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_RealPoint_statics[]
+{
+    JS_CFUNC_DEF("get_x", 0, callback_method_Ozone_RealPoint_get_x),
+    JS_CFUNC_DEF("set_x", 1, callback_method_Ozone_RealPoint_set_x),
+    JS_CFUNC_DEF("get_y", 0, callback_method_Ozone_RealPoint_get_y),
+    JS_CFUNC_DEF("set_y", 1, callback_method_Ozone_RealPoint_set_y),
+};
+
 static void register_class_Ozone_RealPoint(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1514,10 +1545,11 @@ static void register_class_Ozone_RealPoint(JSContext *ctx, JSModuleDef *m, bool 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_RealPoint, &classDef_Ozone_RealPoint);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_RealPoint, sizeof(funcDef_Ozone_RealPoint) / sizeof(funcDef_Ozone_RealPoint[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_RealPoint, countof(funcDef_Ozone_RealPoint));
         JS_SetClassProto(ctx, classId_Ozone_RealPoint, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_RealPoint_RealPoint, "RealPoint", 2, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_RealPoint_statics, countof(funcDef_Ozone_RealPoint_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "RealPoint", ctor);
@@ -1789,6 +1821,16 @@ static JSCFunctionListEntry funcDef_Ozone_Point[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_Point_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_Point_statics[]
+{
+    JS_CFUNC_DEF("IsFullySpecified", 0, callback_method_Ozone_Point_IsFullySpecified),
+    JS_CFUNC_DEF("SetDefaults", 1, callback_method_Ozone_Point_SetDefaults),
+    JS_CFUNC_DEF("get_x", 0, callback_method_Ozone_Point_get_x),
+    JS_CFUNC_DEF("set_x", 1, callback_method_Ozone_Point_set_x),
+    JS_CFUNC_DEF("get_y", 0, callback_method_Ozone_Point_get_y),
+    JS_CFUNC_DEF("set_y", 1, callback_method_Ozone_Point_set_y),
+};
+
 static void register_class_Ozone_Point(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1804,10 +1846,11 @@ static void register_class_Ozone_Point(JSContext *ctx, JSModuleDef *m, bool set,
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_Point, &classDef_Ozone_Point);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Point, sizeof(funcDef_Ozone_Point) / sizeof(funcDef_Ozone_Point[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Point, countof(funcDef_Ozone_Point));
         JS_SetClassProto(ctx, classId_Ozone_Point, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_Point_Point, "Point", 2, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_Point_statics, countof(funcDef_Ozone_Point_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "Point", ctor);
@@ -1920,6 +1963,14 @@ static JSCFunctionListEntry funcDef_Ozone_wxPointListNode[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_wxPointListNode_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_wxPointListNode_statics[]
+{
+    JS_CFUNC_DEF("GetNext", 0, callback_method_Ozone_wxPointListNode_GetNext),
+    JS_CFUNC_DEF("GetPrevious", 0, callback_method_Ozone_wxPointListNode_GetPrevious),
+    JS_CFUNC_DEF("GetData", 0, callback_method_Ozone_wxPointListNode_GetData),
+    JS_CFUNC_DEF("SetData", 1, callback_method_Ozone_wxPointListNode_SetData),
+};
+
 static void register_class_Ozone_wxPointListNode(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -1935,7 +1986,7 @@ static void register_class_Ozone_wxPointListNode(JSContext *ctx, JSModuleDef *m,
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_wxPointListNode, &classDef_Ozone_wxPointListNode);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_wxPointListNode, sizeof(funcDef_Ozone_wxPointListNode) / sizeof(funcDef_Ozone_wxPointListNode[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_wxPointListNode, countof(funcDef_Ozone_wxPointListNode));
         JS_SetClassProto(ctx, classId_Ozone_wxPointListNode, proto);
 
     }
@@ -3672,6 +3723,64 @@ static JSCFunctionListEntry funcDef_Ozone_Rect[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_Rect_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_Rect_statics[]
+{
+    JS_CFUNC_DEF("GetX", 0, callback_method_Ozone_Rect_GetX),
+    JS_CFUNC_DEF("SetX", 1, callback_method_Ozone_Rect_SetX),
+    JS_CFUNC_DEF("GetY", 0, callback_method_Ozone_Rect_GetY),
+    JS_CFUNC_DEF("SetY", 1, callback_method_Ozone_Rect_SetY),
+    JS_CFUNC_DEF("GetWidth", 0, callback_method_Ozone_Rect_GetWidth),
+    JS_CFUNC_DEF("SetWidth", 1, callback_method_Ozone_Rect_SetWidth),
+    JS_CFUNC_DEF("GetHeight", 0, callback_method_Ozone_Rect_GetHeight),
+    JS_CFUNC_DEF("SetHeight", 1, callback_method_Ozone_Rect_SetHeight),
+    JS_CFUNC_DEF("GetPosition", 0, callback_method_Ozone_Rect_GetPosition),
+    JS_CFUNC_DEF("SetPosition", 1, callback_method_Ozone_Rect_SetPosition),
+    JS_CFUNC_DEF("GetSize", 0, callback_method_Ozone_Rect_GetSize),
+    JS_CFUNC_DEF("SetSize", 1, callback_method_Ozone_Rect_SetSize),
+    JS_CFUNC_DEF("IsEmpty", 0, callback_method_Ozone_Rect_IsEmpty),
+    JS_CFUNC_DEF("GetLeft", 0, callback_method_Ozone_Rect_GetLeft),
+    JS_CFUNC_DEF("GetTop", 0, callback_method_Ozone_Rect_GetTop),
+    JS_CFUNC_DEF("GetBottom", 0, callback_method_Ozone_Rect_GetBottom),
+    JS_CFUNC_DEF("GetRight", 0, callback_method_Ozone_Rect_GetRight),
+    JS_CFUNC_DEF("SetLeft", 1, callback_method_Ozone_Rect_SetLeft),
+    JS_CFUNC_DEF("SetRight", 1, callback_method_Ozone_Rect_SetRight),
+    JS_CFUNC_DEF("SetTop", 1, callback_method_Ozone_Rect_SetTop),
+    JS_CFUNC_DEF("SetBottom", 1, callback_method_Ozone_Rect_SetBottom),
+    JS_CFUNC_DEF("GetTopLeft", 0, callback_method_Ozone_Rect_GetTopLeft),
+    JS_CFUNC_DEF("GetLeftTop", 0, callback_method_Ozone_Rect_GetLeftTop),
+    JS_CFUNC_DEF("SetTopLeft", 1, callback_method_Ozone_Rect_SetTopLeft),
+    JS_CFUNC_DEF("SetLeftTop", 1, callback_method_Ozone_Rect_SetLeftTop),
+    JS_CFUNC_DEF("GetBottomRight", 0, callback_method_Ozone_Rect_GetBottomRight),
+    JS_CFUNC_DEF("GetRightBottom", 0, callback_method_Ozone_Rect_GetRightBottom),
+    JS_CFUNC_DEF("SetBottomRight", 1, callback_method_Ozone_Rect_SetBottomRight),
+    JS_CFUNC_DEF("SetRightBottom", 1, callback_method_Ozone_Rect_SetRightBottom),
+    JS_CFUNC_DEF("GetTopRight", 0, callback_method_Ozone_Rect_GetTopRight),
+    JS_CFUNC_DEF("GetRightTop", 0, callback_method_Ozone_Rect_GetRightTop),
+    JS_CFUNC_DEF("SetTopRight", 1, callback_method_Ozone_Rect_SetTopRight),
+    JS_CFUNC_DEF("SetRightTop", 1, callback_method_Ozone_Rect_SetRightTop),
+    JS_CFUNC_DEF("GetBottomLeft", 0, callback_method_Ozone_Rect_GetBottomLeft),
+    JS_CFUNC_DEF("GetLeftBottom", 0, callback_method_Ozone_Rect_GetLeftBottom),
+    JS_CFUNC_DEF("SetBottomLeft", 1, callback_method_Ozone_Rect_SetBottomLeft),
+    JS_CFUNC_DEF("SetLeftBottom", 1, callback_method_Ozone_Rect_SetLeftBottom),
+    JS_CFUNC_DEF("Inflate", 2, callback_method_Ozone_Rect_Inflate),
+    JS_CFUNC_DEF("Deflate", 2, callback_method_Ozone_Rect_Deflate),
+    JS_CFUNC_DEF("Offset", 2, callback_method_Ozone_Rect_Offset),
+    JS_CFUNC_DEF("Intersect", 1, callback_method_Ozone_Rect_Intersect),
+    JS_CFUNC_DEF("Union", 1, callback_method_Ozone_Rect_Union),
+    JS_CFUNC_DEF("Contains", 2, callback_method_Ozone_Rect_Contains),
+    JS_CFUNC_DEF("Intersects", 1, callback_method_Ozone_Rect_Intersects),
+    JS_CFUNC_DEF("CentreIn", 2, callback_method_Ozone_Rect_CentreIn),
+    JS_CFUNC_DEF("CenterIn", 2, callback_method_Ozone_Rect_CenterIn),
+    JS_CFUNC_DEF("get_x", 0, callback_method_Ozone_Rect_get_x),
+    JS_CFUNC_DEF("set_x", 1, callback_method_Ozone_Rect_set_x),
+    JS_CFUNC_DEF("get_y", 0, callback_method_Ozone_Rect_get_y),
+    JS_CFUNC_DEF("set_y", 1, callback_method_Ozone_Rect_set_y),
+    JS_CFUNC_DEF("get_width", 0, callback_method_Ozone_Rect_get_width),
+    JS_CFUNC_DEF("set_width", 1, callback_method_Ozone_Rect_set_width),
+    JS_CFUNC_DEF("get_height", 0, callback_method_Ozone_Rect_get_height),
+    JS_CFUNC_DEF("set_height", 1, callback_method_Ozone_Rect_set_height),
+};
+
 static void register_class_Ozone_Rect(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -3687,10 +3796,11 @@ static void register_class_Ozone_Rect(JSContext *ctx, JSModuleDef *m, bool set, 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_Rect, &classDef_Ozone_Rect);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Rect, sizeof(funcDef_Ozone_Rect) / sizeof(funcDef_Ozone_Rect[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_Rect, countof(funcDef_Ozone_Rect));
         JS_SetClassProto(ctx, classId_Ozone_Rect, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_Rect_Rect, "Rect", 4, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_Rect_statics, countof(funcDef_Ozone_Rect_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "Rect", ctor);
@@ -3754,6 +3864,10 @@ static JSCFunctionListEntry funcDef_Ozone_GDIObjListBase[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_GDIObjListBase_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_GDIObjListBase_statics[]
+{
+};
+
 static void register_class_Ozone_GDIObjListBase(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -3769,10 +3883,11 @@ static void register_class_Ozone_GDIObjListBase(JSContext *ctx, JSModuleDef *m, 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_GDIObjListBase, &classDef_Ozone_GDIObjListBase);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GDIObjListBase, sizeof(funcDef_Ozone_GDIObjListBase) / sizeof(funcDef_Ozone_GDIObjListBase[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_GDIObjListBase, countof(funcDef_Ozone_GDIObjListBase));
         JS_SetClassProto(ctx, classId_Ozone_GDIObjListBase, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_GDIObjListBase_GDIObjListBase, "GDIObjListBase", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_GDIObjListBase_statics, countof(funcDef_Ozone_GDIObjListBase_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "GDIObjListBase", ctor);
@@ -3951,6 +4066,13 @@ static JSCFunctionListEntry funcDef_Ozone_ColourDatabase[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_ColourDatabase_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_ColourDatabase_statics[]
+{
+    JS_CFUNC_DEF("Find", 1, callback_method_Ozone_ColourDatabase_Find),
+    JS_CFUNC_DEF("FindName", 1, callback_method_Ozone_ColourDatabase_FindName),
+    JS_CFUNC_DEF("AddColour", 2, callback_method_Ozone_ColourDatabase_AddColour),
+};
+
 static void register_class_Ozone_ColourDatabase(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -3966,10 +4088,11 @@ static void register_class_Ozone_ColourDatabase(JSContext *ctx, JSModuleDef *m, 
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_ColourDatabase, &classDef_Ozone_ColourDatabase);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_ColourDatabase, sizeof(funcDef_Ozone_ColourDatabase) / sizeof(funcDef_Ozone_ColourDatabase[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_ColourDatabase, countof(funcDef_Ozone_ColourDatabase));
         JS_SetClassProto(ctx, classId_Ozone_ColourDatabase, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_ColourDatabase_ColourDatabase, "ColourDatabase", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_ColourDatabase_statics, countof(funcDef_Ozone_ColourDatabase_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "ColourDatabase", ctor);
@@ -4063,6 +4186,10 @@ static JSCFunctionListEntry funcDef_Ozone_ResourceCache[]
     JS_CFUNC_DEF("toString", 0, callback_class_Ozone_ResourceCache_toString),
 };
 
+static JSCFunctionListEntry funcDef_Ozone_ResourceCache_statics[]
+{
+};
+
 static void register_class_Ozone_ResourceCache(JSContext *ctx, JSModuleDef *m, bool set, int phase)
 {
     if (!set)
@@ -4078,10 +4205,11 @@ static void register_class_Ozone_ResourceCache(JSContext *ctx, JSModuleDef *m, b
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_ResourceCache, &classDef_Ozone_ResourceCache);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_ResourceCache, sizeof(funcDef_Ozone_ResourceCache) / sizeof(funcDef_Ozone_ResourceCache[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_ResourceCache, countof(funcDef_Ozone_ResourceCache));
         JS_SetClassProto(ctx, classId_Ozone_ResourceCache, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_ResourceCache_ResourceCache, "ResourceCache", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_ResourceCache_statics, countof(funcDef_Ozone_ResourceCache_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "ResourceCache", ctor);
@@ -4545,11 +4673,15 @@ static JSClassDef classDef_Ozone_StockGDI
 
 static JSCFunctionListEntry funcDef_Ozone_StockGDI[]
 {
+    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_StockGDI_toString),
+};
+
+static JSCFunctionListEntry funcDef_Ozone_StockGDI_statics[]
+{
     JS_CFUNC_DEF("DeleteAll", 0, callback_method_Ozone_StockGDI_DeleteAll),
     JS_CFUNC_DEF("GetBrush", 1, callback_method_Ozone_StockGDI_GetBrush),
     JS_CFUNC_DEF("GetColour", 1, callback_method_Ozone_StockGDI_GetColour),
     JS_CFUNC_DEF("GetPen", 1, callback_method_Ozone_StockGDI_GetPen),
-    JS_CFUNC_DEF("toString", 0, callback_class_Ozone_StockGDI_toString),
 };
 
 static void register_class_Ozone_StockGDI(JSContext *ctx, JSModuleDef *m, bool set, int phase)
@@ -4567,10 +4699,11 @@ static void register_class_Ozone_StockGDI(JSContext *ctx, JSModuleDef *m, bool s
         JS_NewClass(JS_GetRuntime(ctx), classId_Ozone_StockGDI, &classDef_Ozone_StockGDI);
 
         JSValue proto = JS_NewObject(ctx);
-        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_StockGDI, sizeof(funcDef_Ozone_StockGDI) / sizeof(funcDef_Ozone_StockGDI[0]));
+        JS_SetPropertyFunctionList(ctx, proto, funcDef_Ozone_StockGDI, countof(funcDef_Ozone_StockGDI));
         JS_SetClassProto(ctx, classId_Ozone_StockGDI, proto);
 
         JSValue ctor = JS_NewCFunction2(ctx, callback_method_Ozone_StockGDI_StockGDI, "StockGDI", 1, JS_CFUNC_constructor, 0);
+        JS_SetPropertyFunctionList(ctx, ctor, funcDef_Ozone_StockGDI_statics, countof(funcDef_Ozone_StockGDI_statics));
         JS_SetConstructor(ctx, ctor, proto);
 
         JS_SetModuleExport(ctx, m, "StockGDI", ctor);

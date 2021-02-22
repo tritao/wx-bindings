@@ -6,9 +6,7 @@ using System.Text.RegularExpressions;
 using CppSharp.AST;
 using CppSharp.AST.Extensions;
 using CppSharp.Generators;
-using CppSharp.Generators.AST;
 using CppSharp.Generators.C;
-using CppSharp.Generators.CLI;
 using CppSharp.Generators.Cpp;
 using CppSharp.Passes;
 using CppSharp.Types;
@@ -1026,8 +1024,6 @@ namespace CppSharp
             base.VisitCodeGenerator(generator);
         }
 
-        public static bool HasEvents(Class @class) => @class.Events.Cast<WxEvent>().Any();
-
         public override void VisitConstructorBody(Block block)
         {
             var @class = block.Object as Class;
@@ -1158,7 +1154,7 @@ namespace CppSharp
                 ProcessExportedEvent(text);
             }
 
-            var regex = new Regex(@"wx__DECLARE_EVT\d\((.*)\)");
+            var regex = new Regex(@"wx__DECLARE_EVT\d\((.*)\)", RegexOptions.Singleline);
 
             foreach (var entity in unit.PreprocessedEntities.OfType<MacroDefinition>())
             {
@@ -1173,24 +1169,13 @@ namespace CppSharp
                 ProcessEventDeclareDefine(entity, @params);
             }
 
-            /*
-            foreach (var entity in unit.PreprocessedEntities.OfType<MacroDefinition>())
-            {
-                if (!entity.Name.StartsWith("EVT_"))
-                    continue;
-
-                var match = regex.Match(entity.Expression);
-                if (!match.Success)
-                    continue;
-
-                return true;
-            }
-            */
-
             return true;
         }
 
         public HashSet<string> WarningKeys = new HashSet<string>();
+
+        // TODO:
+        public bool CheckEventAlias = false;
 
         private void ProcessEventDeclareDefine(MacroDefinition entity, string[] @params)
         {
@@ -1198,13 +1183,17 @@ namespace CppSharp
                 return;
 
             var eventType = @params[0].Substring("wx".Length);
-            //if (!EventMacroToEventTypeMap.TryGetValue(eventType, out Class @event))
-            //{
-            //    if (WarningKeys.Add(eventType))
-            //        Console.WriteLine($"Could not find event alias: {eventType}");
 
-            //    return;
-            //}
+            if (CheckEventAlias)
+            {
+                if (!EventMacroToEventTypeMap.TryGetValue(eventType, out _))
+                {
+                    if (WarningKeys.Add(eventType))
+                        Console.WriteLine($"Could not find event alias: {eventType}");
+
+                    return;
+                }
+            }
 
             EventMacroToEventTypeMap[entity.Name] = eventType;
         }
@@ -1263,7 +1252,7 @@ namespace CppSharp
             if (parentDir == null)
                 return false;
 
-            path = Path.Combine(parentDir.FullName, Path.GetFileName(path));
+            path = Path.Combine(parentDir.FullName, Path.GetFileName(path) ?? string.Empty);
             return true;
         }
 
@@ -1320,8 +1309,7 @@ namespace CppSharp
             if (@class.IsIncomplete)
                 return false;
 
-            string file;
-            if (!TryFindFile(@class, out file))
+            if (!TryFindFile(@class, out var file))
                 throw new Exception($"Could not find interface header file for {@class.OriginalName}");
 
             var contents = File.ReadAllText(file);
@@ -1335,9 +1323,7 @@ namespace CppSharp
             {
                 var text = match.ToString();
                 var classNameRegex = new Regex(@"@class *(\w+)");
-                var m = classNameRegex.Match(text);
-                if (m == null)
-                    continue;
+                var m = classNameRegex.Match(text ?? string.Empty);
 
                 var className = m.Groups[1].Value;
                 if (className != @class.OriginalName)
@@ -1351,14 +1337,12 @@ namespace CppSharp
 
                 var eventRegex = new Regex(@"@event{(.*)}");
                 var events = eventRegex.Matches(text);
-                if (events == null)
-                    return false;
 
                 foreach (Match eventMatch in events)
                 {
                     var signature = eventMatch.Groups[1].Value;
 
-                    var startIndex = signature.IndexOf("(");
+                    var startIndex = signature.IndexOf("(", StringComparison.Ordinal);
                     var @params = signature.Substring(startIndex + 1);
                     @params = @params.Substring(0, @params.Length - 1);
 
@@ -1379,8 +1363,7 @@ namespace CppSharp
 
                         var eventTypeId = WxEvents.EventMacroToEventTypeMap[eventName];
 
-                        Class eventClass;
-                        if (!WxEvents.EventTypeToParameterMap.TryGetValue(eventTypeId, out eventClass))
+                        if (!WxEvents.EventTypeToParameterMap.TryGetValue(eventTypeId, out var eventClass))
                         {
                             Console.WriteLine($"Could not find event parameter for {@class.OriginalName}::{eventName}");
                             continue;
@@ -1559,12 +1542,6 @@ namespace CppSharp
                 ptr = new PointerType(ptr) { Modifier = PointerType.TypeModifier.Pointer };
 
             return ptr;
-        }
-
-        public override void CppTypeReference(CLITypeReference collector,
-            ASTRecord<Declaration> record)
-        {
-            base.CppTypeReference(collector, record);
         }
 
         public override void CppMarshalToManaged(MarshalContext ctx)

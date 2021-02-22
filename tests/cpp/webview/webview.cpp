@@ -29,7 +29,7 @@ WebViewPanel::WebViewPanel(Frame* parent)
     sizer = new BoxSizer(SizerOrientation::VERTICAL);
 
     webView = WebView::New("wxWebViewWebKit");
-    webView->Create(this, -1, "https://google.com", Point(-1,-1), Size(800, 600), 0, "wxWebKit");
+    webView->Create(this, -1, "https://wxwidgets.org", Point(-1,-1), Size(800, 600), 0, "wxWebKit");
     sizer->Add(webView, 1, (int)Stretch::EXPAND, 0, nullptr);
 
     SetSizer(sizer, /*deleteOld=*/true);
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 
     Point pos(-1, -1);
     Size size(-1, -1);
-    auto frame = new Frame(nullptr, -1, "Hello World", pos, size, FrameStyle::DEFAULT_FRAME_STYLE, nullptr);
+    auto frame = new Frame(nullptr, -1, "Web View", pos, size, FrameStyle::DEFAULT_FRAME_STYLE, nullptr);
 
     auto webviewPanel = new WebViewPanel(frame);
 

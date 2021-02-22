@@ -13,6 +13,7 @@
 #include "wx/control.h"
 #include "wx/frame.h"
 #include "wx/panel.h"
+#include "wx/webview.h"
 class _EventFilter : public ::wxEventFilter
 {
 public:

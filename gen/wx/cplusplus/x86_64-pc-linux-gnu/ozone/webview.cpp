@@ -385,6 +385,68 @@ long Ozone::WebView::Find(const char* text, int flags)
     return __ret;
 }
 
+int Ozone::WebView::HandleEvent(::wxEvent& event)
+{
+    wxEventType eventType = event.GetEventType();
+
+    if(eventType == wxEVT_WEBVIEW_NAVIGATING)
+    {
+        if (!OnWebviewNavigating.empty())
+        {
+            wxWebViewEvent* _event = wxStaticCast(&event, wxWebViewEvent);
+            Ozone::WebViewEvent _e(_event);
+            OnWebviewNavigating(_e);
+        }
+    }
+    else if(eventType == wxEVT_WEBVIEW_NAVIGATED)
+    {
+        if (!OnWebviewNavigated.empty())
+        {
+            wxWebViewEvent* _event = wxStaticCast(&event, wxWebViewEvent);
+            Ozone::WebViewEvent _e(_event);
+            OnWebviewNavigated(_e);
+        }
+    }
+    else if(eventType == wxEVT_WEBVIEW_LOADED)
+    {
+        if (!OnWebviewLoaded.empty())
+        {
+            wxWebViewEvent* _event = wxStaticCast(&event, wxWebViewEvent);
+            Ozone::WebViewEvent _e(_event);
+            OnWebviewLoaded(_e);
+        }
+    }
+    else if(eventType == wxEVT_WEBVIEW_ERROR)
+    {
+        if (!OnWebviewError.empty())
+        {
+            wxWebViewEvent* _event = wxStaticCast(&event, wxWebViewEvent);
+            Ozone::WebViewEvent _e(_event);
+            OnWebviewError(_e);
+        }
+    }
+    else if(eventType == wxEVT_WEBVIEW_NEWWINDOW)
+    {
+        if (!OnWebviewNewwindow.empty())
+        {
+            wxWebViewEvent* _event = wxStaticCast(&event, wxWebViewEvent);
+            Ozone::WebViewEvent _e(_event);
+            OnWebviewNewwindow(_e);
+        }
+    }
+    else if(eventType == wxEVT_WEBVIEW_TITLE_CHANGED)
+    {
+        if (!OnWebviewTitleChanged.empty())
+        {
+            wxWebViewEvent* _event = wxStaticCast(&event, wxWebViewEvent);
+            Ozone::WebViewEvent _e(_event);
+            OnWebviewTitleChanged(_e);
+        }
+    }
+
+    return Control::HandleEvent(event);
+}
+
 ::Ozone::WebViewEvent::WebViewEvent(::wxWebViewEvent* instance, bool ownNativeInstance)
     : ::Ozone::NotifyEvent((::wxNotifyEvent*)instance, ownNativeInstance)
 {

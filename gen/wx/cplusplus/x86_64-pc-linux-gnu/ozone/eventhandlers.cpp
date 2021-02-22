@@ -15,9 +15,6 @@ int _EventFilter::FilterEvent(::wxEvent& event)
 {
     wxEventType eventType = event.GetEventType();
     wxObject* eventObject = event.GetEventObject();
-    if (!eventObject)
-        return Event_Skip;
-
     wxEvtHandler* eventHandler = wxStaticCast(eventObject, wxEvtHandler);
     Ozone::EvtHandler* evtHandler = static_cast<Ozone::EvtHandler*>(eventHandler->GetClientData());
     if (evtHandler)

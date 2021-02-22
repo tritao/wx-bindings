@@ -121,6 +121,18 @@ namespace Ozone
 
         ~WebView();
 
+        fastdelegate::FastDelegate<void (::Ozone::WebViewEvent&)> OnWebviewNavigating;
+
+        fastdelegate::FastDelegate<void (::Ozone::WebViewEvent&)> OnWebviewNavigated;
+
+        fastdelegate::FastDelegate<void (::Ozone::WebViewEvent&)> OnWebviewLoaded;
+
+        fastdelegate::FastDelegate<void (::Ozone::WebViewEvent&)> OnWebviewError;
+
+        fastdelegate::FastDelegate<void (::Ozone::WebViewEvent&)> OnWebviewNewwindow;
+
+        fastdelegate::FastDelegate<void (::Ozone::WebViewEvent&)> OnWebviewTitleChanged;
+
         virtual bool Create(::Ozone::Window* parent, int id, const char* url, const ::Ozone::Point& pos, const ::Ozone::Size& size, long style, const char* name);
 
         virtual void EnableContextMenu(bool enable);
@@ -218,6 +230,8 @@ namespace Ozone
         virtual void* GetNativeBackend() const;
 
         virtual long Find(const char* text, int flags);
+
+        virtual int HandleEvent(::wxEvent& event) override;
 
         static ::Ozone::WebView* New(const char* backend);
 

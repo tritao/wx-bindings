@@ -14,7 +14,6 @@ const panel = new ozone.Panel(frame, -1, pos, size,
 panel.OnPaint.connect((evt) => {
     const dc = new ozone.PaintDC(panel);
     const gc = new ozone.GraphicsContext.Create(dc);
-    console.log("dsa")
 
     //gc.SetPen( ozone.RED_PEN );
     const path = gc.CreatePath();
@@ -26,7 +25,6 @@ panel.OnPaint.connect((evt) => {
     path.CloseSubpath();
     path.AddRectangle(25.0, 25.0, 50.0, 50.0);
     gc.StrokePath(path);
-    console.log("dsadsa")
     // const metrics = dc.GetFontMetrics()
     // console.log()
 })

@@ -1329,6 +1329,10 @@ namespace CppSharp
                 if (className != @class.OriginalName)
                     continue;
 
+                // interface/wx/webview.h file provides erroneous event emission info for wxWebViewEvent.
+                if (className == "wxWebViewEvent")
+                    continue;
+
                 if (text.Contains("@beginEventEmissionTable") && text.Contains("@beginEventTable"))
                     throw new NotImplementedException();
 

@@ -32,6 +32,30 @@ WebViewPanel::WebViewPanel(Frame* parent)
     webView->Create(this, -1, "https://wxwidgets.org", Point(-1,-1), Size(800, 600), 0, "wxWebKit");
     sizer->Add(webView, 1, (int)Stretch::EXPAND, 0, nullptr);
 
+    webView->OnWebviewNavigating.bind([](::Ozone::WebViewEvent& evt) {
+        printf("OnWebviewNavigating\n");
+    });
+
+    webView->OnWebviewNavigated.bind([](::Ozone::WebViewEvent& evt) {
+        printf("OnWebviewNavigated\n");
+    });
+
+    webView->OnWebviewLoaded.bind([](::Ozone::WebViewEvent& evt) {
+        printf("OnWebviewLoaded\n");
+    });
+
+    webView->OnWebviewError.bind([](::Ozone::WebViewEvent& evt) {
+        printf("OnWebviewError\n");
+    });
+
+    webView->OnWebviewNewwindow.bind([](::Ozone::WebViewEvent& evt) {
+        printf("OnWebviewNewwindow\n");
+    });
+
+    webView->OnWebviewTitleChanged.bind([](::Ozone::WebViewEvent& evt) {
+        printf("OnWebviewTitleChanged\n");
+    });
+
     SetSizer(sizer, /*deleteOld=*/true);
 }
 

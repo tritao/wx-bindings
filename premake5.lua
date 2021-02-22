@@ -84,9 +84,10 @@ workspace "ozone"
     setup_common()
     setup_wx_cflags()
 
-  --include "tests/cpp/minimal"
+  include "tests/cpp/minimal"
   --include "tests/cpp/events"
   --include "tests/cpp/canvas"
+  include "tests/cpp/webview"
 
   include("src/Runtime")
 
